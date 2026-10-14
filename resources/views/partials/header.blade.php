@@ -12,9 +12,10 @@
             <a href="{{ route('industries.index') }}" style="{{ request()->routeIs('industries.*') ? 'color: var(--gold); font-weight: 700;' : '' }}">Industries</a>
             <a href="{{ route('toolkit.index') }}" style="{{ request()->routeIs('toolkit.*') ? 'color: var(--gold); font-weight: 700;' : '' }}">SME Toolkit</a>
             <a href="{{ route('blogs.index') }}" style="{{ request()->routeIs('blogs.*') ? 'color: var(--gold); font-weight: 700;' : '' }}">Blogs</a>
-            @if(Route::currentRouteName() === 'home')
+            <!-- @if(Route::currentRouteName() === 'home')
                 <a href="#urgency">Why Now</a>
-            @endif
+            @endif -->
+             <a href="{{ route('home') }}#urgency">Why Now</a>
             <a class="btn btn-gold nav-cta" href="{{ route('landing') }}#book">Book Strategy Call</a>
         </div>
         <button class="burger"
