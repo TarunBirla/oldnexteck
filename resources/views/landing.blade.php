@@ -744,8 +744,6 @@
     </style>
 </head>
 
-<!-- <body>
-    @include('partials.header')
 
     <style>
         /* ================= LANDING PAGE v2 ================= */
@@ -1461,7 +1459,7 @@
             }
         }
     </style>
-</head> -->
+
 <body>
     @include('partials.header')
 
