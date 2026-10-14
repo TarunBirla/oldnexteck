@@ -48,20 +48,14 @@
             <textarea id="short_desc" name="short_desc" class="form-control" rows="4" placeholder="Detailed overview of what Nexteck provides in this industry...">{{ old('short_desc') }}</textarea>
         </div>
 
-        <!-- Image Options: File upload OR Image URL -->
+        <!-- Featured Image: Only File Upload -->
         <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
             <label style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.8rem; display: block;">Featured Image</label>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="image_file" style="font-size: 0.85rem; color: #475569;">Upload Local File (JPG, PNG, WEBP)</label>
-                    <input type="file" id="image_file" name="image_file" class="form-control" accept="image/*">
-                </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="image_url" style="font-size: 0.85rem; color: #475569;">OR External / Local Path URL</label>
-                    <input type="text" id="image_url" name="image_url" class="form-control" value="{{ old('image_url') }}" placeholder="e.g. images/A3.png or https://images.unsplash.com/...">
-                </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="image" style="font-size: 0.88rem; font-weight: 600; color: #1E293B; margin-bottom: 0.4rem;">Upload File (JPG, PNG, WEBP)</label>
+                <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp,image/jpg">
+                <small style="color: var(--muted); display: block; margin-top: 0.4rem;">Supported formats: JPG, PNG, WEBP</small>
             </div>
-            <small style="color: var(--muted); display: block; margin-top: 0.5rem;">If an image file is uploaded, it takes precedence over the URL field.</small>
         </div>
 
         <!-- Specifications / Highlights -->

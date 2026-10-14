@@ -108,13 +108,13 @@ class Industry extends Model
                 $table->boolean('is_active')->default(true);
                 $table->timestamps();
             });
-        }
 
-        self::seedDefaultData();
+            self::seedDefaultData();
+        }
     }
 
     /**
-     * Seed initial default industries if table is empty.
+     * Seed initial default industries only if the table is empty.
      */
     public static function seedDefaultData(): void
     {
@@ -122,12 +122,14 @@ class Industry extends Model
             return;
         }
 
+        // Never overwrite if industries already exist!
+        if (self::count() > 0) {
+            return;
+        }
+
         $catalog = self::getDefaultCatalog();
         foreach ($catalog as $item) {
-            self::updateOrCreate(
-                ['slug' => $item['slug']],
-                $item
-            );
+            self::create($item);
         }
     }
 

@@ -52,31 +52,22 @@
             <textarea id="short_desc" name="short_desc" class="form-control" rows="4">{{ old('short_desc', $industry->short_desc) }}</textarea>
         </div>
 
-        <!-- Image Options: File upload OR Image URL -->
+        <!-- Featured Image: Only File Upload -->
         <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
             <label style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.8rem; display: block;">Featured Image</label>
             
             @if($industry->image)
-                <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; background: #fff; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="{{ $industry->image_url }}" alt="{{ $industry->title }}" style="width: 120px; height: 75px; object-fit: cover; border-radius: 6px;">
-                    <div>
-                        <span style="font-size: 0.82rem; color: var(--muted); display: block;">Current Image Path:</span>
-                        <code style="font-size: 0.85rem; word-break: break-all;">{{ $industry->image }}</code>
-                    </div>
+                <div style="margin-bottom: 1.2rem;">
+                    <span style="font-size: 0.85rem; color: #475569; display: block; margin-bottom: 0.4rem; font-weight: 600;">Current Image:</span>
+                    <img src="{{ $industry->image_url }}" alt="{{ $industry->title }}" style="width: 140px; height: 90px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
                 </div>
             @endif
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="image_file" style="font-size: 0.85rem; color: #475569;">Upload New File (JPG, PNG, WEBP)</label>
-                    <input type="file" id="image_file" name="image_file" class="form-control" accept="image/*">
-                </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="image_url" style="font-size: 0.85rem; color: #475569;">OR Update Image URL / Relative Path</label>
-                    <input type="text" id="image_url" name="image_url" class="form-control" value="{{ old('image_url', $industry->image) }}">
-                </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="image" style="font-size: 0.88rem; font-weight: 600; color: #1E293B; margin-bottom: 0.4rem;">Upload New File (JPG, PNG, WEBP)</label>
+                <input type="file" id="image" name="image" class="form-control" accept="image/jpeg,image/png,image/webp,image/jpg">
+                <small style="color: var(--muted); display: block; margin-top: 0.4rem;">Select a file to update the image. Leave empty to keep current image.</small>
             </div>
-            <small style="color: var(--muted); display: block; margin-top: 0.5rem;">Upload a new image file or update the URL. If left untouched, current image remains.</small>
         </div>
 
         <!-- Specifications / Highlights -->

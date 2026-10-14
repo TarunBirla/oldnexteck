@@ -44,8 +44,8 @@ class AdminIndustryController extends Controller
             'slug'         => 'nullable|string|max:255',
             'tagline'      => 'nullable|string|max:500',
             'short_desc'   => 'nullable|string',
-            'image_file'   => 'nullable|image|mimes:jpeg,jpg,png,webp|max:4096',
-            'image_url'    => 'nullable|string|max:1000',
+            'image'        => 'nullable|file|mimes:jpeg,jpg,png,webp|max:10240',
+            'image_file'   => 'nullable|file|mimes:jpeg,jpg,png,webp|max:10240',
             'highlights'   => 'nullable|string',
             'why_nexteck'  => 'nullable|string',
             'seo_title'    => 'nullable|string|max:255',
@@ -62,11 +62,11 @@ class AdminIndustryController extends Controller
             $slug = "{$baseSlug}-" . (++$counter);
         }
 
-        // Handle image (uploaded file takes priority, otherwise image_url)
-        $imagePath = $request->image_url ?: null;
-        if ($request->hasFile('image_file')) {
-            $file = $request->file('image_file');
-            $filename = time() . '_' . Str::random(6) . '.' . $file->getClientOriginalExtension();
+        // Handle image file upload
+        $imagePath = null;
+        $file = $request->file('image') ?: $request->file('image_file');
+        if ($file) {
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
             $destination = public_path('uploads/industries');
             if (!File::exists($destination)) {
                 File::makeDirectory($destination, 0755, true);
@@ -123,8 +123,8 @@ class AdminIndustryController extends Controller
             'slug'         => 'nullable|string|max:255',
             'tagline'      => 'nullable|string|max:500',
             'short_desc'   => 'nullable|string',
-            'image_file'   => 'nullable|image|mimes:jpeg,jpg,png,webp|max:4096',
-            'image_url'    => 'nullable|string|max:1000',
+            'image'        => 'nullable|file|mimes:jpeg,jpg,png,webp|max:10240',
+            'image_file'   => 'nullable|file|mimes:jpeg,jpg,png,webp|max:10240',
             'highlights'   => 'nullable|string',
             'why_nexteck'  => 'nullable|string',
             'seo_title'    => 'nullable|string|max:255',
@@ -145,22 +145,20 @@ class AdminIndustryController extends Controller
             $industry->slug = $slug;
         }
 
-        // Image handling
-        if ($request->hasFile('image_file')) {
+        // Image handling: only update if a new file is uploaded
+        $file = $request->file('image') ?: $request->file('image_file');
+        if ($file) {
             if ($industry->image && !Str::startsWith($industry->image, ['http://', 'https://']) && File::exists(public_path($industry->image))) {
-                File::delete(public_path($industry->image));
+                @File::delete(public_path($industry->image));
             }
 
-            $file = $request->file('image_file');
-            $filename = time() . '_' . Str::random(6) . '.' . $file->getClientOriginalExtension();
+            $filename = time() . '_' . Str::random(8) . '.' . $file->getClientOriginalExtension();
             $destination = public_path('uploads/industries');
             if (!File::exists($destination)) {
                 File::makeDirectory($destination, 0755, true);
             }
             $file->move($destination, $filename);
             $industry->image = 'uploads/industries/' . $filename;
-        } elseif ($request->filled('image_url')) {
-            $industry->image = $request->image_url;
         }
 
         // Parse highlights
