@@ -7,17 +7,86 @@
     .foot-links a { color: #8E99AD !important; text-decoration: none !important; font-size: 0.88rem !important; transition: color .2s ease !important; line-height: 1.5 !important; }
     .foot-links a:hover { color: #fff !important; }
     .foot-bottom { border-top: 1px solid rgba(255,255,255,.1) !important; padding-top: 1.8rem !important; display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 1rem !important; font-size: 0.82rem !important; color: #8E99AD !important; }
-    .sticky-cta { position: fixed; bottom: 1.2rem; right: 1.5rem; z-index: 90; background: #0C1B33; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; display: flex; align-items: center; gap: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.12); font-size: 0.9rem; }
-    .sticky-cta .btn-gold { background: #B8933F; color: #fff; padding: 0.6rem 1.2rem; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 0.88rem; transition: 0.2s; box-shadow: 0 8px 20px -6px rgba(184,147,63,0.5); }
-    .sticky-cta .btn-gold:hover { background: #000; transform: translateY(-2px); }
+    .sticky-cta {
+        position: fixed !important;
+        bottom: 1.5rem !important;
+        right: 1.5rem !important;
+        left: auto !important;
+        top: auto !important;
+        z-index: 9999 !important;
+        background: #0C1B33 !important;
+        color: #fff !important;
+        padding: 0.75rem 1.45rem !important;
+        border-radius: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.25rem !important;
+        box-shadow: 0 14px 40px -6px rgba(12, 27, 51, 0.45), 0 4px 12px rgba(0,0,0,0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        font-family: 'Inter', system-ui, sans-serif !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    .sticky-cta:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 18px 45px -4px rgba(12, 27, 51, 0.55) !important;
+    }
+    .sticky-cta span {
+        color: #FFFFFF !important;
+        font-size: 0.92rem !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.01em !important;
+    }
+    .sticky-cta .btn-gold {
+        background: #B8933F !important;
+        color: #FFFFFF !important;
+        padding: 0.65rem 1.35rem !important;
+        border-radius: 999px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        font-size: 0.88rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        white-space: nowrap !important;
+        border: none !important;
+        transition: all 0.25s ease !important;
+        box-shadow: 0 8px 22px -5px rgba(184, 147, 63, 0.6) !important;
+        cursor: pointer !important;
+    }
+    .sticky-cta .btn-gold:hover {
+        background: #000000 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.5) !important;
+    }
 
     @media (max-width: 900px) {
         .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
         .foot-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
         .foot-bottom { flex-direction: column; text-align: center; gap: 0.6rem; }
-        .sticky-cta { display: none; }
+        .sticky-cta {
+            left: 1rem !important;
+            right: 1rem !important;
+            bottom: 1rem !important;
+            justify-content: space-between !important;
+            padding: 0.65rem 1rem !important;
+            gap: 0.6rem !important;
+            border-radius: 16px !important;
+        }
+        .sticky-cta span {
+            font-size: 0.82rem !important;
+            white-space: normal !important;
+            line-height: 1.3 !important;
+        }
+        .sticky-cta .btn-gold {
+            padding: 0.55rem 1rem !important;
+            font-size: 0.82rem !important;
+            flex-shrink: 0 !important;
+        }
     }
 </style>
 <footer>

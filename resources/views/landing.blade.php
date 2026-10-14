@@ -571,31 +571,6 @@
             font-size: .78rem
         }
 
-        .sticky-cta {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 70;
-            display: none;
-            background: rgba(12, 27, 51, .97);
-            backdrop-filter: blur(8px);
-            padding: .7rem 1rem;
-            gap: .8rem;
-            align-items: center;
-            justify-content: space-between
-        }
-
-        .sticky-cta span {
-            color: #fff;
-            font-size: .8rem
-        }
-
-        .sticky-cta .btn {
-            padding: .6rem 1.2rem;
-            font-size: .85rem
-        }
-
         .rv {
             opacity: 0;
             transform: translateY(26px);
@@ -709,10 +684,6 @@
 
             .foot-grid {
                 grid-template-columns: 1fr 1fr
-            }
-
-            .sticky-cta {
-                display: flex
             }
 
             .guarantee {
