@@ -744,7 +744,7 @@
     </style>
 </head>
 
-<body>
+<!-- <body>
     @include('partials.header')
 
     <style>
@@ -1461,7 +1461,7 @@
             }
         }
     </style>
-</head>
+</head> -->
 <body>
     @include('partials.header')
 

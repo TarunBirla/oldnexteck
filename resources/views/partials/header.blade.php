@@ -6,7 +6,7 @@
     <div class="wrap nav-in">
         <a class="logo" href="{{ route('home') }}">Nexte<span>c</span>k<small>STRATEGY &amp; TECHNOLOGY</small></a>
         <div class="nav-links">
-            <a href="{{ route('home') }}#audit">The Audit</a>
+            <a href="{{ route('home') }}#audit">Home</a>
             <a href="{{ route('home') }}#method">Methodology</a>
             <a href="{{ route('home') }}#nasar">About Nasar</a>
             <a href="{{ route('industries.index') }}" style="{{ request()->routeIs('industries.*') ? 'color: var(--gold); font-weight: 700;' : '' }}">Industries</a>
