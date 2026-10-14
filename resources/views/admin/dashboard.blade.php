@@ -37,6 +37,14 @@
         <div class="stat-icon"><i class="fa-solid fa-toolbox"></i></div>
     </div>
 
+    <a href="{{ route('admin.industries.index') }}" class="stat-card" style="text-decoration: none; color: inherit;">
+        <div>
+            <div class="stat-number">{{ $totalIndustries ?? 0 }}</div>
+            <div class="stat-label">Total Industries</div>
+        </div>
+        <div class="stat-icon"><i class="fa-solid fa-industry"></i></div>
+    </a>
+
     <a href="{{ route('admin.analytics.index') }}" class="stat-card" style="text-decoration: none; color: inherit;">
         <div>
             <div class="stat-number">{{ $totalVisitors ?? 0 }}</div>

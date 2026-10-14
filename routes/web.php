@@ -10,10 +10,12 @@ use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\AdminIndustryController;
 use App\Http\Controllers\Admin\AdminToolkitController;
 use App\Http\Controllers\Admin\AdminAnalyticsController;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\Industry;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,26 @@ use App\Models\Blog;
 
 // Home Page Route
 Route::get('/', function () {
-    return view('home');
+    try {
+        Industry::ensureTableExists();
+        $topIndustries = Industry::where('is_active', true)
+            ->orderBy('sort_order', 'asc')
+            ->take(6)
+            ->get();
+    } catch (\Throwable $e) {
+        $topIndustries = collect(Industry::getDefaultCatalog())
+            ->take(6)
+            ->map(function ($item) {
+                $obj = (object) $item;
+                $obj->image_url = asset($item['image']);
+                return $obj;
+            });
+    }
+    return view('home', compact('topIndustries'));
 })->name('home');
 
 Route::get('/home', function () {
-    return view('home');
+    return redirect()->route('home');
 });
 
 // Landing Page Route
@@ -66,6 +83,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/blogs/{id}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
     Route::put('/blogs/{id}', [AdminBlogController::class, 'update'])->name('blogs.update');
     Route::delete('/blogs/{id}', [AdminBlogController::class, 'destroy'])->name('blogs.destroy');
+
+    // Industry Management
+    Route::get('/industries', [AdminIndustryController::class, 'index'])->name('industries.index');
+    Route::get('/industries/create', [AdminIndustryController::class, 'create'])->name('industries.create');
+    Route::post('/industries', [AdminIndustryController::class, 'store'])->name('industries.store');
+    Route::get('/industries/{id}/edit', [AdminIndustryController::class, 'edit'])->name('industries.edit');
+    Route::put('/industries/{id}', [AdminIndustryController::class, 'update'])->name('industries.update');
+    Route::delete('/industries/{id}', [AdminIndustryController::class, 'destroy'])->name('industries.destroy');
 
     // Lead Form Submissions
     Route::get('/leads', [AdminDashboardController::class, 'leads'])->name('leads.index');
@@ -283,5 +308,22 @@ Route::get('/setup-analytics-table', function () {
         ], 500);
     }
 });
+
+// Live Server Route to Create Industries Table & Seed Default Data Directly
+Route::get('/setup-industries-table', function () {
+    try {
+        \App\Models\Industry::ensureTableExists();
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'industries table created and all default industries seeded successfully on live server!'
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status'  => 'error',
+            'message' => 'Failed to setup industries table: ' . $e->getMessage()
+        ], 500);
+    }
+});
+
 
 

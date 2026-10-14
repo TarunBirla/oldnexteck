@@ -1,25 +1,38 @@
+@php
+    $industryTitle = is_object($industry) ? $industry->title : $industry['title'];
+    $industrySlug = is_object($industry) ? $industry->slug : $industry['slug'];
+    $industryTagline = is_object($industry) ? $industry->tagline : $industry['tagline'];
+    $industryShortDesc = is_object($industry) ? $industry->short_desc : $industry['short_desc'];
+    $industryImage = is_object($industry) ? ($industry->image_url ?? asset($industry->image ?? 'images/A3.png')) : (isset($industry['image_url']) ? $industry['image_url'] : asset($industry['image'] ?? 'images/A3.png'));
+    $industryHighlights = is_object($industry) ? ($industry->highlights ?? []) : ($industry['highlights'] ?? []);
+    $industryWhyNexteck = is_object($industry) ? ($industry->why_nexteck ?? '') : ($industry['why_nexteck'] ?? '');
+    $industrySeoTitle = is_object($industry) ? ($industry->seo_title ?: ($industryTitle . ' Sourcing & Technology | Nexteck')) : ($industry['seo_title'] ?? $industryTitle);
+    $industryMetaDesc = is_object($industry) ? ($industry->meta_desc ?: $industryTagline) : ($industry['meta_desc'] ?? $industryTagline);
+    $industryKeywords = is_object($industry) ? ($industry->keywords ?? []) : ($industry['keywords'] ?? []);
+    $industryKeywordsStr = is_array($industryKeywords) ? implode(', ', $industryKeywords) : (string)$industryKeywords;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $industry['seo_title'] }}</title>
-    <meta name="description" content="{{ $industry['meta_desc'] }}">
-    <meta name="keywords" content="{{ implode(', ', $industry['keywords']) }}, Nexteck London, UK Engineering Supply">
+    <title>{{ $industrySeoTitle }}</title>
+    <meta name="description" content="{{ $industryMetaDesc }}">
+    <meta name="keywords" content="{{ $industryKeywordsStr }}, Nexteck London, UK Engineering Supply">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="{{ url('/industries/' . $industry['slug']) }}">
+    <link rel="canonical" href="{{ url('/industries/' . $industrySlug) }}">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Nexteck">
-    <meta property="og:title" content="{{ $industry['seo_title'] }}">
-    <meta property="og:description" content="{{ $industry['meta_desc'] }}">
-    <meta property="og:image" content="{{ $industry['image'] }}">
-    <meta property="og:url" content="{{ url('/industries/' . $industry['slug']) }}">
+    <meta property="og:title" content="{{ $industrySeoTitle }}">
+    <meta property="og:description" content="{{ $industryMetaDesc }}">
+    <meta property="og:image" content="{{ $industryImage }}">
+    <meta property="og:url" content="{{ url('/industries/' . $industrySlug) }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $industry['seo_title'] }}">
-    <meta name="twitter:description" content="{{ $industry['meta_desc'] }}">
-    <meta name="twitter:image" content="{{ $industry['image'] }}">
+    <meta name="twitter:title" content="{{ $industrySeoTitle }}">
+    <meta name="twitter:description" content="{{ $industryMetaDesc }}">
+    <meta name="twitter:image" content="{{ $industryImage }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +40,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "{{ $industry['title'] }} — Supply & Technology Solutions",
+      "name": "{{ $industryTitle }} — Supply & Technology Solutions",
       "serviceType": "Industrial Sourcing & Technology Consulting",
       "provider": {
         "@type": "ProfessionalService",
@@ -40,7 +53,7 @@
         }
       },
       "areaServed": ["United Kingdom", "London", "Global"],
-      "description": "{{ $industry['meta_desc'] }}"
+      "description": "{{ $industryMetaDesc }}"
     }
     </script>
     <style>
@@ -161,19 +174,19 @@
 
     <section class="detail-hero">
         <div class="detail-hero-bg">
-            <img src="{{ $industry['image'] }}" alt="{{ $industry['title'] }}">
+            <img src="{{ $industryImage }}" alt="{{ $industryTitle }}">
         </div>
         <div class="wrap">
             <div class="breadcrumbs">
                 <a href="{{ route('home') }}">Home</a> &nbsp;/&nbsp;
                 <a href="{{ route('industries.index') }}">Industries</a> &nbsp;/&nbsp;
-                <span>{{ $industry['title'] }}</span>
+                <span>{{ $industryTitle }}</span>
             </div>
             <div class="eyebrow">Sector Sourcing &amp; Engineering Solutions</div>
-            <h1>{{ $industry['title'] }}</h1>
-            <p class="tagline">{{ $industry['tagline'] }}</p>
+            <h1>{{ $industryTitle }}</h1>
+            <p class="tagline">{{ $industryTagline }}</p>
             <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-                <a href="{{ route('landing') }}#book" class="btn btn-gold">Inquire for {{ $industry['title'] }} Sourcing &rarr;</a>
+                <a href="{{ route('landing') }}#book" class="btn btn-gold">Inquire for {{ $industryTitle }} Sourcing &rarr;</a>
                 <a href="{{ route('toolkit.index') }}" class="btn btn-outline" style="background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.3);">Assess in SME Toolkit</a>
             </div>
         </div>
@@ -185,28 +198,32 @@
                 <!-- Main Body -->
                 <article class="article-body">
                     <div class="featured-img-wrap">
-                        <img src="{{ $industry['image'] }}" alt="{{ $industry['title'] }} procurement and technology supply">
+                        <img src="{{ $industryImage }}" alt="{{ $industryTitle }} procurement and technology supply">
                     </div>
 
-                    <h2>Strategic Sourcing &amp; Operational Excellence in {{ $industry['title'] }}</h2>
-                    <p>{{ $industry['short_desc'] }}</p>
+                    <h2>Strategic Sourcing &amp; Operational Excellence in {{ $industryTitle }}</h2>
+                    <p>{{ $industryShortDesc }}</p>
 
-                    <h2>Key Supply Scope &amp; Engineering Specifications</h2>
-                    <ul class="specs-list">
-                        @foreach($industry['highlights'] as $hl)
-                            <li class="specs-item">
-                                <span class="specs-item-icon">✓</span>
-                                <div>{{ $hl }}</div>
-                            </li>
-                        @endforeach
-                    </ul>
+                    @if(!empty($industryHighlights) && count($industryHighlights) > 0)
+                        <h2>Key Supply Scope &amp; Engineering Specifications</h2>
+                        <ul class="specs-list">
+                            @foreach($industryHighlights as $hl)
+                                <li class="specs-item">
+                                    <span class="specs-item-icon">✓</span>
+                                    <div>{{ $hl }}</div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
 
-                    <div class="why-box">
-                        <h3>⭐ The Nexteck Advantage</h3>
-                        <p>{{ $industry['why_nexteck'] }}</p>
-                    </div>
+                    @if(!empty($industryWhyNexteck))
+                        <div class="why-box">
+                            <h3>⭐ The Nexteck Advantage</h3>
+                            <p>{{ $industryWhyNexteck }}</p>
+                        </div>
+                    @endif
 
-                    @if($industry['slug'] === 'railways')
+                    @if($industrySlug === 'railways')
                         <div style="background:#0C1B33; color:#fff; padding:1.8rem 2rem; border-radius:14px; margin-top:2rem;">
                             <h3 style="color:var(--gold-2); margin-bottom:.6rem;">Verified Partner: pearlconrail.co.uk</h3>
                             <p style="color:#CBD5E1; font-size:.95rem; margin-bottom:1rem;">All railway rolling stock, braking systems, and infrastructure components are supplied in coordination with verified specialist networks at <a href="https://pearlconrail.co.uk" target="_blank" style="color:var(--gold-2); text-decoration:underline; font-weight:700;">pearlconrail.co.uk</a>.</p>
@@ -219,43 +236,42 @@
                 <aside>
                     <div class="sidebar-card">
                         <h3>Book a Sector Audit Call</h3>
-                        <p>Need costed spare parts sourcing, custom fabrication, or digital supply chain automation for {{ $industry['title'] }}? Speak directly with principal consultant Mohammed Nasar.</p>
+                        <p>Need costed spare parts sourcing, custom fabrication, or digital supply chain automation for {{ $industryTitle }}? Speak directly with principal consultant Mohammed Nasar.</p>
                         <a href="{{ route('landing') }}#book" class="btn btn-gold" style="width:100%; justify-content:center;">Book Discovery Call &rarr;</a>
                     </div>
-
-                    <!-- <div class="sidebar-card">
-                        <h3>Verified SEO Keywords</h3>
-                        <div class="kw-list">
-                            @foreach($industry['keywords'] as $kw)
-                                <div class="kw-item">🔍 {{ $kw }}</div>
-                            @endforeach
-                        </div>
-                    </div> -->
                 </aside>
             </div>
         </div>
     </main>
 
     <!-- Related Industries -->
-    <section class="related-sec">
-        <div class="wrap">
-            <h2>Explore Other Sectors</h2>
-            <div class="related-grid">
-                @foreach($related as $rel)
-                    <article class="rel-card">
-                        <img src="{{ $rel['image'] }}" alt="{{ $rel['title'] }}" class="rel-img">
-                        <div class="rel-body">
-                            <h3 class="rel-title"><a href="{{ route('industries.show', $rel['slug']) }}">{{ $rel['title'] }}</a></h3>
-                            <p class="rel-tagline">{{ Str::limit($rel['tagline'], 75) }}</p>
-                            <a href="{{ route('industries.show', $rel['slug']) }}" style="color:var(--gold); font-weight:700; font-size:.88rem; margin-top:auto;">
-                                Read More &rarr;
-                            </a>
-                        </div>
-                    </article>
-                @endforeach
+    @if(isset($related) && count($related) > 0)
+        <section class="related-sec">
+            <div class="wrap">
+                <h2>Explore Other Sectors</h2>
+                <div class="related-grid">
+                    @foreach($related as $rel)
+                        @php
+                            $relTitle = is_object($rel) ? $rel->title : $rel['title'];
+                            $relSlug = is_object($rel) ? $rel->slug : $rel['slug'];
+                            $relTagline = is_object($rel) ? $rel->tagline : $rel['tagline'];
+                            $relImg = is_object($rel) ? ($rel->image_url ?? asset($rel->image ?? 'images/A3.png')) : (isset($rel['image_url']) ? $rel['image_url'] : asset($rel['image'] ?? 'images/A3.png'));
+                        @endphp
+                        <article class="rel-card">
+                            <img src="{{ $relImg }}" alt="{{ $relTitle }}" class="rel-img">
+                            <div class="rel-body">
+                                <h3 class="rel-title"><a href="{{ route('industries.show', $relSlug) }}">{{ $relTitle }}</a></h3>
+                                <p class="rel-tagline">{{ Str::limit($relTagline, 75) }}</p>
+                                <a href="{{ route('industries.show', $relSlug) }}" style="color:var(--gold); font-weight:700; font-size:.88rem; margin-top:auto;">
+                                    Read More &rarr;
+                                </a>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @include('partials.footer')
 </body>

@@ -185,6 +185,16 @@
             border-color: var(--gold);
         }
 
+        /* Frontend Custom Pagination */
+        .pagination-container { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+        .custom-pagination { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%; }
+        .pagination-info { font-size: .92rem; color: var(--muted); }
+        .pagination-list { display: flex; gap: 0.4rem; list-style: none; padding: 0; margin: 0; align-items: center; }
+        .page-item .page-link { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 0.85rem; border: 1.5px solid var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 0.92rem; font-weight: 600; background: #fff; transition: all 0.2s; }
+        .page-item .page-link:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+        .page-item.active .page-link { background: var(--gold); color: #fff; border-color: var(--gold); box-shadow: 0 6px 16px -4px rgba(184, 147, 63, .45); }
+        .page-item.disabled .page-link { opacity: 0.45; cursor: not-allowed; background: #F8FAFC; border-color: var(--line); color: var(--muted); }
+
         footer { background: var(--ink); color: #fff; padding: 4rem 0 2rem; }
         .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 2rem; margin-bottom: 3rem; }
         .foot-grid h4 { color: #fff; margin-bottom: 1.2rem; font-size: 1rem; }
@@ -222,16 +232,23 @@
         <div class="wrap">
             <div class="ind-grid">
                 @foreach($industries as $item)
+                    @php
+                        $title = is_object($item) ? $item->title : $item['title'];
+                        $slug = is_object($item) ? $item->slug : $item['slug'];
+                        $tagline = is_object($item) ? $item->tagline : $item['tagline'];
+                        $shortDesc = is_object($item) ? $item->short_desc : $item['short_desc'];
+                        $img = is_object($item) ? ($item->image_url ?? asset($item->image ?? 'images/A3.png')) : (isset($item['image_url']) ? $item['image_url'] : asset($item['image'] ?? 'images/A3.png'));
+                    @endphp
                     <article class="ind-card">
                         <div class="ind-img-wrap">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
+                            <img src="{{ $img }}" alt="{{ $title }}" loading="lazy">
                         </div>
                         <div class="ind-body">
                             <span class="ind-badge">Sector Solutions</span>
-                            <h2 class="ind-title"><a href="{{ route('industries.show', $item['slug']) }}">{{ $item['title'] }}</a></h2>
-                            <div class="ind-tagline">{{ $item['tagline'] }}</div>
-                            <p class="ind-desc">{{ $item['short_desc'] }}</p>
-                            <a href="{{ route('industries.show', $item['slug']) }}" class="ind-link">
+                            <h2 class="ind-title"><a href="{{ route('industries.show', $slug) }}">{{ $title }}</a></h2>
+                            <div class="ind-tagline">{{ $tagline }}</div>
+                            <p class="ind-desc">{{ Str::limit($shortDesc, 140) }}</p>
+                            <a href="{{ route('industries.show', $slug) }}" class="ind-link">
                                 Explore Sourcing &amp; Tech Details &rarr;
                             </a>
                         </div>
@@ -239,20 +256,11 @@
                 @endforeach
             </div>
 
-            <!-- SEO Keywords Cloud Section for High Organic Reach -->
-            <!-- <div class="seo-keywords-card">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:.8rem;">
-                    <h3>Industrial Procurement &amp; Technology Keywords</h3>
-                    <span style="font-size:.82rem; color:var(--muted);">Global Procurement · OEM Parts · AI Strategy · UK Standards</span>
+            @if(method_exists($industries, 'hasPages') && $industries->hasPages())
+                <div class="pagination-container">
+                    {{ $industries->links('partials.pagination') }}
                 </div>
-                <div class="keywords-wrap">
-                    @foreach($industries as $item)
-                        @foreach($item['keywords'] as $kw)
-                            <a href="{{ route('industries.show', $item['slug']) }}" class="kw-pill">{{ $kw }}</a>
-                        @endforeach
-                    @endforeach
-                </div>
-            </div> -->
+            @endif
         </div>
     </main>
 
