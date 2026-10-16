@@ -107,6 +107,8 @@
                     <a href="{{ route('home') }}">Home</a>
                     <a href="{{ route('industries.index') }}">Industries (9 Sectors)</a>
                     <a href="{{ route('toolkit.index') }}">SME Strategy Toolkit</a>
+                    <a href="{{ route('assessment.index') }}">Technology Health Check</a>
+                    <a href="{{ route('calculator.index') }}">Automation Calculator</a>
                     <a href="{{ route('blogs.index') }}">Insights &amp; Blogs</a>
                     <a href="{{ route('home') }}#nasar">About Nasar</a>
                     <a href="{{ route('home') }}#method">Methodology</a>
@@ -143,3 +145,6 @@
     <span>Ready to eliminate operational bottlenecks?</span>
     <a class="btn btn-gold" href="{{ route('landing') }}#book">Book Free Call &rarr;</a>
 </div>
+
+@include('components.engagement-modals')
+

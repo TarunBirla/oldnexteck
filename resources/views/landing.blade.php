@@ -2071,6 +2071,56 @@
                 }
             });
         });
+
+        // Prefill leadForm from URL query parameters or Smart Engagement Assessment
+        (function() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const hashParams = window.location.hash.includes('?') ? new URLSearchParams(window.location.hash.split('?')[1]) : null;
+                const getVal = (key) => params.get(key) || (hashParams ? hashParams.get(key) : null);
+                
+                const name = getVal('full_name') || localStorage.getItem('nxt_lead_name');
+                const email = getVal('work_email') || localStorage.getItem('nxt_lead_email');
+                const company = getVal('company') || localStorage.getItem('nxt_lead_company');
+                const size = getVal('team_size');
+                const pain = getVal('pain_point') || localStorage.getItem('nxt_lead_challenge');
+
+                const fn = document.getElementById('f-name');
+                const fe = document.getElementById('f-email');
+                const fc = document.getElementById('f-company');
+                const fs = document.getElementById('f-size');
+                const fp = document.getElementById('f-pain');
+
+                if (fn && name) fn.value = name;
+                if (fe && email) fe.value = email;
+                if (fc && company) fc.value = company;
+                if (fs && size) {
+                    for (let opt of fs.options) {
+                        if (opt.text.includes(size) || size.includes(opt.text)) {
+                            opt.selected = true;
+                            break;
+                        }
+                    }
+                }
+                if (fp && pain) {
+                    let matched = false;
+                    for (let opt of fp.options) {
+                        if (opt.text.toLowerCase().includes(pain.toLowerCase()) || pain.toLowerCase().includes(opt.text.toLowerCase())) {
+                            opt.selected = true;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) {
+                        const newOpt = document.createElement('option');
+                        newOpt.text = pain;
+                        newOpt.value = pain;
+                        newOpt.selected = true;
+                        fp.add(newOpt, 0);
+                    }
+                }
+            } catch (e) {}
+        })();
     </script>
 </body>
 

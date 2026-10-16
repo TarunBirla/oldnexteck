@@ -13,9 +13,14 @@ use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminIndustryController;
 use App\Http\Controllers\Admin\AdminToolkitController;
 use App\Http\Controllers\Admin\AdminAnalyticsController;
+use App\Http\Controllers\EngagementController;
+use App\Http\Controllers\Admin\AdminEngagementController;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\Industry;
+use App\Models\EngagementSetting;
+use App\Models\AssessmentLead;
+use App\Models\EngagementEvent;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +72,14 @@ Route::get('/industries/{slug}', [IndustryController::class, 'show'])->name('ind
 Route::get('/toolkit', [ToolkitController::class, 'index'])->name('toolkit.index');
 Route::post('/toolkit', [ToolkitController::class, 'store'])->name('toolkit.store');
 
+// Smart Customer Engagement Public Pages & APIs
+Route::get('/assessment', [EngagementController::class, 'showAssessmentPage'])->name('assessment.index');
+Route::get('/calculator', [EngagementController::class, 'showCalculatorPage'])->name('calculator.index');
+Route::get('/api/engagement/settings', [EngagementController::class, 'getSettings'])->name('engagement.api.settings');
+Route::post('/api/engagement/event', [EngagementController::class, 'trackEvent'])->name('engagement.api.event');
+Route::post('/api/engagement/assessment', [EngagementController::class, 'submitAssessment'])->name('engagement.api.assessment');
+Route::post('/api/engagement/consultation', [EngagementController::class, 'requestConsultation'])->name('engagement.api.consultation');
+
 // Admin Guest Routes
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
@@ -94,6 +107,16 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Lead Form Submissions
     Route::get('/leads', [AdminDashboardController::class, 'leads'])->name('leads.index');
+
+    // Smart Customer Engagement (Leads, Analytics, Settings)
+    Route::get('/engagement/leads', [AdminEngagementController::class, 'index'])->name('engagement.leads');
+    Route::get('/engagement/leads/export', [AdminEngagementController::class, 'exportCsv'])->name('engagement.export');
+    Route::get('/engagement/leads/{id}', [AdminEngagementController::class, 'show'])->name('engagement.leads.show');
+    Route::put('/engagement/leads/{id}', [AdminEngagementController::class, 'update'])->name('engagement.leads.update');
+    Route::delete('/engagement/leads/{id}', [AdminEngagementController::class, 'destroy'])->name('engagement.leads.destroy');
+    Route::get('/engagement/settings', [AdminEngagementController::class, 'settings'])->name('engagement.settings');
+    Route::put('/engagement/settings', [AdminEngagementController::class, 'updateSettings'])->name('engagement.settings.update');
+    Route::get('/engagement/analytics', [AdminEngagementController::class, 'analytics'])->name('engagement.analytics');
 
     // SME Strategy & Tracking Toolkit Submissions
     Route::get('/toolkits', [AdminToolkitController::class, 'index'])->name('toolkits.index');
@@ -324,6 +347,25 @@ Route::get('/setup-industries-table', function () {
         ], 500);
     }
 });
+
+// Live Server Route to Create Engagement Tables Directly
+Route::get('/setup-engagement-tables', function () {
+    try {
+        EngagementSetting::ensureTableExists();
+        AssessmentLead::ensureTableExists();
+        EngagementEvent::ensureTableExists();
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'engagement_settings, assessment_leads, and engagement_events tables created/verified successfully on live server!'
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status'  => 'error',
+            'message' => 'Failed to setup engagement tables: ' . $e->getMessage()
+        ], 500);
+    }
+});
+
 
 
 

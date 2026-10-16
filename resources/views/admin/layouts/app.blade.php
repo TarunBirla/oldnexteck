@@ -111,6 +111,15 @@
             <a href="{{ route('admin.leads.index') }}" class="nav-item {{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-envelope-open-text"></i> Lead Forms
             </a>
+            <a href="{{ route('admin.engagement.leads') }}" class="nav-item {{ request()->routeIs('admin.engagement.leads*') ? 'active' : '' }}">
+                <i class="fa-solid fa-clipboard-check"></i> Engagement Leads
+            </a>
+            <a href="{{ route('admin.engagement.analytics') }}" class="nav-item {{ request()->routeIs('admin.engagement.analytics') ? 'active' : '' }}">
+                <i class="fa-solid fa-filter-circle-dollar"></i> Funnel Analytics
+            </a>
+            <a href="{{ route('admin.engagement.settings') }}" class="nav-item {{ request()->routeIs('admin.engagement.settings') ? 'active' : '' }}">
+                <i class="fa-solid fa-sliders"></i> Popup &amp; Tools
+            </a>
             <a href="{{ route('admin.toolkits.index') }}" class="nav-item {{ request()->routeIs('admin.toolkits.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-toolbox"></i> SME Toolkits
             </a>
