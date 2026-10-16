@@ -327,7 +327,7 @@
     /* Persistent Quick Launcher Widget */
     .nxt-quick-pill {
         position: fixed;
-        bottom: 4.5rem;
+        bottom: 2.5rem;
         right: 1.5rem;
         z-index: 9998;
         background: #FFFFFF;
@@ -435,7 +435,7 @@
 
 <!-- 2. BUSINESS TECHNOLOGY HEALTH CHECK MODAL -->
 <div class="nxt-overlay" id="nxtAssessmentOverlay" role="dialog" aria-modal="true" aria-labelledby="nxtAssessmentHeading">
-    <div class="nxt-modal" style="max-width: 680px;">
+    <div class="nxt-modal" style="max-width: 750px;">
         <button type="button" class="nxt-modal-close" id="nxtAssessmentCloseBtn" aria-label="Close dialog">&times;</button>
         
         <div class="nxt-modal-header">
