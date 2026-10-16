@@ -327,7 +327,7 @@
     /* Persistent Quick Launcher Widget */
     .nxt-quick-pill {
         position: fixed;
-        bottom: 5.5rem;
+        bottom: 4.5rem;
         right: 1.5rem;
         z-index: 9998;
         background: #FFFFFF;
@@ -820,9 +820,9 @@
 
 <!-- 4. PERSISTENT FLOATING QUICK TRIGGER WIDGET -->
 @if((\App\Models\EngagementSetting::get('widget_enabled', '1')) == '1')
-<div class="nxt-quick-pill" id="nxtQuickLauncher" onclick="NxtEngagement.openAssessmentModal()" title="Take our 2-minute Technology Health Check">
+<div class="nxt-quick-pill" id="nxtQuickLauncher" onclick="NxtEngagement.openAssessmentModal()" title="Take our 2-minute AI Assistant">
     <span class="nxt-spark">✦</span>
-    <span>Technology Health Check</span>
+    <span>AI Assistant</span>
 </div>
 @endif
 

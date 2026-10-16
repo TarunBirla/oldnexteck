@@ -141,10 +141,10 @@
         </div>
     </div>
 </footer>
-<div class="sticky-cta">
+<!-- <div class="sticky-cta">
     <span>Ready to eliminate operational bottlenecks?</span>
     <a class="btn btn-gold" href="{{ route('landing') }}#book">Book Free Call &rarr;</a>
-</div>
+</div> -->
 
 @include('components.engagement-modals')
 
