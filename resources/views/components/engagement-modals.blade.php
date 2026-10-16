@@ -424,8 +424,8 @@
         <button type="button" class="nxt-modal-close" id="nxtWelcomeCloseBtn" aria-label="Close dialog">&times;</button>
         <div class="nxt-modal-header">
             <span class="nxt-tag">The Nexteck Advisory</span>
-            <h3 id="nxtWelcomeHeading">{{ \App\Models\EngagementSetting::get('popup_headline', 'Is Your Business Using Technology to Its Full Potential?') }}</h3>
-            <p id="nxtWelcomeDesc">{{ \App\Models\EngagementSetting::get('popup_description', 'Discover opportunities to streamline operations, improve efficiency, and make smarter technology decisions.') }}</p>
+            <h3 id="nxtWelcomeHeading">{{ \App\Models\EngagementSetting::get('popup_headline', 'Welcome to The Nexteck, Let\'s Grow Together') }}</h3>
+            <p id="nxtWelcomeDesc">{{ \App\Models\EngagementSetting::get('popup_description', 'From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.') }}</p>
         </div>
         <div class="nxt-modal-body">
             <div style="background:#FAF9F6; border-radius:12px; padding:1.2rem; border:1px solid #E5E7EB; margin-bottom:1.6rem;">
