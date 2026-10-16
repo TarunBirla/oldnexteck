@@ -56,12 +56,12 @@
 
             <div class="form-group">
                 <label for="popup_headline">Popup Headline</label>
-                <input type="text" name="popup_headline" id="popup_headline" value="{{ $settings['popup_headline'] ?? 'Is Your Business Using Technology to Its Full Potential?' }}" class="form-control" required>
+                <input type="text" name="popup_headline" id="popup_headline" value="{{ $settings['popup_headline'] ?? 'Welcome to The Nexteck, Let\'s Grow Together' }}" class="form-control" required>
             </div>
 
             <div class="form-group">
                 <label for="popup_description">Popup Description</label>
-                <textarea name="popup_description" id="popup_description" rows="2" class="form-control" required>{{ $settings['popup_description'] ?? 'Discover opportunities to streamline operations, improve efficiency, and make smarter technology decisions.' }}</textarea>
+                <textarea name="popup_description" id="popup_description" rows="2" class="form-control" required>{{ $settings['popup_description'] ?? 'From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.' }}</textarea>
             </div>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">

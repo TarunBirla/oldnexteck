@@ -79,9 +79,9 @@
             <span style="display:inline-block; font-size:0.8rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-2); margin-bottom:0.8rem;">
                 The Nexteck Diagnostic System
             </span>
-            <h1>Is Your Business Using Technology to Its Full Potential?</h1>
+            <h1>Welcome to The Nexteck, Let\'s Grow Together</h1>
             <p>
-                Evaluate your operational bottlenecks, system integration maturity, and practical AI readiness through our 2-minute interactive health check.
+                From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.
             </p>
             <button type="button" class="btn-launch" onclick="NxtEngagement.openAssessmentModal()">
                 Launch Free Health Check &rarr;
