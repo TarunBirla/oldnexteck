@@ -37,7 +37,7 @@
             box-shadow:var(--shadow);
             border:1px solid var(--line);
             padding:2.5rem;
-            max-width:780px;
+            max-width:920px;
             margin:-2.5rem auto 4rem;
             position:relative;
             z-index:10;

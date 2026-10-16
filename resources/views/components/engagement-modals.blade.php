@@ -39,7 +39,7 @@
 
     .nxt-modal {
         background: var(--nxt-surface);
-        width: min(680px, 100%);
+        width: min(720px, 100%);
         max-height: 90vh;
         overflow-y: auto;
         border-radius: var(--nxt-radius);
@@ -50,6 +50,32 @@
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
         color: var(--nxt-text);
+        /* Completely hide scrollbars on all browsers while keeping smooth scrolling */
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    .nxt-modal::-webkit-scrollbar,
+    .nxt-modal *::-webkit-scrollbar,
+    .nxt-modal-body::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: transparent !important;
+    }
+
+    /* Enhanced wider width for Business Technology Health Check modal */
+    #nxtAssessmentOverlay .nxt-modal {
+        width: min(920px, 95vw) !important;
+        max-width: 920px !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    #nxtAssessmentOverlay .nxt-modal::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     .nxt-overlay.nxt-active .nxt-modal {
@@ -60,23 +86,23 @@
         position: absolute;
         top: 1.2rem;
         right: 1.2rem;
-        background: #F1F5F9;
-        border: none;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
         width: 36px;
         height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--nxt-muted);
+        color: #FFFFFF;
         cursor: pointer;
         font-size: 1.2rem;
         transition: all 0.2s;
-        z-index: 10;
+        z-index: 20;
     }
     .nxt-modal-close:hover {
-        background: #E2E8F0;
-        color: var(--nxt-text);
+        background: rgba(255, 255, 255, 0.3);
+        color: #FFFFFF;
         transform: rotate(90deg);
     }
 
@@ -435,7 +461,7 @@
 
 <!-- 2. BUSINESS TECHNOLOGY HEALTH CHECK MODAL -->
 <div class="nxt-overlay" id="nxtAssessmentOverlay" role="dialog" aria-modal="true" aria-labelledby="nxtAssessmentHeading">
-    <div class="nxt-modal" style="max-width: 750px;">
+    <div class="nxt-modal" style="max-width: 920px; width: min(920px, 95vw);">
         <button type="button" class="nxt-modal-close" id="nxtAssessmentCloseBtn" aria-label="Close dialog">&times;</button>
         
         <div class="nxt-modal-header">
@@ -864,7 +890,7 @@
                 welcomeStartBtn.onclick = () => {
                     self.trackEvent('welcome_popup_clicked', { action: 'start_assessment' });
                     self.hideModal('nxtWelcomeOverlay');
-                    self.openAssessmentModal();
+                    setTimeout(() => self.openAssessmentModal(), 250);
                 };
             }
 
@@ -918,13 +944,14 @@
 
         scheduleWelcomePopup: function() {
             const self = this;
-            if (!self.settings.popupEnabled || self.isFrequencyCapped()) return;
+            if (!self.settings.popupEnabled) return;
 
+            // Trigger Welcome popup on page entry smoothly
             setTimeout(function() {
-                if (!self.isFrequencyCapped() && !self.isAnyModalOpen()) {
-                    self.showWelcomePopup('timer_delay');
+                if (!self.isAnyModalOpen()) {
+                    self.showWelcomePopup('page_entry');
                 }
-            }, self.settings.delaySeconds * 1000);
+            }, 1200);
         },
 
         showWelcomePopup: function(trigger) {
@@ -937,11 +964,12 @@
         dismissWelcomePopup: function(reason) {
             this.hideModal('nxtWelcomeOverlay');
             this.trackEvent('welcome_popup_dismissed', { reason: reason });
-            try {
-                const days = this.settings.frequencyDays || 7;
-                const expiry = Date.now() + (days * 24 * 60 * 60 * 1000);
-                localStorage.setItem('nxt_popup_dismissed_until', expiry.toString());
-            } catch (e) {}
+
+            // Smooth transition: open Business Technology Health Check modal right after closing Welcome popup
+            const self = this;
+            setTimeout(function() {
+                self.openAssessmentModal();
+            }, 250);
         },
 
         openAssessmentModal: function() {
