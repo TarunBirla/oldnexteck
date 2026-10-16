@@ -896,7 +896,17 @@
 
             // Assessment modal handlers
             const assessmentCloseBtn = document.getElementById('nxtAssessmentCloseBtn');
-            if (assessmentCloseBtn) assessmentCloseBtn.onclick = () => self.hideModal('nxtAssessmentOverlay');
+            if (assessmentCloseBtn) {
+                assessmentCloseBtn.onclick = () => {
+                    self.hideModal('nxtAssessmentOverlay');
+                    try {
+                        localStorage.setItem('nxt_engagement_seen', 'true');
+                        const days = self.settings.frequencyDays || 7;
+                        const expiry = Date.now() + (days * 24 * 60 * 60 * 1000);
+                        localStorage.setItem('nxt_popup_dismissed_until', expiry.toString());
+                    } catch (e) {}
+                };
+            }
 
             // Calculator modal handlers
             const calcCloseBtn = document.getElementById('nxtCalcCloseBtn');
@@ -908,6 +918,9 @@
                     self.hideModal('nxtWelcomeOverlay');
                     self.hideModal('nxtAssessmentOverlay');
                     self.hideModal('nxtCalculatorOverlay');
+                    try {
+                        localStorage.setItem('nxt_engagement_seen', 'true');
+                    } catch (e) {}
                 }
             });
 
@@ -931,8 +944,9 @@
 
         isFrequencyCapped: function() {
             try {
-                const completed = localStorage.getItem('nxt_assessment_completed');
-                if (completed) return true;
+                // If user has completed assessment or closed modals previously, do not auto-open again
+                if (localStorage.getItem('nxt_assessment_completed') === 'true') return true;
+                if (localStorage.getItem('nxt_engagement_seen') === 'true') return true;
 
                 const dismissedUntil = localStorage.getItem('nxt_popup_dismissed_until');
                 if (dismissedUntil && Date.now() < parseInt(dismissedUntil, 10)) {
@@ -944,11 +958,11 @@
 
         scheduleWelcomePopup: function() {
             const self = this;
-            if (!self.settings.popupEnabled) return;
+            if (!self.settings.popupEnabled || self.isFrequencyCapped()) return;
 
-            // Trigger Welcome popup on page entry smoothly
+            // Trigger Welcome popup on first page entry only
             setTimeout(function() {
-                if (!self.isAnyModalOpen()) {
+                if (!self.isFrequencyCapped() && !self.isAnyModalOpen()) {
                     self.showWelcomePopup('page_entry');
                 }
             }, 1200);
@@ -964,6 +978,14 @@
         dismissWelcomePopup: function(reason) {
             this.hideModal('nxtWelcomeOverlay');
             this.trackEvent('welcome_popup_dismissed', { reason: reason });
+
+            // Store in browser cache/localStorage so it does not auto-open again
+            try {
+                const days = this.settings.frequencyDays || 7;
+                const expiry = Date.now() + (days * 24 * 60 * 60 * 1000);
+                localStorage.setItem('nxt_popup_dismissed_until', expiry.toString());
+                localStorage.setItem('nxt_welcome_seen', 'true');
+            } catch (e) {}
 
             // Smooth transition: open Business Technology Health Check modal right after closing Welcome popup
             const self = this;
