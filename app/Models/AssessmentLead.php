@@ -44,17 +44,23 @@ class AssessmentLead extends Model
     ];
 
     /**
-     * Deterministic scoring calculation based on documented transparent rules.
+     * Deterministic scoring calculation based on transparent, documented methodology:
+     * - Operational Efficiency: 4 questions (raw 4..20, scaled 0..100) -> 60% of total maturity
+     * - Practical AI Usage: 2 questions (raw 2..8, scaled 0..100)       -> 25% of total maturity
+     * - AI Risk & Data Governance: 1 question (raw 1..4, scaled 0..100) -> 15% of total maturity
+     * Total score is normalized from combined raw points [7..32] mapped to 5..100% ensuring
+     * deterministic reproducibility across identical inputs.
      */
     public static function calculateScore(array $responses): array
     {
-        // 1. Operational Efficiency Scoring (4 questions, raw 1..5)
+        // 1. Operational Efficiency Scoring (4 questions, 5-point scale + Not sure)
         $mapOperational = [
             'Not at all' => 5, // For routine manual work, less manual = higher score
             'Slightly'   => 4,
             'Partially'  => 3,
             'Mostly'     => 2,
             'Fully'      => 1,
+            'Not sure'   => 3, // Neutral midpoint
         ];
         $mapPositive = [
             'Fully'      => 5,
@@ -62,102 +68,198 @@ class AssessmentLead extends Model
             'Partially'  => 3,
             'Slightly'   => 2,
             'Not at all' => 1,
+            'Not sure'   => 3, // Neutral midpoint
         ];
 
-        // Q1: Routine work manual (inverted)
+        // Q1: Routine work manual (inverted: less manual = higher efficiency)
         $qManual = $responses['q_manual_work'] ?? 'Partially';
-        $scoreManual = $mapOperational[$qManual] ?? 3;
+        $scoreManual = self::mapScoreValue($mapOperational, $qManual, 3);
 
         // Q2: Systems integration
         $qIntegration = $responses['q_systems_integration'] ?? 'Partially';
-        $scoreIntegration = $mapPositive[$qIntegration] ?? 3;
+        $scoreIntegration = self::mapScoreValue($mapPositive, $qIntegration, 3);
 
         // Q3: Reports & visibility
         $qReports = $responses['q_reports_visibility'] ?? 'Partially';
-        $scoreReports = $mapPositive[$qReports] ?? 3;
+        $scoreReports = self::mapScoreValue($mapPositive, $qReports, 3);
 
         // Q4: Technology roadmap
         $qRoadmap = $responses['q_tech_roadmap'] ?? 'Partially';
-        $scoreRoadmap = $mapPositive[$qRoadmap] ?? 3;
+        $scoreRoadmap = self::mapScoreValue($mapPositive, $qRoadmap, 3);
 
         $operationalRaw = $scoreManual + $scoreIntegration + $scoreReports + $scoreRoadmap; // 4 to 20
 
-        // 2. AI Readiness Scoring (3 questions, raw 1..4)
-        $mapAi = [
-            'Already implemented' => 4,
-            'Piloting'            => 3,
-            'Exploring'           => 2,
-            'Not yet'             => 1,
+        // 2. AI Readiness Scoring: Assessed separately as AI Usage vs AI Governance
+        $mapAiUsage = [
+            'Already implemented'            => 4,
+            'Already part of daily workflow' => 4,
+            'Clear implementation backlog'   => 4,
+            'Piloting'                       => 3,
+            'Piloting in some teams'         => 3,
+            'Multiple use cases mapped'      => 3,
+            'Exploring'                      => 2,
+            'Exploring / Evaluating'         => 2,
+            'A few ideas in discussion'      => 2,
+            'Not yet'                        => 1,
+            'Not yet identified'             => 1,
+            'Not sure'                       => 2,
         ];
 
+        $mapAiGov = [
+            'Already implemented'            => 4,
+            'Formal policy & security'       => 4,
+            'Formal policy & review process' => 4,
+            'Piloting'                       => 3,
+            'Basic staff guidelines'         => 3,
+            'Basic staff guidelines in place'=> 3,
+            'Exploring'                      => 2,
+            'Informal discussions only'      => 2,
+            'Not yet'                        => 1,
+            'No formal guidelines yet'       => 1,
+            'Not sure'                       => 2,
+        ];
+
+        // Q5: Practical AI Tool Usage
         $qAiUse = $responses['q_ai_current_use'] ?? 'Exploring';
-        $scoreAiUse = $mapAi[$qAiUse] ?? 2;
+        $scoreAiUse = self::mapScoreValue($mapAiUsage, $qAiUse, 2);
 
+        // Q6: Identified AI Opportunities & Use Cases
         $qAiOpp = $responses['q_ai_opportunities'] ?? 'Exploring';
-        $scoreAiOpp = $mapAi[$qAiOpp] ?? 2;
+        $scoreAiOpp = self::mapScoreValue($mapAiUsage, $qAiOpp, 2);
 
+        // Q7: AI Governance & Data Privacy Safeguards (Assessed Separately)
         $qAiRisk = $responses['q_ai_risk_privacy'] ?? 'Not yet';
-        $scoreAiRisk = $mapAi[$qAiRisk] ?? 1;
+        $scoreAiRisk = self::mapScoreValue($mapAiGov, $qAiRisk, 1);
 
-        $aiRaw = $scoreAiUse + $scoreAiOpp + $scoreAiRisk; // 3 to 12
+        $aiUsageRaw = $scoreAiUse + $scoreAiOpp; // 2 to 8
+        $aiGovRaw   = $scoreAiRisk;              // 1 to 4
+        $aiRaw      = $aiUsageRaw + $aiGovRaw;   // 3 to 12
 
-        // Total points: min 7, max 32
+        // Component percentages (rounded integers)
+        $opScorePercent   = (int) round(($operationalRaw / 20) * 100);
+        $aiUsagePercent   = (int) round(($aiUsageRaw / 8) * 100);
+        $aiGovPercent     = (int) round(($aiGovRaw / 4) * 100);
+        $aiCombinedPercent= (int) round(($aiRaw / 12) * 100);
+
+        // Overall Maturity Index: min raw 7, max raw 32
         $totalRaw = $operationalRaw + $aiRaw;
         $scorePercent = (int) round((($totalRaw - 7) / (32 - 7)) * 100);
         $scorePercent = max(5, min(100, $scorePercent));
 
-        // Maturity Tier
+        // Maturity Tier Classification
         if ($scorePercent < 40) {
             $maturity = 'Emerging';
             $badgeColor = '#DC2626';
-            $summary = 'Significant manual dependencies identified across core workflows with high immediate potential for workflow automation.';
+            $summary = 'Significant manual dependencies and tool fragmentation identified across core operations, indicating substantial immediate ROI from targeted workflow systematisation.';
         } elseif ($scorePercent < 65) {
             $maturity = 'Developing';
             $badgeColor = '#D97706';
-            $summary = 'Foundational digital tools are in place, but systems remain fragmented. Priority is unified system integration and eliminating data re-keying.';
+            $summary = 'Foundational business software is established, but departmental silos remain. Priority focus is unified data integration, automated handoffs, and basic AI security guidelines.';
         } elseif ($scorePercent < 85) {
             $maturity = 'Strategic';
             $badgeColor = '#2563EB';
-            $summary = 'Structured IT stack with good operational visibility. Prime candidate for pragmatic AI copilots, automated triage, and API bridges.';
+            $summary = 'Structured technology stack with good operational visibility. Primed for automated API bridges, operational copilot pilots, and executive dashboard centralization.';
         } else {
             $maturity = 'Optimized';
             $badgeColor = '#059669';
-            $summary = 'High technology maturity with established roadmap. Poised for advanced predictive automation and bespoke competitive differentiators.';
+            $summary = 'High technology maturity with an aligned roadmap and governed practices. Poised for predictive automation, advanced integrations, and custom competitive differentiators.';
         }
 
-        // Tailored insights
+        // Tailored observations derived from individual inputs
         $observations = [];
+
+        // Manual workload observation
         if ($scoreManual <= 2) {
-            $observations[] = 'Manual tasks occupy disproportionate leadership time; standard operating procedures (SOPs) need systematization.';
+            $observations[] = 'Routine Manual Overhead: Repetitive administrative tasks and manual data re-keying occupy substantial team hours, constraining capacity and increasing error rates.';
+        } elseif ($scoreManual >= 4) {
+            $observations[] = 'Operational Systematisation: Routine administrative overhead is well-contained, allowing team capacity to focus on revenue-generating activities.';
         } else {
-            $observations[] = 'Routine operational tasks demonstrate manageable manual overhead.';
+            $observations[] = 'Workflow Automation Potential: Core operations involve moderate manual touchpoints that could be streamlined through automated data pipelines.';
         }
 
+        // Systems integration observation
         if ($scoreIntegration <= 2) {
-            $observations[] = 'Software silos and disparate spreadsheets are creating avoidable operational friction.';
+            $observations[] = 'System Silos: Disparate software tools (CRM, accounting, operations) operate in isolation, requiring manual reconciliation and dual entry.';
+        } elseif ($scoreIntegration >= 4) {
+            $observations[] = 'Connected Systems: Existing software platforms demonstrate solid interoperability, creating an agile foundation for automated triggers.';
         } else {
-            $observations[] = 'System interoperability is developing well; focus can shift to automation triggers.';
+            $observations[] = 'Integration Opportunities: Basic software connections exist, but key departmental handoffs between systems still require manual supervision.';
         }
 
+        // Reporting visibility observation
+        if ($scoreReports <= 2) {
+            $observations[] = 'Reporting Latency: Decision-makers lack real-time visibility due to delayed or manually assembled reports, limiting proactive operational adjustments.';
+        } elseif ($scoreReports >= 4) {
+            $observations[] = 'Management Visibility: Leadership enjoys rapid access to accurate performance metrics and consolidated operational reporting.';
+        } else {
+            $observations[] = 'Reporting Consolidation: Reports are accessible but require periodic manual collation; an automated single source of truth would improve decision speed.';
+        }
+
+        // Technology roadmap observation
+        if ($scoreRoadmap <= 2) {
+            $observations[] = 'Strategic IT Roadmap: Technology investments are currently reactive rather than roadmap-driven, increasing risk of software sprawl and unaligned expenditures.';
+        } elseif ($scoreRoadmap >= 4) {
+            $observations[] = 'Strategic Alignment: A clear technology roadmap guides quarterly digital priorities and vendor investments.';
+        }
+
+        // AI Usage observation
         if ($scoreAiUse <= 2) {
-            $observations[] = 'AI readiness is in exploratory phase; initial focus should be on clean data hygiene before tool adoption.';
+            $observations[] = 'AI Adoption Curve: Artificial intelligence adoption is in the exploratory phase; starting with proven, pragmatic copilots for routine tasks will yield fast ROI.';
         } else {
-            $observations[] = 'AI experimentation is underway; robust data privacy governance is the next critical milestone.';
+            $observations[] = 'Active AI Adoption: Practical AI usage is already underway; focus can expand to systematising high-value multi-step automations.';
         }
 
-        $recommendedNextSteps = [
-            'Conduct a 45-minute Nexteck Client Diagnostic to map your top 3 friction points.',
-            'Establish an AI & IT Opportunity Log to separate high-impact automations from vanity tech.',
-            'Review vendor consolidation options to reduce recurring subscription overhead.',
-        ];
+        // AI Governance observation (assessed separately)
+        if ($scoreAiRisk <= 2) {
+            $observations[] = 'AI Risk & Data Governance: No formal AI governance or corporate data safety policy is active. Establishing an Acceptable AI Use Policy is essential to prevent proprietary data or client information from leaking into public training models.';
+        } else {
+            $observations[] = 'Governed AI Practice: Sound data protection guardrails and risk evaluation practices are established, supporting compliant AI scalability under UK GDPR.';
+        }
+
+        // Personalised recommended next steps based on selected challenges & responses
+        $recommendedNextSteps = [];
+        $challenges = $responses['challenges'] ?? [];
+        if (is_string($challenges)) {
+            $challenges = [$challenges];
+        }
+        $primaryChal = $responses['primary_challenge'] ?? '';
+        if ($primaryChal && !in_array($primaryChal, $challenges)) {
+            $challenges[] = $primaryChal;
+        }
+
+        $allChalStr = strtolower(implode(' ', $challenges));
+
+        if (str_contains($allChalStr, 'manual')) {
+            $recommendedNextSteps[] = 'Process Audit & SOP Systematisation: Map the top 3 manual administrative bottlenecks to calculate immediate capacity returns.';
+        }
+        if (str_contains($allChalStr, 'disconnect') || str_contains($allChalStr, 'silo')) {
+            $recommendedNextSteps[] = 'Unified API Integration Architecture: Deploy automated webhooks and secure API bridges between your CRM, accounting, and operations tools.';
+        }
+        if (str_contains($allChalStr, 'report') || str_contains($allChalStr, 'visib')) {
+            $recommendedNextSteps[] = 'Executive Dashboard & Single Source of Truth: Consolidate scattered spreadsheets into an automated, real-time management dashboard.';
+        }
+        if (str_contains($allChalStr, 'ai')) {
+            $recommendedNextSteps[] = 'Pragmatic AI Opportunity Diagnostic: Run a 45-minute use-case prioritization session to separate high-ROI AI solutions from vanity tech.';
+        }
+        if (str_contains($allChalStr, 'cost')) {
+            $recommendedNextSteps[] = 'Software Stack & Vendor Rationalisation: Audit existing subscriptions and unused licenses to lower operational software spend by 15–25%.';
+        }
+        if (str_contains($allChalStr, 'strategy') || str_contains($allChalStr, 'roadmap') || empty($recommendedNextSteps)) {
+            $recommendedNextSteps[] = '12-Month Technology & Automation Roadmap: Establish a structured, quarterly IT roadmap aligned with your commercial growth goals.';
+        }
+
+        $recommendedNextSteps[] = 'Complimentary Advisory Review: Discuss your specific results and priority actions on a 30-minute discovery call with The Nexteck engineering team.';
 
         return [
             'score'                => $scorePercent,
             'maturity_level'       => $maturity,
             'badge_color'          => $badgeColor,
             'summary'              => $summary,
-            'operational_score'    => (int) round(($operationalRaw / 20) * 100),
-            'ai_readiness_score'   => (int) round(($aiRaw / 12) * 100),
+            'operational_score'    => $opScorePercent,
+            'ai_readiness_score'   => $aiCombinedPercent,
+            'ai_usage_score'       => $aiUsagePercent,
+            'ai_governance_score'  => $aiGovPercent,
+            'methodology_note'     => 'Weighted index evaluating Operational Efficiency (60%), Practical AI Adoption (25%), and Data Privacy & Governance (15%).',
             'observations'         => $observations,
             'recommended_steps'    => $recommendedNextSteps,
             'suggested_services'   => [
@@ -166,6 +268,26 @@ class AssessmentLead extends Model
                 'Pragmatic AI Readiness & Data Governance Programme',
             ],
         ];
+    }
+
+    /**
+     * Helper to safely map answer strings to points with fuzzy substring fallback.
+     */
+    protected static function mapScoreValue(array $map, ?string $value, int $default): int
+    {
+        if ($value === null || trim($value) === '') {
+            return $default;
+        }
+        $val = trim($value);
+        if (isset($map[$val])) {
+            return $map[$val];
+        }
+        foreach ($map as $key => $points) {
+            if (strcasecmp($key, $val) === 0 || stripos($val, $key) !== false || stripos($key, $val) !== false) {
+                return $points;
+            }
+        }
+        return $default;
     }
 
     /**

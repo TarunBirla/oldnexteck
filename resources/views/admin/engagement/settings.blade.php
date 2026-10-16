@@ -56,18 +56,18 @@
 
             <div class="form-group">
                 <label for="popup_headline">Popup Headline</label>
-                <input type="text" name="popup_headline" id="popup_headline" value="{{ $settings['popup_headline'] ?? 'Welcome to The Nexteck, Let\'s Grow Together' }}" class="form-control" required>
+                <input type="text" name="popup_headline" id="popup_headline" value="{{ $settings['popup_headline'] ?? "Let's Find the Right Technology Solutions for Your Business" }}" class="form-control" required>
             </div>
 
             <div class="form-group">
                 <label for="popup_description">Popup Description</label>
-                <textarea name="popup_description" id="popup_description" rows="2" class="form-control" required>{{ $settings['popup_description'] ?? 'From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.' }}</textarea>
+                <textarea name="popup_description" id="popup_description" rows="2" class="form-control" required>{{ $settings['popup_description'] ?? "Discover how smarter technology, automation and AI could help your business work more efficiently." }}</textarea>
             </div>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
                 <div class="form-group">
                     <label for="popup_primary_cta">Primary CTA Label</label>
-                    <input type="text" name="popup_primary_cta" id="popup_primary_cta" value="{{ $settings['popup_primary_cta'] ?? 'Start Your Free Assessment' }}" class="form-control" required>
+                    <input type="text" name="popup_primary_cta" id="popup_primary_cta" value="{{ $settings['popup_primary_cta'] ?? 'Discover My Business Opportunities →' }}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="popup_secondary_cta">Secondary CTA Label</label>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-group">
                     <label for="popup_supporting_text">Supporting Reassurance Text</label>
-                    <input type="text" name="popup_supporting_text" id="popup_supporting_text" value="{{ $settings['popup_supporting_text'] ?? 'Get a clearer picture of where technology could make the biggest difference to your business.' }}" class="form-control">
+                    <input type="text" name="popup_supporting_text" id="popup_supporting_text" value="{{ $settings['popup_supporting_text'] ?? 'Identify opportunities to improve your operations and technology.' }}" class="form-control">
                 </div>
             </div>
         </div>

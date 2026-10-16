@@ -402,55 +402,236 @@
         margin-top: 1.5rem;
     }
 
+    /* Welcome Assessment Card */
+    .nxt-welcome-assessment-card {
+        background: #FAF9F6;
+        border-radius: 14px;
+        padding: 1.15rem 1.35rem;
+        border: 1.5px solid #E5E7EB;
+        margin-bottom: 1.3rem;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        text-align: left;
+        width: 100%;
+    }
+    .nxt-welcome-assessment-card:hover,
+    .nxt-welcome-assessment-card:focus-visible {
+        background: #FFFDF9;
+        border-color: var(--nxt-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px -6px rgba(184, 147, 63, 0.22);
+        outline: none;
+    }
+    .nxt-welcome-assessment-card .nxt-icon-box {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--nxt-navy);
+        color: var(--nxt-gold-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.05rem;
+        transition: transform 0.25s;
+    }
+    .nxt-welcome-assessment-card:hover .nxt-icon-box {
+        transform: scale(1.08);
+    }
+    .nxt-welcome-assessment-card .nxt-arrow-indicator {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1.5px solid var(--nxt-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--nxt-navy);
+        font-size: 0.95rem;
+        font-weight: 700;
+        transition: all 0.25s ease;
+    }
+    .nxt-welcome-assessment-card:hover .nxt-arrow-indicator {
+        background: var(--nxt-gold);
+        color: #fff;
+        border-color: var(--nxt-gold);
+        transform: translateX(4px);
+    }
+    .nxt-trust-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        font-size: 0.78rem;
+        color: var(--nxt-muted);
+        margin: 0.75rem 0 0.9rem;
+        font-weight: 500;
+        text-align: center;
+    }
+    .nxt-trust-badge svg {
+        color: #10B981;
+        flex-shrink: 0;
+    }
+
+    /* Inline accessible validation error */
+    .nxt-step-error {
+        background: #FEF2F2;
+        border: 1px solid #FCA5A5;
+        color: #991B1B;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        display: none;
+    }
+
+    /* Multi-select Pills */
+    .nxt-multi-pill {
+        user-select: none;
+    }
+    .nxt-multi-pill.selected::before {
+        content: "✓ ";
+        color: var(--nxt-gold);
+        font-weight: 700;
+        margin-right: 0.25rem;
+    }
+
     @media (max-width: 640px) {
-        .nxt-modal { border-radius: 14px; }
+        .nxt-modal { border-radius: 14px; width: 95vw !important; }
         .nxt-modal-header { padding: 1.6rem 1.4rem; }
         .nxt-modal-body { padding: 1.4rem; }
         .nxt-options-grid { grid-template-columns: 1fr 1fr; }
         .nxt-quick-pill { bottom: 5rem; right: 1rem; padding: 0.5rem 0.85rem; font-size: 0.78rem; }
+        .nxt-btn { min-height: 44px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .nxt-overlay, .nxt-modal, .nxt-btn, .nxt-quick-pill {
+        .nxt-overlay, .nxt-modal, .nxt-btn, .nxt-quick-pill, .nxt-welcome-assessment-card {
             transition: none !important;
             animation: none !important;
+        }
+    }
+
+    /* Branded PDF / Print Stylesheet for Diagnostic Scorecard */
+    @media print {
+        body {
+            background: #FFFFFF !important;
+            color: #0C1B33 !important;
+            font-size: 11pt !important;
+        }
+        body > *:not(#nxtAssessmentOverlay) {
+            display: none !important;
+        }
+        .nxt-overlay {
+            position: static !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            display: block !important;
+            padding: 0 !important;
+        }
+        .nxt-modal {
+            border: none !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            overflow: visible !important;
+            padding: 0 !important;
+        }
+        .nxt-modal-close,
+        .nxt-steps-bar,
+        .nxt-btn,
+        #nxtQuickLauncher,
+        #nxtWelcomeOverlay,
+        #nxtCalculatorOverlay,
+        .nxt-step-error {
+            display: none !important;
+        }
+        .nxt-modal-header {
+            background: #0C1B33 !important;
+            color: #FFFFFF !important;
+            padding: 1.8rem !important;
+            border-radius: 8px !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .nxt-modal-header h3 {
+            color: #FFFFFF !important;
+        }
+        .nxt-step-pane:not(#nxtStep5) {
+            display: none !important;
+        }
+        #nxtStep5 {
+            display: block !important;
+            padding: 1rem 0 !important;
+        }
+        .nxt-result-score-card {
+            background: #0C1B33 !important;
+            color: #FFFFFF !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            border-radius: 8px !important;
+            page-break-inside: avoid;
+        }
+        .nxt-score-circle {
+            border-color: #B8933F !important;
+            color: #D9BC7A !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
         }
     }
 </style>
 
 <!-- 1. SMART WELCOME POPUP MODAL -->
 <div class="nxt-overlay" id="nxtWelcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="nxtWelcomeHeading">
-    <div class="nxt-modal" style="max-width: 580px;">
+    <div class="nxt-modal" style="max-width: 580px; width: min(580px, 94vw);">
         <button type="button" class="nxt-modal-close" id="nxtWelcomeCloseBtn" aria-label="Close dialog">&times;</button>
         <div class="nxt-modal-header">
             <span class="nxt-tag">The Nexteck Advisory</span>
-            <h3 id="nxtWelcomeHeading">{{ \App\Models\EngagementSetting::get('popup_headline', 'Welcome to The Nexteck, Let\'s Grow Together') }}</h3>
-            <p id="nxtWelcomeDesc">{{ \App\Models\EngagementSetting::get('popup_description', 'From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.') }}</p>
+            <h3 id="nxtWelcomeHeading">{{ \App\Models\EngagementSetting::get('popup_headline', "Let's Find the Right Technology Solutions for Your Business") }}</h3>
+            <p id="nxtWelcomeDesc">{{ \App\Models\EngagementSetting::get('popup_description', "Discover how smarter technology, automation and AI could help your business work more efficiently.") }}</p>
         </div>
         <div class="nxt-modal-body">
-            <div style="background:#FAF9F6; border-radius:12px; padding:1.2rem; border:1px solid #E5E7EB; margin-bottom:1.6rem;">
-                <div style="display:flex; gap:0.9rem; align-items:flex-start;">
-                    <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:#0C1B33; color:#D9BC7A; display:flex; align-items:center; justify-content:center; font-weight:700;">
-                        ✦
-                    </div>
+            <!-- Clickable Interactive Assessment Card -->
+            <div class="nxt-welcome-assessment-card" id="nxtWelcomeCardTrigger" role="button" tabindex="0" aria-label="Start 2-Minute Business Health Check">
+                <div style="display:flex; gap:0.95rem; align-items:center;">
+                    <div class="nxt-icon-box" aria-hidden="true">✦</div>
                     <div>
-                        <strong style="display:block; font-size:0.92rem; color:#0C1B33; margin-bottom:0.2rem;">2-Minute Business Health Check</strong>
-                        <p style="font-size:0.85rem; color:#64748B; margin:0; line-height:1.45;">
-                            {{ \App\Models\EngagementSetting::get('popup_supporting_text', 'Get a clearer picture of where technology could make the biggest difference to your business.') }}
+                        <strong style="display:block; font-size:0.96rem; color:var(--nxt-navy); margin-bottom:0.2rem; font-weight:700;">2-Minute Business Health Check</strong>
+                        <p style="font-size:0.86rem; color:var(--nxt-muted); margin:0; line-height:1.45;">
+                            Identify opportunities to improve your operations and technology.
                         </p>
                     </div>
                 </div>
+                <div class="nxt-arrow-indicator" aria-hidden="true">&rarr;</div>
             </div>
 
-            <div style="display:flex; flex-direction:column; gap:0.8rem;">
-                <button type="button" class="nxt-btn nxt-btn-gold" id="nxtWelcomeStartAssessmentBtn" style="width:100%;">
-                    {{ \App\Models\EngagementSetting::get('popup_primary_cta', 'Start Your Free Assessment') }} &rarr;
+            <!-- Primary CTA & Actions -->
+            <div style="display:flex; flex-direction:column;">
+                <button type="button" class="nxt-btn nxt-btn-gold" id="nxtWelcomeStartAssessmentBtn" style="width:100%; min-height:46px; font-size:0.98rem;">
+                    {{ \App\Models\EngagementSetting::get('popup_primary_cta', 'Discover My Business Opportunities →') }}
                 </button>
-                <div style="display:flex; justify-content:space-between; align-items:center; gap:0.6rem; margin-top:0.4rem;">
-                    <a href="{{ route('industries.index') }}" class="nxt-btn nxt-btn-ghost" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
+
+                <!-- Trust Line -->
+                <div class="nxt-trust-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Free &bull; Takes 2 minutes &bull; No obligation</span>
+                </div>
+
+                <!-- Secondary Actions -->
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; margin-top:0.2rem;">
+                    <a href="{{ route('industries.index') }}" class="nxt-btn nxt-btn-ghost" id="nxtWelcomeExploreBtn" style="flex:1; font-size:0.88rem; padding:0.7rem 1rem; min-height:44px; text-align:center;">
                         {{ \App\Models\EngagementSetting::get('popup_secondary_cta', 'Explore Our Services') }}
                     </a>
-                    <button type="button" class="nxt-btn nxt-btn-subtle" id="nxtWelcomeDismissBtn" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
+                    <button type="button" class="nxt-btn nxt-btn-subtle" id="nxtWelcomeDismissBtn" style="flex:1; font-size:0.88rem; padding:0.7rem 1rem; min-height:44px;">
                         {{ \App\Models\EngagementSetting::get('popup_close_text', 'Maybe Later') }}
                     </button>
                 </div>
@@ -496,12 +677,17 @@
             </div>
 
             <!-- Form Container -->
-            <form id="nxtAssessmentForm" onsubmit="return false;">
+            <form id="nxtAssessmentForm" onsubmit="return false;" novalidate>
+                <!-- Anti-spam Honeypot -->
+                <div style="position:absolute; left:-9999px; top:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
+                    <input type="text" name="nxt_hp_company_url" id="nxt_hp_company_url" tabindex="-1" autocomplete="off">
+                </div>
+
                 <!-- STEP 1: BUSINESS PROFILE -->
                 <div class="nxt-step-pane" id="nxtStep1">
                     <div class="nxt-field">
-                        <label for="nxt_industry">What industry does your business operate in?</label>
-                        <select id="nxt_industry" name="industry" required>
+                        <label for="nxt_industry">What industry does your business operate in? *</label>
+                        <select id="nxt_industry" name="industry" required onchange="NxtEngagement.toggleIndustryOther(this.value)">
                             <option value="">Select your sector</option>
                             <option value="Oil & Gas / Energy">Oil &amp; Gas / Energy</option>
                             <option value="Industrial Plants & Mining">Industrial Plants &amp; Mining</option>
@@ -511,37 +697,66 @@
                             <option value="Manufacturing & Fabrication">Manufacturing &amp; Engineering</option>
                             <option value="Fintech & Professional Services">Fintech &amp; Professional Services</option>
                             <option value="E-Commerce & Logistics">E-Commerce &amp; Logistics</option>
-                            <option value="Other Commercial Sector">Other Commercial Sector</option>
+                            <option value="Healthcare & Pharmaceuticals">Healthcare &amp; Pharmaceuticals</option>
+                            <option value="Construction & Real Estate">Construction &amp; Real Estate</option>
+                            <option value="Other">Other (Please specify)</option>
                         </select>
+                        <div id="nxt_industry_other_wrap" style="display:none; margin-top:0.6rem;">
+                            <label for="nxt_industry_other" style="font-size:0.82rem; font-weight:600; color:var(--nxt-navy);">Please specify your industry *</label>
+                            <input type="text" id="nxt_industry_other" name="industry_other" placeholder="e.g. Legal Services, Hospitality, Aerospace">
+                        </div>
                     </div>
 
                     <div class="nxt-field">
-                        <label>What is your approximate company size?</label>
-                        <div class="nxt-options-grid" data-group="company_size">
-                            <div class="nxt-option-pill" data-val="1–10 employees">1–10 employees</div>
-                            <div class="nxt-option-pill selected" data-val="11–50 employees">11–50 employees</div>
-                            <div class="nxt-option-pill" data-val="51–200 employees">51–200 employees</div>
-                            <div class="nxt-option-pill" data-val="201+ employees">201+ employees</div>
+                        <label>What is your approximate company size? *</label>
+                        <div class="nxt-options-grid" data-group="company_size" role="radiogroup" aria-label="Company Size">
+                            <div class="nxt-option-pill" data-val="1–10 employees" role="radio" tabindex="0">1–10 employees</div>
+                            <div class="nxt-option-pill selected" data-val="11–50 employees" role="radio" tabindex="0" aria-checked="true">11–50 employees</div>
+                            <div class="nxt-option-pill" data-val="51–200 employees" role="radio" tabindex="0">51–200 employees</div>
+                            <div class="nxt-option-pill" data-val="201+ employees" role="radio" tabindex="0">201+ employees</div>
                         </div>
                         <input type="hidden" name="company_size" id="nxt_company_size" value="11–50 employees">
                     </div>
 
                     <div class="nxt-field">
-                        <label for="nxt_challenge">What is your primary business challenge?</label>
-                        <select id="nxt_challenge" name="primary_challenge" required>
-                            <option value="">Select primary challenge</option>
-                            <option value="Too many manual processes">Too many manual processes</option>
-                            <option value="Disconnected systems and tools">Disconnected systems and tools</option>
-                            <option value="Limited reporting and visibility">Limited reporting and visibility</option>
-                            <option value="Exploring AI adoption">Exploring AI adoption</option>
-                            <option value="High operational costs">High operational costs</option>
-                            <option value="Unclear technology strategy">Unclear technology strategy</option>
-                            <option value="Other challenge">Other operational challenge</option>
-                        </select>
+                        <label>What are your primary business challenges? *</label>
+                        <span class="nxt-hint">Select all that apply to your operations.</span>
+                        <div class="nxt-options-grid nxt-multi-grid" id="nxtChallengesGrid" role="group" aria-label="Business Challenges">
+                            <div class="nxt-option-pill nxt-multi-pill selected" data-val="Too many manual processes" role="checkbox" aria-checked="true" tabindex="0">
+                                <span>Too many manual processes</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="Disconnected systems and tools" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>Disconnected systems and tools</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="Limited reporting and visibility" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>Limited reporting &amp; visibility</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="Exploring AI adoption" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>Exploring AI adoption</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="High operational costs" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>High operational costs</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="Unclear technology strategy" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>Unclear technology strategy</span>
+                            </div>
+                            <div class="nxt-option-pill nxt-multi-pill" data-val="Other" id="nxtChallengeOtherPill" role="checkbox" aria-checked="false" tabindex="0">
+                                <span>Other challenge</span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="primary_challenge" id="nxt_challenge" value="Too many manual processes">
+                        <div id="nxt_challenge_other_wrap" style="display:none; margin-top:0.6rem;">
+                            <label for="nxt_challenge_other" style="font-size:0.82rem; font-weight:600; color:var(--nxt-navy);">Please describe your challenge *</label>
+                            <input type="text" id="nxt_challenge_other" name="challenge_other" placeholder="e.g. Legacy ERP migration, multi-branch stock reconciliation">
+                        </div>
                     </div>
 
+                    <div id="nxtStep1Error" class="nxt-step-error"></div>
+
                     <div style="display:flex; justify-content:flex-end; margin-top:1.8rem;">
-                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.goToStep(2)">Next: Operational Efficiency &rarr;</button>
+                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.validateAndAdvanceStep1()">
+                            Next: Operational Efficiency &rarr;
+                        </button>
                     </div>
                 </div>
 
@@ -556,6 +771,7 @@
                             <div class="nxt-option-pill selected" data-val="Partially">Partially</div>
                             <div class="nxt-option-pill" data-val="Mostly">Mostly</div>
                             <div class="nxt-option-pill" data-val="Fully">Fully</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_manual_work" id="nxt_q_manual_work" value="Partially">
                     </div>
@@ -569,30 +785,35 @@
                             <div class="nxt-option-pill selected" data-val="Partially">Partially</div>
                             <div class="nxt-option-pill" data-val="Mostly">Mostly</div>
                             <div class="nxt-option-pill" data-val="Fully">Fully</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_systems_integration" id="nxt_q_systems_integration" value="Partially">
                     </div>
 
                     <div class="nxt-field">
                         <label>3. How easy is it to access accurate business reports?</label>
+                        <span class="nxt-hint">e.g. instant visibility of cash flow, operational KPIs, or inventory</span>
                         <div class="nxt-options-grid" data-group="q_reports_visibility">
                             <div class="nxt-option-pill" data-val="Not at all">Not at all</div>
                             <div class="nxt-option-pill" data-val="Slightly">Slightly</div>
                             <div class="nxt-option-pill selected" data-val="Partially">Partially</div>
                             <div class="nxt-option-pill" data-val="Mostly">Mostly</div>
                             <div class="nxt-option-pill" data-val="Fully">Fully</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_reports_visibility" id="nxt_q_reports_visibility" value="Partially">
                     </div>
 
                     <div class="nxt-field">
                         <label>4. Do you have a clear technology roadmap?</label>
+                        <span class="nxt-hint">e.g. planned digital priorities and budget for the next 12–24 months</span>
                         <div class="nxt-options-grid" data-group="q_tech_roadmap">
                             <div class="nxt-option-pill" data-val="Not at all">Not at all</div>
                             <div class="nxt-option-pill" data-val="Slightly">Slightly</div>
                             <div class="nxt-option-pill selected" data-val="Partially">Partially</div>
                             <div class="nxt-option-pill" data-val="Mostly">Mostly</div>
                             <div class="nxt-option-pill" data-val="Fully">Fully</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_tech_roadmap" id="nxt_q_tech_roadmap" value="Partially">
                     </div>
@@ -605,41 +826,45 @@
 
                 <!-- STEP 3: AI READINESS -->
                 <div class="nxt-step-pane" id="nxtStep3" style="display:none;">
-                    <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:10px; padding:0.9rem; margin-bottom:1.4rem; font-size:0.82rem; color:#166534;">
-                        <strong>Indicative Guidance Notice:</strong> This questionnaire provides high-level strategic orientation. It is not an ISO/compliance audit or formal AI certification.
+                    <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:10px; padding:0.9rem; margin-bottom:1.4rem; font-size:0.82rem; color:#166534; line-height:1.45;">
+                        <strong>Indicative Guidance Notice:</strong> This questionnaire provides preliminary technology advisory insights. It is not an ISO certification or formal compliance audit.
                     </div>
 
                     <div class="nxt-field">
-                        <label>1. Is your business currently using AI tools?</label>
-                        <span class="nxt-hint">e.g. LLM drafting, automated customer classification, OCR</span>
+                        <label>1. Is your business currently using AI tools in daily work?</label>
+                        <span class="nxt-hint">e.g. ChatGPT, Microsoft Copilot, automated draft replies, or intelligent document search</span>
                         <div class="nxt-options-grid" data-group="q_ai_current_use">
                             <div class="nxt-option-pill" data-val="Not yet">Not yet</div>
-                            <div class="nxt-option-pill selected" data-val="Exploring">Exploring</div>
-                            <div class="nxt-option-pill" data-val="Piloting">Piloting</div>
-                            <div class="nxt-option-pill" data-val="Already implemented">Already implemented</div>
+                            <div class="nxt-option-pill selected" data-val="Exploring">Exploring / Evaluating</div>
+                            <div class="nxt-option-pill" data-val="Piloting">Piloting in some teams</div>
+                            <div class="nxt-option-pill" data-val="Already implemented">Part of daily workflow</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_ai_current_use" id="nxt_q_ai_current_use" value="Exploring">
                     </div>
 
                     <div class="nxt-field">
-                        <label>2. Have you identified processes that could benefit from AI?</label>
+                        <label>2. Have you identified specific workflows that could benefit from AI?</label>
+                        <span class="nxt-hint">e.g. proposal drafting, invoice data capture, customer triage, inventory prediction</span>
                         <div class="nxt-options-grid" data-group="q_ai_opportunities">
-                            <div class="nxt-option-pill" data-val="Not yet">Not yet</div>
-                            <div class="nxt-option-pill selected" data-val="Exploring">Exploring</div>
-                            <div class="nxt-option-pill" data-val="Piloting">Piloting</div>
-                            <div class="nxt-option-pill" data-val="Already implemented">Already implemented</div>
+                            <div class="nxt-option-pill" data-val="Not yet">Not yet identified</div>
+                            <div class="nxt-option-pill selected" data-val="Exploring">A few ideas in discussion</div>
+                            <div class="nxt-option-pill" data-val="Piloting">Multiple use cases mapped</div>
+                            <div class="nxt-option-pill" data-val="Already implemented">Clear backlog ready</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_ai_opportunities" id="nxt_q_ai_opportunities" value="Exploring">
                     </div>
 
                     <div class="nxt-field">
-                        <label>3. Do you have a process for evaluating AI risks and data privacy?</label>
-                        <span class="nxt-hint">e.g. ensuring proprietary company IP is not leaked into public training sets</span>
+                        <label>3. Do you have guidelines for AI data privacy, risk management, and client confidentiality?</label>
+                        <span class="nxt-hint">e.g. ensuring proprietary company IP and client data are not shared with public AI models</span>
                         <div class="nxt-options-grid" data-group="q_ai_risk_privacy">
-                            <div class="nxt-option-pill selected" data-val="Not yet">Not yet</div>
-                            <div class="nxt-option-pill" data-val="Exploring">Exploring</div>
-                            <div class="nxt-option-pill" data-val="Piloting">Piloting</div>
-                            <div class="nxt-option-pill" data-val="Already implemented">Already implemented</div>
+                            <div class="nxt-option-pill selected" data-val="Not yet">No formal guidelines yet</div>
+                            <div class="nxt-option-pill" data-val="Exploring">Informal discussions only</div>
+                            <div class="nxt-option-pill" data-val="Piloting">Basic staff guidelines in place</div>
+                            <div class="nxt-option-pill" data-val="Already implemented">Formal policy &amp; security review</div>
+                            <div class="nxt-option-pill" data-val="Not sure">Not sure</div>
                         </div>
                         <input type="hidden" name="q_ai_risk_privacy" id="nxt_q_ai_risk_privacy" value="Not yet">
                     </div>
@@ -653,45 +878,53 @@
                 <!-- STEP 4: CONTACT DETAILS -->
                 <div class="nxt-step-pane" id="nxtStep4" style="display:none;">
                     <div style="margin-bottom:1.2rem;">
-                        <h4 style="font-size:1.1rem; font-weight:700; color:var(--nxt-navy); margin:0 0 0.3rem 0;">Where should we send your preliminary score?</h4>
-                        <p style="font-size:0.85rem; color:var(--nxt-muted); margin:0;">
-                            We will calculate your technology maturity score immediately and prepare a personalised breakdown. No spam, guaranteed.
+                        <h4 style="font-size:1.15rem; font-weight:700; color:var(--nxt-navy); margin:0 0 0.35rem 0;">Where should we send your preliminary scorecard?</h4>
+                        <p style="font-size:0.86rem; color:var(--nxt-muted); margin:0; line-height:1.45;">
+                            We calculate your technology maturity score immediately on the next screen and generate personalised observations.
                         </p>
                     </div>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
                         <div class="nxt-field">
                             <label for="nxt_full_name">Full Name *</label>
-                            <input type="text" id="nxt_full_name" name="full_name" required placeholder="e.g. David Campbell">
+                            <input type="text" id="nxt_full_name" name="full_name" required placeholder="e.g. David Campbell" autocomplete="name">
                         </div>
                         <div class="nxt-field">
                             <label for="nxt_email">Business Email *</label>
-                            <input type="email" id="nxt_email" name="email" required placeholder="david@company.co.uk">
+                            <input type="email" id="nxt_email" name="email" required placeholder="david@company.co.uk" autocomplete="email">
                         </div>
                     </div>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
                         <div class="nxt-field">
                             <label for="nxt_company">Company Name *</label>
-                            <input type="text" id="nxt_company" name="company" required placeholder="Acme Ltd">
+                            <input type="text" id="nxt_company" name="company" required placeholder="e.g. Campbell Engineering Ltd" autocomplete="organization">
                         </div>
                         <div class="nxt-field">
                             <label for="nxt_phone">Direct Phone (Optional)</label>
-                            <input type="tel" id="nxt_phone" name="phone" placeholder="+44 (0)7000 000000">
+                            <input type="tel" id="nxt_phone" name="phone" placeholder="+44 (0)7000 000000" autocomplete="tel">
                         </div>
                     </div>
 
                     <div class="nxt-field">
-                        <label for="nxt_notes">Specific questions or areas of interest? (Optional)</label>
-                        <textarea id="nxt_notes" name="additional_notes" rows="2" placeholder="Tell us if you are evaluating specific software, ERP migration, or process automation..."></textarea>
+                        <label for="nxt_notes">Specific questions, tool evaluations, or goals? (Optional)</label>
+                        <textarea id="nxt_notes" name="additional_notes" rows="2" placeholder="Tell us if you are evaluating ERP migration, CRM integration, or automating specific workflows..."></textarea>
                     </div>
 
-                    <div style="margin-bottom:1.4rem;">
-                        <label style="display:flex; align-items:flex-start; gap:0.6rem; font-size:0.78rem; color:var(--nxt-muted); cursor:pointer;">
-                            <input type="checkbox" id="nxt_consent" required checked style="margin-top:2px; accent-color:var(--nxt-gold);">
-                            <span>I agree to receive my assessment results. Nexteck treats all corporate data confidentially under UK GDPR standards. We do not sell data.</span>
+                    <!-- UK GDPR Compliant Consents (Unchecked by default) -->
+                    <div style="margin-bottom:1.3rem;">
+                        <label style="display:flex; align-items:flex-start; gap:0.65rem; font-size:0.82rem; color:var(--nxt-text); cursor:pointer; margin-bottom:0.75rem; line-height:1.45;">
+                            <input type="checkbox" id="nxt_consent_assessment" required style="margin-top:3px; accent-color:var(--nxt-gold); width:16px; height:16px; flex-shrink:0;">
+                            <span>I consent to The Nexteck processing my business details to generate and send my Technology Health Check scorecard and recommendations in accordance with the <a href="{{ route('privacy-policy') }}" target="_blank" rel="noopener" style="color:var(--nxt-navy); text-decoration:underline; font-weight:600;">Privacy Policy</a>. *</span>
+                        </label>
+
+                        <label style="display:flex; align-items:flex-start; gap:0.65rem; font-size:0.82rem; color:var(--nxt-muted); cursor:pointer; line-height:1.45;">
+                            <input type="checkbox" id="nxt_consent_marketing" style="margin-top:3px; accent-color:var(--nxt-gold); width:16px; height:16px; flex-shrink:0;">
+                            <span>Keep me updated with occasional technology strategy insights, industry benchmarks, and automation guides. (Optional)</span>
                         </label>
                     </div>
+
+                    <div id="nxtStep4Error" class="nxt-step-error"></div>
 
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(3)">&larr; Back</button>
@@ -708,47 +941,62 @@
                             Indicative Technology Maturity
                         </span>
                         <div class="nxt-score-circle" id="nxtResultScore">--%</div>
-                        <h4 style="font-size:1.3rem; margin:0 0 0.4rem 0; color:#fff;" id="nxtResultTier">Emerging</h4>
-                        <p style="font-size:0.9rem; color:#CBD5E1; max-width:48ch; margin:0 auto;" id="nxtResultSummary">
+                        <h4 style="font-size:1.35rem; margin:0 0 0.4rem 0; color:#fff;" id="nxtResultTier">Emerging</h4>
+                        <p style="font-size:0.92rem; color:#CBD5E1; max-width:54ch; margin:0 auto; line-height:1.5;" id="nxtResultSummary">
                             Calculating assessment findings...
                         </p>
+                        <div style="font-size:0.75rem; color:#94A3B8; margin-top:0.9rem; border-top:1px solid rgba(255,255,255,0.12); padding-top:0.6rem;" id="nxtResultMethodology">
+                            Scoring Methodology: Weighted evaluation of Operational Efficiency (60%), Practical AI Adoption (25%), and Data Privacy &amp; Governance (15%).
+                        </div>
                     </div>
 
-                    <!-- Metrics Breakdown -->
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.4rem;">
+                    <!-- Metrics Breakdown (Operations, AI Adoption, AI Governance) -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:0.9rem; margin-bottom:1.4rem;">
                         <div style="background:#FAF9F6; border:1px solid #E5E7EB; border-radius:10px; padding:1rem; text-align:center;">
-                            <span style="font-size:0.76rem; color:var(--nxt-muted); text-transform:uppercase; font-weight:700;">Operational Efficiency</span>
-                            <div style="font-size:1.4rem; font-weight:700; color:var(--nxt-navy); margin-top:0.2rem;" id="nxtResultOpScore">--%</div>
+                            <span style="font-size:0.74rem; color:var(--nxt-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.04em;">Operational Efficiency</span>
+                            <div style="font-size:1.5rem; font-weight:700; color:var(--nxt-navy); margin-top:0.25rem;" id="nxtResultOpScore">--%</div>
                         </div>
                         <div style="background:#FAF9F6; border:1px solid #E5E7EB; border-radius:10px; padding:1rem; text-align:center;">
-                            <span style="font-size:0.76rem; color:var(--nxt-muted); text-transform:uppercase; font-weight:700;">AI Governance &amp; Readiness</span>
-                            <div style="font-size:1.4rem; font-weight:700; color:var(--nxt-navy); margin-top:0.2rem;" id="nxtResultAiScore">--%</div>
+                            <span style="font-size:0.74rem; color:var(--nxt-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.04em;">Practical AI Adoption</span>
+                            <div style="font-size:1.5rem; font-weight:700; color:var(--nxt-navy); margin-top:0.25rem;" id="nxtResultAiUsageScore">--%</div>
+                        </div>
+                        <div style="background:#FAF9F6; border:1px solid #E5E7EB; border-radius:10px; padding:1rem; text-align:center;">
+                            <span style="font-size:0.74rem; color:var(--nxt-muted); text-transform:uppercase; font-weight:700; letter-spacing:0.04em;">AI Governance &amp; Safety</span>
+                            <div style="font-size:1.5rem; font-weight:700; color:var(--nxt-navy); margin-top:0.25rem;" id="nxtResultAiGovScore">--%</div>
                         </div>
                     </div>
 
                     <!-- Key Observations & Next Steps -->
-                    <div style="background:#FAF9F6; border:1px solid #E5E7EB; border-radius:12px; padding:1.2rem; margin-bottom:1.5rem;">
-                        <h5 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--nxt-navy); margin:0 0 0.6rem 0;">
+                    <div style="background:#FAF9F6; border:1px solid #E5E7EB; border-radius:12px; padding:1.3rem; margin-bottom:1.5rem;">
+                        <h5 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--nxt-navy); margin:0 0 0.6rem 0; letter-spacing:0.05em;">
                             Strategic Observations
                         </h5>
-                        <ul id="nxtResultObservations" style="padding-left:1.2rem; margin:0 0 1rem 0; font-size:0.86rem; color:var(--nxt-text); line-height:1.5;">
+                        <ul id="nxtResultObservations" style="padding-left:1.2rem; margin:0 0 1.2rem 0; font-size:0.88rem; color:var(--nxt-text); line-height:1.55;">
                         </ul>
 
-                        <h5 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--nxt-navy); margin:0 0 0.6rem 0;">
+                        <h5 style="font-size:0.85rem; font-weight:700; text-transform:uppercase; color:var(--nxt-navy); margin:0 0 0.6rem 0; letter-spacing:0.05em;">
                             Recommended Next Steps
                         </h5>
-                        <ul id="nxtResultNextSteps" style="padding-left:1.2rem; margin:0; font-size:0.86rem; color:var(--nxt-text); line-height:1.5;">
+                        <ul id="nxtResultNextSteps" style="padding-left:1.2rem; margin:0; font-size:0.88rem; color:var(--nxt-text); line-height:1.55;">
                         </ul>
                     </div>
 
-                    <!-- CTA to Discuss With Team -->
-                    <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                    <!-- Indicative Disclaimer Notice -->
+                    <p style="font-size:0.75rem; color:var(--nxt-muted); text-align:center; margin:-0.5rem 0 1.2rem; line-height:1.45;">
+                        <em>Note:</em> Results provide indicative strategic orientation based on self-reported inputs. They do not constitute a formal compliance certification or statutory audit.
+                    </p>
+
+                    <!-- CTAs & Actions -->
+                    <div style="display:flex; flex-direction:column; gap:0.65rem;">
                         <button type="button" class="nxt-btn nxt-btn-gold" id="nxtBookFromResultsBtn" onclick="NxtEngagement.bookDiscoveryCallFromResults()" style="width:100%; font-size:1rem; padding:0.95rem;">
                             Discuss Your Results With Our Team &rarr;
                         </button>
-                        <div style="text-align:center;">
-                            <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(1)" style="font-size:0.82rem; padding:0.4rem 0.8rem;">
-                                Edit Answers
+                        <div style="display:flex; gap:0.6rem; justify-content:center; align-items:center;">
+                            <button type="button" class="nxt-btn nxt-btn-ghost" onclick="NxtEngagement.printReport()" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
+                                Download / Print Scorecard (PDF)
+                            </button>
+                            <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(1)" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
+                                &larr; Edit Answers
                             </button>
                         </div>
                     </div>
@@ -866,6 +1114,7 @@
         currentStep: 1,
         lastLeadId: null,
         lastResults: null,
+        lastFocusedElement: null,
 
         init: function() {
             this.bindEvents();
@@ -880,24 +1129,67 @@
 
             // Welcome popup handlers
             const welcomeOverlay = document.getElementById('nxtWelcomeOverlay');
+            const welcomeCardTrigger = document.getElementById('nxtWelcomeCardTrigger');
             const welcomeCloseBtn = document.getElementById('nxtWelcomeCloseBtn');
             const welcomeDismissBtn = document.getElementById('nxtWelcomeDismissBtn');
             const welcomeStartBtn = document.getElementById('nxtWelcomeStartAssessmentBtn');
+            const welcomeExploreBtn = document.getElementById('nxtWelcomeExploreBtn');
 
-            if (welcomeCloseBtn) welcomeCloseBtn.onclick = () => self.dismissWelcomePopup('button_x');
-            if (welcomeDismissBtn) welcomeDismissBtn.onclick = () => self.dismissWelcomePopup('maybe_later');
+            // Interactive assessment card click / keypress
+            if (welcomeCardTrigger) {
+                welcomeCardTrigger.onclick = () => {
+                    self.trackEvent('welcome_popup_clicked', { action: 'assessment_card' });
+                    self.hideModal('nxtWelcomeOverlay');
+                    setTimeout(() => self.openAssessmentModal(), 200);
+                };
+                welcomeCardTrigger.onkeydown = (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        welcomeCardTrigger.click();
+                    }
+                };
+            }
+
+            // Primary Gold CTA
             if (welcomeStartBtn) {
                 welcomeStartBtn.onclick = () => {
                     self.trackEvent('welcome_popup_clicked', { action: 'start_assessment' });
                     self.hideModal('nxtWelcomeOverlay');
-                    setTimeout(() => self.openAssessmentModal(), 250);
+                    setTimeout(() => self.openAssessmentModal(), 200);
                 };
             }
+
+            // Secondary Explore Services CTA
+            if (welcomeExploreBtn) {
+                welcomeExploreBtn.onclick = () => {
+                    self.trackEvent('welcome_popup_service_clicked', { href: welcomeExploreBtn.getAttribute('href') });
+                };
+            }
+
+            // Close & Dismiss actions
+            if (welcomeCloseBtn) welcomeCloseBtn.onclick = () => self.dismissWelcomePopup('button_x');
+            if (welcomeDismissBtn) welcomeDismissBtn.onclick = () => self.dismissWelcomePopup('maybe_later');
+
+            // Backdrop click to dismiss
+            document.querySelectorAll('.nxt-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) {
+                        if (overlay.id === 'nxtWelcomeOverlay') {
+                            self.dismissWelcomePopup('backdrop_click');
+                        } else {
+                            self.hideModal(overlay.id);
+                        }
+                    }
+                });
+            });
 
             // Assessment modal handlers
             const assessmentCloseBtn = document.getElementById('nxtAssessmentCloseBtn');
             if (assessmentCloseBtn) {
                 assessmentCloseBtn.onclick = () => {
+                    if (self.currentStep > 1 && self.currentStep < 5 && !localStorage.getItem('nxt_assessment_completed')) {
+                        self.trackEvent('assessment_abandoned', { step: self.currentStep });
+                    }
                     self.hideModal('nxtAssessmentOverlay');
                     try {
                         localStorage.setItem('nxt_engagement_seen', 'true');
@@ -915,12 +1207,40 @@
             // Escape key dismiss
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    self.hideModal('nxtWelcomeOverlay');
-                    self.hideModal('nxtAssessmentOverlay');
-                    self.hideModal('nxtCalculatorOverlay');
-                    try {
-                        localStorage.setItem('nxt_engagement_seen', 'true');
-                    } catch (e) {}
+                    if (document.getElementById('nxtWelcomeOverlay')?.classList.contains('nxt-active')) {
+                        self.dismissWelcomePopup('escape_key');
+                    } else {
+                        if (self.currentStep > 1 && self.currentStep < 5 && !localStorage.getItem('nxt_assessment_completed')) {
+                            self.trackEvent('assessment_abandoned', { step: self.currentStep });
+                        }
+                        self.hideModal('nxtAssessmentOverlay');
+                        self.hideModal('nxtCalculatorOverlay');
+                    }
+                }
+            });
+
+            // Accessible focus trap within active modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key !== 'Tab') return;
+                const activeModal = document.querySelector('.nxt-overlay.nxt-active .nxt-modal');
+                if (!activeModal) return;
+
+                const focusable = activeModal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+                if (!focusable.length) return;
+
+                const firstEl = focusable[0];
+                const lastEl = focusable[focusable.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstEl) {
+                        e.preventDefault();
+                        lastEl.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastEl) {
+                        e.preventDefault();
+                        firstEl.focus();
+                    }
                 }
             });
 
@@ -944,8 +1264,8 @@
 
         isFrequencyCapped: function() {
             try {
-                // If user has completed assessment or closed modals previously, do not auto-open again
                 if (localStorage.getItem('nxt_assessment_completed') === 'true') return true;
+                if (localStorage.getItem('nxt_welcome_dismissed') === 'true') return true;
                 if (localStorage.getItem('nxt_engagement_seen') === 'true') return true;
 
                 const dismissedUntil = localStorage.getItem('nxt_popup_dismissed_until');
@@ -960,18 +1280,17 @@
             const self = this;
             if (!self.settings.popupEnabled || self.isFrequencyCapped()) return;
 
-            // Trigger Welcome popup on first page entry only
+            const delayMs = (parseInt(self.settings.delaySeconds, 10) || 8) * 1000;
             setTimeout(function() {
                 if (!self.isFrequencyCapped() && !self.isAnyModalOpen()) {
-                    self.showWelcomePopup('page_entry');
+                    self.showWelcomePopup('time_delay');
                 }
-            }, 1200);
+            }, delayMs);
         },
 
         showWelcomePopup: function(trigger) {
-            const el = document.getElementById('nxtWelcomeOverlay');
-            if (!el) return;
-            el.classList.add('nxt-active');
+            if (this.isAnyModalOpen()) return;
+            this.showModal('nxtWelcomeOverlay');
             this.trackEvent('welcome_popup_viewed', { trigger: trigger });
         },
 
@@ -984,68 +1303,189 @@
                 const days = this.settings.frequencyDays || 7;
                 const expiry = Date.now() + (days * 24 * 60 * 60 * 1000);
                 localStorage.setItem('nxt_popup_dismissed_until', expiry.toString());
+                localStorage.setItem('nxt_welcome_dismissed', 'true');
                 localStorage.setItem('nxt_welcome_seen', 'true');
+                localStorage.setItem('nxt_engagement_seen', 'true');
             } catch (e) {}
-
-            // Smooth transition: open Business Technology Health Check modal right after closing Welcome popup
-            const self = this;
-            setTimeout(function() {
-                self.openAssessmentModal();
-            }, 250);
         },
 
         openAssessmentModal: function() {
-            const el = document.getElementById('nxtAssessmentOverlay');
-            if (el) {
-                el.classList.add('nxt-active');
-                this.goToStep(1);
-                this.trackEvent('assessment_started', { source: 'modal' });
-            }
+            this.showModal('nxtAssessmentOverlay');
+            this.goToStep(1);
+            this.trackEvent('assessment_started', { source: 'modal' });
         },
 
         openCalculatorModal: function() {
-            const el = document.getElementById('nxtCalculatorOverlay');
-            if (el) {
-                el.classList.add('nxt-active');
-                this.trackEvent('calculator_used', { source: 'modal' });
+            this.showModal('nxtCalculatorOverlay');
+            this.trackEvent('calculator_used', { source: 'modal' });
+        },
+
+        showModal: function(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+
+            // Ensure no other modal remains active simultaneously
+            document.querySelectorAll('.nxt-overlay.nxt-active').forEach(m => {
+                if (m.id !== modalId) m.classList.remove('nxt-active');
+            });
+
+            this.lastFocusedElement = document.activeElement;
+            el.classList.add('nxt-active');
+            document.body.style.overflow = 'hidden';
+
+            // Focus management
+            const focusable = el.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            if (focusable.length) {
+                setTimeout(() => focusable[0].focus(), 50);
             }
         },
 
         hideModal: function(modalId) {
             const el = document.getElementById(modalId);
             if (el) el.classList.remove('nxt-active');
+
+            if (!this.isAnyModalOpen()) {
+                document.body.style.overflow = '';
+                if (this.lastFocusedElement && typeof this.lastFocusedElement.focus === 'function') {
+                    try {
+                        this.lastFocusedElement.focus();
+                    } catch (e) {}
+                }
+            }
         },
 
         initPillGroups: function() {
-            document.querySelectorAll('.nxt-options-grid').forEach(grid => {
+            document.querySelectorAll('.nxt-options-grid:not(.nxt-multi-grid)').forEach(grid => {
                 const hiddenInput = grid.nextElementSibling;
                 grid.querySelectorAll('.nxt-option-pill').forEach(pill => {
-                    pill.onclick = function() {
-                        grid.querySelectorAll('.nxt-option-pill').forEach(p => p.classList.remove('selected'));
-                        this.classList.add('selected');
+                    const selectOption = () => {
+                        grid.querySelectorAll('.nxt-option-pill').forEach(p => {
+                            p.classList.remove('selected');
+                            p.setAttribute('aria-checked', 'false');
+                        });
+                        pill.classList.add('selected');
+                        pill.setAttribute('aria-checked', 'true');
                         if (hiddenInput && hiddenInput.tagName === 'INPUT') {
-                            hiddenInput.value = this.getAttribute('data-val');
+                            hiddenInput.value = pill.getAttribute('data-val');
+                        }
+                    };
+                    pill.onclick = selectOption;
+                    pill.onkeydown = (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            selectOption();
                         }
                     };
                 });
             });
+            this.initChallengePills();
+        },
+
+        initChallengePills: function() {
+            const grid = document.getElementById('nxtChallengesGrid');
+            if (!grid) return;
+            const otherWrap = document.getElementById('nxt_challenge_other_wrap');
+            const hiddenInput = document.getElementById('nxt_challenge');
+
+            grid.querySelectorAll('.nxt-multi-pill').forEach(pill => {
+                const toggle = () => {
+                    const isSelected = pill.classList.toggle('selected');
+                    pill.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+
+                    if (pill.id === 'nxtChallengeOtherPill') {
+                        if (otherWrap) {
+                            otherWrap.style.display = isSelected ? 'block' : 'none';
+                            if (isSelected) {
+                                setTimeout(() => document.getElementById('nxt_challenge_other')?.focus(), 50);
+                            }
+                        }
+                    }
+
+                    const selectedVals = Array.from(grid.querySelectorAll('.nxt-multi-pill.selected'))
+                        .map(p => p.getAttribute('data-val'))
+                        .filter(v => v !== 'Other');
+
+                    if (hiddenInput) {
+                        hiddenInput.value = selectedVals.length ? selectedVals.join(', ') : '';
+                    }
+
+                    const err = document.getElementById('nxtStep1Error');
+                    if (err) err.style.display = 'none';
+                };
+
+                pill.onclick = toggle;
+                pill.onkeydown = (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggle();
+                    }
+                };
+            });
+        },
+
+        toggleIndustryOther: function(val) {
+            const wrap = document.getElementById('nxt_industry_other_wrap');
+            const err = document.getElementById('nxtStep1Error');
+            if (err) err.style.display = 'none';
+            if (wrap) {
+                if (val === 'Other') {
+                    wrap.style.display = 'block';
+                    setTimeout(() => document.getElementById('nxt_industry_other')?.focus(), 50);
+                } else {
+                    wrap.style.display = 'none';
+                }
+            }
+        },
+
+        validateAndAdvanceStep1: function() {
+            const indSelect = document.getElementById('nxt_industry');
+            const indVal = indSelect ? indSelect.value : '';
+            const indOther = document.getElementById('nxt_industry_other');
+            const err = document.getElementById('nxtStep1Error');
+
+            if (!indVal) {
+                if (err) {
+                    err.innerText = 'Please select your industry sector to continue.';
+                    err.style.display = 'block';
+                }
+                indSelect?.focus();
+                return;
+            }
+
+            if (indVal === 'Other' && (!indOther || !indOther.value.trim())) {
+                if (err) {
+                    err.innerText = 'Please specify your industry in the provided field.';
+                    err.style.display = 'block';
+                }
+                indOther?.focus();
+                return;
+            }
+
+            const selectedPills = document.querySelectorAll('#nxtChallengesGrid .nxt-multi-pill.selected');
+            if (selectedPills.length === 0) {
+                if (err) {
+                    err.innerText = 'Please select at least one primary operational challenge.';
+                    err.style.display = 'block';
+                }
+                return;
+            }
+
+            const otherPill = document.getElementById('nxtChallengeOtherPill');
+            const otherInput = document.getElementById('nxt_challenge_other');
+            if (otherPill && otherPill.classList.contains('selected') && (!otherInput || !otherInput.value.trim())) {
+                if (err) {
+                    err.innerText = 'Please describe your operational challenge in the text field.';
+                    err.style.display = 'block';
+                }
+                otherInput?.focus();
+                return;
+            }
+
+            if (err) err.style.display = 'none';
+            this.goToStep(2);
         },
 
         goToStep: function(step) {
-            // Basic validation before advancing from Step 1
-            if (step === 2 && this.currentStep === 1) {
-                const ind = document.getElementById('nxt_industry').value;
-                const chal = document.getElementById('nxt_challenge').value;
-                if (!ind) {
-                    alert('Please select your business industry to continue.');
-                    return;
-                }
-                if (!chal) {
-                    alert('Please select your primary challenge.');
-                    return;
-                }
-            }
-
             this.currentStep = step;
             for (let i = 1; i <= 5; i++) {
                 const pane = document.getElementById('nxtStep' + i);
@@ -1060,51 +1500,119 @@
                 else if (num < step) item.classList.add('completed');
             });
 
-            this.trackEvent('assessment_step_completed', { step: step - 1 });
+            // Focus top of active pane
+            const activePane = document.getElementById('nxtStep' + step);
+            if (activePane) {
+                const focusable = activePane.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+                if (focusable.length) {
+                    setTimeout(() => focusable[0].focus(), 50);
+                }
+            }
+
+            if (step > 1 && step < 5) {
+                this.trackEvent('assessment_step_completed', { step: step - 1 });
+            }
         },
 
         submitAssessment: function() {
             const self = this;
-            const name = document.getElementById('nxt_full_name').value.trim();
-            const email = document.getElementById('nxt_email').value.trim();
-            const company = document.getElementById('nxt_company').value.trim();
-            const consent = document.getElementById('nxt_consent').checked;
+            if (self.isSubmitting) return;
 
-            if (!name || !email || !company) {
-                alert('Please provide your full name, work email, and company name.');
-                return;
-            }
-            if (!consent) {
-                alert('Please agree to receive your results.');
-                return;
-            }
-
+            const nameEl = document.getElementById('nxt_full_name');
+            const emailEl = document.getElementById('nxt_email');
+            const compEl = document.getElementById('nxt_company');
+            const phoneEl = document.getElementById('nxt_phone');
+            const notesEl = document.getElementById('nxt_notes');
+            const consentAssessEl = document.getElementById('nxt_consent_assessment');
+            const consentMktgEl = document.getElementById('nxt_consent_marketing');
+            const errBox = document.getElementById('nxtStep4Error');
             const btn = document.getElementById('nxtSubmitAssessmentBtn');
+
+            const name = nameEl ? nameEl.value.trim() : '';
+            const email = emailEl ? emailEl.value.trim() : '';
+            const company = compEl ? compEl.value.trim() : '';
+            const phone = phoneEl ? phoneEl.value.trim() : '';
+            const notes = notesEl ? notesEl.value.trim() : '';
+            const honeypot = document.getElementById('nxt_hp_company_url')?.value || '';
+
+            // Honeypot spam check
+            if (honeypot) return;
+
+            // Input Validation
+            if (!name) {
+                if (errBox) { errBox.innerText = 'Please provide your full name.'; errBox.style.display = 'block'; }
+                nameEl?.focus();
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                if (errBox) { errBox.innerText = 'Please provide a valid business email address.'; errBox.style.display = 'block'; }
+                emailEl?.focus();
+                return;
+            }
+            if (!company) {
+                if (errBox) { errBox.innerText = 'Please provide your company or organisation name.'; errBox.style.display = 'block'; }
+                compEl?.focus();
+                return;
+            }
+            if (!consentAssessEl || !consentAssessEl.checked) {
+                if (errBox) { errBox.innerText = 'Please agree to allow processing of your inputs to generate your preliminary results.'; errBox.style.display = 'block'; }
+                consentAssessEl?.focus();
+                return;
+            }
+
+            if (errBox) errBox.style.display = 'none';
+
+            // Extract challenges array
+            const selectedChallenges = [];
+            document.querySelectorAll('#nxtChallengesGrid .nxt-multi-pill.selected').forEach(pill => {
+                const val = pill.getAttribute('data-val');
+                if (val === 'Other') {
+                    const customChal = document.getElementById('nxt_challenge_other')?.value.trim();
+                    if (customChal) selectedChallenges.push('Other: ' + customChal);
+                } else if (val) {
+                    selectedChallenges.push(val);
+                }
+            });
+
+            // Extract Industry
+            let industryVal = document.getElementById('nxt_industry')?.value || '';
+            const industryOther = document.getElementById('nxt_industry_other')?.value.trim();
+            if (industryVal === 'Other' && industryOther) {
+                industryVal = 'Other: ' + industryOther;
+            }
+
+            self.isSubmitting = true;
             if (btn) {
                 btn.disabled = true;
-                btn.innerText = 'Calculating Results...';
+                btn.innerText = 'Analyzing Responses & Generating Score...';
             }
 
             const payload = {
                 full_name: name,
                 email: email,
                 company: company,
-                phone: document.getElementById('nxt_phone').value.trim(),
-                industry: document.getElementById('nxt_industry').value,
-                company_size: document.getElementById('nxt_company_size').value,
-                primary_challenge: document.getElementById('nxt_challenge').value,
-                additional_notes: document.getElementById('nxt_notes').value.trim(),
+                phone: phone,
+                industry: industryVal,
+                industry_other: industryOther,
+                company_size: document.getElementById('nxt_company_size')?.value || '11–50 employees',
+                primary_challenge: selectedChallenges.length ? selectedChallenges[0] : (document.getElementById('nxt_challenge')?.value || ''),
+                challenges: selectedChallenges,
+                additional_notes: notes,
+                consent_assessment: true,
+                consent_marketing: consentMktgEl ? consentMktgEl.checked : false,
                 responses: {
-                    industry: document.getElementById('nxt_industry').value,
-                    company_size: document.getElementById('nxt_company_size').value,
-                    primary_challenge: document.getElementById('nxt_challenge').value,
-                    q_manual_work: document.getElementById('nxt_q_manual_work').value,
-                    q_systems_integration: document.getElementById('nxt_q_systems_integration').value,
-                    q_reports_visibility: document.getElementById('nxt_q_reports_visibility').value,
-                    q_tech_roadmap: document.getElementById('nxt_q_tech_roadmap').value,
-                    q_ai_current_use: document.getElementById('nxt_q_ai_current_use').value,
-                    q_ai_opportunities: document.getElementById('nxt_q_ai_opportunities').value,
-                    q_ai_risk_privacy: document.getElementById('nxt_q_ai_risk_privacy').value,
+                    industry: industryVal,
+                    company_size: document.getElementById('nxt_company_size')?.value || '11–50 employees',
+                    primary_challenge: selectedChallenges.length ? selectedChallenges[0] : '',
+                    challenges: selectedChallenges,
+                    q_manual_work: document.getElementById('nxt_q_manual_work')?.value || 'Partially',
+                    q_systems_integration: document.getElementById('nxt_q_systems_integration')?.value || 'Partially',
+                    q_reports_visibility: document.getElementById('nxt_q_reports_visibility')?.value || 'Partially',
+                    q_tech_roadmap: document.getElementById('nxt_q_tech_roadmap')?.value || 'Partially',
+                    q_ai_current_use: document.getElementById('nxt_q_ai_current_use')?.value || 'Exploring',
+                    q_ai_opportunities: document.getElementById('nxt_q_ai_opportunities')?.value || 'Exploring',
+                    q_ai_risk_privacy: document.getElementById('nxt_q_ai_risk_privacy')?.value || 'Not yet',
                 },
                 calculator_inputs: self.getCalcInputs(),
                 calculator_results: self.getCalcOutputs(),
@@ -1121,6 +1629,7 @@
             })
             .then(res => res.json())
             .then(data => {
+                self.isSubmitting = false;
                 if (btn) {
                     btn.disabled = false;
                     btn.innerText = 'Generate My Health Check Results →';
@@ -1139,16 +1648,30 @@
                         localStorage.setItem('nxt_lead_company', company);
                         localStorage.setItem('nxt_lead_challenge', payload.primary_challenge);
                     } catch (e) {}
+
+                    self.trackEvent('assessment_completed', { score: data.score, maturity: data.maturity_level });
+                    self.trackEvent('assessment_results_viewed', { score: data.score });
                 } else {
-                    alert(data.message || 'Error generating assessment results. Please check your inputs.');
+                    if (errBox) {
+                        errBox.innerText = data.message || 'Error generating assessment results. Please check your inputs.';
+                        errBox.style.display = 'block';
+                    } else {
+                        alert(data.message || 'Error generating assessment results.');
+                    }
                 }
             })
             .catch(err => {
+                self.isSubmitting = false;
                 if (btn) {
                     btn.disabled = false;
                     btn.innerText = 'Generate My Health Check Results →';
                 }
-                alert('Connection error. Please try again.');
+                if (errBox) {
+                    errBox.innerText = 'Connection error. Please check your network and try again.';
+                    errBox.style.display = 'block';
+                } else {
+                    alert('Connection error. Please try again.');
+                }
             });
         },
 
@@ -1157,23 +1680,36 @@
             document.getElementById('nxtResultTier').innerText = data.maturity_level + ' Technology Maturity';
             document.getElementById('nxtResultSummary').innerText = data.summary;
             document.getElementById('nxtResultOpScore').innerText = data.operational_score + '%';
-            document.getElementById('nxtResultAiScore').innerText = data.ai_readiness_score + '%';
+            document.getElementById('nxtResultAiUsageScore').innerText = (data.ai_usage_score || data.ai_readiness_score) + '%';
+            document.getElementById('nxtResultAiGovScore').innerText = (data.ai_governance_score || 25) + '%';
+            if (data.methodology_note) {
+                const methEl = document.getElementById('nxtResultMethodology');
+                if (methEl) methEl.innerText = 'Scoring Methodology: ' + data.methodology_note;
+            }
 
             const obsUl = document.getElementById('nxtResultObservations');
-            obsUl.innerHTML = '';
-            (data.observations || []).forEach(obs => {
-                const li = document.createElement('li');
-                li.innerText = obs;
-                obsUl.appendChild(li);
-            });
+            if (obsUl) {
+                obsUl.innerHTML = '';
+                (data.observations || []).forEach(obs => {
+                    const li = document.createElement('li');
+                    li.innerText = obs;
+                    obsUl.appendChild(li);
+                });
+            }
 
             const stepsUl = document.getElementById('nxtResultNextSteps');
-            stepsUl.innerHTML = '';
-            (data.recommended_steps || []).forEach(step => {
-                const li = document.createElement('li');
-                li.innerText = step;
-                stepsUl.appendChild(li);
-            });
+            if (stepsUl) {
+                stepsUl.innerHTML = '';
+                (data.recommended_steps || []).forEach(step => {
+                    const li = document.createElement('li');
+                    li.innerText = step;
+                    stepsUl.appendChild(li);
+                });
+            }
+        },
+
+        printReport: function() {
+            window.print();
         },
 
         bookDiscoveryCallFromResults: function() {
@@ -1181,15 +1717,15 @@
             const btn = document.getElementById('nxtBookFromResultsBtn');
             if (btn) {
                 btn.disabled = true;
-                btn.innerText = 'Booking Discovery Call...';
+                btn.innerText = 'Requesting Advisory Slot...';
             }
 
-            const name = document.getElementById('nxt_full_name').value.trim();
-            const email = document.getElementById('nxt_email').value.trim();
-            const company = document.getElementById('nxt_company').value.trim();
-            const phone = document.getElementById('nxt_phone').value.trim();
-            const size = document.getElementById('nxt_company_size').value;
-            const chal = document.getElementById('nxt_challenge').value;
+            const name = document.getElementById('nxt_full_name')?.value.trim() || localStorage.getItem('nxt_lead_name') || '';
+            const email = document.getElementById('nxt_email')?.value.trim() || localStorage.getItem('nxt_lead_email') || '';
+            const company = document.getElementById('nxt_company')?.value.trim() || localStorage.getItem('nxt_lead_company') || '';
+            const phone = document.getElementById('nxt_phone')?.value.trim() || '';
+            const size = document.getElementById('nxt_company_size')?.value || '11–50 employees';
+            const chal = document.getElementById('nxt_challenge')?.value || 'Technology Health Check Diagnostic';
 
             fetch('/api/engagement/consultation', {
                 method: 'POST',
@@ -1213,14 +1749,14 @@
             .then(data => {
                 if (btn) {
                     btn.disabled = false;
-                    btn.innerText = '✓ Call Slot Requested!';
+                    btn.innerText = '✓ Advisory Call Slot Requested!';
                     btn.style.background = '#059669';
                 }
-                alert(data.message || 'Your consultation request has been received! Mohammed or our advisory team will contact you within one business day.');
-                setTimeout(() => self.hideModal('nxtAssessmentOverlay'), 1500);
+                self.trackEvent('consultation_requested', { lead_id: self.lastLeadId });
+                alert(data.message || 'Your consultation request has been received! Our advisory team will contact you within one business day.');
+                setTimeout(() => self.hideModal('nxtAssessmentOverlay'), 1800);
             })
             .catch(() => {
-                // If API fails, redirect seamlessly to #book with prefilled params
                 window.location.href = "{{ route('landing') }}#book?full_name=" + encodeURIComponent(name) + "&work_email=" + encodeURIComponent(email) + "&company=" + encodeURIComponent(company);
             });
         },

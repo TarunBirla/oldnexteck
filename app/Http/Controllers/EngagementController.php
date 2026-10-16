@@ -51,34 +51,97 @@ class EngagementController extends Controller
      */
     public function submitAssessment(Request $request)
     {
+        // 1. Anti-spam honeypot check
+        if ($request->filled('nxt_hp_company_url')) {
+            Log::info('Spam honeypot triggered on assessment submission.', ['ip' => $request->ip()]);
+            return response()->json([
+                'success' => true,
+                'message' => 'Your assessment has been recorded.',
+            ]);
+        }
+
         $validated = $request->validate([
             'full_name'          => 'required|string|max:255',
             'email'              => 'required|email|max:255',
             'company'            => 'required|string|max:255',
             'phone'              => 'nullable|string|max:50',
             'industry'           => 'nullable|string|max:255',
+            'industry_other'     => 'nullable|string|max:255',
             'company_size'       => 'nullable|string|max:100',
             'primary_challenge'  => 'nullable|string|max:255',
+            'challenges'         => 'nullable|array',
             'additional_notes'   => 'nullable|string|max:2000',
+            'consent_assessment' => 'nullable|boolean',
+            'consent_marketing'  => 'nullable|boolean',
             'responses'          => 'nullable|array',
             'calculator_inputs'  => 'nullable|array',
             'calculator_results' => 'nullable|array',
             'session_id'         => 'nullable|string|max:128',
         ]);
 
-        $responses = $validated['responses'] ?? [];
-        $scoring = AssessmentLead::calculateScore($responses);
-
         AssessmentLead::ensureTableExists();
+
+        $email = trim(strtolower($validated['email']));
+
+        // Format Industry (handle "Other (Please specify)")
+        $industry = $validated['industry'] ?? null;
+        if (($industry === 'Other' || $industry === 'Other Commercial Sector') && !empty($validated['industry_other'])) {
+            $industry = 'Other: ' . trim($validated['industry_other']);
+        }
+
+        // Format Multiple Challenges if provided
+        $challenges = $validated['challenges'] ?? [];
+        $primaryChallenge = $validated['primary_challenge'] ?? null;
+        if (!empty($challenges)) {
+            $primaryChallenge = implode(', ', array_slice($challenges, 0, 3));
+            if (count($challenges) > 3) {
+                $primaryChallenge .= ' +' . (count($challenges) - 3) . ' more';
+            }
+        }
+
+        $responses = $validated['responses'] ?? [];
+        $responses['challenges'] = $challenges;
+        $responses['primary_challenge'] = $primaryChallenge;
+        $responses['industry'] = $industry;
+        $responses['consent_assessment'] = (bool) ($validated['consent_assessment'] ?? true);
+        $responses['consent_marketing']  = (bool) ($validated['consent_marketing'] ?? false);
+
+        // 2. Accidental Duplicate Submission Prevention (15-second debounce)
+        $recentLead = AssessmentLead::where('email', $email)
+            ->where('created_at', '>=', now()->subSeconds(15))
+            ->first();
+
+        if ($recentLead) {
+            $scoring = AssessmentLead::calculateScore($recentLead->responses ?? $responses);
+            return response()->json([
+                'success'             => true,
+                'lead_id'             => $recentLead->id,
+                'is_duplicate'        => true,
+                'score'               => $recentLead->score,
+                'maturity_level'      => $recentLead->maturity_level,
+                'badge_color'         => $scoring['badge_color'],
+                'summary'             => $scoring['summary'],
+                'operational_score'   => $scoring['operational_score'],
+                'ai_readiness_score'  => $scoring['ai_readiness_score'],
+                'ai_usage_score'      => $scoring['ai_usage_score'],
+                'ai_governance_score' => $scoring['ai_governance_score'],
+                'methodology_note'    => $scoring['methodology_note'],
+                'observations'        => $scoring['observations'],
+                'recommended_steps'   => $scoring['recommended_steps'],
+                'suggested_services'  => $scoring['suggested_services'],
+            ]);
+        }
+
+        $scoring = AssessmentLead::calculateScore($responses);
 
         $lead = AssessmentLead::create([
             'full_name'          => $validated['full_name'],
             'email'              => $validated['email'],
             'company'            => $validated['company'],
             'phone'              => $validated['phone'] ?? null,
-            'industry'           => $validated['industry'] ?? null,
+            'industry'           => $industry,
             'company_size'       => $validated['company_size'] ?? null,
-            'primary_challenge'  => $validated['primary_challenge'] ?? null,
+            'primary_challenge'  => $primaryChallenge,
             'additional_notes'   => $validated['additional_notes'] ?? null,
             'responses'          => $responses,
             'score'              => $scoring['score'],
@@ -118,17 +181,20 @@ class EngagementController extends Controller
         );
 
         return response()->json([
-            'success'            => true,
-            'lead_id'            => $lead->id,
-            'score'              => $scoring['score'],
-            'maturity_level'     => $scoring['maturity_level'],
-            'badge_color'        => $scoring['badge_color'],
-            'summary'            => $scoring['summary'],
-            'operational_score'  => $scoring['operational_score'],
-            'ai_readiness_score' => $scoring['ai_readiness_score'],
-            'observations'       => $scoring['observations'],
-            'recommended_steps'  => $scoring['recommended_steps'],
-            'suggested_services' => $scoring['suggested_services'],
+            'success'             => true,
+            'lead_id'             => $lead->id,
+            'score'               => $scoring['score'],
+            'maturity_level'      => $scoring['maturity_level'],
+            'badge_color'         => $scoring['badge_color'],
+            'summary'             => $scoring['summary'],
+            'operational_score'   => $scoring['operational_score'],
+            'ai_readiness_score'  => $scoring['ai_readiness_score'],
+            'ai_usage_score'      => $scoring['ai_usage_score'],
+            'ai_governance_score' => $scoring['ai_governance_score'],
+            'methodology_note'    => $scoring['methodology_note'],
+            'observations'        => $scoring['observations'],
+            'recommended_steps'   => $scoring['recommended_steps'],
+            'suggested_services'  => $scoring['suggested_services'],
         ]);
     }
 
