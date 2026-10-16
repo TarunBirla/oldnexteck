@@ -915,7 +915,7 @@
                     <div style="margin-bottom:1.3rem;">
                         <label style="display:flex; align-items:flex-start; gap:0.65rem; font-size:0.82rem; color:var(--nxt-text); cursor:pointer; margin-bottom:0.75rem; line-height:1.45;">
                             <input type="checkbox" id="nxt_consent_assessment" required style="margin-top:3px; accent-color:var(--nxt-gold); width:16px; height:16px; flex-shrink:0;">
-                            <span>I consent to The Nexteck processing my business details to generate and send my Technology Health Check scorecard and recommendations in accordance with the <a href="{{ route('privacy-policy') }}" target="_blank" rel="noopener" style="color:var(--nxt-navy); text-decoration:underline; font-weight:600;">Privacy Policy</a>. *</span>
+                            <span>I consent to The Nexteck processing my business details to generate and send my Technology Health Check scorecard and recommendations in accordance with the <a href="{{ url('/privacy-policy') }}" target="_blank" rel="noopener" style="color:var(--nxt-navy); text-decoration:underline; font-weight:600;">Privacy Policy</a>. *</span>
                         </label>
 
                         <label style="display:flex; align-items:flex-start; gap:0.65rem; font-size:0.82rem; color:var(--nxt-muted); cursor:pointer; line-height:1.45;">
