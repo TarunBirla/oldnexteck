@@ -1459,7 +1459,7 @@
         </div>
     </section>
 
-    <section class="sec" id="nasar">
+    <!-- <section class="sec" id="nasar">
         <div class="wrap about-grid">
             <div class="portrait rv">
                 <img src=".\images\nasar1.jpeg" alt="Mohammed Nasar — Principal Consultant, Nexteck">
@@ -1483,7 +1483,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="sec" style="background:var(--cream);border-block:1px solid var(--line)" id="industries">
         <div class="wrap">
