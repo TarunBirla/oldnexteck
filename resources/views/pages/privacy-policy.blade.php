@@ -104,7 +104,7 @@
             <p>For any questions regarding this Privacy Policy, data access requests, or removal of assessment entries, please contact our team directly:</p>
             <div class="badge-box">
                 <p style="margin:0 0 0.4rem 0;"><strong>The Nexteck Consulting Ltd</strong></p>
-                <p style="margin:0 0 0.4rem 0;">Email: <a href="mailto:nasar@nexteck.co.uk" style="color:var(--gold); font-weight:600;">nasar@nexteck.co.uk</a></p>
+                <p style="margin:0 0 0.4rem 0;">Email: <a href="mailto:info@nexteck.co.uk" style="color:var(--gold); font-weight:600;">info@nexteck.co.uk</a></p>
                 <p style="margin:0 0 0.4rem 0;">Phone: +44 (0)78 7917 5585</p>
                 <p style="margin:0;">London, United Kingdom</p>
             </div>

@@ -31,7 +31,7 @@ class LeadController extends Controller
         ]);
 
         try {
-            $adminEmail = env('ADMIN_MAIL', 'nasar@nexteck.co.uk');
+            $adminEmail = env('ADMIN_MAIL', 'info@nexteck.co.uk');
             if ($adminEmail) {
                 Mail::to($adminEmail)->send(new AdminLeadNotificationMail($lead));
             }

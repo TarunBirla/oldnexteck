@@ -129,7 +129,7 @@
                 <h4>Contact &amp; Book</h4>
                 <div class="foot-links">
                     <a href="{{ route('landing') }}#book" style="color:var(--gold-2); font-weight:700;">Book Free Strategy Call &rarr;</a>
-                    <a href="mailto:nasar@nexteck.co.uk">nasar@nexteck.co.uk</a>
+                    <a href="mailto:info@nexteck.co.uk">info@nexteck.co.uk</a>
                     <a href="tel:+447879175585">+44 (0)78 7917 5585</a>
                     <a href="https://pearlconrail.co.uk" target="_blank" style="color:#CBD5E1;">Rail Partner: pearlconrail.co.uk</a>
                 </div>
