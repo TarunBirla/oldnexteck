@@ -12,19 +12,21 @@
 
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #162B4D;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --cream: #F7F5F0;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --cream: #F8FAFC;
             --line: #E2E8F0;
             --muted: #64748B;
-            --radius: 16px;
-            --shadow: 0 20px 45px -10px rgba(12, 27, 51, 0.12);
+            --radius: 12px;
+            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.6; }
+        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.6; overflow-x:hidden; }
 
         .wrap { width:min(1180px, 92%); margin:0 auto; }
         .hero-sec { background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); color:#fff; padding:5rem 0 4rem; text-align:center; position:relative; overflow:hidden; }
@@ -56,18 +58,22 @@
             color:#fff;
             font-weight:700;
             font-size:1.05rem;
-            padding:1rem 2.2rem;
-            border-radius:999px;
+            padding:0.9rem 2rem;
+            border-radius:8px;
             text-decoration:none;
-            box-shadow:0 12px 28px -8px rgba(184, 147, 63, 0.6);
+            box-shadow:0 8px 20px rgba(14, 165, 233, 0.35);
             cursor:pointer;
             border:none;
             transition:all 0.25s;
         }
-        .btn-launch:hover { background:#000; transform:translateY(-2px); }
+        .btn-launch:hover { background:var(--sky-dark); transform:translateY(-2px); box-shadow:0 10px 25px rgba(14, 165, 233, 0.45); }
 
         @media (max-width: 640px) {
-            .assessment-card { padding:1.5rem; margin-top:-1.5rem; }
+            .hero-sec { padding:3.5rem 0 3rem; }
+            .hero-sec h1 { font-size:clamp(1.75rem, 6.5vw, 2.4rem); }
+            .assessment-card { padding:1.5rem 1.15rem; margin-top:-1.5rem; }
+            .guide-grid { grid-template-columns:1fr; gap:1rem; }
+            .btn-launch { width:100%; justify-content:center; text-align:center; }
         }
     </style>
 </head>

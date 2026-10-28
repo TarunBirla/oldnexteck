@@ -37,18 +37,20 @@
     </script>
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #1E2D4A;
-            --muted: #5A6478;
-            --line: #E7E4DC;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --muted: #64748B;
+            --line: #E2E8F0;
             --paper: #FFFFFF;
-            --cream: #F7F5F0;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --red: #C0392B;
-            --green: #1E7F4F;
-            --shadow: 0 18px 50px -18px rgba(12, 27, 51, .22);
-            --radius: 18px;
+            --cream: #F8FAFC;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --red: #EF4444;
+            --green: #10B981;
+            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
+            --radius: 12px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,9 +73,9 @@
         .nav-links { display: flex; gap: 2rem; align-items: center; font-size: .92rem; font-weight: 500; }
         .nav-links a { color: var(--ink-2); position: relative; }
         .nav-links a:hover { color: var(--gold); }
-        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .95rem; padding: .95rem 1.7rem; border-radius: 999px; cursor: pointer; border: 1.5px solid transparent; transition: .25s; }
-        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 12px 28px -10px rgba(184, 147, 63, .55); }
-        .btn-gold:hover { background: #000; transform: translateY(-2px); }
+        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .95rem; padding: .9rem 1.6rem; border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all .2s ease; }
+        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(14, 165, 233, .35); }
+        .btn-gold:hover { background: #0284C7; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14, 165, 233, .45); }
         .nav-cta { padding: .68rem 1.35rem; }
         .burger { display: none; background: none; border: 0; font-size: 1.5rem; cursor: pointer; }
 
@@ -107,7 +109,7 @@
         .page-item .page-link { display: inline-flex; align-items: center; justify-content: center; min-width: 38px; height: 38px; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 0.9rem; font-weight: 600; background: #fff; transition: all 0.2s; }
         .page-item .page-link:hover { border-color: var(--gold); color: var(--gold); }
         .page-item.active .page-link { background: var(--gold); color: #fff; border-color: var(--gold); }
-        .page-item.disabled .page-link { opacity: 0.5; cursor: not-allowed; background: #F7F5F0; border-color: var(--line); color: var(--muted); }
+        .page-item.disabled .page-link { opacity: 0.5; cursor: not-allowed; background: #F8FAFC; border-color: var(--line); color: var(--muted); }
 
         footer { background: var(--ink); color: #fff; padding: 4rem 0 2rem; }
         .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 2rem; margin-bottom: 3rem; }
@@ -121,11 +123,12 @@
             .blogs-grid { grid-template-columns: repeat(2, 1fr); }
             .foot-grid { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .blogs-grid { grid-template-columns: 1fr; }
             .foot-grid { grid-template-columns: 1fr; }
-            .burger { display: block; }
-            .nav-links { display: none; }
+            .blogs-hero { padding: 3.5rem 0 2.5rem; }
+            .blogs-hero h1 { font-size: clamp(1.85rem, 6.5vw, 2.5rem); }
+            .blogs-container { padding: 3rem 0 5rem; }
         }
     </style>
 </head>
@@ -149,7 +152,7 @@
                                 @if($blog->image)
                                     <img class="blog-img" src="{{ asset($blog->image) }}" alt="{{ $blog->title }}">
                                 @else
-                                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #0C1B33, #1E2D4A);display:flex;align-items:center;justify-content:center;color:#B8933F;font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;">
+                                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #090D16, #131926);display:flex;align-items:center;justify-content:center;color:#0EA5E9;font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;">
                                         Nexteck
                                     </div>
                                 @endif

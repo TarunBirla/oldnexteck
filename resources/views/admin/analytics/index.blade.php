@@ -265,12 +265,12 @@
             datasets: [{
                 label: 'Active Unique Visitors',
                 data: dailyCounts,
-                borderColor: '#B8933F',
-                backgroundColor: 'rgba(184, 147, 63, 0.15)',
+                borderColor: '#0EA5E9',
+                backgroundColor: 'rgba(14, 165, 233, 0.12)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.35,
-                pointBackgroundColor: '#0C1B33',
+                pointBackgroundColor: '#090D16',
                 pointRadius: 4
             }]
         },
@@ -288,7 +288,7 @@
             labels: browserLabels.length ? browserLabels : ['No Data'],
             datasets: [{
                 data: browserCounts.length ? browserCounts : [1],
-                backgroundColor: ['#0C1B33', '#B8933F', '#1E7F4F', '#3B82F6', '#F59E0B', '#64748B']
+                backgroundColor: ['#090D16', '#0EA5E9', '#38BDF8', '#10B981', '#64748B', '#0284C7']
             }]
         },
         options: {
@@ -305,7 +305,7 @@
             datasets: [{
                 label: 'Unique Visitors',
                 data: countryCounts.length ? countryCounts : [0],
-                backgroundColor: '#0C1B33',
+                backgroundColor: '#090D16',
                 borderRadius: 6
             }]
         },
@@ -324,7 +324,7 @@
             datasets: [{
                 label: 'Page Views',
                 data: pageCounts.length ? pageCounts : [0],
-                backgroundColor: '#B8933F',
+                backgroundColor: '#0EA5E9',
                 borderRadius: 6
             }]
         },

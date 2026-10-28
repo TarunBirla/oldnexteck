@@ -46,18 +46,20 @@
     </script>
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #1E2D4A;
-            --muted: #5A6478;
-            --line: #E7E4DC;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --muted: #64748B;
+            --line: #E2E8F0;
             --paper: #FFFFFF;
-            --cream: #F7F5F0;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --red: #C0392B;
-            --green: #1E7F4F;
-            --shadow: 0 18px 50px -18px rgba(12, 27, 51, .22);
-            --radius: 18px;
+            --cream: #F8FAFC;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --red: #EF4444;
+            --green: #10B981;
+            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
+            --radius: 12px;
         }
 
         * {
@@ -165,22 +167,23 @@
             gap: .6rem;
             font-weight: 600;
             font-size: .95rem;
-            padding: .95rem 1.7rem;
-            border-radius: 999px;
+            padding: .9rem 1.6rem;
+            border-radius: 8px;
             cursor: pointer;
             border: 1.5px solid transparent;
-            transition: .25s
+            transition: all .2s ease;
         }
 
         .btn-gold {
             background: var(--gold);
             color: #fff;
-            box-shadow: 0 12px 28px -10px rgba(184, 147, 63, .55)
+            box-shadow: 0 4px 14px rgba(14, 165, 233, .35);
         }
 
         .btn-gold:hover {
-            background: #000;
-            transform: translateY(-2px)
+            background: #0284C7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, .45);
         }
 
         .btn-ghost {
@@ -311,12 +314,13 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: .5rem;
-            background: rgba(192, 57, 43, .16);
-            border: 1px solid rgba(255, 120, 105, .5);
-            color: #FFD9D3;
+            gap: .55rem;
+            background: rgba(14, 165, 233, .12);
+            border: 1px solid rgba(56, 189, 248, .35);
+            color: #38BDF8;
             font-size: .78rem;
             font-weight: 600;
+            letter-spacing: .04em;
             padding: .45rem 1rem;
             border-radius: 999px;
             margin-bottom: 1.6rem
@@ -326,19 +330,18 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #FF6B5B;
+            background: #38BDF8;
             animation: pl 1.6s infinite
         }
 
         @keyframes pl {
-
             0%,
             100% {
-                box-shadow: 0 0 0 0 rgba(255, 107, 91, .7)
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, .7)
             }
 
             55% {
-                box-shadow: 0 0 0 9px rgba(255, 107, 91, 0)
+                box-shadow: 0 0 0 8px rgba(56, 189, 248, 0)
             }
         }
 
@@ -671,15 +674,8 @@
             }
 
             .final .wrap {
-                grid-template-columns: 1fr
-            }
-
-            .nav-links {
-                display: none
-            }
-
-            .burger {
-                display: block
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .foot-grid {
@@ -697,7 +693,6 @@
         }
 
         @media(max-width:640px) {
-
             .g2,
             .g3,
             .g4 {
@@ -705,7 +700,7 @@
             }
 
             .sec {
-                padding: 64px 0
+                padding: 56px 0
             }
 
             .foot-grid {
@@ -965,7 +960,7 @@
             display: block;
             height: 100%;
             width: 17%;
-            background: linear-gradient(90deg, var(--gold-2), #E9C87E);
+            background: linear-gradient(90deg, #0EA5E9, #38BDF8);
             border-radius: 99px;
             animation: fill 1.6s cubic-bezier(.2, .8, .2, 1) both
         }
@@ -1396,15 +1391,28 @@
         @media(max-width:960px) {
             .lp-hero .wrap {
                 grid-template-columns: 1fr;
-                padding: 64px 0 72px
+                padding: 56px 0 64px;
+                gap: 40px;
             }
 
             .form-col {
-                position: static
+                position: static;
+                width: 100%;
+                max-width: 580px;
+                margin: 0 auto;
             }
 
             .pack-grid {
                 grid-template-columns: repeat(2, 1fr)
+            }
+
+            .cmp {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .cmp table {
+                min-width: 560px;
             }
 
             .cmp th:first-child,
@@ -1414,6 +1422,37 @@
         }
 
         @media(max-width:640px) {
+            .lp-hero h1 {
+                font-size: clamp(1.85rem, 6.5vw, 2.7rem);
+            }
+
+            .form-card {
+                padding: 1.6rem 1.25rem;
+            }
+
+            .proof-inline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+
+            .proof-inline .sep {
+                display: none;
+            }
+
+            .mini-cd {
+                gap: 0.35rem;
+            }
+
+            .mini-cd div {
+                min-width: 52px;
+                padding: 0.35rem 0.35rem;
+            }
+
+            .mini-cd b {
+                font-size: 1.1rem;
+            }
+
             .pack-grid {
                 grid-template-columns: 1fr
             }
@@ -1427,6 +1466,16 @@
                 right: 12px;
                 max-width: none;
                 bottom: 76px
+            }
+        }
+
+        @media(max-width:380px) {
+            .mini-cd div {
+                min-width: 44px;
+                padding: 0.3rem 0.2rem;
+            }
+            .mini-cd b {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -1487,8 +1536,7 @@
             </div>
             <div class="form-col rv in" id="book">
                 <div class="form-card">
-                    <div class="scarcity"><span class="pulse"></span> Only <b>&nbsp;4 of 6&nbsp;</b> Q4 audit slots
-                        remaining</div>
+                    <div class="scarcity"><span class="pulse"></span> <b>EXECUTIVE CONSULTATION</b> &nbsp;·&nbsp; Limited UK Engagements</div>
                     <div class="mini-cd">
                         <div><b id="cd3-d">--</b><span>Days</span></div>
                         <div><b id="cd3-h">--</b><span>Hours</span></div>

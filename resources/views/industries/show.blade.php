@@ -58,16 +58,18 @@
     </script>
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #1E2D4A;
-            --muted: #5A6478;
-            --line: #E7E4DC;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --muted: #64748B;
+            --line: #E2E8F0;
             --paper: #FFFFFF;
-            --cream: #F7F5F0;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --shadow: 0 18px 50px -18px rgba(12, 27, 51, .22);
-            --radius: 18px;
+            --cream: #F8FAFC;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
+            --radius: 12px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,9 +91,9 @@
         .nav-links { display: flex; gap: 2rem; align-items: center; font-size: .92rem; font-weight: 500; }
         .nav-links a { color: var(--ink-2); position: relative; }
         .nav-links a:hover { color: var(--gold); }
-        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .95rem; padding: .85rem 1.6rem; border-radius: 999px; cursor: pointer; border: 1.5px solid transparent; transition: .25s; }
-        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 12px 28px -10px rgba(184, 147, 63, .55); }
-        .btn-gold:hover { background: #000; transform: translateY(-2px); }
+        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .95rem; padding: .85rem 1.6rem; border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all .2s ease; }
+        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(14, 165, 233, .35); }
+        .btn-gold:hover { background: #0284C7; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14, 165, 233, .45); }
         .btn-outline { background: #fff; color: var(--ink); border: 1px solid var(--line); }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
         .nav-cta { padding: .68rem 1.35rem; }
@@ -159,11 +161,13 @@
             .content-grid { grid-template-columns: 1fr; }
             .related-grid { grid-template-columns: 1fr; }
             .foot-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; }
-            .burger { display: block; }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .foot-grid { grid-template-columns: 1fr; }
+            .detail-hero { padding: 4rem 0 3rem; }
+            .detail-hero h1 { font-size: clamp(1.85rem, 6.5vw, 2.6rem); }
+            .content-area { padding: 3rem 0 4rem; }
+            .specs-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -222,7 +226,7 @@
                     @endif
 
                     @if($industrySlug === 'railways')
-                        <div style="background:#0C1B33; color:#fff; padding:1.8rem 2rem; border-radius:14px; margin-top:2rem;">
+                        <div style="background:#090D16; border: 1px solid rgba(56, 189, 248, 0.2); color:#fff; padding:1.8rem 2rem; border-radius:12px; margin-top:2rem;">
                             <h3 style="color:var(--gold-2); margin-bottom:.6rem;">Verified Partner: pearlconrail.co.uk</h3>
                             <p style="color:#CBD5E1; font-size:.95rem; margin-bottom:1rem;">All railway rolling stock, braking systems, and infrastructure components are supplied in coordination with verified specialist networks at <a href="https://pearlconrail.co.uk" target="_blank" style="color:var(--gold-2); text-decoration:underline; font-weight:700;">pearlconrail.co.uk</a>.</p>
                             <a href="https://pearlconrail.co.uk" target="_blank" class="btn btn-gold" style="padding:.6rem 1.2rem; font-size:.85rem;">Visit pearlconrail.co.uk &rarr;</a>

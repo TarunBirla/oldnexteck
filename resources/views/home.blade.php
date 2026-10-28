@@ -68,18 +68,20 @@
     </script>
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #1E2D4A;
-            --muted: #5A6478;
-            --line: #E7E4DC;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --muted: #64748B;
+            --line: #E2E8F0;
             --paper: #FFFFFF;
-            --cream: #F7F5F0;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --red: #C0392B;
-            --green: #1E7F4F;
-            --shadow: 0 18px 50px -18px rgba(12, 27, 51, .22);
-            --radius: 18px;
+            --cream: #F8FAFC;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --red: #EF4444;
+            --green: #10B981;
+            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
+            --radius: 12px;
         }
 
         * {
@@ -187,22 +189,23 @@
             gap: .6rem;
             font-weight: 600;
             font-size: .95rem;
-            padding: .95rem 1.7rem;
-            border-radius: 999px;
+            padding: .9rem 1.6rem;
+            border-radius: 8px;
             cursor: pointer;
             border: 1.5px solid transparent;
-            transition: .25s
+            transition: all .2s ease;
         }
 
         .btn-gold {
             background: var(--gold);
             color: #fff;
-            box-shadow: 0 12px 28px -10px rgba(184, 147, 63, .55)
+            box-shadow: 0 4px 14px rgba(14, 165, 233, .35);
         }
 
         .btn-gold:hover {
-            background: #000;
-            transform: translateY(-2px)
+            background: #0284C7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, .45);
         }
 
         .btn-ghost {
@@ -380,7 +383,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(105deg, rgba(8, 17, 34, .93) 0%, rgba(8, 17, 34, .72) 45%, rgba(8, 17, 34, .35) 100%)
+            background: linear-gradient(105deg, rgba(8, 17, 34, .93) 0%, rgba(8, 17, 34, .72) 45%, rgba(8, 17, 34, .35) 80%)
         }
 
         .hero-in {
@@ -392,12 +395,13 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: .5rem;
-            background: rgba(192, 57, 43, .16);
-            border: 1px solid rgba(255, 120, 105, .5);
-            color: #FFD9D3;
+            gap: .55rem;
+            background: rgba(14, 165, 233, .12);
+            border: 1px solid rgba(56, 189, 248, .35);
+            color: #38BDF8;
             font-size: .78rem;
             font-weight: 600;
+            letter-spacing: .04em;
             padding: .45rem 1rem;
             border-radius: 999px;
             margin-bottom: 1.6rem
@@ -407,19 +411,18 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #FF6B5B;
+            background: #38BDF8;
             animation: pl 1.6s infinite
         }
 
         @keyframes pl {
-
             0%,
             100% {
-                box-shadow: 0 0 0 0 rgba(255, 107, 91, .7)
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, .7)
             }
 
             55% {
-                box-shadow: 0 0 0 9px rgba(255, 107, 91, 0)
+                box-shadow: 0 0 0 8px rgba(56, 189, 248, 0)
             }
         }
 
@@ -911,12 +914,13 @@
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: #F5EFE0;
+            background: rgba(14, 165, 233, 0.1);
             color: var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.1rem
+            margin-bottom: 1.1rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .why-card h3 {
@@ -931,7 +935,7 @@
 
         /* ---------- urgency ---------- */
         .urgency {
-            background: linear-gradient(120deg, #14100A, #2A1E0C 55%, #14100A);
+            background: linear-gradient(135deg, #090D16 0%, #0F172A 60%, #090D16 100%);
             color: #fff;
             position: relative;
             overflow: hidden
@@ -942,7 +946,7 @@
             position: absolute;
             inset: 0;
             background: url("assets/img/team-meeting.jpg") center/cover;
-            opacity: .1
+            opacity: .06
         }
 
         .urgency .wrap {
@@ -964,7 +968,7 @@
         }
 
         .urgency p {
-            color: #CBBFA8;
+            color: #94A3B8;
             margin-bottom: 1.6rem
         }
 
@@ -979,24 +983,24 @@
             gap: .8rem;
             align-items: flex-start;
             font-size: .95rem;
-            color: #E8E0CE
+            color: #E2E8F0
         }
 
         .cost-list b {
-            color: #FF9A8A
+            color: #38BDF8
         }
 
         .timer-card {
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(217, 188, 122, .35);
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(56, 189, 248, .3);
             border-radius: var(--radius);
             padding: 36px;
             text-align: center;
-            backdrop-filter: blur(6px)
+            backdrop-filter: blur(10px)
         }
 
         .timer-card h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: .14em;
             text-transform: uppercase;
             color: var(--gold-2);
@@ -1010,9 +1014,9 @@
         }
 
         .timer div {
-            background: #0C1B33;
-            border: 1px solid rgba(255, 255, 255, .12);
-            border-radius: 14px;
+            background: #090D16;
+            border: 1px solid rgba(56, 189, 248, .25);
+            border-radius: 12px;
             padding: 14px 8px;
             min-width: 74px
         }
@@ -1029,13 +1033,13 @@
             font-size: .62rem;
             letter-spacing: .18em;
             text-transform: uppercase;
-            color: #9AA5B8
+            color: #94A3B8
         }
 
         .slots {
             margin-top: 1.6rem;
             font-size: .9rem;
-            color: #CBBFA8
+            color: #94A3B8
         }
 
         .slots .bar {
@@ -1050,8 +1054,8 @@
         .slots .bar i {
             display: block;
             height: 100%;
-            width: 17%;
-            background: linear-gradient(90deg, var(--gold-2), #F0D9A0);
+            width: 35%;
+            background: linear-gradient(90deg, #0EA5E9, #38BDF8);
             border-radius: 99px
         }
 
@@ -1173,19 +1177,12 @@
             .about-grid,
             .urgency .wrap,
             .final .wrap {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .why-grid {
                 grid-template-columns: 1fr 1fr
-            }
-
-            .nav-links {
-                display: none
-            }
-
-            .burger {
-                display: block
             }
 
             .foot-grid {
@@ -1199,7 +1196,6 @@
         }
 
         @media(max-width:640px) {
-
             .g2,
             .g3,
             .g4,
@@ -1208,11 +1204,86 @@
             }
 
             .sec {
-                padding: 64px 0
+                padding: 56px 0
+            }
+
+            .sec-head {
+                margin-bottom: 36px
             }
 
             .hero-in {
-                padding: 100px 0 80px
+                padding: 80px 0 60px
+            }
+
+            .hero h1 {
+                font-size: clamp(1.85rem, 6.5vw, 2.6rem);
+                max-width: 100%;
+            }
+
+            .hero p.lead {
+                font-size: 1rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-chips {
+                flex-direction: column;
+                gap: 0.75rem;
+                font-size: 0.82rem;
+            }
+
+            .table-card {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 580px;
+            }
+
+            .timer {
+                gap: 6px;
+            }
+
+            .timer div {
+                min-width: 58px;
+                padding: 10px 4px;
+            }
+
+            .timer b {
+                font-size: 1.4rem;
+            }
+
+            .timer-card {
+                padding: 24px 16px;
+            }
+
+            .portrait::after {
+                display: none;
+            }
+
+            .exp-badge {
+                position: static;
+                margin-top: 1rem;
+                display: inline-block;
+            }
+
+            .stat {
+                padding: 28px 16px;
+            }
+
+            .ind-card {
+                height: 280px;
             }
 
             th:nth-child(4),
@@ -1220,6 +1291,22 @@
             th:nth-child(6),
             td:nth-child(6) {
                 display: none
+            }
+        }
+
+        @media(max-width:380px) {
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.75rem;
+            }
+
+            .timer div {
+                min-width: 50px;
+                padding: 8px 2px;
+            }
+
+            .timer b {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1243,8 +1330,7 @@
 
         </div>
         <div class="wrap hero-in">
-            <div class="hero-badge"><span class="pulse"></span> Now accepting Q4 2026 engagements — 4 of 6 slots
-                remaining</div>
+            <div class="hero-badge"><span class="pulse"></span> 2026 AUDIT &amp; BESPOKE SOFTWARE ARCHITECTURE — LONDON &amp; UK</div>
             <h1>Everyone's talking about <em>AI</em>. But is your business actually running on the <em>right
                     technology?</em></h1>
             <p class="lead">Nexteck performs a rigorous, end-to-end business audit — processes, systems, data and people

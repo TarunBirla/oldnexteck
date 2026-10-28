@@ -8,16 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #0C1B33;
-            --gold: #B8933F;
+            --ink: #090D16;
+            --gold: #0EA5E9;
             --bg: #F8FAFC;
             --line: #E2E8F0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); height: 100vh; display: flex; align-items: center; justify-content: center; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem 1rem; }
 
-        .login-card { background: #fff; width: 100%; max-width: 420px; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 15px 35px rgba(12, 27, 51, 0.08); }
+        .login-card { background: #fff; width: 100%; max-width: 420px; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08); }
+
+        @media (max-width: 480px) {
+            .login-card { padding: 2rem 1.35rem; }
+        }
         .login-header { text-align: center; margin-bottom: 2rem; }
         .logo { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: var(--ink); text-decoration: none; }
         .logo span { color: var(--gold); }
@@ -26,15 +30,15 @@
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
         .form-control { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 8px; font-size: 0.95rem; }
-        .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,147,63,0.15); }
+        .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(14,165,233,0.15); }
 
         .password-wrapper { position: relative; display: flex; align-items: center; }
         .password-wrapper .form-control { padding-right: 2.8rem; }
         .eye-btn { position: absolute; right: 0.8rem; background: none; border: none; cursor: pointer; color: #64748B; padding: 0.2rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
         .eye-btn:hover { color: var(--ink); }
 
-        .btn-login { width: 100%; padding: 0.85rem; background: var(--ink); color: #fff; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
-        .btn-login:hover { background: #1E2D4A; }
+        .btn-login { width: 100%; padding: 0.85rem; background: var(--ink); color: #fff; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; margin-top: 0.5rem; }
+        .btn-login:hover { background: var(--gold); }
 
         .alert-error { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.88rem; margin-bottom: 1.2rem; }
     </style>

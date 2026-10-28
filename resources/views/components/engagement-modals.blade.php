@@ -2,26 +2,26 @@
 <style>
     /* ================= Nexteck Engagement Modals & Widget Styles ================= */
     :root {
-        --nxt-navy: #0C1B33;
-        --nxt-navy-deep: #081224;
-        --nxt-navy-light: #162B4D;
-        --nxt-gold: #B8933F;
-        --nxt-gold-light: #D9BC7A;
-        --nxt-gold-hover: #9E7D33;
-        --nxt-cream: #F7F5F0;
+        --nxt-navy: #090D16;
+        --nxt-navy-deep: #05070B;
+        --nxt-navy-light: #131926;
+        --nxt-gold: #0EA5E9;
+        --nxt-gold-light: #38BDF8;
+        --nxt-gold-hover: #0284C7;
+        --nxt-cream: #F8FAFC;
         --nxt-surface: #FFFFFF;
-        --nxt-border: #E5E7EB;
-        --nxt-text: #1E293B;
+        --nxt-border: #E2E8F0;
+        --nxt-text: #0F172A;
         --nxt-muted: #64748B;
-        --nxt-radius: 18px;
-        --nxt-shadow: 0 25px 60px -15px rgba(12, 27, 51, 0.35), 0 10px 25px -5px rgba(0,0,0,0.12);
+        --nxt-radius: 12px;
+        --nxt-shadow: 0 25px 60px -15px rgba(9, 13, 22, 0.35), 0 10px 25px -5px rgba(0,0,0,0.12);
     }
 
     .nxt-overlay {
         position: fixed;
         inset: 0;
         z-index: 100000;
-        background: rgba(12, 27, 51, 0.72);
+        background: rgba(9, 13, 22, 0.75);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         display: none;
@@ -327,7 +327,7 @@
 
     /* Results Step Components */
     .nxt-result-score-card {
-        background: linear-gradient(135deg, #0C1B33 0%, #162B4D 100%);
+        background: linear-gradient(135deg, #090D16 0%, #131926 100%);
         color: #fff;
         border-radius: 14px;
         padding: 1.8rem;
@@ -506,12 +506,27 @@
     }
 
     @media (max-width: 640px) {
-        .nxt-modal { border-radius: 14px; width: 95vw !important; }
-        .nxt-modal-header { padding: 1.6rem 1.4rem; }
-        .nxt-modal-body { padding: 1.4rem; }
-        .nxt-options-grid { grid-template-columns: 1fr 1fr; }
-        .nxt-quick-pill { bottom: 5rem; right: 1rem; padding: 0.5rem 0.85rem; font-size: 0.78rem; }
+        .nxt-modal { border-radius: 12px; width: 95vw !important; max-height: 92vh; }
+        .nxt-modal-header { padding: 1.4rem 1.25rem; }
+        .nxt-modal-body { padding: 1.25rem; }
+        .nxt-options-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+        .nxt-quick-pill { bottom: 5.5rem; right: 1rem; padding: 0.5rem 0.85rem; font-size: 0.78rem; }
         .nxt-btn { min-height: 44px; }
+        .nxt-steps-bar { gap: 0.35rem; }
+        .nxt-step-indicator { font-size: 0.75rem; }
+    }
+
+    @media (max-width: 480px) {
+        .nxt-modal { width: 96vw !important; border-radius: 10px; }
+        .nxt-modal-header { padding: 1.2rem 1rem; }
+        .nxt-modal-header h3 { font-size: 1.15rem; }
+        .nxt-modal-body { padding: 1rem; }
+        .nxt-options-grid { grid-template-columns: 1fr; }
+        .nxt-btn-row { flex-direction: column-reverse; gap: 0.5rem; }
+        .nxt-btn-row .nxt-btn { width: 100%; justify-content: center; }
+        .nxt-score-circle { width: 72px; height: 72px; }
+        .nxt-result-score-card { padding: 1.25rem 0.85rem; }
+        .nxt-score-val { font-size: 1.8rem !important; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -525,7 +540,7 @@
     @media print {
         body {
             background: #FFFFFF !important;
-            color: #0C1B33 !important;
+            color: #090D16 !important;
             font-size: 11pt !important;
         }
         body > *:not(#nxtAssessmentOverlay) {
@@ -556,7 +571,7 @@
             display: none !important;
         }
         .nxt-modal-header {
-            background: #0C1B33 !important;
+            background: #090D16 !important;
             color: #FFFFFF !important;
             padding: 1.8rem !important;
             border-radius: 8px !important;
@@ -574,7 +589,7 @@
             padding: 1rem 0 !important;
         }
         .nxt-result-score-card {
-            background: #0C1B33 !important;
+            background: #090D16 !important;
             color: #FFFFFF !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
@@ -582,8 +597,8 @@
             page-break-inside: avoid;
         }
         .nxt-score-circle {
-            border-color: #B8933F !important;
-            color: #D9BC7A !important;
+            border-color: #0EA5E9 !important;
+            color: #38BDF8 !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
         }

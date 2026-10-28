@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            --sidebar-bg: #0C1B33;
-            --sidebar-hover: #1E2D4A;
-            --primary: #B8933F;
-            --primary-dark: #a27f32;
-            --bg: #F4F6F9;
+            --sidebar-bg: #090D16;
+            --sidebar-hover: #131926;
+            --primary: #0EA5E9;
+            --primary-dark: #0284C7;
+            --bg: #F8FAFC;
             --card-bg: #FFFFFF;
-            --text: #1E293B;
+            --text: #0F172A;
             --muted: #64748B;
             --border: #E2E8F0;
         }
@@ -73,7 +73,7 @@
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
         .form-control { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
-        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(184,147,63,0.15); }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(14,165,233,0.15); }
         textarea.form-control { min-height: 140px; resize: vertical; }
 
         /* ADMIN CUSTOM PAGINATION STYLES */
@@ -86,9 +86,21 @@
         .page-item.active .page-link { background: var(--primary); color: #fff; border-color: var(--primary); }
         .page-item.disabled .page-link { opacity: 0.5; cursor: not-allowed; background: #F8FAFC; border-color: var(--border); color: var(--muted); }
 
+        .aside-toggle { display: none; }
+
         @media (max-width: 768px) {
             body { flex-direction: column; }
             aside { width: 100%; }
+            .aside-header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.4rem; }
+            .aside-toggle { display: block; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 6px; padding: 0.35rem 0.65rem; cursor: pointer; }
+            .aside-nav { display: none; }
+            .aside-nav.is-open { display: flex; }
+            .aside-footer { display: none; }
+            .aside-footer.is-open { display: block; }
+            header { padding: 1rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+            .content-area { padding: 1.25rem 1rem; }
+            .card { padding: 1.15rem; }
+            .custom-pagination { flex-direction: column; align-items: flex-start; }
         }
     </style>
     @yield('styles')
@@ -97,6 +109,7 @@
     <aside>
         <div class="aside-header">
             <a href="{{ route('admin.dashboard') }}" class="logo">Nexte<span>c</span>k Admin</a>
+            <button type="button" class="aside-toggle" id="adminMenuToggle" aria-label="Toggle admin menu"><i class="fa-solid fa-bars"></i></button>
         </div>
         <nav class="aside-nav">
             <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
@@ -156,6 +169,19 @@
             @yield('content')
         </div>
     </main>
+    <script>
+        (function() {
+            const toggle = document.getElementById('adminMenuToggle');
+            const nav = document.querySelector('.aside-nav');
+            const footer = document.querySelector('.aside-footer');
+            if(toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    nav.classList.toggle('is-open');
+                    if(footer) footer.classList.toggle('is-open');
+                });
+            }
+        })();
+    </script>
     @yield('scripts')
 </body>
 </html>

@@ -5,7 +5,7 @@
     <title>New Strategy Call Lead Request</title>
 </head>
 <body style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
-    <h2 style="color: #0C1B33;">New Strategy Call Lead Received!</h2>
+    <h2 style="color: #090D16;">New Strategy Call Lead Received!</h2>
     <p>A new lead has submitted a request for a free strategy call on Nexteck.</p>
     
     <table style="width: 100%; max-width: 600px; border-collapse: collapse; margin-top: 20px;">

@@ -9,7 +9,7 @@
     .stat-card { background: #fff; padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
     .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--sidebar-bg); font-family: 'Fraunces', serif; }
     .stat-label { font-size: 0.9rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem; }
-    .stat-icon { width: 50px; height: 50px; border-radius: 10px; background: rgba(184,147,63,0.12); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .stat-icon { width: 50px; height: 50px; border-radius: 10px; background: rgba(14,165,233,0.12); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
 </style>
 
 <div class="stats-grid">
@@ -94,6 +94,7 @@
             <a href="{{ route('admin.leads.index') }}" class="btn-sm btn-secondary">View All</a>
         </div>
         @if($recentLeads->count() > 0)
+            <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
@@ -110,6 +111,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         @else
             <p style="color: var(--muted); font-size: 0.9rem;">No lead requests received yet.</p>
         @endif
@@ -122,6 +124,7 @@
         <a href="{{ route('admin.toolkits.index') }}" class="btn-sm btn-secondary">View All</a>
     </div>
     @if(isset($recentToolkits) && $recentToolkits->count() > 0)
+        <div class="table-responsive">
         <table>
             <thead>
                 <tr>
@@ -148,6 +151,7 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     @else
         <p style="color: var(--muted); font-size: 0.9rem;">No SME Toolkit submissions received yet.</p>
     @endif

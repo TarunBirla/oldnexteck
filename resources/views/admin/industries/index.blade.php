@@ -52,7 +52,7 @@
                             <td>
                                 <strong>{{ $item->title }}</strong>
                                 @if($item->sort_order <= 6 && $item->is_active)
-                                    <span class="badge" style="background: rgba(184, 147, 63, 0.15); color: #B8933F; font-size: 0.7rem; margin-left: 0.4rem;">Homepage Top 6</span>
+                                    <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0EA5E9; font-size: 0.7rem; margin-left: 0.4rem;">Homepage Top 6</span>
                                 @endif
                                 <br><small style="color: var(--muted);"><i class="fa-solid fa-link" style="font-size: 0.75rem;"></i> /industries/{{ $item->slug }}</small>
                             </td>

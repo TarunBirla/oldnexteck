@@ -12,18 +12,20 @@
 
     <style>
         :root {
-            --ink: #0C1B33;
-            --ink-2: #162B4D;
-            --gold: #B8933F;
-            --gold-2: #D9BC7A;
-            --cream: #F7F5F0;
+            --ink: #090D16;
+            --ink-2: #131926;
+            --gold: #0EA5E9;
+            --gold-2: #38BDF8;
+            --sky-dark: #0284C7;
+            --sky-soft: rgba(14, 165, 233, 0.08);
+            --cream: #F8FAFC;
             --line: #E2E8F0;
             --muted: #64748B;
-            --radius: 14px;
+            --radius: 12px;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.65; }
+        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.65; overflow-x:hidden; }
 
         .wrap { width:min(900px, 92%); margin:0 auto; }
         .hero { background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); color:#fff; padding:4.5rem 0 3.5rem; text-align:center; }
@@ -44,6 +46,14 @@
         .nav-back:hover { text-decoration:underline; }
 
         .foot { background:#081224; color:#94A3B8; padding:2rem 0; font-size:0.88rem; text-align:center; border-top:1px solid rgba(255,255,255,0.08); }
+
+        @media (max-width: 640px) {
+            .hero { padding: 3.5rem 0 2.5rem; }
+            .hero h1 { font-size: clamp(1.75rem, 6.5vw, 2.3rem); }
+            .content { padding: 2.2rem 0 3.5rem; }
+            .content ul { margin-left: 1rem; }
+            .badge-box { padding: 1.15rem; }
+        }
     </style>
 </head>
 <body>
