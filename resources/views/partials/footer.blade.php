@@ -51,7 +51,7 @@
         left: 0;
         width: 24px;
         height: 2px;
-        background: var(--wp-blue, #0052CC);
+        background: var(--wp-blue, #382356);
     }
 
     .wp-foot-links {
@@ -71,6 +71,33 @@
     .wp-foot-links a:hover {
         color: #FFFFFF !important;
         transform: translateX(3px);
+    }
+
+    /* Wipro Minimalist Logo in Footer (Identical to Header) */
+    .wp-foot-logo-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-bottom: 0.35rem;
+        transition: opacity 0.2s ease;
+    }
+    .wp-foot-logo-brand:hover {
+        opacity: 0.9;
+    }
+    .wp-foot-brand-text {
+        font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
+        font-size: 1.85rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        letter-spacing: -0.04em;
+        line-height: 1;
+    }
+    .wp-foot-brand-dots {
+        display: inline-flex;
+        align-items: center;
+        margin-top: -2px;
     }
 
     .wp-foot-brand-desc {
@@ -199,7 +226,7 @@
     }
     /* Collapsible action button - expands smoothly on hover */
     .wp-sticky-cta .btn-cta-action {
-        background: var(--wp-blue, #0052CC);
+        background: var(--wp-blue, #382356);
         color: #FFFFFF !important;
         padding: 0;
         max-width: 0;
@@ -224,7 +251,7 @@
         pointer-events: auto;
     }
     .wp-sticky-cta .btn-cta-action:hover {
-        background: #003D99;
+        background: #26163D;
     }
 
     @media (max-width: 640px) {
@@ -275,23 +302,18 @@
         <div class="wp-foot-grid">
             <!-- Brand & Headquarters Info -->
             <div class="wp-foot-col">
-                <a class="wp-logo" href="{{ route('home') }}" style="color:#FFFFFF;">
-                    <div class="wp-logo-emblem">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="4.5" r="3.2" fill="#0072CE"/>
-                            <circle cx="29.5" cy="11.5" r="3.2" fill="#00A3AD"/>
-                            <circle cx="31.5" cy="24.5" r="3.2" fill="#78BE20"/>
-                            <circle cx="22.5" cy="32" r="3.2" fill="#FFB81C"/>
-                            <circle cx="10" cy="30" r="3.2" fill="#E4007C"/>
-                            <circle cx="5" cy="17.5" r="3.2" fill="#72246C"/>
-                            <circle cx="18" cy="18" r="7.5" stroke="#FFFFFF" stroke-width="2.2" stroke-dasharray="2 2" opacity="0.6"/>
-                            <circle cx="18" cy="18" r="3.2" fill="#38BDF8"/>
+                <a class="wp-foot-logo-brand" href="{{ route('home') }}" aria-label="Nexteck Home">
+                    <span class="wp-foot-brand-text">nexteck</span>
+                    <span class="wp-foot-brand-dots" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
+                            <circle cx="15" cy="3.5" r="2.4" fill="#78BE20"/>
+                            <circle cx="23" cy="7.5" r="2.4" fill="#00A3AD"/>
+                            <circle cx="26.5" cy="15" r="2.8" fill="#FFFFFF"/>
+                            <circle cx="23" cy="22.5" r="2.4" fill="#E4007C"/>
+                            <circle cx="15" cy="26.5" r="2.4" fill="#FFB81C"/>
+                            <circle cx="7" cy="22.5" r="2.2" fill="#38BDF8"/>
                         </svg>
-                    </div>
-                    <div class="wp-logo-text">
-                        <span class="wp-logo-title" style="color:#FFFFFF;">Nexte<span style="color:#38BDF8;">c</span>k</span>
-                        <span class="wp-logo-subtitle" style="color:#94A3B8;">Strategy &amp; Technology</span>
-                    </div>
+                    </span>
                 </a>
 
                 <p class="wp-foot-brand-desc">

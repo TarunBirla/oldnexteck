@@ -51,7 +51,7 @@
         width: 320px;
         background: #FFFFFF;
         border-radius: 20px;
-        box-shadow: 0 24px 60px -12px rgba(0, 15, 36, 0.4), 0 0 0 1px rgba(0, 82, 204, 0.15);
+        box-shadow: 0 24px 60px -12px rgba(0, 15, 36, 0.4), 0 0 0 1px rgba(56, 35, 86, 0.15);
         border: 1px solid #E2E8F0;
         opacity: 0;
         pointer-events: none;
@@ -139,7 +139,7 @@
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        background: #0052CC;
+        background: #382356;
         color: #FFFFFF;
         display: flex;
         align-items: center;
@@ -164,7 +164,7 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        background: #0052CC;
+        background: #382356;
         color: #FFFFFF !important;
         text-decoration: none;
         padding: 0.7rem 1.25rem;
@@ -177,7 +177,7 @@
         transition: background 0.2s, transform 0.2s;
     }
     .wp-enterprise-drawer .drawer-btn-cta:hover {
-        background: #003D99;
+        background: #26163D;
         transform: translateY(-1px);
     }
     .wp-enterprise-drawer .drawer-nda-note {
@@ -204,71 +204,53 @@
         }
     }
 
-    /* Main Sticky Navigation Bar */
+    /* Wipro Main Clean White Sticky Navigation Bar */
     .wp-navbar {
         position: sticky;
         top: 0;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border-bottom: 1px solid var(--wp-border, #E2E8F0);
-        box-shadow: 0 4px 20px -2px rgba(0, 27, 58, 0.05);
-        transition: all 0.3s ease;
+        background: #FFFFFF;
+        border-bottom: 1px solid #ECEFF3;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.03);
+        transition: all 0.25s ease;
     }
     .wp-nav-in {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 76px;
+        height: 74px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 clamp(1.25rem, 3.5vw, 3rem);
     }
 
-    /* Wipro Connected Logo Motif */
-    .wp-logo {
-        display: flex;
+    /* Wipro Brand Logo: Lowercase 'nexteck' + Multi-Color Arc Dots */
+    .wp-logo-brand {
+        display: inline-flex;
         align-items: center;
-        gap: 0.85rem;
+        gap: 0.45rem;
         text-decoration: none;
-        color: var(--wp-navy-900, #001B3A);
+        color: #2E1E54;
     }
-    .wp-logo-emblem {
-        width: 38px;
-        height: 38px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .wp-logo-text {
-        display: flex;
-        flex-direction: column;
-    }
-    .wp-logo-title {
-        font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
-        font-size: 1.55rem;
+    .wp-brand-text {
+        font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
+        font-size: 1.85rem;
         font-weight: 800;
-        letter-spacing: -0.03em;
+        color: #2E1E54;
+        letter-spacing: -0.04em;
         line-height: 1;
-        color: var(--wp-navy-900, #001B3A);
     }
-    .wp-logo-title span {
-        color: var(--wp-blue, #0052CC);
-    }
-    .wp-logo-subtitle {
-        font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
-        font-size: 0.58rem;
-        font-weight: 700;
-        letter-spacing: 0.26em;
-        color: var(--wp-text-muted, #64748B);
-        margin-top: 3px;
-        text-transform: uppercase;
+    .wp-brand-dots {
+        display: inline-flex;
+        align-items: center;
+        margin-top: -2px;
     }
 
     /* Navigation Menu */
     .wp-nav-menu {
         display: flex;
         align-items: center;
-        gap: 1.85rem;
+        gap: clamp(1.25rem, 2.2vw, 2.35rem);
         list-style: none;
         margin: 0;
         padding: 0;
@@ -279,13 +261,13 @@
     }
 
     .wp-nav-link {
-        font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
-        font-size: 0.92rem;
-        font-weight: 600;
-        color: var(--wp-text-main, #0B132B);
+        font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
+        font-size: 0.94rem;
+        font-weight: 500;
+        color: #111827;
         text-decoration: none;
         position: relative;
-        padding: 0.6rem 0;
+        padding: 0.5rem 0.15rem;
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
@@ -296,29 +278,15 @@
     }
     .wp-nav-link:hover,
     .wp-nav-link.is-active {
-        color: var(--wp-blue, #0052CC);
-    }
-    .wp-nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--wp-blue, #0052CC);
-        transition: width 0.25s ease;
-        border-radius: 1px;
-    }
-    .wp-nav-link:hover::after,
-    .wp-nav-link.is-active::after {
-        width: 100%;
+        color: #2E1E54;
     }
 
     .wp-nav-link .caret {
-        font-size: 0.65rem;
-        margin-left: 0.35rem;
+        font-size: 0.6rem;
+        margin-left: 0.25rem;
         display: inline-block;
-        transition: transform 0.25s ease;
+        transition: transform 0.22s ease;
+        opacity: 0.75;
     }
     .wp-nav-item:hover .wp-nav-link .caret,
     .wp-nav-item.is-open .wp-nav-link .caret {
@@ -328,18 +296,18 @@
     /* Dropdown Menus */
     .wp-dropdown {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 8px);
         left: 0;
-        min-width: 270px;
+        min-width: 290px;
         background: #FFFFFF;
-        border: 1px solid var(--wp-border, #E2E8F0);
-        border-radius: var(--wp-radius-md, 12px);
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
         box-shadow: 0 16px 36px -6px rgba(0, 27, 58, 0.12), 0 4px 12px rgba(0,0,0,0.04);
         padding: 0.75rem 0;
         opacity: 0;
         visibility: hidden;
         transform: translateY(8px);
-        transition: all 0.22s var(--wp-ease, ease);
+        transition: all 0.2s ease;
         z-index: 1050;
     }
     .wp-nav-item:hover .wp-dropdown,
@@ -353,17 +321,17 @@
     .wp-drop-item {
         display: flex;
         flex-direction: column;
-        padding: 0.65rem 1.25rem;
+        padding: 0.65rem 1.35rem;
         text-decoration: none;
-        color: var(--wp-text-main, #0B132B);
+        color: #1E293B;
         transition: background 0.15s ease, color 0.15s ease;
     }
     .wp-drop-item:hover {
-        background: var(--wp-bg-light, #F8FAFC);
-        color: var(--wp-blue, #0052CC);
+        background: #F8FAFC;
+        color: #2E1E54;
     }
     .wp-drop-title {
-        font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
+        font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
         font-weight: 600;
         font-size: 0.88rem;
         display: flex;
@@ -372,61 +340,104 @@
     }
     .wp-drop-sub {
         font-size: 0.76rem;
-        color: var(--wp-text-muted, #64748B);
+        color: #64748B;
         margin-top: 2px;
     }
-
     .wp-drop-divider {
         height: 1px;
-        background: var(--wp-border-subtle, #EEF2F6);
+        background: #EEF2F6;
         margin: 0.4rem 0;
     }
 
-    /* Mini Badge on nav item */
-    .wp-nav-pill {
-        font-size: 0.65rem;
+    /* Language Switcher */
+    .wp-lang-wrap {
+        position: relative;
+    }
+    .wp-lang-btn {
+        font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: #111827;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 0.25rem;
+        transition: color 0.2s ease;
+    }
+    .wp-lang-btn:hover {
+        color: #2E1E54;
+    }
+    .wp-lang-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 220px;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        box-shadow: 0 16px 36px -6px rgba(0, 27, 58, 0.12);
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: all 0.2s ease;
+        z-index: 1050;
+    }
+    .wp-lang-wrap:hover .wp-lang-dropdown,
+    .wp-lang-wrap:focus-within .wp-lang-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .wp-lang-opt {
+        padding: 0.55rem 1.15rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.84rem;
+        color: #334155;
+        text-decoration: none;
+        transition: background 0.15s ease;
+    }
+    .wp-lang-opt:hover {
+        background: #F8FAFC;
+        color: #2E1E54;
+    }
+    .wp-lang-opt.is-active {
         font-weight: 700;
-        padding: 0.12rem 0.45rem;
-        border-radius: 9999px;
-        background: rgba(0, 114, 206, 0.08);
-        color: var(--wp-blue, #0052CC);
-        border: 1px solid rgba(0, 114, 206, 0.2);
+        color: #2E1E54;
     }
 
     /* Mobile Hamburger */
     .wp-burger {
         display: none;
         background: transparent;
-        border: 1px solid var(--wp-border, #E2E8F0);
+        border: 1px solid #E2E8F0;
         border-radius: 8px;
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        color: var(--wp-navy-900, #001B3A);
-        font-size: 1.35rem;
+        color: #111827;
+        font-size: 1.25rem;
         transition: all 0.2s ease;
     }
     .wp-burger:hover {
-        background: var(--wp-bg-light, #F8F9FA);
-        border-color: var(--wp-blue, #0052CC);
-        color: var(--wp-blue, #0052CC);
+        background: #F8FAFC;
+        border-color: #CBD5E1;
     }
 
-    @media (max-width: 1040px) {
-        .wp-nav-menu {
-            gap: 1.25rem;
-        }
-    }
-
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
         .wp-burger {
             display: flex;
         }
         .wp-nav-menu {
             position: absolute;
-            top: 76px;
+            top: 74px;
             left: 0;
             right: 0;
             background: #FFFFFF;
@@ -434,7 +445,7 @@
             align-items: stretch;
             gap: 0;
             padding: 0 1.25rem;
-            border-bottom: 1px solid var(--wp-border, #E2E8F0);
+            border-bottom: 1px solid #E2E8F0;
             box-shadow: 0 25px 45px -10px rgba(0, 27, 58, 0.15);
             max-height: 0;
             opacity: 0;
@@ -443,9 +454,9 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .wp-nav-menu.is-open {
-            max-height: 80vh;
+            max-height: 85vh;
             opacity: 1;
-            padding: 1.2rem 1.25rem 2rem;
+            padding: 1rem 1.25rem 2rem;
             pointer-events: auto;
         }
         .wp-nav-item {
@@ -453,14 +464,11 @@
         }
         .wp-nav-link {
             padding: 0.85rem 0.25rem;
-            border-bottom: 1px solid var(--wp-border-subtle, #EEF2F6);
+            border-bottom: 1px solid #EEF2F6;
             font-size: 1rem;
             display: flex;
             justify-content: space-between;
             width: 100%;
-        }
-        .wp-nav-link::after {
-            display: none;
         }
         .wp-dropdown {
             position: static;
@@ -478,55 +486,51 @@
         .wp-nav-item.is-open .wp-dropdown {
             display: block;
         }
-        .wp-nav-menu .btn-wp {
-            margin-top: 1.25rem;
-            width: 100%;
+        .wp-lang-wrap {
+            padding: 0.85rem 0.25rem;
+            border-bottom: 1px solid #EEF2F6;
         }
-    }
-
-    @media (max-width: 600px) {
-        .wp-nav-in {
-            height: 68px;
+        .wp-lang-dropdown {
+            position: static;
+            box-shadow: none;
+            border: none;
+            padding: 0.25rem 0 0.5rem 1rem;
+            background: #F8FAFC;
+            display: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
-        .wp-nav-menu {
-            top: 68px;
+        .wp-lang-wrap.is-open .wp-lang-dropdown {
+            display: block;
         }
     }
 </style>
 
-<!-- Wipro Main Sticky Navigation Bar -->
+<!-- Wipro-Inspired Main Clean Navigation Bar -->
 <nav class="wp-navbar" aria-label="Main Navigation">
-    <div class="wp-wrap wp-nav-in">
-        <!-- Nexteck Logo with Wipro-Inspired Interconnected Nodes Motif -->
-        <a class="wp-logo" href="{{ route('home') }}" aria-label="Nexteck Home">
-            <div class="wp-logo-emblem" aria-hidden="true">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="18" cy="4.5" r="3.2" fill="#0072CE"/>
-                    <circle cx="29.5" cy="11.5" r="3.2" fill="#00A3AD"/>
-                    <circle cx="31.5" cy="24.5" r="3.2" fill="#78BE20"/>
-                    <circle cx="22.5" cy="32" r="3.2" fill="#FFB81C"/>
-                    <circle cx="10" cy="30" r="3.2" fill="#E4007C"/>
-                    <circle cx="5" cy="17.5" r="3.2" fill="#72246C"/>
-                    <circle cx="18" cy="18" r="7.5" stroke="#001B3A" stroke-width="2.2" stroke-dasharray="2 2" opacity="0.6"/>
-                    <circle cx="18" cy="18" r="3.2" fill="#0052CC"/>
+    <div class="wp-nav-in">
+        <!-- Logo: wipro style 'nexteck' + spectrum dot arc -->
+        <a class="wp-logo-brand" href="{{ route('home') }}" aria-label="Nexteck Home">
+            <span class="wp-brand-text">nexteck</span>
+            <span class="wp-brand-dots" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
+                    <circle cx="15" cy="3.5" r="2.4" fill="#78BE20"/>
+                    <circle cx="23" cy="7.5" r="2.4" fill="#00A3AD"/>
+                    <circle cx="26.5" cy="15" r="2.8" fill="#2E1E54"/>
+                    <circle cx="23" cy="22.5" r="2.4" fill="#E4007C"/>
+                    <circle cx="15" cy="26.5" r="2.4" fill="#FFB81C"/>
+                    <circle cx="7" cy="22.5" r="2.2" fill="#0072CE"/>
                 </svg>
-            </div>
-            <div class="wp-logo-text">
-                <span class="wp-logo-title">Nexte<span>c</span>k</span>
-                <span class="wp-logo-subtitle">Strategy &amp; Technology</span>
-            </div>
+            </span>
         </a>
 
         <!-- Navigation Menu -->
         <div class="wp-nav-menu" id="wpNavLinks">
-            <div class="wp-nav-item">
-                <a href="{{ route('home') }}" class="wp-nav-link {{ request()->routeIs('home') ? 'is-active' : '' }}">Home</a>
-            </div>
-
-            <!-- Capabilities & Solutions Dropdown -->
+            <!-- What We Do (Solutions) Dropdown -->
             <div class="wp-nav-item">
                 <button type="button" class="wp-nav-link" aria-haspopup="true" aria-expanded="false" id="navSolutionsBtn">
-                    Solutions <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+                    What We Do <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
                 </button>
                 <div class="wp-dropdown" aria-labelledby="navSolutionsBtn">
                     <a href="{{ route('home') }}#method" class="wp-drop-item">
@@ -549,12 +553,38 @@
                 </div>
             </div>
 
-            <!-- Industries Dropdown -->
+            <!-- What We Think (Insights / Blogs) -->
             <div class="wp-nav-item">
-                <a href="{{ route('industries.index') }}" class="wp-nav-link {{ request()->routeIs('industries.*') ? 'is-active' : '' }}">
-                    Industries <span class="wp-nav-pill">9 Sectors</span>
-                </a>
-                <div class="wp-dropdown" style="min-width:300px;">
+                <a href="{{ route('blogs.index') }}" class="wp-nav-link {{ request()->routeIs('blogs.*') ? 'is-active' : '' }}">What We Think</a>
+            </div>
+
+            <!-- About Nexteck Dropdown (Why Now, Alliances, Methodology) -->
+            <div class="wp-nav-item">
+                <button type="button" class="wp-nav-link" aria-haspopup="true" aria-expanded="false" id="navAboutBtn">
+                    About Nexteck <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+                </button>
+                <div class="wp-dropdown" aria-labelledby="navAboutBtn">
+                    <a href="{{ route('home') }}#urgency" class="wp-drop-item">
+                        <span class="wp-drop-title">Why Now</span>
+                        <span class="wp-drop-sub">The compounding cost of delay &amp; capacity tracker</span>
+                    </a>
+                    <a href="{{ route('home') }}#alliances" class="wp-drop-item">
+                        <span class="wp-drop-title">Platform Alliances</span>
+                        <span class="wp-drop-sub">SAP, Oracle, Salesforce, Microsoft &amp; Snowflake</span>
+                    </a>
+                    <a href="{{ route('home') }}#insights" class="wp-drop-item">
+                        <span class="wp-drop-title">Research &amp; Case Studies</span>
+                        <span class="wp-drop-sub">Field intelligence &amp; supply chain analysis</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Industries Dropdown (9 Sectors) -->
+            <div class="wp-nav-item">
+                <button type="button" class="wp-nav-link" aria-haspopup="true" aria-expanded="false" id="navIndustriesBtn">
+                    Industries <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+                </button>
+                <div class="wp-dropdown" style="min-width:300px;" aria-labelledby="navIndustriesBtn">
                     <a href="{{ route('industries.show', 'banking-fintech') }}" class="wp-drop-item">
                         <span class="wp-drop-title">Banking &amp; Fintech</span>
                         <span class="wp-drop-sub">KYC, AML, Open Banking, FCA compliance</span>
@@ -572,31 +602,50 @@
                         <span class="wp-drop-sub">SCADA, PLC, sensors &amp; predictive maintenance</span>
                     </a>
                     <div class="wp-drop-divider"></div>
-                    <a href="{{ route('industries.index') }}" class="wp-drop-item" style="color:var(--wp-blue); font-weight:700;">
+                    <a href="{{ route('industries.index') }}" class="wp-drop-item" style="color:#382356; font-weight:700;">
                         <span>View All 9 Specialized Sectors <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></span>
                     </a>
                 </div>
             </div>
 
+            <!-- SME Toolkit -->
             <div class="wp-nav-item">
                 <a href="{{ route('toolkit.index') }}" class="wp-nav-link {{ request()->routeIs('toolkit.*') ? 'is-active' : '' }}">SME Toolkit</a>
             </div>
 
+            <!-- Contact Us (Clean Text Nav Link as in Image) -->
             <div class="wp-nav-item">
-                <a href="{{ route('blogs.index') }}" class="wp-nav-link {{ request()->routeIs('blogs.*') ? 'is-active' : '' }}">Insights</a>
+                <a href="{{ route('landing') }}#book" class="wp-nav-link" style="font-weight:600;">Contact Us</a>
             </div>
 
-            <div class="wp-nav-item">
-                <a href="{{ route('home') }}#urgency" class="wp-nav-link">Why Now</a>
+            <!-- Region / Language Selector (🌐 EN ⌄ from Image) -->
+            <div class="wp-lang-wrap">
+                <button type="button" class="wp-lang-btn" aria-haspopup="true" aria-expanded="false" id="wpLangBtn" aria-label="Select Language and Region">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span>EN</span>
+                    <i class="fa-solid fa-chevron-down caret" style="font-size:0.58rem; margin-left:2px; opacity:0.75;" aria-hidden="true"></i>
+                </button>
+                <div class="wp-lang-dropdown" aria-labelledby="wpLangBtn">
+                    <a href="#" class="wp-lang-opt is-active" onclick="event.preventDefault();">
+                        <i class="fa-solid fa-check" style="color:#2E1E54; font-size:0.75rem;"></i>
+                        <span>English (UK) &bull; London</span>
+                    </a>
+                    <a href="#" class="wp-lang-opt" onclick="event.preventDefault();">
+                        <span style="display:inline-block; width:12px;"></span>
+                        <span>English (US) &bull; Global</span>
+                    </a>
+                </div>
             </div>
-
-            <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary btn-wp-sm">
-                Book Strategy Call <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i>
-            </a>
         </div>
 
         <!-- Mobile Hamburger Toggle -->
-        <button class="wp-burger" id="wpBurgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="wpNavLinks"><i class="fa-solid fa-bars"></i></button>
+        <button class="wp-burger" id="wpBurgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="wpNavLinks">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
 </nav>
 

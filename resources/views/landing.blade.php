@@ -51,76 +51,264 @@
         /* Landing Page Enterprise Grand Hero with Video Background */
         .lp-hero {
             position: relative;
-            min-height: calc(100vh - 110px);
+            min-height: calc(100vh - 85px);
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             box-sizing: border-box;
-            padding: clamp(2.5rem, 6vh, 4.5rem) 1.5rem;
+            padding: clamp(3rem, 7vh, 5rem) 0 0;
             color: #FFFFFF;
             overflow: hidden;
             background: #000F24;
         }
 
-        .wp-hero-media-wrap {
+        /* Animated Hero Background Slideshow (Ken Burns & Crossfade) */
+        .wp-hero-bg-slider {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
             z-index: 1;
-        }
-        .wp-hero-bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.38;
             pointer-events: none;
         }
-        .wp-hero-video-overlay {
+        .wp-hero-bg-slide {
+            position: absolute;
+            inset: -4%;
+            width: 108%;
+            height: 108%;
+            background-size: cover;
+            background-position: center center;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: heroKenBurns 24s infinite;
+        }
+        .wp-hero-bg-slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 0s;
+        }
+        .wp-hero-bg-slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 6s;
+        }
+        .wp-hero-bg-slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 12s;
+        }
+        .wp-hero-bg-slide:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 18s;
+        }
+
+        @keyframes heroKenBurns {
+            0% {
+                opacity: 0;
+                transform: scale(1) translate(0, 0);
+            }
+            5% {
+                opacity: 0.85;
+            }
+            25% {
+                opacity: 0.85;
+                transform: scale(1.08) translate(-1%, -1%);
+            }
+            30% {
+                opacity: 0;
+                transform: scale(1.1) translate(-1.5%, -1.5%);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .wp-hero-bg-overlay {
             position: absolute;
             inset: 0;
-            background: 
-                linear-gradient(135deg, rgba(0, 15, 36, 0.92) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
-                radial-gradient(ellipse at 50% 25%, rgba(0, 114, 206, 0.28) 0%, transparent 65%);
+            background: linear-gradient(180deg, rgba(8, 12, 22, 0.50) 0%, rgba(8, 12, 22, 0.32) 50%, rgba(8, 12, 22, 0.65) 100%);
+            z-index: 2;
             pointer-events: none;
+        }
+
+        .lp-hero-content-wrap {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            margin: auto 0;
+            padding: 1.5rem;
+        }
+
+        /* Hero Infinite Scrolling Marquee Banner */
+        .wp-hero-marquee {
+            width: 100%;
+            background: rgba(0, 15, 36, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(12px);
+            padding: 0.95rem 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+        .wp-hero-marquee:hover .wp-marquee-track {
+            animation-play-state: paused;
+        }
+        .wp-marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            gap: 2.25rem;
+            animation: marqueeSlide 36s linear infinite;
+        }
+        @keyframes marqueeSlide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .wp-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            white-space: nowrap;
+            font-family: var(--wp-font-display);
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: #CBD5E1;
+            letter-spacing: 0.02em;
+        }
+        .wp-marquee-item b {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        .wp-marquee-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #38BDF8;
+            box-shadow: 0 0 8px #38BDF8;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .wp-marquee-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.22rem 0.75rem;
+            border-radius: 9999px;
+            color: #E0F2FE;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .wp-marquee-pill i {
+            color: #38BDF8;
+            font-size: 0.8rem;
         }
 
         .lp-hero-center {
             position: relative;
             z-index: 2;
-            max-width: 1020px;
+            max-width: 880px;
             margin: 0 auto;
             text-align: center;
+            width: 100%;
+        }
+
+        .lp-hero-center::after {
+            content: "";
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(850px, 92vw);
+            height: 380px;
+            background: radial-gradient(ellipse at center, rgba(5, 8, 16, 0.65) 0%, rgba(5, 8, 16, 0.35) 55%, transparent 75%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(25px);
+        }
+
+        /* Staged Entrance Animations */
+        @keyframes lpEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lp-hero .wp-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            padding: 0.35rem 1.05rem;
+            border-radius: var(--wp-radius-pill);
+            font-family: var(--wp-font-display);
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #BAE6FD;
+            margin-bottom: clamp(1.2rem, 2.4vh, 1.75rem);
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+            animation: lpEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+        .lp-hero .wp-hero-badge .spectrum-disc {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .lp-hero .wp-hero-badge .spectrum-disc span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .lp-hero-center h1 {
             color: #FFFFFF !important;
-            font-size: clamp(2.2rem, 4.4vw, 3.85rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.25rem;
+            font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.32;
+            letter-spacing: -0.022em;
+            margin: 0 auto clamp(1rem, 2vh, 1.4rem);
+            max-width: 860px;
+            animation: lpEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.9);
         }
 
         .lp-hero-center h1 em {
             font-style: normal;
-            background: linear-gradient(120deg, #38BDF8 0%, #0072CE 60%, #E4007C 100%);
+            font-weight: 700;
+            background: linear-gradient(120deg, #38BDF8 0%, #818CF8 50%, #F472B6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.95));
         }
 
         .lp-hero-center p.lead {
-            font-size: clamp(1rem, 1.3vw, 1.22rem);
-            color: #CBD5E1;
-            line-height: 1.68;
-            max-width: 820px;
-            margin: 0 auto 2.2rem;
+            font-size: clamp(0.94rem, 1.1vw, 1.05rem);
+            color: #F1F5F9;
+            max-width: 680px;
+            margin: 0 auto clamp(1.5rem, 3vh, 2.25rem);
+            line-height: 1.72;
             font-weight: 400;
+            letter-spacing: -0.005em;
+            animation: lpEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85);
         }
 
         .lp-hero-actions {
@@ -128,32 +316,49 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.25rem;
-            margin-bottom: 2.75rem;
+            gap: 1.15rem;
+            margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
+            animation: lpEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
         }
 
         .lp-hero-trust-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            padding-top: 1.85rem;
+            gap: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: clamp(1.35rem, 2.6vh, 1.85rem);
+            max-width: 920px;
+            margin: 0 auto;
             text-align: left;
+            animation: lpEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
         }
         .trust-item {
             display: flex;
             align-items: center;
-            gap: 0.65rem;
-            font-size: 0.86rem;
-            color: #CBD5E1;
-            line-height: 1.4;
+            gap: 0.55rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--wp-radius-pill);
+            padding: 0.45rem 0.95rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.8rem;
+            color: #94A3B8;
+            line-height: 1.35;
+            transition: all 0.25s ease;
+        }
+        .trust-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #E2E8F0;
         }
         .trust-item i {
-            font-size: 1rem;
+            font-size: 0.82rem;
+            color: #38BDF8;
             flex-shrink: 0;
         }
         .trust-item b {
-            color: #FFFFFF;
+            color: #F8FAFC;
+            font-weight: 600;
         }
         @media (max-width: 900px) {
             .lp-hero-trust-bar {
@@ -214,7 +419,7 @@
             font-weight: 600;
         }
         .wipro-cd-pill b {
-            color: #0052CC;
+            color: #382356;
             font-weight: 800;
         }
         .wp-wipro-form {
@@ -261,8 +466,8 @@
         .wp-wipro-select:focus,
         .wp-wipro-textarea:focus {
             outline: none;
-            border-color: #0052CC;
-            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.12);
+            border-color: #382356;
+            box-shadow: 0 0 0 4px rgba(56, 35, 86, 0.12);
         }
         .wp-wipro-textarea {
             resize: vertical;
@@ -297,7 +502,7 @@
             margin-top: 1rem;
         }
         .wp-wipro-submit-btn {
-            background: #001B3A;
+            background: #382356;
             color: #FFFFFF !important;
             border: none;
             border-radius: 9999px;
@@ -310,12 +515,12 @@
             justify-content: center;
             gap: 0.65rem;
             transition: all 0.25s ease;
-            box-shadow: 0 10px 25px -5px rgba(0, 27, 58, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(56, 35, 86, 0.35);
         }
         .wp-wipro-submit-btn:hover {
-            background: #002B5B;
+            background: #26163D;
             transform: translateY(-2px);
-            box-shadow: 0 15px 35px -5px rgba(0, 82, 204, 0.4);
+            box-shadow: 0 15px 35px -5px rgba(56, 35, 86, 0.45);
         }
         .wp-wipro-guarantee {
             display: flex;
@@ -517,60 +722,80 @@
             margin-bottom: 0.35rem;
         }
 
-        /* Pack Deliverables Grid */
+        /* Pack Deliverables Grid - Exact Wipro Outline Top-Intersecting Cards */
         .pack-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 3.5rem 1.5rem;
+            margin-top: 3.5rem;
         }
         .pack {
             background: #FFFFFF;
-            border: 1px solid var(--wp-border);
-            border-radius: var(--wp-radius-md);
-            padding: 1.75rem 1.5rem;
+            border: 1px solid #D5DCE5;
+            border-radius: 16px;
+            padding: 3.25rem 1.75rem 2rem;
+            position: relative;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: var(--wp-shadow-xs);
+            align-items: center;
+            justify-content: flex-start;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 27, 58, 0.03);
         }
         .pack:hover {
-            transform: translateY(-4px);
-            border-color: #CBD5E1;
-            box-shadow: var(--wp-shadow-md);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(46, 30, 84, 0.09);
+            border-color: #B8C7D9;
         }
-        .pack .ic {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(0, 82, 204, 0.08);
-            color: var(--wp-blue);
-            display: flex;
+        .pack-top-icon {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            padding: 0 14px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.15rem;
+            z-index: 2;
+        }
+        .pack-top-icon svg {
+            width: 44px;
+            height: 44px;
+            display: block;
         }
         .pack h3 {
-            font-size: 1.1rem;
-            color: var(--wp-navy-900);
-            margin-bottom: 0.5rem;
+            font-family: var(--wp-font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2E1E54 !important;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.85rem 0;
+            text-align: center;
         }
         .pack p {
-            font-size: 0.88rem;
-            color: var(--wp-text-body);
-            line-height: 1.55;
-            margin-bottom: 1.15rem;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 1.25rem 0;
+            text-align: center;
             flex-grow: 1;
         }
         .pack .val {
             font-family: var(--wp-font-display);
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             font-weight: 700;
-            color: var(--wp-blue);
+            color: #382356;
+            background: #F8F5FA;
+            border: 1px solid #EFEAF4;
+            border-radius: 9999px;
+            padding: 0.3rem 0.85rem;
+            display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-top: 1px solid var(--wp-border-subtle);
-            padding-top: 0.65rem;
+            letter-spacing: 0.06em;
+            margin-top: auto;
         }
 
         .value-bar {
@@ -912,6 +1137,7 @@
             }
             .pack-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 3.5rem 1.5rem;
             }
             .result-chips {
                 grid-template-columns: repeat(2, 1fr);
@@ -924,6 +1150,7 @@
             }
             .pack-grid {
                 grid-template-columns: 1fr;
+                gap: 3.25rem 1rem;
             }
             .result-chips {
                 grid-template-columns: 1fr;
@@ -943,67 +1170,99 @@
 <body>
     @include('partials.header')
 
-    <!-- ================= 1. GRAND ENTERPRISE HERO WITH VIDEO BACKGROUND ================= -->
+    <!-- ================= 1. GRAND ENTERPRISE HERO WITH ANIMATED BACKGROUND & MARQUEE ================= -->
     <header class="lp-hero">
-        <!-- Background Video Layer -->
-        <div class="wp-hero-media-wrap" aria-hidden="true">
-            <video class="wp-hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80">
-                <source src="{{ asset('videos/software-company.mp4') }}" type="video/mp4">
-            </video>
-            <div class="wp-hero-video-overlay"></div>
+        <!-- Animated Background Slideshow (Ken Burns & Smooth Crossfade) -->
+        <div class="wp-hero-bg-slider" aria-hidden="true">
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-overlay"></div>
         </div>
 
-        <div class="wp-wrap" style="position:relative; z-index:2; width:100%;">
-            <div class="lp-hero-center rv in">
-                <div class="wp-hero-badge" style="margin-bottom:1.15rem;">
-                    <div class="spectrum-disc" aria-hidden="true">
-                        <span style="background:#0072CE;"></span>
-                        <span style="background:#00A3AD;"></span>
-                        <span style="background:#78BE20;"></span>
-                        <span style="background:#FFB81C;"></span>
-                        <span style="background:#E4007C;"></span>
+        <div class="lp-hero-content-wrap">
+            <div class="wp-wrap" style="position:relative; z-index:2; width:100%;">
+                <div class="lp-hero-center">
+                    <div class="wp-hero-badge">
+                        <div class="spectrum-disc" aria-hidden="true">
+                            <span style="background:#0072CE;"></span>
+                            <span style="background:#00A3AD;"></span>
+                            <span style="background:#78BE20;"></span>
+                            <span style="background:#FFB81C;"></span>
+                            <span style="background:#E4007C;"></span>
+                        </div>
+                        <span>Free 45-Minute Strategy Call — Q4 2026 Cohort Open</span>
                     </div>
-                    <span>Free 45-Minute Strategy Call — Q4 2026 Cohort Open</span>
+
+                    <h1>
+                        Find out exactly which <em>AI &amp; technology</em> your business needs —
+                        <span style="color:#FFFFFF;">before you spend a single pound on it.</span>
+                    </h1>
+
+                    <p class="lead">
+                        The Nexteck Business &amp; AI Audit examines your processes, systems, data, and talent, then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked using the same architecture Mohammed Nasar delivered for tier-1 institutions.
+                    </p>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="lp-hero-actions">
+                        <a href="#book" class="btn-wp btn-wp-primary btn-wp-lg">
+                            Schedule Your Strategy Call <i class="fa-solid fa-arrow-down" style="margin-left:6px;"></i>
+                        </a>
+                        <a href="#outcomes" class="btn-wp btn-wp-ghost-light btn-wp-lg">
+                            Explore What's Included <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- 4 Trust Proof Points -->
+                    <div class="lp-hero-trust-bar">
+                        <div class="trust-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span><b>25+ Years</b> Boardroom IT Delivery</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span><b>Nexteck SME Toolkit™</b> 40+ Engagements</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-code"></i>
+                            <span><b>100% Client IP</b> Ownership of Code</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fa-solid fa-handshake"></i>
+                            <span><b>Bilateral NDA</b> &amp; Straight Verdict</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <h1>
-                    Find out exactly which <em>AI &amp; technology</em> your business needs — <br>
-                    <span style="color:#FFFFFF;">before you spend a single pound on it.</span>
-                </h1>
+        <!-- Infinite Scrolling Capability & Trust Marquee Banner -->
+        <div class="wp-hero-marquee" aria-hidden="true">
+            <div class="wp-marquee-track">
+                <!-- Set 1 -->
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> <b>25+ Years</b> Boardroom IT Delivery</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-code"></i> 100% Client IP Ownership</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> End-to-End Business &amp; AI Audits</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-shield-halved"></i> Bilateral NDA Guaranteed</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Custom Enterprise Software Architecture</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-bolt"></i> 90-Day Execution Roadmaps</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Banking &bull; Insurance &bull; Manufacturing &bull; Rail</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-layer-group"></i> Nexteck SME Toolkit™</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Zero Vendor Lock-in &bull; Zero Tech Hype</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-chart-line"></i> 60% Admin Hours Reduced</span></div>
 
-                <p class="lead">
-                    The Nexteck Business &amp; AI Audit examines your processes, systems, data, and talent, then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked using the same architecture Mohammed Nasar delivered for tier-1 institutions.
-                </p>
-
-                <!-- Hero Action Buttons -->
-                <div class="lp-hero-actions">
-                    <a href="#book" class="btn-wp btn-wp-primary btn-wp-lg">
-                        Schedule Your Strategy Call <i class="fa-solid fa-arrow-down" style="margin-left:6px;"></i>
-                    </a>
-                    <a href="#outcomes" class="btn-wp btn-wp-ghost-light btn-wp-lg">
-                        Explore What's Included <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
-                    </a>
-                </div>
-
-                <!-- 4 Trust Proof Points -->
-                <div class="lp-hero-trust-bar">
-                    <div class="trust-item">
-                        <i class="fa-solid fa-shield-halved" style="color:#38BDF8;"></i>
-                        <span><b>25+ Years</b> Boardroom IT Delivery</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa-solid fa-layer-group" style="color:#38BDF8;"></i>
-                        <span><b>Nexteck SME Toolkit™</b> Across 40+ Engagements</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa-solid fa-code" style="color:#38BDF8;"></i>
-                        <span><b>100% Client IP</b> Ownership of All Code</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa-solid fa-handshake" style="color:#38BDF8;"></i>
-                        <span><b>Bilateral NDA</b> &amp; Straight Verdict Guaranteed</span>
-                    </div>
-                </div>
+                <!-- Set 2 (Seamless Infinite Duplicate) -->
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> <b>25+ Years</b> Boardroom IT Delivery</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-code"></i> 100% Client IP Ownership</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> End-to-End Business &amp; AI Audits</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-shield-halved"></i> Bilateral NDA Guaranteed</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Custom Enterprise Software Architecture</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-bolt"></i> 90-Day Execution Roadmaps</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Banking &bull; Insurance &bull; Manufacturing &bull; Rail</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-layer-group"></i> Nexteck SME Toolkit™</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Zero Vendor Lock-in &bull; Zero Tech Hype</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-chart-line"></i> 60% Admin Hours Reduced</span></div>
             </div>
         </div>
     </header>
@@ -1207,85 +1466,132 @@
     </section>
 
     <!-- ================= 3. AUDIT PACK DELIVERABLES ================= -->
-    <section class="wp-section">
+    <section class="wp-section" style="background:#F8FAFC; padding: 6rem 0;">
         <div class="wp-wrap">
-            <div class="wp-sec-head rv">
-                <span class="wp-eyebrow"><span class="wp-dot"></span> Complete Transparency</span>
-                <h2>Everything inside your audit pack</h2>
-                <p>Seven working tools — not a generic slide deck that gathers dust. The complete Nexteck SME Strategy Toolkit™, populated with your proprietary operational data.</p>
+            <div class="wp-sec-head rv" style="text-align:center; max-width:820px; margin: 0 auto 3.75rem;">
+                <span class="wp-eyebrow" style="justify-content:center;"><span class="wp-dot"></span> Complete Transparency</span>
+                <h2 style="color:#2E1E54; font-size:clamp(2rem, 3.2vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; margin-bottom:1rem;">Everything inside your audit pack</h2>
+                <p style="color:#475569; font-size:1.05rem; line-height:1.65; max-width:680px; margin:0 auto;">Seven working tools — not a generic slide deck that gathers dust. The complete Nexteck SME Strategy Toolkit™, populated with your proprietary operational data.</p>
             </div>
 
             <div class="pack-grid">
+                <!-- 1. Client Diagnostic -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="7" width="28" height="32" rx="4"/>
+                            <path d="M15 7V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/>
+                            <path d="M14 19l4 4 8-8"/>
+                            <path d="M14 29h16"/>
+                        </svg>
                     </div>
                     <h3>Client Diagnostic</h3>
                     <p>All 8 pain points scored for severity on the discovery call. Anything rated 4–5 becomes a tracked sprint action.</p>
                     <span class="val">Value £750</span>
                 </div>
 
+                <!-- 2. Industry Benchmark -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" /><path d="M7 15l4-6 4 3 5-8" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 38h32"/>
+                            <rect x="10" y="22" width="6" height="16" rx="2"/>
+                            <rect x="19" y="14" width="6" height="24" rx="2"/>
+                            <rect x="28" y="7" width="6" height="31" rx="2"/>
+                        </svg>
                     </div>
                     <h3>Industry Benchmark</h3>
                     <p>Your scores vs. 3–5 sector leaders across 5 lenses, with staged actions, owners, and dates to close each gap.</p>
                     <span class="val">Value £900</span>
                 </div>
 
+                <!-- 3. Competitor Tracker -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="22" cy="22" r="16"/>
+                            <circle cx="22" cy="22" r="9"/>
+                            <circle cx="22" cy="22" r="2.5" fill="#18181B"/>
+                            <path d="M22 3v5M22 36v5M3 22h5M36 22h5"/>
+                        </svg>
                     </div>
                     <h3>Competitor Tracker</h3>
                     <p>Direct competitors mapped — category norms vs. genuine whitespace, so you differentiate where it wins clients.</p>
                     <span class="val">Value £600</span>
                 </div>
 
+                <!-- 4. AI & IT Opportunity Log (Microchip Outline from Wipro Style) -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M9 9h6v6H9zM4 12h-2M22 12h-2M12 4V2M12 22v-2" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="10" y="10" width="24" height="24" rx="4"/>
+                            <rect x="16" y="16" width="12" height="12" rx="2"/>
+                            <path d="M15 5v5M22 5v5M29 5v5"/>
+                            <path d="M15 34v5M22 34v5M29 34v5"/>
+                            <path d="M5 15h5M5 22h5M5 29h5"/>
+                            <path d="M34 15h5M34 22h5M34 29h5"/>
+                        </svg>
                     </div>
                     <h3>AI &amp; IT Opportunity Log</h3>
                     <p>Every founder-dependent process scored Impact &times; Urgency with monthly costs — sequenced into a 90-day roadmap.</p>
                     <span class="val">Value £1,500</span>
                 </div>
 
+                <!-- 5. SOP & Delegation Register (Padlock Outline from Wipro Style) -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="18" width="26" height="21" rx="4"/>
+                            <path d="M14 18V11a8 8 0 0 1 16 0v7"/>
+                            <circle cx="22" cy="27" r="2.5" fill="#18181B"/>
+                            <path d="M22 29.5v4"/>
+                        </svg>
                     </div>
                     <h3>SOP &amp; Delegation Register</h3>
                     <p>Recurring tasks documented, assigned, and automated — so the architecture outlives any single person.</p>
                     <span class="val">Value £700</span>
                 </div>
 
+                <!-- 6. KPI Dashboard -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 29a16 16 0 1 1 30 0"/>
+                            <path d="M22 23l7-7"/>
+                            <circle cx="22" cy="23" r="3" fill="#18181B"/>
+                            <path d="M9 34h26"/>
+                        </svg>
                     </div>
                     <h3>KPI Dashboard</h3>
                     <p>Monthly targets vs. actuals across sales, marketing, finance, ops, and customer — reviewed in 60 minutes a week.</p>
                     <span class="val">Value £850</span>
                 </div>
 
+                <!-- 7. Tool Stack Plan -->
                 <div class="pack rv">
-                    <div class="ic">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" /></svg>
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 5L5 14l17 9 17-9-17-9z"/>
+                            <path d="M5 22l17 9 17-9"/>
+                            <path d="M5 30l17 9 17-9"/>
+                        </svg>
                     </div>
                     <h3>Tool Stack Plan</h3>
                     <p>Recommended software at Starter / Growth / Established tiers — buy once, correctly, at the right budget.</p>
                     <span class="val">Value £500</span>
                 </div>
 
-                <div class="pack rv wp-card-navy">
-                    <div class="ic" style="background:rgba(255, 255, 255, 0.12); color:#38BDF8;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6" /><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8" /></svg>
+                <!-- 8. Walkthrough & Handover (Cloud Upload Outline from Wipro Style) -->
+                <div class="pack rv">
+                    <div class="pack-top-icon">
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 32h19a8 8 0 0 0 1.6-15.8 10 10 0 0 0-19.6-2.5A7 7 0 0 0 13 32z"/>
+                            <path d="M22 21v11M17 26l5-5 5 5"/>
+                        </svg>
                     </div>
-                    <h3 style="color:#FFFFFF;">Walkthrough &amp; Handover</h3>
-                    <p style="color:#CBD5E1;">A full working session with your executive team, plus 30 days of email support on the roadmap.</p>
-                    <span class="val" style="color:#38BDF8; border-color:rgba(255,255,255,0.15);">Included</span>
+                    <h3>Walkthrough &amp; Handover</h3>
+                    <p>A full working session with your executive team, plus 30 days of email support on the roadmap.</p>
+                    <span class="val" style="background:#382356; color:#FFFFFF; border-color:#382356;">Included</span>
                 </div>
             </div>
 
@@ -1372,7 +1678,7 @@
                 </div>
 
                 <div class="steps2 rv">
-                    <div class="dot" style="background:#0052CC;">2</div>
+                    <div class="dot" style="background:#382356;">2</div>
                     <div style="flex-grow:1;">
                         <h3>Industry Benchmark &amp; Competitor Tracker</h3>
                         <p>Scored against 3–5 recognized leaders in your sector across five lenses, plus a competitive positioning matrix separating industry hygiene from market whitespace.</p>

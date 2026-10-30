@@ -48,7 +48,7 @@
     <style>
         :root {
             --yellow-cell: #FFFFFF;
-            --yellow-border: #0052CC;
+            --yellow-border: #382356;
         }
 
         body {
@@ -185,7 +185,7 @@
         .field-group input:focus {
             outline: none;
             border-color: var(--wp-blue);
-            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+            box-shadow: 0 0 0 3px rgba(56, 35, 86, 0.15);
         }
 
         /* ---------- Alerts ---------- */
@@ -342,7 +342,7 @@
         .cell-input:focus, .cell-select:focus, .cell-textarea:focus {
             outline: none;
             border-color: var(--wp-blue);
-            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.18);
+            box-shadow: 0 0 0 2px rgba(56, 35, 86, 0.18);
         }
 
         /* Formula Cells */
@@ -401,7 +401,7 @@
         .btn-add-row:hover {
             border-color: var(--wp-blue);
             color: var(--wp-blue);
-            background: rgba(0, 82, 204, 0.04);
+            background: rgba(56, 35, 86, 0.04);
         }
         .btn-del-row {
             background: #FEE2E2;

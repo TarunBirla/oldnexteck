@@ -5,9 +5,9 @@
         --nxt-navy: #001B3A;
         --nxt-navy-deep: #000F24;
         --nxt-navy-light: #0B2545;
-        --nxt-gold: #0052CC;
-        --nxt-gold-light: #0072CE;
-        --nxt-gold-hover: #003D99;
+        --nxt-gold: #382356;
+        --nxt-gold-light: #4A306E;
+        --nxt-gold-hover: #26163D;
         --nxt-cream: #F8F9FA;
         --nxt-surface: #FFFFFF;
         --nxt-border: #E2E8F0;
@@ -367,7 +367,7 @@
         font-size: 0.86rem;
         font-weight: 700;
         box-shadow: 0 10px 30px rgba(12, 27, 51, 0.18), 0 2px 8px rgba(0,0,0,0.06);
-        border: 1.5px solid rgba(0, 82, 204, 0.25);
+        border: 1.5px solid rgba(56, 35, 86, 0.25);
         cursor: pointer;
         transition: all 0.25s ease;
         text-decoration: none;

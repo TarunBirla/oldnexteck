@@ -73,18 +73,84 @@
         /* Enterprise Full-Screen Hero */
         .wp-hero {
             position: relative;
-            min-height: calc(100vh - 110px);
+            min-height: calc(100vh - 85px);
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             box-sizing: border-box;
-            padding: clamp(2rem, 5vh, 4rem) 1.5rem;
+            padding: clamp(3rem, 7vh, 5rem) 0 0;
             color: #FFFFFF;
             overflow: hidden;
-            background: 
-                linear-gradient(135deg, rgba(0, 15, 36, 0.90) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
-                radial-gradient(ellipse at 50% 25%, rgba(0, 114, 206, 0.28) 0%, transparent 65%),
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
+            background: #000F24;
+        }
+
+        /* Animated Hero Background Slideshow (Ken Burns & Crossfade) */
+        .wp-hero-bg-slider {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .wp-hero-bg-slide {
+            position: absolute;
+            inset: -4%;
+            width: 108%;
+            height: 108%;
+            background-size: cover;
+            background-position: center center;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: heroKenBurns 24s infinite;
+        }
+        .wp-hero-bg-slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 0s;
+        }
+        .wp-hero-bg-slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 6s;
+        }
+        .wp-hero-bg-slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 12s;
+        }
+        .wp-hero-bg-slide:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80');
+            animation-delay: 18s;
+        }
+
+        @keyframes heroKenBurns {
+            0% {
+                opacity: 0;
+                transform: scale(1) translate(0, 0);
+            }
+            5% {
+                opacity: 0.85;
+            }
+            25% {
+                opacity: 0.85;
+                transform: scale(1.08) translate(-1%, -1%);
+            }
+            30% {
+                opacity: 0;
+                transform: scale(1.1) translate(-1.5%, -1.5%);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .wp-hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 12, 22, 0.50) 0%, rgba(8, 12, 22, 0.32) 50%, rgba(8, 12, 22, 0.65) 100%);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .wp-hero::before {
@@ -92,40 +158,146 @@
             position: absolute;
             inset: 0;
             background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
-                radial-gradient(rgba(0, 114, 206, 0.14) 1.5px, transparent 1.5px);
-            background-size: 40px 40px, 80px 80px;
-            background-position: 0 0, 20px 20px;
-            opacity: 0.5;
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 36px 36px;
+            opacity: 0.2;
             pointer-events: none;
+            z-index: 3;
+        }
+
+        .wp-hero-content-wrap {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            margin: auto 0;
+            padding: 1.5rem;
         }
 
         .wp-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1040px;
+            max-width: 880px;
             margin: 0 auto;
             text-align: center;
             width: 100%;
+        }
+
+        /* Hero Infinite Scrolling Marquee Banner */
+        .wp-hero-marquee {
+            width: 100%;
+            background: rgba(0, 15, 36, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(12px);
+            padding: 0.95rem 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+        .wp-hero-marquee:hover .wp-marquee-track {
+            animation-play-state: paused;
+        }
+        .wp-marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            gap: 2.25rem;
+            animation: marqueeSlide 36s linear infinite;
+        }
+        @keyframes marqueeSlide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .wp-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            white-space: nowrap;
+            font-family: var(--wp-font-display);
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: #CBD5E1;
+            letter-spacing: 0.02em;
+        }
+        .wp-marquee-item b {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        .wp-marquee-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #38BDF8;
+            box-shadow: 0 0 8px #38BDF8;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .wp-marquee-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.22rem 0.75rem;
+            border-radius: 9999px;
+            color: #E0F2FE;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .wp-marquee-pill i {
+            color: #38BDF8;
+            font-size: 0.8rem;
+        }
+
+        .wp-hero-content::after {
+            content: "";
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(850px, 92vw);
+            height: 380px;
+            background: radial-gradient(ellipse at center, rgba(5, 8, 16, 0.65) 0%, rgba(5, 8, 16, 0.35) 55%, transparent 75%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(25px);
+        }
+
+        /* Hero Staged Entrance Animations */
+        @keyframes heroEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .wp-hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.65rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(12px);
-            padding: 0.4rem 1.15rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            padding: 0.35rem 1.05rem;
             border-radius: var(--wp-radius-pill);
             font-family: var(--wp-font-display);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #E0F2FE;
-            margin-bottom: clamp(1rem, 2.2vh, 1.6rem);
-            box-shadow: 0 4px 20px rgba(0, 114, 206, 0.25);
+            color: #BAE6FD;
+            margin-bottom: clamp(1.2rem, 2.4vh, 1.75rem);
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+            animation: heroEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
         }
         .wp-hero-badge .spectrum-disc {
             display: flex;
@@ -141,28 +313,65 @@
 
         .wp-hero h1 {
             color: #FFFFFF !important;
-            font-size: clamp(2.2rem, 4.4vw, 3.85rem);
-            font-weight: 800;
-            line-height: 1.16;
-            letter-spacing: -0.03em;
-            margin-bottom: clamp(0.85rem, 2vh, 1.4rem);
+            font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.32;
+            letter-spacing: -0.022em;
+            margin: 0 auto clamp(1rem, 2vh, 1.4rem);
+            max-width: 860px;
+            animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.9);
         }
 
         .wp-hero h1 em {
             font-style: normal;
-            background: linear-gradient(120deg, #38BDF8 0%, #0072CE 50%, #E4007C 100%);
+            font-weight: 700;
+            background: linear-gradient(120deg, #38BDF8 0%, #818CF8 50%, #F472B6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.95));
+        }
+
+        /* Smooth Rotating Text Highlight */
+        .wp-rotator-wrap {
+            display: inline-block;
+            position: relative;
+            vertical-align: baseline;
+        }
+        .wp-rotator-text {
+            display: inline-block;
+            background: linear-gradient(120deg, #38BDF8 0%, #818CF8 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.95));
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .wp-rotator-text.fade-out {
+            transform: translateY(-14px);
+            opacity: 0;
+            filter: blur(5px) drop-shadow(0 2px 12px rgba(0, 0, 0, 0.95));
+        }
+        .wp-rotator-text.prepare-in {
+            transform: translateY(14px);
+            opacity: 0;
+            filter: blur(5px) drop-shadow(0 2px 12px rgba(0, 0, 0, 0.95));
+            transition: none !important;
         }
 
         .wp-hero-lead {
-            font-size: clamp(0.98rem, 1.25vw, 1.18rem);
-            color: #CBD5E1;
-            max-width: 820px;
-            margin: 0 auto clamp(1.2rem, 2.5vh, 2rem);
-            line-height: 1.62;
+            font-size: clamp(0.94rem, 1.1vw, 1.05rem);
+            color: #F1F5F9;
+            max-width: 680px;
+            margin: 0 auto clamp(1.5rem, 3vh, 2.25rem);
+            line-height: 1.72;
             font-weight: 400;
+            letter-spacing: -0.005em;
+            animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85);
         }
 
         .wp-hero-actions {
@@ -171,7 +380,8 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1.15rem;
-            margin-bottom: clamp(1.2rem, 2.5vh, 2.2rem);
+            margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
+            animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
         }
 
         .wp-hero-chips {
@@ -179,74 +389,262 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.4rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            padding-top: clamp(1rem, 2vh, 1.5rem);
-            font-size: 0.85rem;
-            color: #94A3B8;
+            gap: 0.75rem 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: clamp(1.35rem, 2.6vh, 1.85rem);
+            max-width: 900px;
+            margin: 0 auto;
+            animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
         }
         .wp-hero-chip-item {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.55rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--wp-radius-pill);
+            padding: 0.4rem 1rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.81rem;
+            color: #94A3B8;
+            transition: all 0.25s ease;
         }
-        .wp-hero-chip-item svg {
+        .wp-hero-chip-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: #E2E8F0;
+        }
+        .wp-hero-chip-item b {
+            color: #F8FAFC;
+            font-weight: 600;
+        }
+        .wp-hero-chip-item i {
             color: #38BDF8;
+            font-size: 0.82rem;
             flex-shrink: 0;
         }
 
-        /* Stats Bar */
+        /* ================= 2. EXPERIENCE & STATS BANNER (WIPRO STYLE) ================= */
         .wp-stats-section {
-            background: #FFFFFF;
-            border-bottom: 1px solid var(--wp-border);
-            padding: 3.5rem 0;
+            background: #EDF0F5;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 3.75rem 0 3.25rem;
             position: relative;
             z-index: 10;
-        }
-        .wp-stat-card {
-            background: #FFFFFF;
-            border: 1px solid var(--wp-border);
-            border-radius: var(--wp-radius-md);
-            padding: 2rem 1.6rem;
-            position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: var(--wp-shadow-xs);
         }
-        .wp-stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--wp-shadow-md);
-            border-color: #CBD5E1;
+        .wp-experience-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: clamp(2rem, 4vw, 4rem);
         }
-        .wp-stat-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+        .wp-experience-left {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
         }
-        .wp-stat-number {
+        .wp-experience-headline {
             font-family: var(--wp-font-display);
-            font-size: clamp(2.4rem, 4vw, 3.2rem);
+            font-size: clamp(1.2rem, 1.85vw, 1.6rem);
+            font-weight: 700;
+            line-height: 1.32;
+            letter-spacing: -0.015em;
+            color: #1F1B4E;
+            max-width: 480px;
+            margin: 0 0 2.25rem 0;
+        }
+        .wp-experience-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(1.25rem, 2.5vw, 2.5rem);
+        }
+        .wp-experience-stat {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .wp-experience-number {
+            font-family: var(--wp-font-display);
+            font-size: clamp(2.5rem, 3.8vw, 3.5rem);
             font-weight: 800;
-            letter-spacing: -0.03em;
-            color: var(--wp-navy-900);
+            letter-spacing: -0.035em;
+            color: #274D8C;
             line-height: 1;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.65rem;
             display: flex;
             align-items: baseline;
             gap: 2px;
         }
-        .wp-stat-number i {
+        .wp-experience-number i {
             font-style: normal;
-            color: var(--wp-blue);
+            font-weight: 700;
             font-size: 0.75em;
+            color: #274D8C;
         }
-        .wp-stat-label {
-            font-size: 0.92rem;
-            color: var(--wp-text-muted);
+        .wp-experience-label {
+            font-size: 0.95rem;
+            color: #1E293B;
             font-weight: 500;
-            line-height: 1.45;
+            line-height: 1.4;
+            max-width: 195px;
+        }
+
+        /* 3 Overlapping Circles Graphic */
+        .wp-experience-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .wp-bubble-cluster {
+            position: relative;
+            width: 440px;
+            height: 275px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            flex-shrink: 0;
+        }
+        .wp-bubble-circle {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .wp-bubble-teal {
+            width: 210px;
+            height: 210px;
+            background: #1793A6;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .wp-bubble-yellow {
+            width: 210px;
+            height: 210px;
+            background: #F9BF15;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .wp-bubble-shadow {
+            position: absolute;
+            width: 180px;
+            height: 44px;
+            background: #000000;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .wp-bubble-center {
+            position: relative;
+            width: 265px;
+            height: 265px;
+            background: #274C8B;
+            border-radius: 50%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+        }
+        .wp-bubble-number {
+            font-family: var(--wp-font-display);
+            font-size: clamp(3.2rem, 4.4vw, 4rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1;
+            letter-spacing: -0.035em;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 2px;
+        }
+        .wp-bubble-number i {
+            font-style: normal;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.72em;
+        }
+        .wp-bubble-label {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            font-weight: 500;
+            line-height: 1.35;
+            max-width: 185px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @media (max-width: 1140px) {
+            .wp-experience-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .wp-experience-headline {
+                max-width: 100%;
+                text-align: center;
+            }
+            .wp-experience-metrics {
+                justify-content: center;
+            }
+            .wp-experience-stat {
+                align-items: center;
+                text-align: center;
+            }
+            .wp-experience-right {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .wp-experience-metrics {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+                text-align: center;
+            }
+            .wp-experience-number {
+                justify-content: center;
+            }
+            .wp-experience-label {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            .wp-bubble-cluster {
+                width: 320px;
+                height: 200px;
+            }
+            .wp-bubble-teal,
+            .wp-bubble-yellow {
+                width: 150px;
+                height: 150px;
+            }
+            .wp-bubble-center {
+                width: 195px;
+                height: 195px;
+                padding: 0.75rem;
+            }
+            .wp-bubble-shadow {
+                width: 130px;
+                height: 30px;
+                bottom: 8px;
+            }
+            .wp-bubble-number {
+                font-size: 2.5rem;
+            }
+            .wp-bubble-label {
+                font-size: 0.82rem;
+                max-width: 150px;
+            }
         }
 
         /* Bento Cards */
@@ -293,75 +691,563 @@
             flex-grow: 1;
         }
 
-        /* Methodology */
+        /* Methodology (Wipro Style Cards) */
+        .wp-section-method {
+            background: #F3F5F9;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .wp-method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
         .wp-method-card {
             background: #FFFFFF;
-            border: 1px solid var(--wp-border);
-            border-radius: var(--wp-radius-md);
-            padding: 2.4rem 2rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 2.2rem 1.85rem;
             position: relative;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
-            box-shadow: var(--wp-shadow-xs);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 14px rgba(0, 20, 50, 0.04);
         }
         .wp-method-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--wp-shadow-md);
+            box-shadow: 0 14px 30px rgba(46, 30, 84, 0.12);
             border-color: #CBD5E1;
         }
-        .wp-method-step {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            background: var(--wp-navy-900);
-            color: #FFFFFF;
-            font-family: var(--wp-font-display);
-            font-weight: 800;
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.45rem;
-            box-shadow: 0 4px 14px rgba(0, 27, 58, 0.2);
+        .wp-method-stage-pill {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #2E1E54;
+            background: rgba(46, 30, 84, 0.08);
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            width: fit-content;
+            margin-bottom: 0.85rem;
         }
         .wp-method-card h3 {
-            font-size: 1.28rem;
-            color: var(--wp-navy-900);
-            margin-bottom: 0.85rem;
+            font-family: var(--wp-font-display);
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #231B4D;
+            line-height: 1.32;
+            margin: 0 0 0.85rem 0;
+            letter-spacing: -0.015em;
         }
         .wp-method-card p {
             font-size: 0.92rem;
-            color: var(--wp-text-body);
-            line-height: 1.62;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 1.25rem 0;
         }
         .wp-method-deliverable {
-            border-top: 1px solid var(--wp-border-subtle);
-            padding-top: 1.1rem;
-            font-size: 0.84rem;
-            color: var(--wp-text-muted);
+            border-top: 1px dashed #E2E8F0;
+            padding-top: 0.95rem;
+            font-size: 0.83rem;
+            color: #64748B;
             line-height: 1.48;
+            margin-bottom: 1.65rem;
+            flex-grow: 1;
         }
         .wp-method-deliverable b {
-            color: var(--wp-navy-900);
+            color: #1E293B;
+            font-weight: 600;
         }
-
-        /* Score Pills for Table */
-        .score-pill {
+        .wp-method-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            background: #2E1E54;
+            color: #FFFFFF !important;
+            padding: 0.55rem 1.45rem;
+            border-radius: 9999px;
+            font-family: var(--wp-font-display);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            width: fit-content;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(46, 30, 84, 0.18);
+        }
+        .wp-method-btn:hover {
+            background: #1C1036;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 30, 84, 0.3);
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1100px) {
+            .wp-method-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .wp-method-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+        }
+
+        /* ================= 5. REDESIGNED EXECUTIVE ROADMAP SHOWCASE (WIPRO INSPIRED) ================= */
+        .wp-roadmap-section {
+            background: #F8FAFD;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 5.5rem 0 6rem;
+            position: relative;
+        }
+
+        /* 1. Split Strategic Hero Banner (50/50 - Image 3) */
+        .wp-road-split-banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 27, 58, 0.1);
+            margin-bottom: 3.5rem;
+            border: 1px solid #CBD5E1;
+            min-height: 440px;
+        }
+        .wp-road-split-left {
+            position: relative;
+            background: #000B1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            overflow: hidden;
+        }
+        .wp-road-split-left-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.65;
+            transform: scale(1.05);
+            transition: transform 6s ease;
+        }
+        .wp-road-split-banner:hover .wp-road-split-left-bg {
+            transform: scale(1.12);
+        }
+        .wp-road-split-left-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 11, 26, 0.94) 0%, rgba(20, 10, 42, 0.88) 100%);
+            z-index: 2;
+        }
+        .wp-road-split-left-content {
+            position: relative;
+            z-index: 3;
+            max-width: 480px;
+            text-align: center;
+        }
+        .wp-road-split-tag {
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #38BDF8;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .wp-road-split-left-content h3 {
+            font-family: var(--wp-font-display);
+            font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+            font-weight: 700;
+            color: #FFFFFF !important;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+        .wp-road-split-left-content p {
+            color: #94A3B8;
+            font-size: 0.96rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .wp-road-split-right {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            overflow: hidden;
+        }
+        .wp-road-split-right-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.88) 100%);
+            z-index: 2;
+        }
+        .wp-road-split-right-content {
+            position: relative;
+            z-index: 3;
+            max-width: 480px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        .wp-road-split-right-content h3 {
+            font-family: var(--wp-font-display);
+            font-size: clamp(1.75rem, 2.7vw, 2.4rem);
+            font-weight: 700;
+            color: #FFFFFF !important;
+            line-height: 1.25;
+            margin-bottom: 0.9rem;
+        }
+        .wp-road-split-right-content p {
+            color: #E2E8F0;
+            font-size: 0.96rem;
+            line-height: 1.6;
+            margin-bottom: 1.75rem;
+        }
+        .wp-road-split-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            color: #2E1E54 !important;
+            padding: 0.75rem 2.25rem;
+            border-radius: 9999px;
+            font-family: var(--wp-font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        }
+        .wp-road-split-btn:hover {
+            background: #F1F5F9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        /* 2. Vibrant 8-Block Color Mosaic Grid (Image 1) */
+        .wp-road-mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0, 27, 58, 0.08);
+            margin-bottom: 3.5rem;
+        }
+        .wp-mosaic-tile {
+            position: relative;
+            min-height: 275px;
+            padding: 2.25rem 1.85rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            color: #FFFFFF;
+            transition: transform 0.3s ease;
+        }
+        .wp-mosaic-tile-media {
+            padding: 0;
+            background: #000F24;
+        }
+        .wp-mosaic-tile-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wp-mosaic-tile-media:hover img {
+            transform: scale(1.08);
+        }
+        .wp-mosaic-tile-tag {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 1.25rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #BAE6FD;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* Solid Color Tiles from Image 1 */
+        .wp-mosaic-tile-teal {
+            background: #0E858D;
+        }
+        .wp-mosaic-tile-emerald {
+            background: #009E7E;
+        }
+        .wp-mosaic-tile-mint {
+            background: #12B4A3;
+        }
+        .wp-mosaic-tile-blue {
+            background: #2E5BFF;
+        }
+        .wp-mosaic-tile h4 {
+            font-family: var(--wp-font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FFFFFF !important;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin: 0 0 1rem 0;
+        }
+        .wp-mosaic-tile p {
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.55;
+            margin: 0;
+        }
+        .wp-mosaic-tile-link {
+            font-family: var(--wp-font-display);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 1.5rem;
+            transition: transform 0.25s ease;
+        }
+        .wp-mosaic-tile-link:hover {
+            transform: translateX(4px);
+        }
+
+        /* 3. Three High-Impact Outcome Cards (Image 2) */
+        .wp-road-cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+        .wp-road-card {
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 420px;
+            box-shadow: 0 12px 32px rgba(0, 27, 58, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .wp-road-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 44px rgba(0, 27, 58, 0.14);
+        }
+
+        /* Card 1: Deep Purple Stats Card */
+        .wp-road-card-purple-stats {
+            background: linear-gradient(145deg, #1C0A35 0%, #2A1050 60%, #150628 100%);
+            color: #FFFFFF;
+            padding: 2.75rem 2.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .wp-purple-stats-header {
+            margin-bottom: 2rem;
+        }
+        .wp-purple-stats-badge {
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #F472B6;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .wp-purple-stats-title {
+            font-family: var(--wp-font-display);
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+        .wp-purple-stats-title span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #E2E8F0;
+            display: block;
+            margin-top: 0.35rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .wp-purple-stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 1.75rem;
+        }
+        .wp-purple-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .wp-purple-stat-label {
+            font-size: 0.88rem;
+            color: #CBD5E1;
+        }
+        .wp-purple-stat-value {
+            font-family: var(--wp-font-display);
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .wp-purple-stat-value i {
+            font-size: 0.75rem;
+            color: #38BDF8;
+        }
+
+        /* Card 2: "Proof in a Scope" 3D Disc Theme */
+        .wp-road-card-proof {
+            background: linear-gradient(145deg, #18092F 0%, #301357 70%, #1A0735 100%);
+            color: #FFFFFF;
+            padding: 2.75rem 2.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .wp-proof-heading {
+            font-family: var(--wp-font-display);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.15;
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.025em;
+        }
+        .wp-proof-sub {
+            font-size: 0.9rem;
+            color: #CBD5E1;
+            margin-bottom: 1.75rem;
+            line-height: 1.5;
+        }
+        .wp-proof-items {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+        .wp-proof-items li {
+            font-size: 0.88rem;
+            color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-style: italic;
+        }
+        .wp-proof-items li::before {
+            content: "•";
+            color: #F472B6;
+            font-size: 1.3rem;
+            line-height: 0;
+        }
+        .wp-proof-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 9999px;
+            padding: 0.45rem 1rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            width: fit-content;
+            letter-spacing: 0.04em;
+        }
+
+        /* Card 3: Sustainable Resilient Architecture */
+        .wp-road-card-nature {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            padding: 2.75rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .wp-road-card-nature-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 14, 28, 0.25) 0%, rgba(8, 14, 28, 0.88) 75%, rgba(8, 14, 28, 0.96) 100%);
+            z-index: 1;
+        }
+        .wp-road-card-nature-content {
+            position: relative;
+            z-index: 2;
+        }
+        .wp-nature-tag {
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #4ADE80;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .wp-road-card-nature-content h4 {
+            font-family: var(--wp-font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #FFFFFF !important;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+        .wp-road-card-nature-content p {
+            color: #E2E8F0;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+        .wp-nature-link {
+            color: #38BDF8 !important;
             font-family: var(--wp-font-display);
             font-weight: 700;
             font-size: 0.88rem;
-            padding: 0.22rem 0.65rem;
-            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
         }
-        .score-high { background: rgba(228, 0, 124, 0.12); color: #BE185D; }
-        .score-med { background: rgba(255, 184, 28, 0.15); color: #B45309; }
-        .score-low { background: rgba(120, 190, 32, 0.15); color: #15803D; }
+        .wp-nature-link:hover {
+            color: #FFFFFF !important;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1100px) {
+            .wp-road-mosaic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .wp-road-cards-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 820px) {
+            .wp-road-split-banner {
+                grid-template-columns: 1fr;
+            }
+            .wp-road-mosaic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* Industries Section */
         .wp-ind-card {
@@ -431,39 +1317,77 @@
             color: var(--wp-blue-hover);
         }
 
-        /* Trust & Assurance */
+        /* Trust & Assurance (Wipro Centered Top-Intersecting Outline Icons) */
+        .wp-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3.25rem 1.75rem;
+            margin-top: 3.25rem;
+        }
         .wp-trust-card {
             background: #FFFFFF;
-            border: 1px solid var(--wp-border);
-            border-radius: var(--wp-radius-md);
-            padding: 2.25rem 1.85rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--wp-shadow-xs);
+            border: 1px solid #D5DCE5;
+            border-radius: 16px;
+            padding: 3.5rem 2rem 2.25rem;
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 27, 58, 0.03);
         }
         .wp-trust-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--wp-shadow-md);
-            border-color: #CBD5E1;
+            box-shadow: 0 16px 36px rgba(46, 30, 84, 0.09);
+            border-color: #B8C7D9;
         }
-        .wp-trust-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            display: flex;
+        .wp-trust-top-icon {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            padding: 0 16px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.45rem;
+            z-index: 2;
+        }
+        .wp-trust-top-icon svg {
+            display: block;
         }
         .wp-trust-card h3 {
+            font-family: var(--wp-font-display);
             font-size: 1.25rem;
-            color: var(--wp-navy-900);
-            margin-bottom: 0.65rem;
+            font-weight: 700;
+            color: #2E1E54 !important;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            margin: 0 0 1.15rem 0;
+            text-align: center;
         }
         .wp-trust-card p {
             font-size: 0.92rem;
-            color: var(--wp-text-body);
+            color: #475569;
             line-height: 1.62;
             margin: 0;
+            text-align: center;
+            max-width: 330px;
+        }
+
+        @media (max-width: 980px) {
+            .wp-trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem 1.5rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .wp-trust-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem 1.25rem;
+            }
         }
 
         /* Urgency Section */
@@ -583,6 +1507,231 @@
                 padding: 2.75rem 2rem;
             }
         }
+
+        /* ================= 6C. ENTERPRISE SPOTLIGHT BANNER ================= */
+        .wp-spotlight-section {
+            position: relative;
+            width: 100%;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000F24;
+            color: #FFFFFF;
+        }
+        .wp-spotlight-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center right;
+            transform: scale(1.02);
+            transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+        .wp-spotlight-section:hover .wp-spotlight-bg {
+            transform: scale(1.06);
+        }
+        .wp-spotlight-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(8, 14, 28, 0.96) 0%, rgba(8, 14, 28, 0.88) 45%, rgba(8, 14, 28, 0.38) 100%);
+            z-index: 2;
+        }
+        .wp-spotlight-content {
+            max-width: 680px;
+            padding: clamp(4.5rem, 8vh, 6.5rem) 0;
+        }
+        .wp-spotlight-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #38BDF8;
+            margin-bottom: 1.25rem;
+        }
+        .wp-spotlight-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #38BDF8;
+            box-shadow: 0 0 10px #38BDF8;
+        }
+        .wp-spotlight-content h2 {
+            color: #FFFFFF !important;
+            font-size: clamp(2.1rem, 3.4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.22;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.25rem;
+        }
+        .wp-spotlight-content p {
+            color: #E2E8F0;
+            font-size: clamp(1rem, 1.2vw, 1.12rem);
+            line-height: 1.7;
+            margin-bottom: 2.25rem;
+            max-width: 620px;
+        }
+        .wp-spotlight-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            color: #2E1E54 !important;
+            padding: 0.75rem 2.25rem;
+            border-radius: 9999px;
+            font-family: var(--wp-font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        }
+        .wp-spotlight-btn:hover {
+            background: #F1F5F9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+            color: #1C1036 !important;
+        }
+
+        /* ================= 6D. CHECKERBOARD MOSAIC GRID ================= */
+        .wp-checkerboard-section {
+            background: #FFFFFF;
+            position: relative;
+        }
+        .wp-mosaic-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .wp-mosaic-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 420px;
+            align-items: stretch;
+            border-top: 1px solid #E5E9F0;
+        }
+        .wp-mosaic-row:last-child {
+            border-bottom: 1px solid #E5E9F0;
+        }
+        .wp-mosaic-cell {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .wp-mosaic-text {
+            background: #F3F5F9;
+            padding: clamp(2.5rem, 5vw, 4.5rem) clamp(2.5rem, 5vw, 5rem);
+        }
+        .wp-mosaic-pill {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #382356;
+            margin-bottom: 0.85rem;
+            display: inline-block;
+        }
+        .wp-mosaic-title {
+            font-family: var(--wp-font-display);
+            font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+            font-weight: 700;
+            color: #2E1E54;
+            line-height: 1.28;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.15rem;
+        }
+        .wp-mosaic-desc {
+            font-size: clamp(0.92rem, 1.05vw, 1rem);
+            color: #475569;
+            line-height: 1.68;
+            margin-bottom: 1.75rem;
+            max-width: 580px;
+        }
+        .wp-mosaic-link {
+            font-family: var(--wp-font-display);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #2E1E54;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+        .wp-mosaic-link i {
+            transition: transform 0.25s ease;
+        }
+        .wp-mosaic-link:hover {
+            color: #382356;
+        }
+        .wp-mosaic-link:hover i {
+            transform: translateX(5px);
+        }
+        .wp-mosaic-media {
+            background: #000F24;
+            min-height: 340px;
+        }
+        .wp-mosaic-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wp-mosaic-row:hover .wp-mosaic-media img {
+            transform: scale(1.05);
+        }
+        .wp-mosaic-media-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.15rem;
+            border-radius: 9999px;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        .wp-mosaic-brand {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #38BDF8;
+        }
+        .wp-mosaic-brand b {
+            color: #FFFFFF;
+        }
+        .wp-mosaic-sublabel {
+            color: #E2E8F0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .wp-mosaic-row {
+                grid-template-columns: 1fr;
+            }
+            .wp-mosaic-reverse {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .wp-mosaic-media {
+                height: 280px;
+                min-height: 280px;
+            }
+            .wp-mosaic-text {
+                padding: 2.5rem 1.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -591,95 +1740,140 @@
 
     <!-- ================= 1. WIPRO-INSPIRED ENTERPRISE HERO ================= -->
     <header class="wp-hero">
-        <!-- Background Video Layer -->
-        <div class="wp-hero-media-wrap" aria-hidden="true">
-            <video class="wp-hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80">
-                <source src="{{ asset('videos/software-company.mp4') }}" type="video/mp4">
-            </video>
-            <div class="wp-hero-video-overlay"></div>
+        <!-- Animated Background Slideshow (Ken Burns & Smooth Crossfade) -->
+        <div class="wp-hero-bg-slider" aria-hidden="true">
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-slide"></div>
+            <div class="wp-hero-bg-overlay"></div>
         </div>
 
-        <div class="wp-wrap" style="position:relative; z-index:2; width:100%;">
-            <div class="wp-hero-content rv">
-                <!-- Spectrum Pill Eyebrow -->
-                <div class="wp-hero-badge">
-                    <div class="spectrum-disc" aria-hidden="true">
-                        <span style="background:#0072CE;"></span>
-                        <span style="background:#00A3AD;"></span>
-                        <span style="background:#78BE20;"></span>
-                        <span style="background:#FFB81C;"></span>
-                        <span style="background:#E4007C;"></span>
+        <div class="wp-hero-content-wrap">
+            <div class="wp-wrap" style="position:relative; z-index:2; width:100%;">
+                <div class="wp-hero-content">
+                    <!-- Spectrum Pill Eyebrow -->
+                    <div class="wp-hero-badge">
+                        <div class="spectrum-disc" aria-hidden="true">
+                            <span style="background:#0072CE;"></span>
+                            <span style="background:#00A3AD;"></span>
+                            <span style="background:#78BE20;"></span>
+                            <span style="background:#FFB81C;"></span>
+                            <span style="background:#E4007C;"></span>
+                        </div>
+                        <span>2026 Audit &amp; Bespoke Software Architecture &mdash; London &amp; UK</span>
                     </div>
-                    <span>2026 Audit &amp; Bespoke Software Architecture &mdash; London &amp; UK</span>
-                </div>
 
-                <h1>
-                    Everyone's talking about <em>AI</em>.<br>
-                    Is your business running on <span class="wp-typing-target" id="heroTypewriter">the right technology?</span><span class="wp-cursor">|</span>
-                </h1>
+                    <h1>
+                        Everyone's talking about <em>AI</em>.<br>
+                        Is your business running on <span class="wp-rotator-wrap"><span class="wp-rotator-text" id="heroRotator">the right technology?</span></span>
+                    </h1>
 
-                <p class="wp-hero-lead">
-                    Nexteck performs a rigorous, end-to-end business audit &mdash; processes, systems, data, and talent &mdash; then hands you a costed, prioritised IT &amp; AI roadmap engineered to hit your commercial targets. Zero hype. Zero vendor lock-in. Real operational return.
-                </p>
+                    <p class="wp-hero-lead">
+                        Nexteck performs a rigorous, end-to-end business audit &mdash; processes, systems, data, and talent &mdash; then hands you a costed, prioritised IT &amp; AI roadmap engineered to hit your commercial targets. Zero hype. Zero vendor lock-in. Real operational return.
+                    </p>
 
-                <div class="wp-hero-actions">
-                    <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary btn-wp-lg">
-                        Schedule Your Free Strategy Call <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
-                    </a>
-                    <a href="#audit" class="btn-wp btn-wp-ghost-light btn-wp-lg">
-                        Explore How the Audit Works <i class="fa-solid fa-arrow-down" style="margin-left:5px;"></i>
-                    </a>
-                </div>
-
-                <!-- Proof Badges -->
-                <div class="wp-hero-chips">
-                    <div class="wp-hero-chip-item">
-                        <i class="fa-solid fa-circle-check" style="color:#38BDF8; font-size:1rem;"></i>
-                        <span><b>25+ Years</b> Boardroom IT Strategy Experience</span>
+                    <div class="wp-hero-actions">
+                        <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary btn-wp-lg">
+                            Schedule Your Free Strategy Call <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+                        </a>
+                        <a href="#audit" class="btn-wp btn-wp-ghost-light btn-wp-lg">
+                            Explore How the Audit Works <i class="fa-solid fa-arrow-down" style="margin-left:5px;"></i>
+                        </a>
                     </div>
-                    <div class="wp-hero-chip-item">
-                        <i class="fa-solid fa-circle-check" style="color:#38BDF8; font-size:1rem;"></i>
-                        <span>Banking &bull; Insurance &bull; Manufacturing &bull; Education &bull; Rail Sourcing</span>
-                    </div>
-                    <div class="wp-hero-chip-item">
-                        <i class="fa-solid fa-circle-check" style="color:#38BDF8; font-size:1rem;"></i>
-                        <span>Nexteck SME Strategy &amp; Tracking Toolkit™</span>
+
+                    <!-- Proof Badges -->
+                    <div class="wp-hero-chips">
+                        <div class="wp-hero-chip-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span><b>25+ Years</b> Boardroom IT Strategy Experience</span>
+                        </div>
+                        <div class="wp-hero-chip-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Banking &bull; Insurance &bull; Manufacturing &bull; Education &bull; Rail</span>
+                        </div>
+                        <div class="wp-hero-chip-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Nexteck SME Strategy &amp; Tracking Toolkit™</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Infinite Scrolling Capability & Trust Marquee Banner -->
+        <div class="wp-hero-marquee" aria-hidden="true">
+            <div class="wp-marquee-track">
+                <!-- Set 1 -->
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> <b>25+ Years</b> Boardroom IT Delivery</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-code"></i> 100% Client IP Ownership</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> End-to-End Business &amp; AI Audits</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-shield-halved"></i> Bilateral NDA Guaranteed</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Custom Enterprise Software Architecture</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-bolt"></i> 90-Day Execution Roadmaps</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Banking &bull; Insurance &bull; Manufacturing &bull; Rail</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-layer-group"></i> Nexteck SME Toolkit™</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Zero Vendor Lock-in &bull; Zero Tech Hype</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-chart-line"></i> 60% Admin Hours Reduced</span></div>
+
+                <!-- Set 2 (Seamless Infinite Duplicate) -->
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> <b>25+ Years</b> Boardroom IT Delivery</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-code"></i> 100% Client IP Ownership</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> End-to-End Business &amp; AI Audits</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-shield-halved"></i> Bilateral NDA Guaranteed</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Custom Enterprise Software Architecture</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-bolt"></i> 90-Day Execution Roadmaps</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Banking &bull; Insurance &bull; Manufacturing &bull; Rail</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-layer-group"></i> Nexteck SME Toolkit™</span></div>
+                <div class="wp-marquee-item"><span class="wp-marquee-dot"></span> Zero Vendor Lock-in &bull; Zero Tech Hype</div>
+                <div class="wp-marquee-item"><span class="wp-marquee-pill"><i class="fa-solid fa-chart-line"></i> 60% Admin Hours Reduced</span></div>
+            </div>
+        </div>
     </header>
 
-    <!-- ================= 2. WIPRO SCALE & METRICS BAR ================= -->
+    <!-- ================= 2. EXPERIENCE & STATS BANNER (WIPRO STYLE) ================= -->
     <section class="wp-stats-section" aria-label="Key Performance Statistics">
         <div class="wp-wrap">
-            <div class="wp-grid wp-g4">
-                <!-- Stat 1 (Blue) -->
-                <div class="wp-stat-card rv">
-                    <div class="wp-stat-bar" style="background:var(--wp-spectrum-blue);"></div>
-                    <div class="wp-stat-number"><span data-count="25">0</span><i>+</i></div>
-                    <div class="wp-stat-label">Years defining enterprise IT strategy &amp; software roadmaps</div>
+            <div class="wp-experience-grid">
+                <!-- Left Column: Headline & Stats -->
+                <div class="wp-experience-left rv">
+                    <h2 class="wp-experience-headline">Elevate with Real-World Experience and Industry Expertise</h2>
+                    <div class="wp-experience-metrics">
+                        <!-- Metric 1 -->
+                        <div class="wp-experience-stat">
+                            <div class="wp-experience-number"><span data-count="9">0</span></div>
+                            <div class="wp-experience-label">Specialised industry sectors &amp; global supply chains</div>
+                        </div>
+
+                        <!-- Metric 2 -->
+                        <div class="wp-experience-stat">
+                            <div class="wp-experience-number"><span data-count="40">0</span><i>+</i></div>
+                            <div class="wp-experience-label">Large-scale transformation programmes delivered</div>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div class="wp-experience-stat">
+                            <div class="wp-experience-number"><span data-count="60">0</span><i>%</i></div>
+                            <div class="wp-experience-label">Average admin hours reduced in the first 90 days</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Stat 2 (Teal) -->
-                <div class="wp-stat-card rv">
-                    <div class="wp-stat-bar" style="background:var(--wp-spectrum-teal);"></div>
-                    <div class="wp-stat-number"><span data-count="9">0</span><i></i></div>
-                    <div class="wp-stat-label">Specialised industry sectors &amp; global supply chains</div>
-                </div>
-
-                <!-- Stat 3 (Pink) -->
-                <div class="wp-stat-card rv">
-                    <div class="wp-stat-bar" style="background:var(--wp-spectrum-pink);"></div>
-                    <div class="wp-stat-number"><span data-count="40">0</span><i>+</i></div>
-                    <div class="wp-stat-label">Large-scale transformation programmes delivered</div>
-                </div>
-
-                <!-- Stat 4 (Green) -->
-                <div class="wp-stat-card rv">
-                    <div class="wp-stat-bar" style="background:var(--wp-spectrum-green);"></div>
-                    <div class="wp-stat-number"><span data-count="60">0</span><i>%</i></div>
-                    <div class="wp-stat-label">Average admin hours reduced in the first 90 days</div>
+                <!-- Right Column: 3 Overlapping Circles Graphic with 25+ Stat -->
+                <div class="wp-experience-right rv">
+                    <div class="wp-bubble-cluster">
+                        <!-- Left Teal Bubble -->
+                        <div class="wp-bubble-circle wp-bubble-teal" aria-hidden="true"></div>
+                        <!-- Bottom Crescent Shadow -->
+                        <div class="wp-bubble-shadow" aria-hidden="true"></div>
+                        <!-- Right Yellow Bubble -->
+                        <div class="wp-bubble-circle wp-bubble-yellow" aria-hidden="true"></div>
+                        <!-- Center Navy Bubble with Flagship Stat -->
+                        <div class="wp-bubble-center">
+                            <div class="wp-bubble-number"><span data-count="25">0</span><i>+</i></div>
+                            <div class="wp-bubble-label">Years defining enterprise IT strategy &amp; software roadmaps</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -737,7 +1931,7 @@
                         <h3>Disconnected systems &amp; silos</h3>
                         <p>The same client entered into four disconnected tools. No single source of truth. Executive reports compiled manually from spreadsheet exports at 9pm.</p>
                         <div class="wp-split-card-footer">
-                            <span class="wp-split-card-impact"><i class="fa-solid fa-chart-pie" style="color:#0072CE;"></i> Cost: <b>3x reporting lag</b></span>
+                            <span class="wp-split-card-impact"><i class="fa-solid fa-chart-pie" style="color:#382356;"></i> Cost: <b>3x reporting lag</b></span>
                             <a href="{{ route('assessment.index') }}" class="wp-split-card-link">
                                 Audit Friction <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -852,7 +2046,7 @@
                         <h3>Software that doesn't talk</h3>
                         <p>Manual CSV transfers between platforms, mismatched records, and avoidable human errors caused by keying data between CRM, ERP, and accounting.</p>
                         <div class="wp-split-card-footer">
-                            <span class="wp-split-card-impact"><i class="fa-solid fa-arrows-rotate" style="color:#0072CE;"></i> Cost: <b>12% billing discrepancies</b></span>
+                            <span class="wp-split-card-impact"><i class="fa-solid fa-arrows-rotate" style="color:#382356;"></i> Cost: <b>12% billing discrepancies</b></span>
                             <a href="{{ route('assessment.index') }}" class="wp-split-card-link">
                                 Audit Friction <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -890,7 +2084,7 @@
                     If two or more of these sound familiar, an independent IT audit will rapidly pay for itself.
                 </p>
                 <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-                    <a href="{{ route('assessment.index') }}" class="btn-wp btn-wp-primary" style="background:#0052CC; color:#fff; border-radius:9999px; padding:0.85rem 2.2rem; font-weight:700;">
+                    <a href="{{ route('assessment.index') }}" class="btn-wp btn-wp-primary" style="background:#382356; color:#fff; border-radius:9999px; padding:0.85rem 2.2rem; font-weight:700;">
                         Launch Free Health Check <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                     </a>
                     <a href="{{ route('landing') }}#book" class="btn-wp" style="background:rgba(255,255,255,0.12); color:#FFFFFF; border:1px solid rgba(255,255,255,0.25); border-radius:9999px; padding:0.85rem 2.2rem; font-weight:600;">
@@ -904,7 +2098,7 @@
     </section>
 
     <!-- ================= 4. METHODOLOGY (CONNECTED INSIGHTS FRAMEWORK) ================= -->
-    <section class="wp-section" id="method">
+    <section class="wp-section wp-section-method" id="method">
         <div class="wp-wrap">
             <div class="wp-sec-head rv">
                 <span class="wp-eyebrow"><span class="wp-dot"></span> The Nexteck Method</span>
@@ -914,130 +2108,228 @@
                 </p>
             </div>
 
-            <div class="wp-grid wp-g4">
+            <div class="wp-method-grid">
                 <!-- Stage 01 -->
                 <div class="wp-method-card rv">
-                    <div class="wp-method-step">01</div>
+                    <span class="wp-method-stage-pill">Stage 01</span>
                     <h3>Industry Benchmarking</h3>
                     <p>We score your operational maturity against 3&ndash;5 recognized leaders in your sector across five lenses: customer experience, technology, marketing, operations, and talent.</p>
                     <div class="wp-method-deliverable">
-                        Deliverable: <b>Industry Benchmark Matrix</b> &mdash; gap scores, staged actions, owners, and milestones.
+                        <b>Deliverable:</b> Industry Benchmark Matrix &mdash; gap scores, staged actions, owners, and milestones.
+                    </div>
+                    <div>
+                        <a href="{{ route('landing') }}#book" class="wp-method-btn">Read More</a>
                     </div>
                 </div>
 
                 <!-- Stage 02 -->
                 <div class="wp-method-card rv">
-                    <div class="wp-method-step" style="background:#0052CC;">02</div>
+                    <span class="wp-method-stage-pill">Stage 02</span>
                     <h3>Competitor Analysis</h3>
                     <p>We map your competitive landscape to separate baseline industry hygiene from defensible market whitespace &mdash; ensuring you differentiate where it directly wins enterprise clients.</p>
                     <div class="wp-method-deliverable">
-                        Deliverable: <b>Competitor Tracker</b> &mdash; positioning, pricing models, feature sets, and white space.
+                        <b>Deliverable:</b> Competitor Tracker &mdash; positioning, pricing models, feature sets, and white space.
+                    </div>
+                    <div>
+                        <a href="{{ route('landing') }}#book" class="wp-method-btn">Read More</a>
                     </div>
                 </div>
 
                 <!-- Stage 03 -->
                 <div class="wp-method-card rv">
-                    <div class="wp-method-step" style="background:#72246C;">03</div>
+                    <span class="wp-method-stage-pill">Stage 03</span>
                     <h3>AI, IT &amp; Autonomy Planning</h3>
                     <p>Every founder-dependent task becomes a scored line item: Impact &times; Urgency, costed per month, sequenced into a practical 90-day roadmap. You eliminate single points of failure.</p>
                     <div class="wp-method-deliverable">
-                        Deliverable: <b>AI &amp; IT Opportunity Log</b> + <b>SOP &amp; Delegation Register</b>.
+                        <b>Deliverable:</b> AI &amp; IT Opportunity Log + SOP &amp; Delegation Register.
+                    </div>
+                    <div>
+                        <a href="{{ route('landing') }}#book" class="wp-method-btn">Read More</a>
                     </div>
                 </div>
 
                 <!-- Stage 04 -->
                 <div class="wp-method-card rv">
-                    <div class="wp-method-step" style="background:#00A3AD;">04</div>
+                    <span class="wp-method-stage-pill">Stage 04</span>
                     <h3>KPI Governance</h3>
                     <p>Monthly targets vs. actuals across sales pipeline, digital operations, finance, and client delivery &mdash; evaluated in under 60 minutes per week. Management by exception, not stress.</p>
                     <div class="wp-method-deliverable">
-                        Deliverable: <b>KPI Dashboard</b> &mdash; automated data feeds with red-flag alerts.
+                        <b>Deliverable:</b> KPI Dashboard &mdash; automated data feeds with red-flag alerts.
+                    </div>
+                    <div>
+                        <a href="{{ route('landing') }}#book" class="wp-method-btn">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= 5. SAMPLE OUTPUT (DATA & MATRIX TABLE) ================= -->
-    <section class="wp-section wp-section-light">
+    <!-- ================= 5. EXECUTIVE ROADMAP SHOWCASE (REDESIGNED WIPRO STYLE) ================= -->
+    <section class="wp-roadmap-section" id="roadmap">
         <div class="wp-wrap">
-            <div class="wp-sec-head rv">
-                <span class="wp-eyebrow"><span class="wp-dot"></span> Measurable Output</span>
+            <div class="wp-sec-head rv" style="text-align:center;">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> The Executive Architecture Blueprint</span>
                 <h2>This is what your executive roadmap looks like</h2>
                 <p>
-                    A real excerpt from a client <b>AI &amp; IT Opportunity Log</b>. Every initiative is objectively scored by <b>Impact &times; Urgency</b> &mdash; we tackle the highest-leverage band first so efficiency gains compound immediately.
+                    A visual walkthrough of the strategic blueprints, operational architectures, and validated commercial deliverables engineered for our UK &amp; global enterprise clients.
                 </p>
             </div>
 
-            <div class="wp-table-card rv">
-                <table class="wp-table">
-                    <thead>
-                        <tr>
-                            <th>Business Process</th>
-                            <th>Current Friction</th>
-                            <th>Proposed AI / IT Solution</th>
-                            <th>Impact &times; Urgency</th>
-                            <th>Implementation Phase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <b>Answering Inbound Sales Enquiries</b><br>
-                                <span style="color:#64748B; font-size:0.82rem;">8 hrs/week · Senior Leadership Bottleneck</span>
-                            </td>
-                            <td>8 hrs/wk manual response</td>
-                            <td>CRM + Custom AI Lead-Qualification Agent &mdash; leadership only handles pre-qualified high-value meetings</td>
-                            <td>5 &times; 4 = <span class="score-pill score-high">20</span></td>
-                            <td><span class="wp-badge wp-badge-pink">Sprint 1 (Days 1–30)</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Re-keying Booking &amp; Accounting Data</b><br>
-                                <span style="color:#64748B; font-size:0.82rem;">5 hrs/week · Operations Staff</span>
-                            </td>
-                            <td>5 hrs/wk manual entry</td>
-                            <td>Webhook API Integration syncing booking engine directly into ledger &mdash; eliminates clerical errors</td>
-                            <td>4 &times; 5 = <span class="score-pill score-high">20</span></td>
-                            <td><span class="wp-badge wp-badge-pink">Sprint 1 (Days 1–30)</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Bespoke Logistics &amp; Sourcing Workflow</b><br>
-                                <span style="color:#64748B; font-size:0.82rem;">10 hrs/week · Spreadsheets &amp; WhatsApp</span>
-                            </td>
-                            <td>10 hrs/wk manual tracking</td>
-                            <td>Custom Software Portal built to exact business logic &mdash; centralising orders, supplier specs, and dispatch</td>
-                            <td>5 &times; 3 = <span class="score-pill score-med">15</span></td>
-                            <td><span class="wp-badge wp-badge-blue">Sprint 2 (Days 31–60)</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Billing &amp; Receivables Chasing</b><br>
-                                <span style="color:#64748B; font-size:0.82rem;">4 hrs/week · Accounts Team</span>
-                            </td>
-                            <td>4 hrs/wk chasing invoices</td>
-                            <td>Automated invoicing workflows with smart follow-up sequences, human-approved before sending</td>
-                            <td>4 &times; 3 = <span class="score-pill score-med">12</span></td>
-                            <td><span class="wp-badge wp-badge-blue">Sprint 2 (Days 31–60)</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Monthly Executive KPI Reporting</b><br>
-                                <span style="color:#64748B; font-size:0.82rem;">6 hrs/month · Compiled manually</span>
-                            </td>
-                            <td>6 hrs/mo manual compilation</td>
-                            <td>Automated Executive Dashboard fed from CRM, banking, and ERP &mdash; reviewed in 60 minutes weekly</td>
-                            <td>3 &times; 2 = <span class="score-pill score-low">6</span></td>
-                            <td><span class="wp-badge wp-badge-teal">Sprint 3 (Days 61–90)</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Part 1: Split Strategic Hero Banner (Image 3) -->
+            <div class="wp-road-split-banner rv">
+                <!-- Left: Deep Neon Curves Graphic + Bold Insight -->
+                <div class="wp-road-split-left">
+                    <div class="wp-road-split-left-bg" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="wp-road-split-left-overlay"></div>
+                    <div class="wp-road-split-left-content">
+                        <span class="wp-road-split-tag">Executive Diagnostic Verdict</span>
+                        <h3>AI is Ready, but your Operating Model and Change Muscle are Not</h3>
+                        <p>Bridging the structural gap between technology hype and sustained commercial return across people, data, and workflows.</p>
+                    </div>
+                </div>
+
+                <!-- Right: Warm Boardroom Handshake & Customer Success -->
+                <div class="wp-road-split-right" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="wp-road-split-right-overlay"></div>
+                    <div class="wp-road-split-right-content">
+                        <h3>Customer Success Stories.</h3>
+                        <p>How Nexteck uses consulting-led, AI-powered strategies to help founders and executive leaders realize their commercial ambitions.</p>
+                        <a href="{{ route('landing') }}#book" class="wp-road-split-btn">
+                            Learn More <i class="fa-solid fa-arrow-right" style="margin-left:6px; font-size:0.85em;"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <p class="rv" style="text-align:center; color:var(--wp-text-muted); font-size:0.92rem; margin-top:1.5rem;">
-                All clients receive full IP ownership of the SOP &amp; Delegation Register, KPI Dashboard, and Tool Architecture recommendation &mdash; yours to retain permanently.
-            </p>
+            <!-- Part 2: Vibrant 8-Block Color Mosaic Grid (Image 1) -->
+            <div class="wp-road-mosaic-grid rv">
+                <!-- Row 1: Block 1 (Image: Hex Open Data) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-media">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Open Data and Cloud Infrastructure" loading="lazy">
+                    <span class="wp-mosaic-tile-tag">Open Data &amp; Systems</span>
+                </div>
+
+                <!-- Row 1: Block 2 (Solid Teal: Unstructured Data) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-teal">
+                    <div>
+                        <h4>From Unstructured Data to Trusted Knowledge: The Foundation for Enterprise AI</h4>
+                        <p>Unifying fragmented ERP exports, client files, and manual spreadsheets into a reliable, single source of boardroom truth.</p>
+                    </div>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-tile-link">
+                        Read More <i class="fa-solid fa-play" style="font-size:0.65rem;"></i>
+                    </a>
+                </div>
+
+                <!-- Row 1: Block 3 (Image: Neural Cloud Network) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-media">
+                    <img src="https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=800&q=80" alt="Industry Cloud Neural Network" loading="lazy">
+                    <span class="wp-mosaic-tile-tag">Cloud Infrastructure</span>
+                </div>
+
+                <!-- Row 1: Block 4 (Solid Emerald: Industry Clouds) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-emerald">
+                    <div>
+                        <h4>Why the Next Wave of Enterprise Strategy is Industry Clouds</h4>
+                        <p>Deploying composable cloud architectures tailored to specific sector compliance, security, and supply chain telemetry.</p>
+                    </div>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-tile-link">
+                        Read More <i class="fa-solid fa-play" style="font-size:0.65rem;"></i>
+                    </a>
+                </div>
+
+                <!-- Row 2: Block 5 (Solid Mint: Change Management) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-mint">
+                    <div>
+                        <h4>Organizational Change Management and AI Adoption: Choosing the Right Partner</h4>
+                        <p>Transforming enterprise culture with clear delegation matrices, step-by-step SOPs, and internal leadership enablement.</p>
+                    </div>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-tile-link">
+                        Read More <i class="fa-solid fa-play" style="font-size:0.65rem;"></i>
+                    </a>
+                </div>
+
+                <!-- Row 2: Block 6 (Image: Boardroom Collaboration) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-media">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Executive Strategy Alignment" loading="lazy">
+                    <span class="wp-mosaic-tile-tag">Executive Alignment</span>
+                </div>
+
+                <!-- Row 2: Block 7 (Solid Royal Blue: Quantum-Enhanced ML) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-blue">
+                    <div>
+                        <h4>Rethinking Fraud Detection &amp; Risk Beyond Classical Models with Machine Learning</h4>
+                        <p>Implementing real-time transaction monitoring and anomaly detection to safeguard margins and reduce operational leakage.</p>
+                    </div>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-tile-link">
+                        Read More <i class="fa-solid fa-play" style="font-size:0.65rem;"></i>
+                    </a>
+                </div>
+
+                <!-- Row 2: Block 8 (Image: 3D Purple Wave Mesh) -->
+                <div class="wp-mosaic-tile wp-mosaic-tile-media">
+                    <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="Future-Proof Continuum Architecture" loading="lazy">
+                    <span class="wp-mosaic-tile-tag">Continuous Scalability</span>
+                </div>
+            </div>
+
+            <!-- Part 3: Three High-Impact Outcome Cards (Image 2) -->
+            <div class="wp-road-cards-3 rv">
+                <!-- Card 1: Q4 Earnings & Metrics Style -->
+                <div class="wp-road-card wp-road-card-purple-stats">
+                    <div class="wp-purple-stats-header">
+                        <span class="wp-purple-stats-badge">Audit Performance Impact</span>
+                        <div class="wp-purple-stats-title">
+                            Q4 2026
+                            <span>Roadmap Impact</span>
+                        </div>
+                    </div>
+                    <div class="wp-purple-stats-list">
+                        <div class="wp-purple-stat-row">
+                            <span class="wp-purple-stat-label">Admin Hours Reduced</span>
+                            <span class="wp-purple-stat-value"><i class="fa-solid fa-arrow-up"></i> 60% YoY</span>
+                        </div>
+                        <div class="wp-purple-stat-row">
+                            <span class="wp-purple-stat-label">Reporting Lag Time</span>
+                            <span class="wp-purple-stat-value"><i class="fa-solid fa-arrow-down"></i> 0 Days (Real-Time)</span>
+                        </div>
+                        <div class="wp-purple-stat-row">
+                            <span class="wp-purple-stat-label">Client IP Ownership</span>
+                            <span class="wp-purple-stat-value"><i class="fa-solid fa-check"></i> 100% Retained</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: "Proof in a Scope" (Wipro Intelligence Style) -->
+                <div class="wp-road-card wp-road-card-proof">
+                    <div>
+                        <div class="wp-proof-heading">Proof in a scope.</div>
+                        <div class="wp-proof-sub">What your executive team receives within 10 business days:</div>
+                        <ul class="wp-proof-items">
+                            <li>End-to-end Process Bottleneck Heatmap</li>
+                            <li>Costed 30-60-90 Day Execution Sprints</li>
+                            <li>Impact &times; Urgency Prioritization Matrix</li>
+                            <li>Vendor-Neutral Software Stack Selection</li>
+                            <li>Staff Delegation SOPs &amp; Training Register</li>
+                        </ul>
+                    </div>
+                    <div class="wp-proof-badge">
+                        Nexteck Intelligence™ &bull; Proof over promise.
+                    </div>
+                </div>
+
+                <!-- Card 3: Sustainable Architecture (High-Contrast Natural Resiliency) -->
+                <div class="wp-road-card wp-road-card-nature" style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80');">
+                    <div class="wp-road-card-nature-overlay"></div>
+                    <div class="wp-road-card-nature-content">
+                        <span class="wp-nature-tag">Long-Term Resilience</span>
+                        <h4>Sustainable Architecture 2026&ndash;2030: Built to Outlast Tech Hype</h4>
+                        <p>We build independent, self-sufficient software architectures that your in-house team owns and manages &mdash; eliminating expensive recurring retainer lock-in.</p>
+                        <a href="{{ route('landing') }}#book" class="wp-nature-link">
+                            Explore Strategy Consultation <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1229,6 +2521,154 @@
         </div>
     </section>
 
+    <!-- ================= 6C. ENTERPRISE TRANSFORMATION SPOTLIGHT BANNER (WIPRO STYLE) ================= -->
+    <section class="wp-spotlight-section" aria-label="Enterprise Transformation Spotlight">
+        <div class="wp-spotlight-bg" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=2000&q=80');"></div>
+        <div class="wp-spotlight-overlay"></div>
+        <div class="wp-wrap" style="position:relative; z-index:3;">
+            <div class="wp-spotlight-content rv">
+                <span class="wp-spotlight-tag">
+                    <span class="wp-spotlight-dot"></span> Enterprise Transformation Case Study
+                </span>
+                <h2>Build AI-Ready Ways of Working Across the Enterprise</h2>
+                <p>
+                    Nexteck partners with enterprise leadership to embed AI into everyday work, strengthening leadership alignment, workforce capability, and long-term enterprise readiness beyond tools alone.
+                </p>
+                <div class="wp-spotlight-actions">
+                    <a href="{{ route('landing') }}#book" class="wp-spotlight-btn">
+                        Read More <i class="fa-solid fa-arrow-right" style="margin-left:6px; font-size:0.85em;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6D. PERSPECTIVES, RESEARCH & REAL-WORLD IMPACT (WIPRO CHECKERBOARD) ================= -->
+    <section class="wp-checkerboard-section" id="insights">
+        <!-- Section Header -->
+        <div class="wp-wrap" style="padding-top: 5.5rem; padding-bottom: 2.75rem;">
+            <div class="wp-sec-head rv" style="margin-bottom: 0;">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Strategic Research &amp; Field Intelligence</span>
+                <h2>Perspectives, Research &amp; Real-World Impact</h2>
+                <p>
+                    Executive briefings, supply chain impact assessments, and empirical sector playbooks crafted by Nexteck’s enterprise architecture practice.
+                </p>
+            </div>
+        </div>
+
+        <!-- Full-Width Alternating 2x2 Checkerboard Grid -->
+        <div class="wp-mosaic-container">
+            <!-- Row 1: Item 1 (Text Left, Image Right) - From Image 2 -->
+            <div class="wp-mosaic-row">
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Executive Briefing</span>
+                    <h3 class="wp-mosaic-title">AI is ready, but your operating model and change muscle are not</h3>
+                    <p class="wp-mosaic-desc">Nexteck-Executive Briefing: 100+ CXOs say AI is scaling rapidly across departments, but realised business value and operational adoption are lagging.</p>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-link">
+                        Read Full Briefing <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Enterprise AI Operating Model Data Stream" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-brand">NEXTECK<b>•AI</b></span>
+                        <span class="wp-mosaic-sublabel">C-Suite Intelligence</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Item 2 (Image Left, Text Right) - From Image 2 & 4 -->
+            <div class="wp-mosaic-row wp-mosaic-reverse">
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80" alt="Global Trade and Container Logistics Vessel" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-sublabel"><i class="fa-solid fa-ship" style="margin-right:5px;"></i> Maritime &amp; Global Trade</span>
+                    </div>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Global Supply Chains</span>
+                    <h3 class="wp-mosaic-title">Global trade needs AI and leaders willing to invest despite uncertainty</h3>
+                    <p class="wp-mosaic-desc">The global business landscape is being reshaped in real time. Sweeping tariffs and compliance mandates prompt international enterprises to prepare for disruption while major exporters deploy autonomous visibility.</p>
+                    <a href="{{ route('industries.index') }}" class="wp-mosaic-link">
+                        Explore Supply Chain Solutions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Row 3: Item 3 (Text Left, Image Right) - From Image 3 -->
+            <div class="wp-mosaic-row">
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Logistics &amp; Fulfillment</span>
+                    <h3 class="wp-mosaic-title">From Complexity to Clarity: Optimizing Supply Chains with GenAI</h3>
+                    <p class="wp-mosaic-desc">How GenAI creates efficient supply chains by streamlining inventory management, forecasting demand, identifying bottlenecks, and optimizing logistics to improve efficiency, reduce costs, and satisfy customers.</p>
+                    <a href="{{ route('blogs.index') }}" class="wp-mosaic-link">
+                        Read Case Analysis <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" alt="High-Bay Automated Logistics Warehouse" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-sublabel"><i class="fa-solid fa-boxes-stacked" style="margin-right:5px;"></i> Autonomous Warehousing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Item 4 (Image Left, Text Right) - From Image 3 -->
+            <div class="wp-mosaic-row wp-mosaic-reverse">
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=1200&q=80" alt="Consumer Goods and Retail Technology Intelligence" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-sublabel"><i class="fa-solid fa-store" style="margin-right:5px;"></i> Omnichannel &amp; Retail</span>
+                    </div>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Consumer Goods Intelligence</span>
+                    <h3 class="wp-mosaic-title">The Next Big Thing: Supply Chain Intelligence</h3>
+                    <p class="wp-mosaic-desc">A Consumer Goods &amp; Multi-site Distribution report in collaboration with Nexteck Advisory. Delivering real-time inventory visibility across distributed physical networks without software fragmentation.</p>
+                    <a href="{{ route('industries.index') }}" class="wp-mosaic-link">
+                        Explore Retail Case Study <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Row 5: Item 5 (Text Left, Image Right) - From Image 5 -->
+            <div class="wp-mosaic-row">
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Change Architecture</span>
+                    <h3 class="wp-mosaic-title">Scaling Generative AI: A Change Management Challenge, Not Just a Technology One</h3>
+                    <p class="wp-mosaic-desc">AI’s potential is unlocked when centered on people — requiring cultural readiness, thoughtful integration, and strategic change, not just technical deployment.</p>
+                    <a href="{{ route('landing') }}#book" class="wp-mosaic-link">
+                        Read Whitepaper <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Enterprise Leadership and Change Management Workshop" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-sublabel"><i class="fa-solid fa-users-gear" style="margin-right:5px;"></i> People &amp; Culture</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 6: Item 6 (Image Left, Text Right) - From Image 5 -->
+            <div class="wp-mosaic-row wp-mosaic-reverse">
+                <div class="wp-mosaic-cell wp-mosaic-media rv">
+                    <img src="https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=1200&q=80" alt="UK and International Transport Hub Operations" loading="lazy">
+                    <div class="wp-mosaic-media-badge">
+                        <span class="wp-mosaic-sublabel"><i class="fa-solid fa-plane-departure" style="margin-right:5px;"></i> Infrastructure &amp; Rail</span>
+                    </div>
+                </div>
+                <div class="wp-mosaic-cell wp-mosaic-text rv">
+                    <span class="wp-mosaic-pill">Transportation &amp; Rail</span>
+                    <h3 class="wp-mosaic-title">Travel &amp; Transportation: UK &amp; International Hubs Data and AI Strategy</h3>
+                    <p class="wp-mosaic-desc">Consolidating safety and security data, passenger flow telemetry, and tracking sustainability metrics for high-efficiency enterprise transit networks.</p>
+                    <a href="{{ route('industries.show', 'rail-engineering') }}" class="wp-mosaic-link">
+                        Explore Transportation Case Study <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= 7. TRUST & GOVERNANCE PILLARS ================= -->
     <section class="wp-section wp-section-light">
         <div class="wp-wrap">
@@ -1240,58 +2680,98 @@
                 </p>
             </div>
 
-            <div class="wp-grid wp-g3">
-                <!-- Trust 1 -->
+            <div class="wp-trust-grid">
+                <!-- Trust 1 (Processor / Microchip outline icon from Image 1) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(0, 114, 206, 0.1); color:var(--wp-spectrum-blue);">
-                        <i class="fa-solid fa-file-shield" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="12" y="12" width="24" height="24" rx="4"></rect>
+                            <rect x="19" y="19" width="10" height="10" rx="1.5"></rect>
+                            <line x1="18" y1="6" x2="18" y2="12"></line>
+                            <line x1="24" y1="6" x2="24" y2="12"></line>
+                            <line x1="30" y1="6" x2="30" y2="12"></line>
+                            <line x1="18" y1="36" x2="18" y2="42"></line>
+                            <line x1="24" y1="36" x2="24" y2="42"></line>
+                            <line x1="30" y1="36" x2="30" y2="42"></line>
+                            <line x1="6" y1="18" x2="12" y2="18"></line>
+                            <line x1="6" y1="24" x2="12" y2="24"></line>
+                            <line x1="6" y1="30" x2="12" y2="30"></line>
+                            <line x1="36" y1="18" x2="42" y2="18"></line>
+                            <line x1="36" y1="24" x2="42" y2="24"></line>
+                            <line x1="36" y1="30" x2="42" y2="30"></line>
+                        </svg>
                     </div>
-                    <h3>100% IP Ownership</h3>
+                    <h3>Strategy and Business Consulting: 100% Client IP Ownership</h3>
                     <p>The entire roadmap, custom code, diagrams, and dashboards remain exclusively your property. Zero licensing hostage-taking, zero proprietary lock-in.</p>
                 </div>
 
-                <!-- Trust 2 -->
+                <!-- Trust 2 (Padlock outline icon from Image 2) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(228, 0, 124, 0.1); color:var(--wp-spectrum-pink);">
-                        <i class="fa-solid fa-lock" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="40" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 20V14C16 9.58 19.58 6 24 6C28.42 6 32 9.58 32 14V20"></path>
+                            <rect x="12" y="20" width="24" height="22" rx="4"></rect>
+                        </svg>
                     </div>
-                    <h3>Mutual NDA Upfront</h3>
-                    <p>Everything discussed during diagnostic sessions is strictly confidential. We execute a comprehensive bilateral NDA before any operational details are shared.</p>
+                    <h3>Reimagining Enterprise Applications: Bilateral NDA Upfront</h3>
+                    <p>Everything discussed during diagnostic sessions is strictly confidential. We execute a comprehensive bilateral NDA before any operational details or credentials are shared.</p>
                 </div>
 
-                <!-- Trust 3 -->
+                <!-- Trust 3 (Cloud with Upward Arrow outline icon from Image 3) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(255, 184, 28, 0.15); color:#B45309;">
-                        <i class="fa-solid fa-scale-balanced" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="44" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 36H35C39.42 36 43 32.42 43 28C43 23.8 39.8 20.35 35.65 20.05C34.45 13.1 28.5 8 21.5 8C13.5 8 7 14.5 7 22.5C7 23.4 7.1 24.3 7.3 25.15C4.2 26.85 2.5 30.15 3 33.7C3.5 37.25 6.5 40 10.1 40H13"></path>
+                            <line x1="24" y1="34" x2="24" y2="19"></line>
+                            <polyline points="18,25 24,19 30,25"></polyline>
+                        </svg>
                     </div>
-                    <h3>Costed Before You Commit</h3>
-                    <p>Every single recommendation carries estimated implementation hours, monthly software fees, and measurable impact scores. You approve capital spend before work starts.</p>
+                    <h3>Designing Experiences: Costed Before You Commit</h3>
+                    <p>Connect people, processes, and technology to create personalized, scalable systems. Every recommendation carries estimated hours and fees so you approve spend upfront.</p>
                 </div>
 
-                <!-- Trust 4 -->
+                <!-- Trust 4 (Scale / Balance outline icon) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(120, 190, 32, 0.12); color:#15803D;">
-                        <i class="fa-solid fa-award" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="24" y1="6" x2="24" y2="42"></line>
+                            <line x1="8" y1="13" x2="40" y2="13"></line>
+                            <path d="M8 13L4 26C4 28.5 7 30 10 30C13 30 16 28.5 16 26L12 13"></path>
+                            <path d="M36 13L32 26C32 28.5 35 30 38 30C41 30 44 28.5 44 26L40 13"></path>
+                            <line x1="16" y1="42" x2="32" y2="42"></line>
+                        </svg>
                     </div>
-                    <h3>Enterprise Rigour, SME Prices</h3>
+                    <h3>Enterprise Rigour, Scaled For SME Agility</h3>
                     <p>Boardroom-grade frameworks scaled for agile, founder-led businesses &mdash; structured in bite-sized sprints so you never over-invest ahead of actual ROI.</p>
                 </div>
 
-                <!-- Trust 5 -->
+                <!-- Trust 5 (Team & Organization Network outline icon) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(0, 163, 173, 0.1); color:var(--wp-spectrum-teal);">
-                        <i class="fa-solid fa-users-gear" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="11" r="5"></circle>
+                            <path d="M14 27C14 22.5 18.5 20.5 24 20.5C29.5 20.5 34 22.5 34 27"></path>
+                            <circle cx="11" cy="22" r="3.5"></circle>
+                            <path d="M4 35C4 32 7 30.5 11 30.5C13 30.5 14.8 31 16 32"></path>
+                            <circle cx="37" cy="22" r="3.5"></circle>
+                            <path d="M32 32C33.2 31 35 30.5 37 30.5C41 30.5 44 32 44 35"></path>
+                        </svg>
                     </div>
-                    <h3>Built for Your Internal Team</h3>
+                    <h3>Team Enablement: Built For Your Internal Team</h3>
                     <p>Step-by-step Standard Operating Procedures (SOPs), delegation matrixes, and staff training ensure the new architecture runs smoothly without permanent external reliance.</p>
                 </div>
 
-                <!-- Trust 6 -->
+                <!-- Trust 6 (Precision Clock & Dashboard Governance outline icon) -->
                 <div class="wp-trust-card rv">
-                    <div class="wp-trust-icon" style="background:rgba(114, 36, 108, 0.1); color:var(--wp-spectrum-purple);">
-                        <i class="fa-solid fa-clock-rotate-left" style="font-size:1.5rem;"></i>
+                    <div class="wp-trust-top-icon">
+                        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="24" r="17"></circle>
+                            <polyline points="24,13 24,24 32,24"></polyline>
+                            <line x1="24" y1="3" x2="24" y2="7"></line>
+                            <line x1="41" y1="24" x2="45" y2="24"></line>
+                        </svg>
                     </div>
-                    <h3>60-Minute Weekly Reviews</h3>
+                    <h3>Governance By Exception: 60-Minute Weekly Reviews</h3>
                     <p>KPI governance by exception: review critical performance flags in under an hour a week &mdash; staying completely informed without drowning in unnecessary status meetings.</p>
                 </div>
             </div>
@@ -1437,13 +2917,13 @@
                 }
                 requestAnimationFrame(step);
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.2 });
 
         document.querySelectorAll("[data-count]").forEach(el => counterObserver.observe(el));
 
-        // ---- Dynamic Hero Typing Animation ----
+        // ---- Refined Smooth Rotating Text Animation ----
         (function() {
-            const el = document.getElementById("heroTypewriter");
+            const el = document.getElementById("heroRotator");
             if (!el) return;
             const phrases = [
                 "the right technology?",
@@ -1454,39 +2934,46 @@
                 "a defensible tech advantage?"
             ];
             let phraseIndex = 0;
-            let charIndex = phrases[0].length;
-            let isDeleting = false;
-            let typingSpeed = 90;
+            const intervalTime = 3200; // Display each phrase cleanly for 3.2s
 
-            function typeLoop() {
-                const currentPhrase = phrases[phraseIndex];
-                if (isDeleting) {
-                    el.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                    typingSpeed = 40;
-                } else {
-                    el.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                    typingSpeed = 75;
-                }
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    typingSpeed = 2400; // Pause at end of completed phrase
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
+            function rotatePhrase() {
+                el.classList.add("fade-out");
+                setTimeout(() => {
                     phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typingSpeed = 450; // Pause before typing next
-                }
-
-                setTimeout(typeLoop, typingSpeed);
+                    el.textContent = phrases[phraseIndex];
+                    el.classList.remove("fade-out");
+                    el.classList.add("prepare-in");
+                    void el.offsetWidth; // Force DOM reflow
+                    requestAnimationFrame(() => {
+                        el.classList.remove("prepare-in");
+                    });
+                }, 450);
             }
 
-            // Start typing loop after initial render
-            setTimeout(() => {
-                isDeleting = true;
-                typeLoop();
-            }, 2600);
+            setInterval(rotatePhrase, intervalTime);
+        })();
+
+        // ---- Opportunity Matrix Interactive Tabs ----
+        (function() {
+            const tabs = document.querySelectorAll(".wp-matrix-tab-btn");
+            const rows = document.querySelectorAll(".wp-matrix-table tbody tr");
+            if (!tabs.length || !rows.length) return;
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function() {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    this.classList.add("active");
+                    const filter = this.dataset.filter;
+
+                    rows.forEach(row => {
+                        if (filter === "all" || row.dataset.sprint === filter) {
+                            row.style.display = "";
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+                });
+            });
         })();
     </script>
 </body>

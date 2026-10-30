@@ -17,14 +17,14 @@
     --wp-navy-dark: #000F24;
     --wp-navy-light: #082142;
 
-    /* Primary Action Blues */
-    --wp-blue: #0052CC;
-    --wp-blue-hover: #003D99;
-    --wp-blue-active: #002B6D;
-    --wp-blue-light: #0072CE;
-    --wp-blue-soft: rgba(0, 82, 204, 0.08);
-    --wp-blue-50: #F0F6FF;
-    --wp-blue-100: #E0EDFE;
+    /* Primary Action Brand Color (Deep Imperial Purple) */
+    --wp-blue: #382356;
+    --wp-blue-hover: #26163D;
+    --wp-blue-active: #1D102E;
+    --wp-blue-light: #4A306E;
+    --wp-blue-soft: rgba(56, 35, 86, 0.08);
+    --wp-blue-50: #F8F5FA;
+    --wp-blue-100: #EFEAF4;
 
     /* Canvas & Background Surfaces */
     --wp-canvas: #FFFFFF;
@@ -44,7 +44,7 @@
     /* Dividers & Borders */
     --wp-border: #E2E8F0;
     --wp-border-subtle: #EEF2F6;
-    --wp-border-focus: #0052CC;
+    --wp-border-focus: #382356;
     --wp-border-dark: rgba(255, 255, 255, 0.12);
 
     /* Wipro-Inspired Spectrum Accent Array */
@@ -417,17 +417,17 @@ button, input, select, textarea {
 .btn-wp-primary {
     background: var(--wp-blue);
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(0, 82, 204, 0.28);
+    box-shadow: 0 4px 14px rgba(56, 35, 86, 0.28);
 }
 .btn-wp-primary:hover {
     background: var(--wp-blue-hover);
     color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0, 82, 204, 0.38);
+    box-shadow: 0 8px 22px rgba(56, 35, 86, 0.38);
 }
 .btn-wp-primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
+    box-shadow: 0 2px 8px rgba(56, 35, 86, 0.3);
 }
 
 .btn-wp-secondary {
@@ -450,7 +450,7 @@ button, input, select, textarea {
 .btn-wp-outline:hover {
     border-color: var(--wp-blue);
     color: var(--wp-blue) !important;
-    background: rgba(0, 82, 204, 0.04);
+    background: rgba(56, 35, 86, 0.04);
 }
 
 .btn-wp-white {
@@ -725,7 +725,7 @@ button, input, select, textarea {
 .wp-select:focus,
 .wp-textarea:focus {
     border-color: var(--wp-blue);
-    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+    box-shadow: 0 0 0 3px rgba(56, 35, 86, 0.15);
 }
 
 .wp-textarea {
@@ -864,14 +864,14 @@ button, input, select, textarea {
 .page-item .page-link:hover {
     border-color: var(--wp-blue);
     color: var(--wp-blue);
-    background: rgba(0, 82, 204, 0.04);
+    background: rgba(56, 35, 86, 0.04);
 }
 
 .page-item.active .page-link {
     background: var(--wp-blue);
     color: #FFFFFF;
     border-color: var(--wp-blue);
-    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+    box-shadow: 0 4px 12px rgba(56, 35, 86, 0.3);
 }
 
 .page-item.disabled .page-link {
@@ -979,7 +979,7 @@ button, input, select, textarea {
 }
 .wp-card:hover, .wp-partner-card:hover, .wp-pain-card:hover, .wp-method-card:hover, .wp-trust-card:hover, .ind-card:hover, .blog-card-wp:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -8px rgba(0, 27, 58, 0.12), 0 0 0 1px rgba(0, 82, 204, 0.15) !important;
+    box-shadow: 0 20px 35px -8px rgba(0, 27, 58, 0.12), 0 0 0 1px rgba(56, 35, 86, 0.15) !important;
 }
 
 /* Typing Cursor & Shimmer Animations */
@@ -1178,7 +1178,7 @@ button, input, select, textarea {
 .wp-split-card-link {
     font-size: 0.84rem;
     font-weight: 700;
-    color: var(--wp-blue, #0052CC);
+    color: var(--wp-blue, #382356);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -1187,7 +1187,7 @@ button, input, select, textarea {
 }
 
 .wp-split-card:hover .wp-split-card-link {
-    color: #003D99;
+    color: #26163D;
     gap: 0.55rem;
 }
 

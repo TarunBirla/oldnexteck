@@ -115,7 +115,7 @@
         .calc-field input[type="number"]:focus {
             outline: none;
             border-color: var(--wp-blue);
-            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+            box-shadow: 0 0 0 3px rgba(56, 35, 86, 0.15);
         }
 
         .kpi-grid {
