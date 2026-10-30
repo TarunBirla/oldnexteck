@@ -1,239 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Technology Health Check &amp; AI Readiness Assessment | The Nexteck London</title>
+    <title>Business Technology Health Check &amp; AI Readiness Assessment | Nexteck London</title>
     <meta name="description" content="Take our free 2-minute Business Technology Health Check. Evaluate operational bottlenecks, system integration maturity, and pragmatic AI readiness for your UK business.">
     <link rel="canonical" href="{{ url('/assessment') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
 
     <style>
-        :root {
-            --ink: #090D16;
-            --ink-2: #131926;
-            --gold: #0EA5E9;
-            --gold-2: #38BDF8;
-            --sky-dark: #0284C7;
-            --sky-soft: rgba(14, 165, 233, 0.08);
-            --cream: #F8FAFC;
-            --line: #E2E8F0;
-            --muted: #64748B;
-            --radius: 12px;
-            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
+        .hero-sec {
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(0, 15, 36, 0.92) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
+                radial-gradient(ellipse at 50% 30%, rgba(56, 189, 248, 0.22) 0%, transparent 60%),
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
+            color: #FFFFFF;
+            padding: 95px 0 85px;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 3px solid var(--wp-spectrum-blue);
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.6; overflow-x:hidden; }
+        .hero-sec::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+                radial-gradient(rgba(0, 114, 206, 0.12) 1.5px, transparent 1.5px);
+            background-size: 36px 36px, 72px 72px;
+            opacity: 0.45;
+            pointer-events: none;
+        }
 
-        .wrap { width:min(1180px, 92%); margin:0 auto; }
-        .hero-sec { background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); color:#fff; padding:5rem 0 4rem; text-align:center; position:relative; overflow:hidden; }
-        .hero-sec h1 { font-family:'Fraunces', serif; font-size:clamp(2rem, 3.8vw, 3.2rem); font-weight:700; max-width:24ch; margin:0 auto 1.2rem; line-height:1.2; }
-        .hero-sec p { font-size:1.1rem; color:#CBD5E1; max-width:64ch; margin:0 auto 2rem; }
+        .hero-sec h1 {
+            color: #FFFFFF !important;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 800;
+            max-width: 26ch;
+            margin: 0.85rem auto 1.25rem;
+            line-height: 1.18;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-sec p {
+            font-size: 1.12rem;
+            color: #CBD5E1;
+            max-width: 66ch;
+            margin: 0 auto 2.25rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.68;
+        }
 
         .assessment-card {
-            background:#fff;
-            border-radius:var(--radius);
-            box-shadow:var(--shadow);
-            border:1px solid var(--line);
-            padding:2.5rem;
-            max-width:920px;
-            margin:-2.5rem auto 4rem;
-            position:relative;
-            z-index:10;
+            background: #FFFFFF;
+            border-radius: var(--wp-radius-lg);
+            box-shadow: var(--wp-shadow-card);
+            border: 1px solid var(--wp-border);
+            padding: 3rem;
+            max-width: 960px;
+            margin: -3rem auto 4.5rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .guide-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; margin:3rem 0; }
-        .guide-card { background:#F8FAFC; border:1px solid var(--line); border-radius:12px; padding:1.8rem; }
-        .guide-card h3 { font-family:'Fraunces', serif; font-size:1.2rem; color:var(--ink); margin-bottom:0.5rem; }
-        .guide-card p { font-size:0.92rem; color:var(--muted); line-height:1.55; margin:0; }
-
-        .btn-launch {
-            display:inline-flex;
-            align-items:center;
-            gap:0.6rem;
-            background:var(--gold);
-            color:#fff;
-            font-weight:700;
-            font-size:1.05rem;
-            padding:0.9rem 2rem;
-            border-radius:8px;
-            text-decoration:none;
-            box-shadow:0 8px 20px rgba(14, 165, 233, 0.35);
-            cursor:pointer;
-            border:none;
-            transition:all 0.25s;
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin: 3.5rem 0;
         }
-        .btn-launch:hover { background:var(--sky-dark); transform:translateY(-2px); box-shadow:0 10px 25px rgba(14, 165, 233, 0.45); }
+        .guide-card {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 2.2rem 1.85rem;
+            box-shadow: var(--wp-shadow-xs);
+        }
+        .guide-card h3 {
+            font-size: 1.25rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.65rem;
+        }
+        .guide-card p {
+            font-size: 0.92rem;
+            color: var(--wp-text-body);
+            line-height: 1.6;
+            margin: 0;
+        }
 
-        @media (max-width: 640px) {
-            .hero-sec { padding:3.5rem 0 3rem; }
-            .hero-sec h1 { font-size:clamp(1.75rem, 6.5vw, 2.4rem); }
-            .assessment-card { padding:1.5rem 1.15rem; margin-top:-1.5rem; }
-            .guide-grid { grid-template-columns:1fr; gap:1rem; }
-            .btn-launch { width:100%; justify-content:center; text-align:center; }
+        @media (max-width: 768px) {
+            .hero-sec { padding: 65px 0 50px; }
+            .assessment-card { padding: 1.75rem 1.25rem; margin-top: -1.75rem; }
+            .guide-grid { grid-template-columns: 1fr; gap: 1.25rem; }
         }
     </style>
 </head>
+
 <body>
     @include('partials.header')
 
+    <!-- ================= HERO ================= -->
     <header class="hero-sec">
-        <div class="wrap">
-            <span style="display:inline-block; font-size:0.8rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-2); margin-bottom:0.8rem;">
-                The Nexteck Diagnostic System
-            </span>
-            <h1>Welcome to The Nexteck, Let\'s Grow Together</h1>
+        <div class="wp-wrap">
+            <span class="wp-eyebrow on-navy"><span class="wp-dot"></span> The Nexteck Diagnostic System</span>
+            <h1>Business Technology Health Check &amp; AI Readiness Assessment</h1>
             <p>
-                From custom software to digital solutions, we help businesses work smarter. Book a free consultation and see how we can help.
+                Evaluate your operational bottlenecks, system integration maturity, and pragmatic AI readiness in under 2 minutes. Get an objective, staged score designed for UK enterprise leaders.
             </p>
-            <button type="button" class="btn-launch" onclick="NxtEngagement.openAssessmentModal()">
-                Launch Free Health Check &rarr;
+            <button type="button" class="btn-wp btn-wp-primary btn-wp-lg" onclick="NxtEngagement.openAssessmentModal()">
+                Launch Free Health Check <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i>
             </button>
         </div>
     </header>
 
-    <main class="wrap">
-        <section class="assessment-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:1.2rem; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+    <!-- ================= ADVISORY FRAMEWORK CARD ================= -->
+    <main class="wp-wrap">
+        <section class="assessment-card rv in">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--wp-border-subtle); padding-bottom:1.5rem; margin-bottom:2rem; flex-wrap:wrap; gap:1.25rem;">
                 <div>
-                    <h2 style="font-family:'Fraunces', serif; font-size:1.5rem; color:var(--ink); margin:0;">
+                    <h2 style="font-size:1.6rem; color:var(--wp-navy-900); margin:0;">
                         Structured 5-Stage Advisory Framework
                     </h2>
-                    <p style="font-size:0.9rem; color:var(--muted); margin:0.2rem 0 0 0;">
+                    <p style="font-size:0.94rem; color:var(--wp-text-muted); margin:0.35rem 0 0 0;">
                         Documented criteria designed for founders and executives navigating technology growth.
                     </p>
                 </div>
-                <button type="button" class="btn-launch" style="padding:0.7rem 1.4rem; font-size:0.9rem;" onclick="NxtEngagement.openAssessmentModal()">
-                    Start Assessment &rarr;
+                <button type="button" class="btn-wp btn-wp-primary" onclick="NxtEngagement.openAssessmentModal()">
+                    Start Assessment <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i>
                 </button>
             </div>
 
-            <div style="display:grid; gap:1.5rem;">
-                <div style="display:flex; gap:1.2rem; align-items:flex-start;">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--gold-2); font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="display:grid; gap:1.75rem;">
+                <div style="display:flex; gap:1.35rem; align-items:flex-start;">
+                    <div style="width:42px; height:42px; border-radius:12px; background:var(--wp-navy-900); color:#38BDF8; font-family:var(--wp-font-display); font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                         1
                     </div>
                     <div>
-                        <strong style="font-size:1rem; color:var(--ink);">Business Profile &amp; Sector Benchmark</strong>
-                        <p style="font-size:0.92rem; color:var(--muted); margin-top:0.2rem;">
+                        <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Business Profile &amp; Sector Benchmark</strong>
+                        <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
                             Categorises your operational scale, workforce distribution, and core pain points against relevant industry norms across our 9 core sectors.
                         </p>
                     </div>
                 </div>
 
-                <div style="display:flex; gap:1.2rem; align-items:flex-start;">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--gold-2); font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <div style="display:flex; gap:1.35rem; align-items:flex-start;">
+                    <div style="width:42px; height:42px; border-radius:12px; background:var(--wp-navy-900); color:#38BDF8; font-family:var(--wp-font-display); font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                         2
                     </div>
                     <div>
-                        <strong style="font-size:1rem; color:var(--ink);">Operational Efficiency Scoring</strong>
-                        <p style="font-size:0.92rem; color:var(--muted); margin-top:0.2rem;">
+                        <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Operational Efficiency &amp; Data Hygiene</strong>
+                        <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
                             Identifies routine manual re-keying, disparate spreadsheets, and disconnected software tools eating away leadership capacity.
                         </p>
                     </div>
                 </div>
 
-                <div style="display:flex; gap:1.2rem; align-items:flex-start;">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--gold-2); font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <div style="display:flex; gap:1.35rem; align-items:flex-start;">
+                    <div style="width:42px; height:42px; border-radius:12px; background:var(--wp-navy-900); color:#38BDF8; font-family:var(--wp-font-display); font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                         3
                     </div>
                     <div>
-                        <strong style="font-size:1rem; color:var(--ink);">Pragmatic AI Readiness &amp; Data Hygiene</strong>
-                        <p style="font-size:0.92rem; color:var(--muted); margin-top:0.2rem;">
+                        <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Pragmatic AI Readiness</strong>
+                        <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
                             Separates practical automation from artificial hype. Focuses on data privacy, API connectivity, and risk management before investing in tooling.
                         </p>
                     </div>
                 </div>
 
-                <div style="display:flex; gap:1.2rem; align-items:flex-start;">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--gold-2); font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <div style="display:flex; gap:1.35rem; align-items:flex-start;">
+                    <div style="width:42px; height:42px; border-radius:12px; background:var(--wp-navy-900); color:#38BDF8; font-family:var(--wp-font-display); font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                         4
                     </div>
                     <div>
-                        <strong style="font-size:1rem; color:var(--ink);">Deterministic Scoring Engine</strong>
-                        <p style="font-size:0.92rem; color:var(--muted); margin-top:0.2rem;">
+                        <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Deterministic Scoring Engine</strong>
+                        <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
                             Delivers an indicative 0–100% maturity score across 4 tiers: <em>Emerging, Developing, Strategic, or Optimized</em>, with transparent formula criteria.
                         </p>
                     </div>
                 </div>
 
-                <div style="display:flex; gap:1.2rem; align-items:flex-start;">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--gold-2); font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <div style="display:flex; gap:1.35rem; align-items:flex-start;">
+                    <div style="width:42px; height:42px; border-radius:12px; background:var(--wp-navy-900); color:#38BDF8; font-family:var(--wp-font-display); font-weight:800; font-size:1.1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
                         5
                     </div>
                     <div>
-                        <strong style="font-size:1rem; color:var(--ink);">Executive Advisory Consultation</strong>
-                        <p style="font-size:0.92rem; color:var(--muted); margin-top:0.2rem;">
-                            Seamless 1-click option to discuss your specific findings directly with Mohammed Nasar on a confidential 45-minute discovery call.
+                        <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Actionable 90-Day Implementation Sprint</strong>
+                        <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
+                            Connects directly to an optional 45-minute discovery consultation with Mohammed Nasar to translate assessment outputs into a costed roadmap.
                         </p>
                     </div>
                 </div>
             </div>
-
-            <div style="margin-top:2.2rem; text-align:center;">
-                <button type="button" class="btn-launch" onclick="NxtEngagement.openAssessmentModal()" style="width:100%; justify-content:center;">
-                    Launch Interactive Health Check Questionnaire &rarr;
-                </button>
-            </div>
         </section>
 
-        <!-- AI Readiness Guidance Section -->
-        <section style="margin-bottom:5rem;">
-            <div style="text-align:center; max-width:680px; margin:0 auto 2.5rem;">
-                <span style="font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);">
-                    Pragmatic Technology Advisory
-                </span>
-                <h2 style="font-family:'Fraunces', serif; font-size:2rem; color:var(--ink); margin-top:0.4rem;">
-                    The 4 Stages of Business AI Readiness
-                </h2>
-                <p style="color:var(--muted); font-size:0.95rem;">
-                    Before committing capital to AI products, determine where your processes stand and what prerequisites are essential.
-                </p>
+        <!-- Guide Cards Grid -->
+        <div class="guide-grid">
+            <div class="guide-card rv">
+                <h3>Clear, No-Obligation Output</h3>
+                <p>You receive immediate benchmark metrics on screen with zero obligation. If your existing technology stack is already optimal, we tell you straight.</p>
             </div>
 
-            <div class="guide-grid">
-                <div class="guide-card" style="border-top:4px solid #EF4444;">
-                    <span style="font-size:0.75rem; font-weight:700; color:#DC2626; text-transform:uppercase;">Stage 1</span>
-                    <h3>Exploring</h3>
-                    <p>Ad-hoc experimentation with public LLMs. Primary prerequisite is establishing clean data hygiene and preventing company secrets from being fed to public bots.</p>
-                </div>
-
-                <div class="guide-card" style="border-top:4px solid #F59E0B;">
-                    <span style="font-size:0.75rem; font-weight:700; color:#D97706; text-transform:uppercase;">Stage 2</span>
-                    <h3>Piloting</h3>
-                    <p>Scoping 1–2 specific operational bottlenecks (e.g. customer triage, document parsing). Requires unified APIs and measurable SLA targets.</p>
-                </div>
-
-                <div class="guide-card" style="border-top:4px solid #3B82F6;">
-                    <span style="font-size:0.75rem; font-weight:700; color:#2563EB; text-transform:uppercase;">Stage 3</span>
-                    <h3>Scaling</h3>
-                    <p>Embedded automated triggers across CRM, finance, and logistics. High emphasis on human-in-the-loop exception handling and governance.</p>
-                </div>
-
-                <div class="guide-card" style="border-top:4px solid #10B981;">
-                    <span style="font-size:0.75rem; font-weight:700; color:#059669; text-transform:uppercase;">Stage 4</span>
-                    <h3>Optimized</h3>
-                    <p>Predictive automation and bespoke software algorithms that serve as true proprietary competitive differentiators.</p>
-                </div>
+            <div class="guide-card rv">
+                <h3>Full Confidentiality &amp; UK GDPR</h3>
+                <p>Assessment inputs are processed securely under strict UK GDPR standards and mutual Non-Disclosure Agreement protections.</p>
             </div>
 
-            <div style="background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); padding:2rem; text-align:center;">
-                <h3 style="font-family:'Fraunces', serif; font-size:1.4rem; color:var(--ink); margin-bottom:0.6rem;">
-                    Want to run the complete diagnostic with an advisor?
-                </h3>
-                <p style="font-size:0.95rem; color:var(--muted); max-width:54ch; margin:0 auto 1.4rem;">
-                    We score your current technology stack live on a 45-minute video call and hand you a costed 90-day action plan.
-                </p>
-                <a href="{{ route('landing') }}#book" class="btn-launch">
-                    Book Free Strategy Call &rarr;
-                </a>
+            <div class="guide-card rv">
+                <h3>Direct Architect Review</h3>
+                <p>Every submission is reviewed by Mohammed Nasar personally — applying 25+ years of tier-1 banking, rail, and manufacturing architecture expertise.</p>
             </div>
-        </section>
+        </div>
     </main>
 
     @include('partials.footer')
 </body>
+
 </html>

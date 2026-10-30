@@ -13,6 +13,7 @@
 @endphp
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,12 +36,16 @@
     <meta name="twitter:image" content="{{ $industryImage }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "{{ $industryTitle }} — Supply & Technology Solutions",
+      "name": "{{ $industryTitle }} — Sourcing & Technology Solutions",
       "serviceType": "Industrial Sourcing & Technology Consulting",
       "provider": {
         "@type": "ProfessionalService",
@@ -56,225 +61,276 @@
       "description": "{{ $industryMetaDesc }}"
     }
     </script>
+
     <style>
-        :root {
-            --ink: #090D16;
-            --ink-2: #131926;
-            --muted: #64748B;
-            --line: #E2E8F0;
-            --paper: #FFFFFF;
-            --cream: #F8FAFC;
-            --gold: #0EA5E9;
-            --gold-2: #38BDF8;
-            --sky-dark: #0284C7;
-            --sky-soft: rgba(14, 165, 233, 0.08);
-            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
-            --radius: 12px;
+        .detail-hero {
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(0, 15, 36, 0.92) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
+                radial-gradient(ellipse at 50% 30%, rgba(56, 189, 248, 0.22) 0%, transparent 60%),
+                url('{{ $industryImage }}') center center / cover no-repeat;
+            color: #FFFFFF;
+            padding: 85px 0 70px;
+            overflow: hidden;
+            border-bottom: 3px solid var(--wp-spectrum-blue);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -.01em; }
-        a { color: inherit; text-decoration: none; }
-        .wrap { width: min(1180px, 92%); margin: 0 auto; }
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: #94A3B8;
+            font-family: var(--wp-font-display);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumbs a {
+            color: #CBD5E1;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .breadcrumbs a:hover {
+            color: #38BDF8;
+        }
 
-        /* Announcement + Nav */
-        .topbar { background: var(--ink); color: #fff; font-size: .82rem; text-align: center; padding: .55rem 1rem; position: relative; z-index: 60; }
-        .topbar b { color: var(--gold-2); }
-        .topbar .cd { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gold-2); }
-        nav { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-        .nav-in { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-        .logo { font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em; }
-        .logo span { color: var(--gold); }
-        .logo small { display: block; font-family: 'Inter'; font-size: .58rem; letter-spacing: .34em; color: var(--muted); font-weight: 600; margin-top: -4px; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; font-size: .92rem; font-weight: 500; }
-        .nav-links a { color: var(--ink-2); position: relative; }
-        .nav-links a:hover { color: var(--gold); }
-        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .95rem; padding: .85rem 1.6rem; border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all .2s ease; }
-        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(14, 165, 233, .35); }
-        .btn-gold:hover { background: #0284C7; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14, 165, 233, .45); }
-        .btn-outline { background: #fff; color: var(--ink); border: 1px solid var(--line); }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-        .nav-cta { padding: .68rem 1.35rem; }
-        .burger { display: none; background: none; border: 0; font-size: 1.5rem; cursor: pointer; }
+        .detail-hero h1 {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            color: #FFFFFF;
+            margin: 0.85rem 0 1rem;
+            line-height: 1.18;
+        }
 
-        /* Detail Hero */
-        .detail-hero { background: var(--ink); color: #fff; position: relative; padding: 4.5rem 0 3.5rem; overflow: hidden; }
-        .detail-hero-bg { position: absolute; inset: 0; opacity: 0.18; }
-        .detail-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-        .detail-hero .wrap { position: relative; z-index: 2; }
-        .breadcrumbs { font-size: .84rem; color: #94A3B8; margin-bottom: 1.2rem; }
-        .breadcrumbs a:hover { color: var(--gold-2); }
-        .eyebrow { display: inline-flex; align-items: center; gap: .55rem; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-2); margin-bottom: .8rem; }
-        .detail-hero h1 { font-size: clamp(2.3rem, 4.2vw, 3.4rem); color: #fff; margin-bottom: .85rem; }
-        .detail-hero .tagline { font-size: 1.25rem; color: #E2E8F0; max-width: 820px; font-weight: 500; line-height: 1.5; margin-bottom: 1.5rem; }
+        .detail-hero p.tagline {
+            font-size: 1.25rem;
+            color: #38BDF8;
+            font-family: var(--wp-font-display);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
 
-        /* Main Content Layout */
-        .content-sec { padding: 4rem 0 6rem; background: var(--paper); }
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3.5rem; }
+        .detail-hero p.desc {
+            font-size: 1.1rem;
+            color: #CBD5E1;
+            max-width: 780px;
+            line-height: 1.7;
+        }
 
-        /* Featured Image Card */
-        .featured-img-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 2.5rem; height: 380px; }
-        .featured-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 3.5rem;
+            padding: 4.5rem 0 6.5rem;
+        }
 
-        .article-body h2 { font-size: 1.75rem; color: var(--ink); margin: 2rem 0 1rem; }
-        .article-body p { font-size: 1.04rem; color: #334155; line-height: 1.7; margin-bottom: 1.4rem; }
+        .detail-main-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: var(--wp-radius-md);
+            border: 1px solid var(--wp-border);
+            margin-bottom: 2.75rem;
+            box-shadow: var(--wp-shadow-md);
+        }
 
-        /* Specifications / Highlights */
-        .specs-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0 2.5rem; }
-        .specs-item { display: flex; align-items: flex-start; gap: 1rem; background: var(--cream); border: 1px solid var(--line); padding: 1.1rem 1.4rem; border-radius: 12px; font-size: .98rem; color: var(--ink); }
-        .specs-item-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; flex-shrink: 0; margin-top: .15rem; }
+        .detail-section-title {
+            font-size: 1.6rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 1.25rem;
+            font-family: var(--wp-font-display);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .detail-section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 36px;
+            height: 3px;
+            background: var(--wp-blue);
+            border-radius: 2px;
+        }
 
-        /* Why Nexteck Box */
-        .why-box { background: linear-gradient(135deg, #FFFDF8 0%, #FBF6EB 100%); border: 1.5px solid #E5D5B0; border-radius: var(--radius); padding: 2rem; margin: 2.5rem 0; }
-        .why-box h3 { font-size: 1.3rem; color: var(--ink); margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
-        .why-box p { font-size: 1rem; color: #475569; line-height: 1.65; margin-bottom: 0; }
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+        .scope-item {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-left: 4px solid var(--wp-blue);
+            border-radius: 0 var(--wp-radius-sm) var(--wp-radius-sm) 0;
+            padding: 1.2rem 1.5rem;
+            box-shadow: var(--wp-shadow-xs);
+            font-size: 0.96rem;
+            color: var(--wp-text-body);
+            line-height: 1.55;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .scope-item svg {
+            color: var(--wp-blue);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
 
-        /* Sidebar CTA & Keywords */
-        .sidebar-card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem; }
-        .sidebar-card h3 { font-size: 1.25rem; color: var(--ink); margin-bottom: 1rem; }
-        .sidebar-card p { font-size: .92rem; color: var(--muted); margin-bottom: 1.5rem; }
-        .kw-list { display: flex; flex-direction: column; gap: .6rem; }
-        .kw-item { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: .55rem .85rem; font-size: .82rem; font-weight: 600; color: var(--ink-2); }
+        .why-card {
+            background: var(--wp-bg-light);
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 2.25rem;
+            margin-bottom: 3rem;
+        }
+        .why-card p {
+            font-size: 1.02rem;
+            color: var(--wp-text-body);
+            line-height: 1.7;
+            margin: 0;
+        }
 
-        /* Related Industries */
-        .related-sec { background: var(--cream); padding: 4.5rem 0 5rem; border-top: 1px solid var(--line); }
-        .related-sec h2 { font-size: 2rem; text-align: center; margin-bottom: 2.5rem; }
-        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .rel-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s; }
-        .rel-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .rel-img { height: 180px; width: 100%; object-fit: cover; }
-        .rel-body { padding: 1.4rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .rel-title { font-family: 'Fraunces', serif; font-size: 1.18rem; margin-bottom: .5rem; }
-        .rel-tagline { font-size: .86rem; color: var(--muted); margin-bottom: 1rem; flex-grow: 1; }
+        /* Sidebar Cards */
+        .sidebar-card {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 2.25rem;
+            box-shadow: var(--wp-shadow-card);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 96px;
+        }
+        .sidebar-card h3 {
+            font-size: 1.25rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.75rem;
+        }
+        .sidebar-card p {
+            font-size: 0.92rem;
+            color: var(--wp-text-muted);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
 
-        footer { background: var(--ink); color: #fff; padding: 4rem 0 2rem; }
-        .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 2rem; margin-bottom: 3rem; }
-        .foot-grid h4 { color: #fff; margin-bottom: 1.2rem; font-size: 1rem; }
-        .foot-links { display: flex; flex-direction: column; gap: 0.6rem; }
-        .foot-links a { color: #8E99AD; text-decoration: none; font-size: 0.88rem; transition: color .2s; }
-        .foot-links a:hover { color: #fff; }
-        .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.8rem; display: flex; justify-content: space-between; font-size: 0.82rem; color: #8E99AD; }
+        .rail-callout {
+            background: rgba(0, 114, 206, 0.06);
+            border: 1px solid rgba(0, 114, 206, 0.2);
+            border-radius: var(--wp-radius-sm);
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--wp-navy-900);
+            line-height: 1.5;
+        }
 
         @media (max-width: 960px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .related-grid { grid-template-columns: 1fr; }
-            .foot-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 640px) {
-            .foot-grid { grid-template-columns: 1fr; }
-            .detail-hero { padding: 4rem 0 3rem; }
-            .detail-hero h1 { font-size: clamp(1.85rem, 6.5vw, 2.6rem); }
-            .content-area { padding: 3rem 0 4rem; }
-            .specs-grid { grid-template-columns: 1fr; }
+            .detail-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .sidebar-card {
+                position: static;
+            }
         }
     </style>
 </head>
+
 <body>
     @include('partials.header')
 
-    <section class="detail-hero">
-        <div class="detail-hero-bg">
-            <img src="{{ $industryImage }}" alt="{{ $industryTitle }}">
-        </div>
-        <div class="wrap">
-            <div class="breadcrumbs">
-                <a href="{{ route('home') }}">Home</a> &nbsp;/&nbsp;
-                <a href="{{ route('industries.index') }}">Industries</a> &nbsp;/&nbsp;
-                <span>{{ $industryTitle }}</span>
-            </div>
-            <div class="eyebrow">Sector Sourcing &amp; Engineering Solutions</div>
+    <!-- ================= HERO ================= -->
+    <header class="detail-hero">
+        <div class="wp-wrap">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="{{ route('home') }}">Home</a>
+                <span aria-hidden="true">&rsaquo;</span>
+                <a href="{{ route('industries.index') }}">Industries</a>
+                <span aria-hidden="true">&rsaquo;</span>
+                <span style="color:#94A3B8;">{{ $industryTitle }}</span>
+            </nav>
+
+            <span class="wp-badge wp-badge-blue">Industry Specialisation</span>
             <h1>{{ $industryTitle }}</h1>
             <p class="tagline">{{ $industryTagline }}</p>
-            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-                <a href="{{ route('landing') }}#book" class="btn btn-gold">Inquire for {{ $industryTitle }} Sourcing &rarr;</a>
-                <a href="{{ route('toolkit.index') }}" class="btn btn-outline" style="background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.3);">Assess in SME Toolkit</a>
-            </div>
+            <p class="desc">{{ $industryShortDesc }}</p>
         </div>
-    </section>
+    </header>
 
-    <main class="content-sec">
-        <div class="wrap">
-            <div class="content-grid">
-                <!-- Main Body -->
-                <article class="article-body">
-                    <div class="featured-img-wrap">
-                        <img src="{{ $industryImage }}" alt="{{ $industryTitle }} procurement and technology supply">
-                    </div>
+    <!-- ================= MAIN DETAIL LAYOUT ================= -->
+    <main class="wp-wrap detail-layout">
+        <!-- Left Content Area -->
+        <div>
+            <img src="{{ $industryImage }}" alt="{{ $industryTitle }}" class="detail-main-img">
 
-                    <h2>Strategic Sourcing &amp; Operational Excellence in {{ $industryTitle }}</h2>
-                    <p>{{ $industryShortDesc }}</p>
-
-                    @if(!empty($industryHighlights) && count($industryHighlights) > 0)
-                        <h2>Key Supply Scope &amp; Engineering Specifications</h2>
-                        <ul class="specs-list">
-                            @foreach($industryHighlights as $hl)
-                                <li class="specs-item">
-                                    <span class="specs-item-icon">✓</span>
-                                    <div>{{ $hl }}</div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-
-                    @if(!empty($industryWhyNexteck))
-                        <div class="why-box">
-                            <h3>⭐ The Nexteck Advantage</h3>
-                            <p>{{ $industryWhyNexteck }}</p>
-                        </div>
-                    @endif
-
-                    @if($industrySlug === 'railways')
-                        <div style="background:#090D16; border: 1px solid rgba(56, 189, 248, 0.2); color:#fff; padding:1.8rem 2rem; border-radius:12px; margin-top:2rem;">
-                            <h3 style="color:var(--gold-2); margin-bottom:.6rem;">Verified Partner: pearlconrail.co.uk</h3>
-                            <p style="color:#CBD5E1; font-size:.95rem; margin-bottom:1rem;">All railway rolling stock, braking systems, and infrastructure components are supplied in coordination with verified specialist networks at <a href="https://pearlconrail.co.uk" target="_blank" style="color:var(--gold-2); text-decoration:underline; font-weight:700;">pearlconrail.co.uk</a>.</p>
-                            <a href="https://pearlconrail.co.uk" target="_blank" class="btn btn-gold" style="padding:.6rem 1.2rem; font-size:.85rem;">Visit pearlconrail.co.uk &rarr;</a>
-                        </div>
-                    @endif
-                </article>
-
-                <!-- Sidebar -->
-                <aside>
-                    <div class="sidebar-card">
-                        <h3>Book a Sector Audit Call</h3>
-                        <p>Need costed spare parts sourcing, custom fabrication, or digital supply chain automation for {{ $industryTitle }}? Speak directly with principal consultant Mohammed Nasar.</p>
-                        <a href="{{ route('landing') }}#book" class="btn btn-gold" style="width:100%; justify-content:center;">Book Discovery Call &rarr;</a>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </main>
-
-    <!-- Related Industries -->
-    @if(isset($related) && count($related) > 0)
-        <section class="related-sec">
-            <div class="wrap">
-                <h2>Explore Other Sectors</h2>
-                <div class="related-grid">
-                    @foreach($related as $rel)
-                        @php
-                            $relTitle = is_object($rel) ? $rel->title : $rel['title'];
-                            $relSlug = is_object($rel) ? $rel->slug : $rel['slug'];
-                            $relTagline = is_object($rel) ? $rel->tagline : $rel['tagline'];
-                            $relImg = is_object($rel) ? ($rel->image_url ?? asset($rel->image ?? 'images/A3.png')) : (isset($rel['image_url']) ? $rel['image_url'] : asset($rel['image'] ?? 'images/A3.png'));
-                        @endphp
-                        <article class="rel-card">
-                            <img src="{{ $relImg }}" alt="{{ $relTitle }}" class="rel-img">
-                            <div class="rel-body">
-                                <h3 class="rel-title"><a href="{{ route('industries.show', $relSlug) }}">{{ $relTitle }}</a></h3>
-                                <p class="rel-tagline">{{ Str::limit($relTagline, 75) }}</p>
-                                <a href="{{ route('industries.show', $relSlug) }}" style="color:var(--gold); font-weight:700; font-size:.88rem; margin-top:auto;">
-                                    Read More &rarr;
-                                </a>
-                            </div>
-                        </article>
+            <h2 class="detail-section-title">Technical Capabilities &amp; Supply Scope</h2>
+            
+            @if(count($industryHighlights) > 0)
+                <ul class="scope-list">
+                    @foreach($industryHighlights as $highlight)
+                        <li class="scope-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>{{ $highlight }}</span>
+                        </li>
                     @endforeach
+                </ul>
+            @endif
+
+            @if(!empty($industryWhyNexteck))
+                <h2 class="detail-section-title">The Nexteck Advantage in {{ $industryTitle }}</h2>
+                <div class="why-card">
+                    <p>{{ $industryWhyNexteck }}</p>
                 </div>
+            @endif
+
+            @if($industrySlug === 'railways-pearlconrail' || str_contains($industrySlug, 'rail'))
+                <div class="rail-callout" style="background:#FFFFFF; border:1px solid var(--wp-border); border-left:4px solid var(--wp-spectrum-teal); border-radius:var(--wp-radius-md); padding:1.75rem; box-shadow:var(--wp-shadow-xs); margin-bottom:3rem;">
+                    <span class="wp-badge wp-badge-teal" style="margin-bottom:0.75rem;">Strategic Partner Collaboration</span>
+                    <h3 style="font-size:1.25rem; color:var(--wp-navy-900); margin-bottom:0.5rem;">Pearlcon Rail UK Supply Ecosystem</h3>
+                    <p style="color:var(--wp-text-body); font-size:0.95rem; line-height:1.6; margin:0;">
+                        In direct partnership with <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:700;">pearlconrail.co.uk</a>, Nexteck supports UK rolling stock operators and maintenance contractors with verified European and Asian component sourcing, EN 45545 fire standards compliance, and real-time fleet telematics.
+                    </p>
+                </div>
+            @endif
+
+            <div style="display:flex; gap:1.25rem; flex-wrap:wrap; margin-top:2rem;">
+                <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary btn-wp-lg">
+                    Schedule Sector Consultation <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+                </a>
+                <a href="{{ route('industries.index') }}" class="btn-wp btn-wp-outline btn-wp-lg">
+                    <i class="fa-solid fa-arrow-left" style="margin-right:5px;"></i> View All Industries
+                </a>
             </div>
-        </section>
-    @endif
+        </div>
+
+        <!-- Right Sticky Action Card -->
+        <aside>
+            <div class="sidebar-card">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Fast Track</span>
+                <h3>Need {{ $industryTitle }} Support?</h3>
+                <p>Discuss your operational bottlenecks, custom software integration, or OEM spares procurement with our specialist architecture team.</p>
+
+                <div style="display:flex; flex-direction:column; gap:0.85rem; margin-bottom:1.75rem; font-size:0.88rem; color:var(--wp-text-body);">
+                    <div><i class="fa-solid fa-location-dot" style="color:var(--wp-blue); width:18px;"></i> <b>UK Office:</b> London, United Kingdom</div>
+                    <div><i class="fa-solid fa-bolt" style="color:#FFB81C; width:18px;"></i> <b>Delivery:</b> 25+ Years Boardroom Experience</div>
+                    <div><i class="fa-solid fa-shield-halved" style="color:#10B981; width:18px;"></i> <b>Confidentiality:</b> Bilateral NDA Upfront</div>
+                </div>
+
+                <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary" style="width:100%; justify-content:center;">
+                    Book Strategy Session <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+                </a>
+                
+                <a href="tel:+447879175585" class="btn-wp btn-wp-outline" style="width:100%; justify-content:center; margin-top:0.75rem;">
+                    <i class="fa-solid fa-phone" style="margin-right:6px; color:var(--wp-blue);"></i> +44 (0)78 7917 5585
+                </a>
+            </div>
+        </aside>
+    </main>
 
     @include('partials.footer')
 </body>
+
 </html>

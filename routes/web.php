@@ -74,6 +74,7 @@ Route::post('/toolkit', [ToolkitController::class, 'store'])->name('toolkit.stor
 
 // Smart Customer Engagement Public Pages & APIs
 Route::get('/assessment', [EngagementController::class, 'showAssessmentPage'])->name('assessment.index');
+Route::get('/health-check', [EngagementController::class, 'showAssessmentPage'])->name('assessment');
 Route::get('/calculator', [EngagementController::class, 'showCalculatorPage'])->name('calculator.index');
 Route::get('/privacy-policy', function () {
     return view('pages.privacy-policy');

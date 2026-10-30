@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Software &amp; AI Strategy Call London | Nexteck Solutions</title>
-    <meta name="description" content="Book a free 30-min Software Development &amp; AI Strategy Call with Nexteck London. Get a costed 90-day custom software &amp; IT roadmap for your SME.">
+    <meta name="description" content="Book a free 45-min Software Architecture &amp; AI Strategy Call with Nexteck London. Get an objective, costed 90-day custom software &amp; IT roadmap for your business.">
     <meta name="keywords" content="Software Development Company London, Custom Software Solutions London, Book IT Strategy Call UK, AI Audit London, Nexteck">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="{{ url('/landing') }}">
@@ -14,27 +14,29 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nexteck">
     <meta property="og:title" content="Book Software &amp; AI Strategy Call London | Nexteck Solutions">
-    <meta property="og:description" content="Book a free 30-min Software Development &amp; AI Strategy Call with Nexteck London. Get a costed 90-day custom software &amp; IT roadmap for your SME.">
+    <meta property="og:description" content="Book a free 45-min Software Architecture &amp; AI Strategy Call with Nexteck London. Get a costed 90-day custom software &amp; IT roadmap for your business.">
     <meta property="og:url" content="{{ url('/landing') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Book Software &amp; AI Strategy Call London | Nexteck Solutions">
-    <meta name="twitter:description" content="Book a free 30-min Software Development &amp; AI Strategy Call with Nexteck London. Get a costed 90-day custom software &amp; IT roadmap for your SME.">
+    <meta name="twitter:description" content="Book a free 45-min Software Architecture &amp; AI Strategy Call with Nexteck London. Get a costed 90-day custom software &amp; IT roadmap for your business.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Nexteck — Software Development Company London",
       "url": "{{ url('/landing') }}",
-      "description": "End-to-end business, custom software development, IT strategy and AI readiness audits for SMEs in London & UK.",
+      "description": "End-to-end business, bespoke software architecture, IT strategy and AI readiness audits for SMEs in London & UK.",
       "founder": {
         "@type": "Person",
         "name": "Mohammed Nasar",
-        "jobTitle": "Principal Consultant"
+        "jobTitle": "Principal Consultant & Software Architect"
       },
       "address": {
         "@type": "PostalAddress",
@@ -44,1853 +46,1372 @@
       "areaServed": ["London", "United Kingdom"]
     }
     </script>
+
     <style>
-        :root {
-            --ink: #090D16;
-            --ink-2: #131926;
-            --muted: #64748B;
-            --line: #E2E8F0;
-            --paper: #FFFFFF;
-            --cream: #F8FAFC;
-            --gold: #0EA5E9;
-            --gold-2: #38BDF8;
-            --sky-dark: #0284C7;
-            --sky-soft: rgba(14, 165, 233, 0.08);
-            --red: #EF4444;
-            --green: #10B981;
-            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
-            --radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            color: var(--ink);
-            background: var(--paper);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Fraunces', Georgia, serif;
-            font-weight: 600;
-            line-height: 1.12;
-            letter-spacing: -.01em
-        }
-
-        img {
-            max-width: 100%;
-            display: block
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-
-        .wrap {
-            width: min(1180px, 92%);
-            margin: 0 auto
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: .55rem;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--gold)
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 26px;
-            height: 2px;
-            background: var(--gold)
-        }
-
-        .sec {
-            padding: 96px 0
-        }
-
-        .sec-head {
-            max-width: 760px;
-            margin: 0 auto 56px;
-            text-align: center
-        }
-
-        .sec-head h2 {
-            font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-            margin: .9rem 0 1rem
-        }
-
-        .sec-head p {
-            color: var(--muted);
-            font-size: 1.06rem
-        }
-
-        .grid {
-            display: grid;
-            gap: 24px
-        }
-
-        .g2 {
-            grid-template-columns: repeat(2, 1fr)
-        }
-
-        .g3 {
-            grid-template-columns: repeat(3, 1fr)
-        }
-
-        .g4 {
-            grid-template-columns: repeat(4, 1fr)
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            font-weight: 600;
-            font-size: .95rem;
-            padding: .9rem 1.6rem;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 1.5px solid transparent;
-            transition: all .2s ease;
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: #fff;
-            box-shadow: 0 4px 14px rgba(14, 165, 233, .35);
-        }
-
-        .btn-gold:hover {
-            background: #0284C7;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(14, 165, 233, .45);
-        }
-
-        .btn-ghost {
-            border-color: var(--ink);
-            color: var(--ink);
-            background: transparent
-        }
-
-        .btn-ghost:hover {
-            background: var(--ink);
-            color: #fff
-        }
-
-        .btn-white {
-            background: #fff;
-            color: var(--ink)
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: .3s
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow)
-        }
-
-        .tag {
-            display: inline-block;
-            font-size: .7rem;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            padding: .32rem .7rem;
-            border-radius: 999px
-        }
-
-        .topbar {
-            background: var(--ink);
-            color: #fff;
-            font-size: .82rem;
-            text-align: center;
-            padding: .55rem 1rem;
+        /* Landing Page Enterprise Grand Hero with Video Background */
+        .lp-hero {
             position: relative;
-            z-index: 60
-        }
-
-        .topbar b {
-            color: var(--gold-2)
-        }
-
-        .topbar .cd {
-            font-variant-numeric: tabular-nums;
-            font-weight: 700;
-            color: var(--gold-2)
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, .92);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--line)
-        }
-
-        .nav-in {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 74px
-        }
-
-        .logo {
-            font-family: 'Fraunces', serif;
-            font-size: 1.55rem;
-            font-weight: 700;
-            letter-spacing: -.02em
-        }
-
-        .logo span {
-            color: var(--gold)
-        }
-
-        .logo small {
-            display: block;
-            font-family: 'Inter';
-            font-size: .58rem;
-            letter-spacing: .34em;
-            color: var(--muted);
-            font-weight: 600;
-            margin-top: -4px
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            font-size: .92rem;
-            font-weight: 500
-        }
-
-        .nav-links a {
-            color: var(--ink-2);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold)
-        }
-
-        .nav-cta {
-            padding: .68rem 1.35rem
-        }
-
-        .burger {
-            display: none;
-            background: none;
-            border: 0;
-            font-size: 1.5rem;
-            cursor: pointer
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: .55rem;
-            background: rgba(14, 165, 233, .12);
-            border: 1px solid rgba(56, 189, 248, .35);
-            color: #38BDF8;
-            font-size: .78rem;
-            font-weight: 600;
-            letter-spacing: .04em;
-            padding: .45rem 1rem;
-            border-radius: 999px;
-            margin-bottom: 1.6rem
-        }
-
-        .pulse {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #38BDF8;
-            animation: pl 1.6s infinite
-        }
-
-        @keyframes pl {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(56, 189, 248, .7)
-            }
-
-            55% {
-                box-shadow: 0 0 0 8px rgba(56, 189, 248, 0)
-            }
-        }
-
-        .hero-chips {
-            display: flex;
-            gap: 1.6rem;
-            flex-wrap: wrap;
-            font-size: .85rem;
-            color: #C6CDDA
-        }
-
-        .hero-chips span {
-            display: flex;
-            align-items: center;
-            gap: .5rem
-        }
-
-        .hero-chips svg {
-            color: var(--gold-2);
-            flex: none
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem
-        }
-
-        .steps2 {
-            display: flex;
-            gap: 1.4rem;
-            padding: 1.6rem 0;
-            border-bottom: 1px solid var(--line)
-        }
-
-        .steps2:last-child {
-            border-bottom: 0
-        }
-
-        .steps2 .dot {
-            flex: none;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--ink);
-            color: var(--gold-2);
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
+            min-height: calc(100vh - 110px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.05rem
+            box-sizing: border-box;
+            padding: clamp(2.5rem, 6vh, 4.5rem) 1.5rem;
+            color: #FFFFFF;
+            overflow: hidden;
+            background: #000F24;
         }
 
-        .steps2 h3 {
-            font-size: 1.08rem;
-            margin-bottom: .3rem
-        }
-
-        .steps2 p {
-            font-size: .9rem;
-            color: var(--muted)
-        }
-
-        .steps2 .when {
-            margin-left: auto;
-            flex: none;
-            align-self: center;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--gold);
-            white-space: nowrap
-        }
-
-        .tier {
-            padding: 36px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            position: relative
-        }
-
-        .tier.featured {
-            border: 2px solid var(--gold);
-            box-shadow: var(--shadow)
-        }
-
-        .tier .pop {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold);
-            color: #fff;
-            font-size: .68rem;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            padding: .35rem .9rem;
-            border-radius: 999px
-        }
-
-        .tier h3 {
-            font-size: 1.2rem
-        }
-
-        .tier .price {
-            font-family: 'Fraunces', serif;
-            font-size: 2.2rem
-        }
-
-        .tier .price small {
-            font-size: .85rem;
-            font-family: 'Inter';
-            color: var(--muted)
-        }
-
-        .tier ul {
-            list-style: none;
-            display: grid;
-            gap: .55rem;
-            font-size: .9rem;
-            color: var(--muted)
-        }
-
-        .tier li {
-            display: flex;
-            gap: .55rem
-        }
-
-        .tier li::before {
-            content: "✓";
-            color: var(--gold);
-            font-weight: 800
-        }
-
-        .tier .btn {
-            margin-top: auto;
-            justify-content: center
-        }
-
-        .final {
-            position: relative;
-            color: #fff;
-            overflow: hidden
-        }
-
-        .final img.bg {
+        .wp-hero-media-wrap {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover
+            overflow: hidden;
+            z-index: 1;
         }
-
-        .final::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(100deg, rgba(8, 17, 34, .95), rgba(8, 17, 34, .65))
-        }
-
-        .final .wrap {
-            position: relative;
-            z-index: 2;
-            padding: 110px 0;
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 56px;
-            align-items: center
-        }
-
-        .final h2 {
-            font-size: clamp(2rem, 4vw, 3.1rem);
-            margin-bottom: 1.1rem
-        }
-
-        .final h2 em {
-            color: var(--gold-2);
-            font-style: italic
-        }
-
-        .final p {
-            color: #C9D1DE;
-            margin-bottom: 2rem;
-            max-width: 52ch
-        }
-
-        footer {
-            background: var(--ink);
-            color: #9AA5B8;
-            font-size: .88rem;
-            padding: 64px 0 0
-        }
-
-        .foot-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.3fr;
-            gap: 40px;
-            padding-bottom: 48px
-        }
-
-        footer h4 {
-            color: #fff;
-            font-size: .85rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            margin-bottom: 1.1rem
-        }
-
-        footer a:hover {
-            color: var(--gold-2)
-        }
-
-        .foot-links {
-            display: grid;
-            gap: .6rem
-        }
-
-        .foot-bottom {
-            border-top: 1px solid rgba(255, 255, 255, .1);
-            padding: 1.3rem 0;
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-            font-size: .78rem
-        }
-
-        .rv {
-            opacity: 0;
-            transform: translateY(26px);
-            transition: opacity .8s ease, transform .8s ease
-        }
-
-        .rv.in {
-            opacity: 1;
-            transform: none
-        }
-
-        @keyframes kb {
-            from {
-                transform: scale(1) translateY(0)
-            }
-
-            to {
-                transform: scale(1.12) translateY(-2%)
-            }
-        }
-
-        .guarantee {
-            display: flex;
-            gap: 1.6rem;
-            align-items: center;
-            background: #EAF3ED;
-            border: 1px solid #CBE3D5;
-            border-radius: var(--radius);
-            padding: 30px 34px
-        }
-
-        .guarantee .ic {
-            flex: none;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: var(--green);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-        .guarantee h3 {
-            font-size: 1.15rem;
-            margin-bottom: .3rem
-        }
-
-        .guarantee p {
-            font-size: .92rem;
-            color: #3E5A4A
-        }
-
-        .faq details {
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: #fff;
-            margin-bottom: .9rem;
-            overflow: hidden
-        }
-
-        .faq summary {
-            cursor: pointer;
-            padding: 1.15rem 1.4rem;
-            font-weight: 600;
-            font-size: .98rem;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center
-        }
-
-        .faq summary::after {
-            content: "+";
-            font-family: 'Fraunces', serif;
-            font-size: 1.4rem;
-            color: var(--gold);
-            transition: .25s
-        }
-
-        .faq details[open] summary::after {
-            transform: rotate(45deg)
-        }
-
-        .faq .ans {
-            padding: 0 1.4rem 1.2rem;
-            color: var(--muted);
-            font-size: .92rem
-        }
-
-        @media(max-width:960px) {
-            .g4 {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .g3 {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .final .wrap {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .foot-grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .guarantee {
-                flex-direction: column;
-                text-align: center
-            }
-
-            .steps2 .when {
-                display: none
-            }
-        }
-
-        @media(max-width:640px) {
-            .g2,
-            .g3,
-            .g4 {
-                grid-template-columns: 1fr
-            }
-
-            .sec {
-                padding: 56px 0
-            }
-
-            .foot-grid {
-                grid-template-columns: 1fr
-            }
-        }
-    </style>
-</head>
-
-
-    <style>
-        /* ================= LANDING PAGE v2 ================= */
-        .lp-hero {
-            position: relative;
-            background: var(--ink);
-            color: #fff;
-            overflow: hidden
-        }
-
-        .lp-hero .kb {
-            position: absolute;
-            inset: 0;
-            background: url("assets/img/analytics.jpg") center/cover;
-            opacity: .4;
-            animation: kb 26s ease-in-out infinite alternate
-        }
-
-        .lp-hero video {
-            position: absolute;
-            inset: 0;
+        .wp-hero-bg-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.2s
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.38;
+            pointer-events: none;
         }
-
-        .lp-hero video.on {
-            opacity: .55
-        }
-
-        .lp-hero::after {
-            content: "";
+        .wp-hero-video-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(115deg, rgba(8, 17, 34, .96) 25%, rgba(8, 17, 34, .72))
+            background: 
+                linear-gradient(135deg, rgba(0, 15, 36, 0.92) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
+                radial-gradient(ellipse at 50% 25%, rgba(0, 114, 206, 0.28) 0%, transparent 65%);
+            pointer-events: none;
         }
 
-        .lp-hero .wrap {
+        .lp-hero-center {
             position: relative;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 1.12fr 1fr;
-            gap: 64px;
-            padding: 88px 0 100px;
-            align-items: start
-        }
-
-        .lp-hero h1 {
-            font-size: clamp(2.1rem, 4.4vw, 3.4rem);
-            margin: .9rem 0 1.2rem
-        }
-
-        .lp-hero h1 em {
-            color: var(--gold-2);
-            font-style: italic
-        }
-
-        .lp-hero p.lead {
-            color: #C9D1DE;
-            max-width: 52ch;
-            margin-bottom: 1.6rem
-        }
-
-        .checks {
-            display: grid;
-            gap: .7rem;
-            margin-bottom: 1.8rem
-        }
-
-        .checks div {
-            display: flex;
-            gap: .7rem;
-            align-items: flex-start;
-            font-size: .95rem;
-            color: #E4E9F2
-        }
-
-        .checks svg {
-            color: var(--gold-2);
-            flex: none;
-            margin-top: .15rem
-        }
-
-        .proof-inline {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            color: #B9C2D2;
-            font-size: .84rem
-        }
-
-        .stars {
-            color: var(--gold-2);
-            letter-spacing: .12em;
-            font-size: .95rem
-        }
-
-        .proof-inline .sep {
-            width: 1px;
-            height: 26px;
-            background: rgba(255, 255, 255, .18)
-        }
-
-        .form-col {
-            position: sticky;
-            top: 96px
-        }
-
-        .form-card {
-            background: #fff;
-            color: var(--ink);
-            border-radius: 20px;
-            padding: 32px 30px;
-            box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .5)
-        }
-
-        .form-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: .25rem
-        }
-
-        .form-card .sub {
-            font-size: .85rem;
-            color: var(--muted);
-            margin-bottom: 1.2rem
-        }
-
-        .field {
-            margin-bottom: .9rem
-        }
-
-        .field label {
-            display: block;
-            font-size: .74rem;
-            font-weight: 700;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: var(--ink-2);
-            margin-bottom: .32rem
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-            border: 1.5px solid var(--line);
-            border-radius: 10px;
-            padding: .78rem .95rem;
-            font-size: .93rem;
-            font-family: inherit;
-            background: #FBFAF7;
-            transition: .2s;
-            color: var(--ink)
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(184, 147, 63, .12)
-        }
-
-        .form-note {
-            font-size: .74rem;
-            color: var(--muted);
-            margin-top: .8rem;
-            display: flex;
-            gap: .4rem;
-            align-items: center
-        }
-
-        .form-success {
-            display: none;
+            max-width: 1020px;
+            margin: 0 auto;
             text-align: center;
-            padding: 1.6rem 0
         }
 
-        .form-success .tick {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: #EAF3ED;
-            color: var(--green);
+        .lp-hero-center h1 {
+            color: #FFFFFF !important;
+            font-size: clamp(2.2rem, 4.4vw, 3.85rem);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .lp-hero-center h1 em {
+            font-style: normal;
+            background: linear-gradient(120deg, #38BDF8 0%, #0072CE 60%, #E4007C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .lp-hero-center p.lead {
+            font-size: clamp(1rem, 1.3vw, 1.22rem);
+            color: #CBD5E1;
+            line-height: 1.68;
+            max-width: 820px;
+            margin: 0 auto 2.2rem;
+            font-weight: 400;
+        }
+
+        .lp-hero-actions {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.2rem
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 2.75rem;
         }
 
-        .scarcity {
+        .lp-hero-trust-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 1.85rem;
+            text-align: left;
+        }
+        .trust-item {
             display: flex;
             align-items: center;
-            gap: .6rem;
-            font-size: .79rem;
-            color: var(--red);
-            background: #FBE9E5;
-            border-radius: 10px;
-            padding: .6rem .8rem;
-            margin-bottom: 1.1rem;
-            font-weight: 600
+            gap: 0.65rem;
+            font-size: 0.86rem;
+            color: #CBD5E1;
+            line-height: 1.4;
         }
-
-        .mini-cd {
-            display: flex;
-            gap: .5rem;
-            justify-content: center;
-            margin-bottom: 1.2rem
+        .trust-item i {
+            font-size: 1rem;
+            flex-shrink: 0;
         }
-
-        .mini-cd div {
-            background: var(--cream);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: .45rem .6rem;
-            min-width: 60px;
-            text-align: center
+        .trust-item b {
+            color: #FFFFFF;
         }
-
-        .mini-cd b {
-            font-family: 'Fraunces', serif;
-            font-size: 1.25rem;
-            display: block;
-            line-height: 1.1;
-            font-variant-numeric: tabular-nums
+        @media (max-width: 900px) {
+            .lp-hero-trust-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-
-        .mini-cd span {
-            font-size: .58rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--muted)
-        }
-
-        .slotbar {
-            height: 9px;
-            background: #F0EDE4;
-            border-radius: 99px;
-            overflow: hidden;
-            margin: .55rem 0 .35rem
-        }
-
-        .slotbar i {
-            display: block;
-            height: 100%;
-            width: 17%;
-            background: linear-gradient(90deg, #0EA5E9, #38BDF8);
-            border-radius: 99px;
-            animation: fill 1.6s cubic-bezier(.2, .8, .2, 1) both
-        }
-
-        @keyframes fill {
-            from {
-                width: 0
+        @media (max-width: 560px) {
+            .lp-hero-trust-bar {
+                grid-template-columns: 1fr;
             }
         }
 
-        .slot-txt {
-            font-size: .78rem;
-            color: var(--muted);
+        /* ================= WIPRO-STYLE CONSULTATION SECTION ================= */
+        .wp-wipro-contact-sec {
+            background: #F8FAFC;
+            padding: 5.5rem 0 6.5rem;
+            position: relative;
+            border-top: 1px solid var(--wp-border);
+            border-bottom: 1px solid var(--wp-border);
+        }
+        .wp-wipro-form-container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: 20px;
+            padding: clamp(2rem, 5vw, 3.75rem);
+            box-shadow: 0 25px 60px -15px rgba(0, 27, 58, 0.08), 0 0 0 1px rgba(0, 82, 204, 0.04);
+        }
+        .wp-wipro-form-header {
             text-align: center;
-            margin-bottom: 1.1rem
+            margin-bottom: 2.5rem;
+        }
+        .wp-wipro-form-header h2 {
+            font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+            color: var(--wp-navy-900);
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+        .wp-wipro-form-header p {
+            font-size: 1.05rem;
+            color: var(--wp-text-muted);
+            max-width: 620px;
+            margin: 0 auto 1.25rem;
+            line-height: 1.6;
+        }
+        .wipro-cd-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+            font-size: 0.85rem;
+            padding: 0.4rem 1.15rem;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+        .wipro-cd-pill b {
+            color: #0052CC;
+            font-weight: 800;
+        }
+        .wp-wipro-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.35rem;
+        }
+        .wp-wipro-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.35rem;
+        }
+        @media (max-width: 640px) {
+            .wp-wipro-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+        .wp-wipro-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .wp-wipro-field label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--wp-navy-900);
+            letter-spacing: 0.01em;
+        }
+        .wp-wipro-input,
+        .wp-wipro-select,
+        .wp-wipro-textarea {
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 0.85rem 1.15rem;
+            font-size: 0.96rem;
+            color: var(--wp-navy-900);
+            font-family: inherit;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .wp-wipro-input:focus,
+        .wp-wipro-select:focus,
+        .wp-wipro-textarea:focus {
+            outline: none;
+            border-color: #0052CC;
+            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.12);
+        }
+        .wp-wipro-textarea {
+            resize: vertical;
+            min-height: 125px;
+            line-height: 1.55;
+        }
+        .wp-wipro-consents {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+        }
+        .wp-wipro-check-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--wp-text-body);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+        .wp-wipro-checkbox {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #001B3A;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .wp-wipro-submit-wrap {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .wp-wipro-submit-btn {
+            background: #001B3A;
+            color: #FFFFFF !important;
+            border: none;
+            border-radius: 9999px;
+            padding: 1rem 3.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 27, 58, 0.3);
+        }
+        .wp-wipro-submit-btn:hover {
+            background: #002B5B;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -5px rgba(0, 82, 204, 0.4);
+        }
+        .wp-wipro-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: var(--wp-text-muted);
         }
 
-        .slot-txt b {
-            color: var(--red)
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--wp-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 0.85rem;
+            text-align: center;
         }
 
         .form-trust {
             display: flex;
             align-items: center;
-            gap: .7rem;
-            border-top: 1px dashed var(--line);
-            margin-top: 1.1rem;
-            padding-top: 1rem
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--wp-border-subtle);
+        }
+        .form-trust img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--wp-blue);
+        }
+        .form-trust p {
+            font-size: 0.82rem;
+            color: var(--wp-text-body);
+            line-height: 1.45;
+            margin: 0;
+        }
+        .form-trust b {
+            color: var(--wp-navy-900);
+            display: block;
+            font-size: 0.88rem;
         }
 
-        .form-trust img {
+        .capacity-note {
+            text-align: center;
+            font-size: 0.84rem;
+            color: #CBD5E1;
+            margin-top: 0.95rem;
+        }
+
+        /* Success Card */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .form-success .tick {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #DCFCE7;
+            color: #166534;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        /* Marquee ticker */
+        .wp-marquee {
+            background: var(--wp-navy-950);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.85rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .wp-marquee-track {
+            display: inline-flex;
+            animation: marqueeRoll 32s linear infinite;
+            font-family: var(--wp-font-display);
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #94A3B8;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .wp-marquee-track span {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .wp-marquee-track i {
+            color: var(--wp-spectrum-blue);
+            font-style: normal;
+        }
+        @keyframes marqueeRoll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Testimonials Carousel */
+        .tst-wrap {
+            position: relative;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .tst {
+            display: none;
+            text-align: center;
+        }
+        .tst.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tst blockquote {
+            font-family: var(--wp-font-display);
+            font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+            font-weight: 600;
+            color: var(--wp-navy-900);
+            line-height: 1.45;
+            margin-bottom: 1.75rem;
+        }
+        .tst .who {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .tst .who img {
             width: 44px;
             height: 44px;
             border-radius: 50%;
             object-fit: cover;
-            flex: none
+            border: 2px solid var(--wp-border);
         }
-
-        .form-trust p {
-            font-size: .76rem;
-            color: var(--muted);
-            line-height: 1.45
-        }
-
-        .form-trust p b {
-            color: var(--ink);
-            display: block;
-            font-size: .8rem
-        }
-
-        .capacity-note {
-            margin-top: .9rem;
-            text-align: center;
-            font-size: .76rem;
-            color: #B9C2D2
-        }
-
-        .marquee {
-            background: var(--cream);
-            border-block: 1px solid var(--line);
-            overflow: hidden;
-            padding: 18px 0
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 3.2rem;
-            white-space: nowrap;
-            animation: mq 26s linear infinite;
-            width: max-content
-        }
-
-        .marquee-track span {
-            font-family: 'Fraunces', serif;
-            font-size: .95rem;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--ink-2);
-            display: flex;
-            align-items: center;
-            gap: 3.2rem
-        }
-
-        .marquee-track i {
-            color: var(--gold);
-            font-style: normal
-        }
-
-        @keyframes mq {
-            to {
-                transform: translateX(-50%)
-            }
-        }
-
-        .tst-wrap {
-            position: relative;
-            max-width: 840px;
-            margin: 0 auto;
-            text-align: center;
-            min-height: 250px
-        }
-
-        .tst {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transform: translateY(14px);
-            transition: .7s ease;
-            pointer-events: none
-        }
-
-        .tst.active {
-            opacity: 1;
-            transform: none;
-            pointer-events: auto
-        }
-
-        .tst blockquote {
-            font-family: 'Fraunces', serif;
-            font-size: clamp(1.15rem, 2.3vw, 1.6rem);
-            font-style: italic;
-            color: var(--ink);
-            line-height: 1.45;
-            margin-bottom: 1.4rem
-        }
-
-        .tst .who {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: .8rem;
-            font-size: .88rem
-        }
-
-        .tst .who img {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            object-fit: cover
-        }
-
         .tst .who b {
             display: block;
-            font-size: .9rem
+            font-size: 0.95rem;
+            color: var(--wp-navy-900);
+            font-family: var(--wp-font-display);
         }
-
         .tst .who span {
-            color: var(--muted);
-            font-size: .78rem
+            font-size: 0.82rem;
+            color: var(--wp-text-muted);
         }
-
         .tst-dots {
             display: flex;
-            gap: .55rem;
             justify-content: center;
-            margin-top: 1.6rem
+            gap: 0.5rem;
+            margin-top: 2rem;
         }
-
         .tst-dots button {
-            width: 9px;
-            height: 9px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            border: 0;
-            background: #D8D2C2;
+            border: none;
+            background: var(--wp-border);
             cursor: pointer;
-            transition: .3s;
-            padding: 0
+            transition: all 0.2s ease;
         }
-
         .tst-dots button.on {
-            background: var(--gold);
-            transform: scale(1.3)
+            background: var(--wp-blue);
+            width: 26px;
+            border-radius: var(--wp-radius-pill);
         }
 
         .result-chips {
-            display: flex;
-            gap: .8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2.6rem
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+            text-align: center;
         }
-
         .result-chips div {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: .8rem 1.3rem;
-            font-size: .82rem;
-            color: var(--muted);
-            box-shadow: 0 8px 24px -14px rgba(12, 27, 51, .25)
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 1.5rem 1rem;
+            box-shadow: var(--wp-shadow-xs);
         }
-
         .result-chips b {
             display: block;
-            font-family: 'Fraunces', serif;
-            font-size: 1.4rem;
-            color: var(--ink)
+            font-family: var(--wp-font-display);
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--wp-navy-900);
+            line-height: 1.1;
+            margin-bottom: 0.35rem;
         }
 
+        /* Pack Deliverables Grid */
         .pack-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px
+            gap: 1.5rem;
         }
-
         .pack {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 26px 22px;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 1.75rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: .6rem;
-            transition: .3s
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--wp-shadow-xs);
         }
-
         .pack:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow)
+            transform: translateY(-4px);
+            border-color: #CBD5E1;
+            box-shadow: var(--wp-shadow-md);
         }
-
         .pack .ic {
-            width: 42px;
-            height: 42px;
-            border-radius: 11px;
-            background: #F5EFE0;
-            color: var(--gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(0, 82, 204, 0.08);
+            color: var(--wp-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: .4rem
+            margin-bottom: 1.15rem;
         }
-
         .pack h3 {
-            font-size: .98rem;
-            font-family: 'Inter';
-            font-weight: 700
+            font-size: 1.1rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.5rem;
         }
-
         .pack p {
-            font-size: .82rem;
-            color: var(--muted)
+            font-size: 0.88rem;
+            color: var(--wp-text-body);
+            line-height: 1.55;
+            margin-bottom: 1.15rem;
+            flex-grow: 1;
         }
-
         .pack .val {
-            margin-top: auto;
-            font-size: .78rem;
-            color: var(--gold);
+            font-family: var(--wp-font-display);
+            font-size: 0.76rem;
             font-weight: 700;
-            letter-spacing: .04em;
-            padding-top: .5rem
+            color: var(--wp-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-top: 1px solid var(--wp-border-subtle);
+            padding-top: 0.65rem;
         }
 
         .value-bar {
-            margin-top: 44px;
-            background: var(--ink);
-            color: #fff;
-            border-radius: var(--radius);
-            padding: 30px 36px;
+            margin-top: 3.5rem;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-lg);
+            padding: 2.25rem 3rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: var(--wp-shadow-card);
         }
-
         .value-bar .total {
-            font-family: 'Fraunces', serif;
-            font-size: 1.7rem
+            font-family: var(--wp-font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--wp-navy-900);
         }
-
         .value-bar .total s {
-            color: #8E99AD;
-            font-size: 1.05rem;
-            margin-right: .6rem
+            color: #94A3B8;
+            font-weight: 500;
         }
-
         .value-bar .total b {
-            color: var(--gold-2)
+            color: var(--wp-blue);
+            font-size: 1.6rem;
         }
 
-        .value-bar p {
-            font-size: .86rem;
-            color: #B9C2D2;
-            max-width: 44ch
-        }
-
-        .cmp {
+        /* Comparison Table */
+        .cmp-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.94rem;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
             overflow: hidden;
-            font-size: .92rem
+            box-shadow: var(--wp-shadow-card);
+        }
+        .cmp-table th {
+            background: var(--wp-navy-900);
+            color: #FFFFFF;
+            font-family: var(--wp-font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 1.2rem 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .cmp-table td {
+            padding: 1.15rem 1.4rem;
+            border-bottom: 1px solid var(--wp-border-subtle);
+            color: var(--wp-text-body);
+        }
+        .cmp-table tr:last-child td {
+            border-bottom: none;
+        }
+        .cmp-table .x {
+            color: #EF4444;
+            font-weight: 800;
+            margin-right: 0.35rem;
+        }
+        .cmp-table .ok {
+            color: #10B981;
+            font-weight: 800;
+            margin-right: 0.35rem;
         }
 
-        .cmp th {
-            padding: 1.05rem 1.3rem;
-            text-align: left
+        /* 21 Days Timeline Steps */
+        .steps2 {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.85rem 0;
+            border-bottom: 1px solid var(--wp-border-subtle);
+        }
+        .steps2:last-child {
+            border-bottom: none;
+        }
+        .steps2 .dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--wp-navy-900);
+            color: #FFFFFF;
+            font-family: var(--wp-font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .steps2 h3 {
+            font-size: 1.2rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.4rem;
+        }
+        .steps2 p {
+            font-size: 0.92rem;
+            color: var(--wp-text-body);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .steps2 .when {
+            font-family: var(--wp-font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--wp-blue);
+            background: rgba(0, 82, 204, 0.08);
+            padding: 0.28rem 0.65rem;
+            border-radius: var(--wp-radius-pill);
+            white-space: nowrap;
         }
 
-        .cmp th:first-child {
-            background: var(--cream);
-            color: var(--muted)
+        /* Pricing Tiers */
+        .tier {
+            padding: 2.5rem 2rem;
+        }
+        .tier.featured {
+            border: 2px solid var(--wp-blue);
+            box-shadow: var(--wp-shadow-lg);
+            position: relative;
+        }
+        .tier .pop {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--wp-blue);
+            color: #FFFFFF;
+            font-family: var(--wp-font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.85rem;
+            border-radius: var(--wp-radius-pill);
+        }
+        .tier .price {
+            font-family: var(--wp-font-display);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--wp-navy-900);
+            margin: 0.85rem 0 1.5rem;
+        }
+        .tier .price small {
+            font-size: 0.9rem;
+            color: var(--wp-text-muted);
+            font-weight: 500;
+        }
+        .tier ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .tier li {
+            font-size: 0.92rem;
+            color: var(--wp-text-body);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tier li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--wp-blue);
+            font-size: 0.85rem;
         }
 
-        .cmp th:last-child {
-            background: var(--ink);
-            color: #fff
+        /* Guarantee Box */
+        .guarantee {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-left: 4px solid var(--wp-blue);
+            border-radius: var(--wp-radius-md);
+            padding: 2.25rem 2.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: var(--wp-shadow-card);
+        }
+        .guarantee .ic {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 82, 204, 0.08);
+            color: var(--wp-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .guarantee h3 {
+            font-size: 1.25rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.45rem;
+        }
+        .guarantee p {
+            color: var(--wp-text-body);
+            font-size: 0.95rem;
+            line-height: 1.62;
+            margin: 0;
         }
 
-        .cmp td {
-            padding: 1rem 1.3rem;
-            border-top: 1px solid var(--line);
-            vertical-align: top
+        /* FAQ Accordion */
+        details {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-sm);
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease;
+        }
+        details[open] {
+            border-color: #CBD5E1;
+            box-shadow: var(--wp-shadow-xs);
+        }
+        summary {
+            font-family: var(--wp-font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--wp-navy-900);
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::after {
+            content: "+";
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--wp-blue);
+            transition: transform 0.2s ease;
+        }
+        details[open] summary::after {
+            content: "−";
+        }
+        .ans {
+            padding: 0 1.5rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--wp-text-body);
+            line-height: 1.65;
         }
 
-        .cmp td:first-child {
-            color: var(--muted)
+        /* Final Closing LP Section */
+        .final-lp {
+            background: radial-gradient(circle at 70% 30%, #002856 0%, #001B3A 55%, #000F24 100%);
+            color: #FFFFFF;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        .final-lp-in {
+            max-width: 820px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .final-lp h2,
+        .final-lp-in h2 {
+            color: #FFFFFF !important;
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            margin-bottom: 1.25rem;
+        }
+        .final-lp-in p {
+            color: #CBD5E1;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
         }
 
-        .cmp td:last-child {
-            background: #FBF7EE;
-            font-weight: 500
-        }
-
-        .cmp .x {
-            color: var(--red);
-            font-weight: 700
-        }
-
-        .cmp .ok {
-            color: var(--green);
-            font-weight: 700
-        }
-
-        .case {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 32px 28px
-        }
-
-        .case .tag {
-            margin-bottom: 1rem
-        }
-
-        .case .big {
-            font-family: 'Fraunces', serif;
-            font-size: 2.4rem;
-            color: var(--ink);
-            line-height: 1
-        }
-
-        .case .big small {
-            font-size: 1rem;
-            color: var(--muted);
-            font-family: 'Inter'
-        }
-
-        .case p {
-            font-size: .88rem;
-            color: var(--muted);
-            margin-top: .6rem
-        }
-
-        .case .t2 {
-            background: #EAF3ED;
-            color: var(--green)
-        }
-
-        .case .t1 {
-            background: #FBE9E5;
-            color: var(--red)
-        }
-
+        /* Toast notification */
         .toast {
             position: fixed;
-            left: 20px;
-            bottom: 20px;
-            z-index: 80;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            padding: .85rem 1.1rem;
+            bottom: 6rem;
+            left: 1.5rem;
+            z-index: 999;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 0.85rem 1.15rem;
+            box-shadow: var(--wp-shadow-lg);
             display: flex;
-            gap: .8rem;
             align-items: center;
-            max-width: 330px;
-            transform: translateY(160%);
-            transition: .6s cubic-bezier(.2, .8, .2, 1);
-            font-size: .82rem
+            gap: 0.85rem;
+            max-width: 380px;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .toast.show {
-            transform: none
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
-
         .toast img {
             width: 38px;
             height: 38px;
             border-radius: 50%;
             object-fit: cover;
-            flex: none
         }
-
         .toast b {
             display: block;
-            font-size: .84rem
+            font-size: 0.84rem;
+            color: var(--wp-navy-900);
+            font-family: var(--wp-font-display);
         }
-
         .toast span {
-            color: var(--muted);
-            font-size: .76rem
+            font-size: 0.74rem;
+            color: var(--wp-text-muted);
+            display: block;
         }
-
         .toast .when2 {
+            font-size: 0.7rem;
+            color: #94A3B8;
             margin-left: auto;
-            font-size: .68rem;
-            color: var(--gold);
-            font-weight: 700;
-            white-space: nowrap
+            white-space: nowrap;
         }
 
-        @media(max-width:960px) {
-            .lp-hero .wrap {
+        @media (max-width: 992px) {
+            .lp-hero-grid {
                 grid-template-columns: 1fr;
-                padding: 56px 0 64px;
-                gap: 40px;
+                gap: 3rem;
             }
-
-            .form-col {
-                position: static;
-                width: 100%;
-                max-width: 580px;
-                margin: 0 auto;
-            }
-
             .pack-grid {
-                grid-template-columns: repeat(2, 1fr)
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .cmp {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .cmp table {
-                min-width: 560px;
-            }
-
-            .cmp th:first-child,
-            .cmp td:first-child {
-                display: none
+            .result-chips {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media(max-width:640px) {
-            .lp-hero h1 {
-                font-size: clamp(1.85rem, 6.5vw, 2.7rem);
+        @media (max-width: 640px) {
+            .checks {
+                grid-template-columns: 1fr;
             }
-
+            .pack-grid {
+                grid-template-columns: 1fr;
+            }
+            .result-chips {
+                grid-template-columns: 1fr;
+            }
             .form-card {
-                padding: 1.6rem 1.25rem;
+                padding: 1.75rem 1.4rem;
             }
-
-            .proof-inline {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-            }
-
-            .proof-inline .sep {
-                display: none;
-            }
-
-            .mini-cd {
-                gap: 0.35rem;
-            }
-
-            .mini-cd div {
-                min-width: 52px;
-                padding: 0.35rem 0.35rem;
-            }
-
-            .mini-cd b {
-                font-size: 1.1rem;
-            }
-
-            .pack-grid {
-                grid-template-columns: 1fr
-            }
-
-            .tst-wrap {
-                min-height: 340px
-            }
-
             .toast {
-                left: 12px;
-                right: 12px;
+                left: 1rem;
+                right: 1rem;
                 max-width: none;
-                bottom: 76px
-            }
-        }
-
-        @media(max-width:380px) {
-            .mini-cd div {
-                min-width: 44px;
-                padding: 0.3rem 0.2rem;
-            }
-            .mini-cd b {
-                font-size: 0.95rem;
             }
         }
     </style>
+</head>
 
 <body>
     @include('partials.header')
 
+    <!-- ================= 1. GRAND ENTERPRISE HERO WITH VIDEO BACKGROUND ================= -->
     <header class="lp-hero">
-        <div class="kb"></div>
+        <!-- Background Video Layer -->
+        <div class="wp-hero-media-wrap" aria-hidden="true">
+            <video class="wp-hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80">
+                <source src="{{ asset('videos/software-company.mp4') }}" type="video/mp4">
+            </video>
+            <div class="wp-hero-video-overlay"></div>
+        </div>
 
-        <video id="lpVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/analytics.jpg">
-            <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4"
-                type="video/mp4">
-            <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4">
-            <source src="https://videos.pexels.com/video-files/7255750/7255750-hd_1920_1080_25fps.mp4" type="video/mp4">
-        </video>
-
-        <div class="wrap">
-            <div class="rv in">
-                <div class="hero-badge"><span class="pulse"></span> Free 45-minute strategy call — Q4 2026 intake open
-                </div>
-                <h1>Find out exactly which AI &amp; technology your business needs — <em>before you spend a pound on
-                        it.</em></h1>
-                <p class="lead">The Nexteck Business &amp; AI Audit examines your processes, systems, data and team,
-                    then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked, using the
-                    same discipline Mohammed Nasar used to define IT strategy for banks, insurers, manufacturers,
-                    educators and e-commerce platforms.</p>
-                <div class="checks">
-                    <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.4">
-                            <path d="M20 6L9 17l-5-5" />
-                        </svg>Run personally by a strategist with 25 years of enterprise IT delivery — never handed off
-                        to juniors</div>
-                    <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.4">
-                            <path d="M20 6L9 17l-5-5" />
-                        </svg>Built on the Nexteck SME Strategy Toolkit™ — the diagnostic behind 40+ delivered
-                        programmes</div>
-                    <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.4">
-                            <path d="M20 6L9 17l-5-5" />
-                        </svg>You keep every document, dashboard and roadmap — even if we never work together again
+        <div class="wp-wrap" style="position:relative; z-index:2; width:100%;">
+            <div class="lp-hero-center rv in">
+                <div class="wp-hero-badge" style="margin-bottom:1.15rem;">
+                    <div class="spectrum-disc" aria-hidden="true">
+                        <span style="background:#0072CE;"></span>
+                        <span style="background:#00A3AD;"></span>
+                        <span style="background:#78BE20;"></span>
+                        <span style="background:#FFB81C;"></span>
+                        <span style="background:#E4007C;"></span>
                     </div>
-                    <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.4">
-                            <path d="M20 6L9 17l-5-5" />
-                        </svg>Straight verdict guaranteed — if your tech is already right, we say so in writing and
-                        shake hands</div>
+                    <span>Free 45-Minute Strategy Call — Q4 2026 Cohort Open</span>
                 </div>
-                <div class="proof-inline">
-                    <span class="stars">★★★★★</span><span><b style="color:#fff">4.9/5</b> from client engagements</span>
-                    <span class="sep"></span>
-                    <span><b style="color:#fff">5 sectors</b> — banking · insurance · manufacturing · education ·
-                        e-commerce</span>
-                    <span class="sep"></span>
-                    <span><b style="color:#fff">NDA</b> before any numbers are shared</span>
+
+                <h1>
+                    Find out exactly which <em>AI &amp; technology</em> your business needs — <br>
+                    <span style="color:#FFFFFF;">before you spend a single pound on it.</span>
+                </h1>
+
+                <p class="lead">
+                    The Nexteck Business &amp; AI Audit examines your processes, systems, data, and talent, then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked using the same architecture Mohammed Nasar delivered for tier-1 institutions.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="lp-hero-actions">
+                    <a href="#book" class="btn-wp btn-wp-primary btn-wp-lg">
+                        Schedule Your Strategy Call <i class="fa-solid fa-arrow-down" style="margin-left:6px;"></i>
+                    </a>
+                    <a href="#outcomes" class="btn-wp btn-wp-ghost-light btn-wp-lg">
+                        Explore What's Included <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
+                    </a>
+                </div>
+
+                <!-- 4 Trust Proof Points -->
+                <div class="lp-hero-trust-bar">
+                    <div class="trust-item">
+                        <i class="fa-solid fa-shield-halved" style="color:#38BDF8;"></i>
+                        <span><b>25+ Years</b> Boardroom IT Delivery</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-layer-group" style="color:#38BDF8;"></i>
+                        <span><b>Nexteck SME Toolkit™</b> Across 40+ Engagements</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-code" style="color:#38BDF8;"></i>
+                        <span><b>100% Client IP</b> Ownership of All Code</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-handshake" style="color:#38BDF8;"></i>
+                        <span><b>Bilateral NDA</b> &amp; Straight Verdict Guaranteed</span>
+                    </div>
                 </div>
             </div>
-            <div class="form-col rv in" id="book">
-                <div class="form-card">
-                    <div class="scarcity"><span class="pulse"></span> <b>EXECUTIVE CONSULTATION</b> &nbsp;·&nbsp; Limited UK Engagements</div>
-                    <div class="mini-cd">
-                        <div><b id="cd3-d">--</b><span>Days</span></div>
-                        <div><b id="cd3-h">--</b><span>Hours</span></div>
-                        <div><b id="cd3-m">--</b><span>Min</span></div>
-                        <div><b id="cd3-s">--</b><span>Sec</span></div>
+        </div>
+    </header>
+
+    <!-- ================= 2. WIPRO-INSPIRED CONSULTATION & CONTACT SECTION ================= -->
+    <section class="wp-wipro-contact-sec" id="book">
+        <div class="wp-wrap">
+            <div class="wp-wipro-form-container rv in">
+                <div class="wp-wipro-form-header">
+                    <div class="scarcity" style="margin-bottom:0.75rem;">
+                        <span style="width:7px; height:7px; border-radius:50%; background:var(--wp-blue); display:inline-block;"></span>
+                        <b>Executive Consultation</b> &bull; Limited UK Engagements
                     </div>
-                    <h3>Book your free strategy call</h3>
-                    <p class="sub">45 minutes · video call · diagnostic scored live. Reply within one business day.</p>
-                    <form id="leadForm">
-                        @csrf
-                        <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="full_name" required
-                                placeholder="e.g. Sarah Ahmed"></div>
-                        <div class="field"><label for="f-email">Work email *</label><input id="f-email" name="work_email" type="email"
-                                required placeholder="you@company.co.uk"></div>
-                        <div class="field"><label for="f-company">Company *</label><input id="f-company" name="company" required
-                                placeholder="Company name"></div>
-                        <div class="field"><label for="f-size">Team size</label><select id="f-size" name="team_size">
+                    <h2>Schedule Your Architecture &amp; AI Strategy Call</h2>
+                    <p>
+                        A complimentary 45-minute live consultation with Mohammed Nasar. We evaluate your current bottlenecks, score your readiness, and deliver an objective roadmap. Strictly confidential under mutual NDA.
+                    </p>
+                    <div class="wipro-cd-pill">
+                        <i class="fa-regular fa-calendar-days" style="color:var(--wp-blue);"></i>
+                        <span>Q4 2026 Audit Window:</span>
+                        <b id="cd3-d">--</b> days &bull; <b id="cd3-h">--</b> hrs &bull; <b id="cd3-m">--</b> min &bull; <b id="cd3-s">--</b> sec remaining
+                    </div>
+                </div>
+
+                <form id="leadForm" class="wp-wipro-form">
+                    @csrf
+                    <div class="wp-wipro-grid-2">
+                        <div class="wp-wipro-field">
+                            <label for="f-first-name">First Name *</label>
+                            <input type="text" id="f-first-name" class="wp-wipro-input" placeholder="First Name" required>
+                        </div>
+                        <div class="wp-wipro-field">
+                            <label for="f-last-name">Last Name *</label>
+                            <input type="text" id="f-last-name" class="wp-wipro-input" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <input type="hidden" id="f-name" name="full_name" value="">
+
+                    <div class="wp-wipro-field">
+                        <label for="f-email">Work Email *</label>
+                        <input type="email" id="f-email" name="work_email" class="wp-wipro-input" placeholder="Work Email" required>
+                    </div>
+
+                    <div class="wp-wipro-grid-2">
+                        <div class="wp-wipro-field">
+                            <label for="f-company">Company *</label>
+                            <input type="text" id="f-company" name="company" class="wp-wipro-input" placeholder="Company" required>
+                        </div>
+                        <div class="wp-wipro-field">
+                            <label for="f-size">Team Size</label>
+                            <select id="f-size" name="team_size" class="wp-wipro-select">
                                 <option>Just me</option>
                                 <option>2–10</option>
                                 <option selected>11–50</option>
                                 <option>51–200</option>
                                 <option>200+</option>
-                            </select></div>
-                        <div class="field"><label for="f-pain">What's hurting most right now?</label><select
-                                id="f-pain" name="pain_point">
-                                <option>Manual processes eating our week</option>
-                                <option>Disconnected systems &amp; re-keyed data</option>
-                                <option>Can't scale — I'm the bottleneck</option>
-                                <option>Unsure where AI genuinely helps</option>
-                                <option>Outdated / legacy technology</option>
-                                <option>Off-the-shelf software can't deliver our model</option>
-                            </select></div>
-                        <button class="btn btn-gold" type="submit" id="submitBtn" style="width:100%;justify-content:center">Claim My
-                            Call Slot →</button>
-                        <p class="form-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="11" width="18" height="10" rx="2" />
-                                <path d="M7 11V7a5 5 0 0110 0v4" />
-                            </svg>Confidential. NDA available on request. No obligation, ever.</p>
-                    </form>
-                    <div class="form-success" id="formSuccess">
-                        <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.6">
-                                <path d="M20 6L9 17l-5-5" />
-                            </svg></div>
-                        <h3>Slot request received.</h3>
-                        <p class="sub" style="margin-bottom:0">Mohammed or a team member will contact you within one
-                            business day to confirm your call time. Check your inbox — including junk — for
-                            confirmation.</p>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-trust">
-                        <img src="assets/img/nasar.jpg" alt="Mohammed Nasar">
-                        <p><b>You'll speak with Mohammed directly.</b>"If I can't help, I'll tell you who can." — 25 yrs
-                            · banks to e-commerce</p>
+
+                    <div class="wp-wipro-field">
+                        <label for="f-pain">Primary Technology Bottleneck / Area of Interest</label>
+                        <select id="f-pain" name="pain_point" class="wp-wipro-select">
+                            <option>Manual processes eating our week</option>
+                            <option>Disconnected systems &amp; re-keyed data</option>
+                            <option>Can't scale — I'm the bottleneck</option>
+                            <option>Unsure where AI genuinely helps</option>
+                            <option>Outdated / legacy technology</option>
+                            <option>Off-the-shelf software can't deliver our model</option>
+                        </select>
                     </div>
+
+                    <div class="wp-wipro-field">
+                        <label for="f-message">Message / Context (Optional)</label>
+                        <textarea id="f-message" name="message" class="wp-wipro-textarea" placeholder="Briefly describe your systems, current bottlenecks, or software objectives..." rows="4"></textarea>
+                    </div>
+
+                    <!-- Wipro-Style Checkbox Agreements -->
+                    <div class="wp-wipro-consents">
+                        <label class="wp-wipro-check-label">
+                            <input type="checkbox" required checked class="wp-wipro-checkbox">
+                            <span>I confirm I have read and agree to Nexteck's <a href="{{ url('/privacy-policy') }}" target="_blank" style="color:var(--wp-blue); text-decoration:underline; font-weight:600;">Privacy Policy</a> and consent to sharing my business details under mutual NDA. *</span>
+                        </label>
+                        <label class="wp-wipro-check-label">
+                            <input type="checkbox" checked class="wp-wipro-checkbox">
+                            <span>I would like to receive technology strategy insights, benchmark updates, and automation guides from Nexteck.</span>
+                        </label>
+                    </div>
+
+                    <!-- Wipro-Style Centered Pill Submit Button -->
+                    <div class="wp-wipro-submit-wrap">
+                        <button type="submit" id="submitBtn" class="wp-wipro-submit-btn">
+                            Submit Consultation Request <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
+                        </button>
+                        <div class="wp-wipro-guarantee">
+                            <i class="fa-solid fa-shield-halved" style="color:var(--wp-blue);"></i>
+                            <span>Protected by bilateral Non-Disclosure Agreement (NDA). Zero sales pressure.</span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-success" id="formSuccess" style="display:none; text-align:center; padding:3rem 1.5rem;">
+                    <div class="tick" style="width:64px; height:64px; border-radius:50%; background:#DCFCE7; color:#16A34A; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:1.8rem;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 style="color:var(--wp-navy-900); font-size:1.8rem; margin-bottom:0.75rem;">Consultation Request Received</h3>
+                    <p style="color:var(--wp-text-body); max-width:580px; margin:0 auto; font-size:1.05rem; line-height:1.6;">
+                        Thank you for reaching out. Mohammed Nasar or our advisory team will review your requirements and contact you within one business day with scheduled call availability and calendar invite.
+                    </p>
                 </div>
-                <div class="capacity-note">Capacity this quarter: <b style="color:var(--gold-2)">4 of 6 slots</b> · next
-                    quarter opens January — at full rates</div>
+
+                <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--wp-border-subtle); display:flex; align-items:center; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
+                    <img src="{{ asset('images/nasar.jpeg') }}" alt="Mohammed Nasar" style="width:52px; height:52px; border-radius:50%; object-fit:cover; border:2px solid var(--wp-blue);">
+                    <p style="margin:0; font-size:0.88rem; color:var(--wp-text-body); line-height:1.45; text-align:left;">
+                        <b>Direct consultation with Mohammed Nasar:</b><br>
+                        <span style="color:var(--wp-text-muted);">"If our architecture audit cannot demonstrate quantifiable ROI for your business, we will state so directly on the call."</span>
+                    </p>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <div class="marquee">
-        <div class="marquee-track">
-            <span>Banking <i>✦</i> Insurance <i>✦</i> Manufacturing <i>✦</i> Education <i>✦</i> E-commerce <i>✦</i>
-                Professional Services <i>✦</i> IT Strategy <i>✦</i> AI Readiness <i>✦</i> Process Automation <i>✦</i>
-                Systems Integration <i>✦</i></span>
-            <span>Banking <i>✦</i> Insurance <i>✦</i> Manufacturing <i>✦</i> Education <i>✦</i> E-commerce <i>✦</i>
-                Professional Services <i>✦</i> IT Strategy <i>✦</i> AI Readiness <i>✦</i> Process Automation <i>✦</i>
-                Systems Integration <i>✦</i></span>
+    <!-- Marquee Ticker -->
+    <div class="wp-marquee">
+        <div class="wp-marquee-track">
+            <span>Banking <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Insurance <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Manufacturing <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Railway Sourcing <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Oil &amp; Gas <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> E-Commerce <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> IT Strategy <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> AI Readiness <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Process Automation <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Systems Integration <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i></span>
+            <span>Banking <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Insurance <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Manufacturing <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Railway Sourcing <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Oil &amp; Gas <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> E-Commerce <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> IT Strategy <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> AI Readiness <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Process Automation <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i> Systems Integration <i class="fa-solid fa-circle" style="font-size:0.35rem; vertical-align:middle; margin:0 10px; color:#38BDF8;"></i></span>
         </div>
     </div>
 
-    <section class="sec" style="padding-bottom:72px">
-        <div class="wrap">
-            <div class="sec-head rv">
-                <span class="eyebrow">Owner to owner</span>
+    <!-- ================= 2. CLIENT OUTCOMES CAROUSEL ================= -->
+    <section class="wp-section wp-section-light">
+        <div class="wp-wrap">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Owner to Owner</span>
                 <h2>What happens when the audit lands</h2>
             </div>
+
             <div class="tst-wrap rv" id="tstWrap">
                 <div class="tst active">
-                    <blockquote>"We were paying for six tools and using none of them properly. The audit showed us three
-                        did the job of six — and the integrations paid for the whole engagement in nine weeks."
+                    <blockquote>
+                        "We were paying for six disconnected tools and using none of them properly. The audit showed us three did the job of six — and the integrations paid for the whole engagement in nine weeks."
                     </blockquote>
-                    <div class="who"><img src="assets/img/team-meeting.jpg" alt="">
-                        <div style="text-align:left"><b>Operations Director</b><span>50-person manufacturing firm ·
-                                Midlands</span></div>
-                    </div>
-                </div>
-                <div class="tst">
-                    <blockquote>"I stopped being the bottleneck. SOPs, delegation, automation — my week went from
-                        firefighting to actually running the business. First holiday in three years."</blockquote>
-                    <div class="who"><img src="assets/img/handshake.jpg" alt="">
-                        <div style="text-align:left"><b>Founder</b><span>E-commerce brand · 11–50 staff · London</span>
+                    <div class="who">
+                        <img src="{{ asset('images/0.jpg') }}" alt="Manufacturing Leader">
+                        <div>
+                            <b>Operations Director</b>
+                            <span>50-person precision manufacturing firm · Midlands</span>
                         </div>
                     </div>
                 </div>
+
                 <div class="tst">
-                    <blockquote>"We'd been pitched AI three times by vendors. Nexteck was the first to score where it
-                        genuinely helped and where it was hype. We did phase one with zero AI — and it was exactly
-                        right."</blockquote>
-                    <div class="who"><img src="assets/img/banking.jpg" alt="">
-                        <div style="text-align:left"><b>Managing Partner</b><span>Financial services consultancy ·
-                                UK</span></div>
+                    <blockquote>
+                        "I stopped being the bottleneck. SOPs, delegation, automation — my week went from firefighting to actually leading business development. First true holiday in three years."
+                    </blockquote>
+                    <div class="who">
+                        <img src="{{ asset('images/1.jpg') }}" alt="E-Commerce Founder">
+                        <div>
+                            <b>Founder &amp; CEO</b>
+                            <span>E-commerce brand · 11–50 staff · London</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="tst">
+                    <blockquote>
+                        "We'd been pitched AI multiple times by vendors. Nexteck was the first to objectively score where it genuinely helped and where it was unproven hype. We delivered phase one with zero AI — and it was exactly right."
+                    </blockquote>
+                    <div class="who">
+                        <img src="{{ asset('images/2.jpg') }}" alt="Financial Services Managing Partner">
+                        <div>
+                            <b>Managing Partner</b>
+                            <span>Financial services consultancy · UK</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="tst-dots" id="tstDots"></div>
             </div>
+
             <div class="result-chips rv">
-                <div><b>12 hrs/wk</b>owner time returned, on average</div>
-                <div><b>9 weeks</b>typical payback on the audit fee</div>
-                <div><b>9h → 1h</b>customer response time after triage</div>
-                <div><b>100%</b>of documents &amp; roadmaps yours to keep</div>
+                <div>
+                    <b>12 hrs/wk</b>
+                    <span style="font-size:0.9rem; color:var(--wp-text-muted);">Executive time returned, on average</span>
+                </div>
+                <div>
+                    <b>9 weeks</b>
+                    <span style="font-size:0.9rem; color:var(--wp-text-muted);">Typical payback on audit fee</span>
+                </div>
+                <div>
+                    <b>9h <i class="fa-solid fa-arrow-right" style="font-size:0.8em; margin:0 3px;"></i> 1h</b>
+                    <span style="font-size:0.9rem; color:var(--wp-text-muted);">Customer response time after triage</span>
+                </div>
+                <div>
+                    <b>100%</b>
+                    <span style="font-size:0.9rem; color:var(--wp-text-muted);">Of documents &amp; code yours permanently</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="sec" style="background:var(--cream);border-block:1px solid var(--line)">
-        <div class="wrap">
-            <div class="sec-head rv">
-                <span class="eyebrow">Total transparency</span>
+    <!-- ================= 3. AUDIT PACK DELIVERABLES ================= -->
+    <section class="wp-section">
+        <div class="wp-wrap">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Complete Transparency</span>
                 <h2>Everything inside your audit pack</h2>
-                <p>Seven deliverables, each one a working tool — not a PDF that gathers dust. The complete Nexteck SME
-                    Strategy Toolkit™, populated with your data.</p>
+                <p>Seven working tools — not a generic slide deck that gathers dust. The complete Nexteck SME Strategy Toolkit™, populated with your proprietary operational data.</p>
             </div>
+
             <div class="pack-grid">
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M9 11l3 3L22 4" />
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>
+                    </div>
                     <h3>Client Diagnostic</h3>
-                    <p>All 8 pain points scored for severity on the discovery call. Anything rated 4–5 becomes a tracked
-                        action.</p><span class="val">Value £750</span>
+                    <p>All 8 pain points scored for severity on the discovery call. Anything rated 4–5 becomes a tracked sprint action.</p>
+                    <span class="val">Value £750</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M3 3v18h18" />
-                            <path d="M7 15l4-6 4 3 5-8" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18" /><path d="M7 15l4-6 4 3 5-8" /></svg>
+                    </div>
                     <h3>Industry Benchmark</h3>
-                    <p>Your scores vs. 3–5 sector leaders across 5 lenses, with staged actions, owners and dates to
-                        close each gap.</p><span class="val">Value £900</span>
+                    <p>Your scores vs. 3–5 sector leaders across 5 lenses, with staged actions, owners, and dates to close each gap.</p>
+                    <span class="val">Value £900</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20" /></svg>
+                    </div>
                     <h3>Competitor Tracker</h3>
-                    <p>Direct competitors mapped — category norms vs. genuine whitespace, so you differentiate where it
-                        wins customers.</p><span class="val">Value £600</span>
+                    <p>Direct competitors mapped — category norms vs. genuine whitespace, so you differentiate where it wins clients.</p>
+                    <span class="val">Value £600</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="4" y="4" width="16" height="16" rx="2" />
-                            <path d="M9 9h6v6H9zM4 12h-2M22 12h-2M12 4V2M12 22v-2" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M9 9h6v6H9zM4 12h-2M22 12h-2M12 4V2M12 22v-2" /></svg>
+                    </div>
                     <h3>AI &amp; IT Opportunity Log</h3>
-                    <p>Every owner-dependent process scored Impact × Urgency with monthly costs — sequenced into a
-                        90-day roadmap.</p><span class="val">Value £1,500</span>
+                    <p>Every founder-dependent process scored Impact &times; Urgency with monthly costs — sequenced into a 90-day roadmap.</p>
+                    <span class="val">Value £1,500</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
+                    </div>
                     <h3>SOP &amp; Delegation Register</h3>
-                    <p>Recurring tasks documented, assigned and automated — so the system outlives any single person,
-                        including us.</p><span class="val">Value £700</span>
+                    <p>Recurring tasks documented, assigned, and automated — so the architecture outlives any single person.</p>
+                    <span class="val">Value £700</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M12 20V10M18 20V4M6 20v-4" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4" /></svg>
+                    </div>
                     <h3>KPI Dashboard</h3>
-                    <p>Monthly targets vs. actuals across sales, marketing, finance, ops and customer — reviewed in 60
-                        minutes a week.</p><span class="val">Value £850</span>
+                    <p>Monthly targets vs. actuals across sales, marketing, finance, ops, and customer — reviewed in 60 minutes a week.</p>
+                    <span class="val">Value £850</span>
                 </div>
+
                 <div class="pack rv">
-                    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" />
-                            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
-                        </svg></div>
+                    <div class="ic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" /></svg>
+                    </div>
                     <h3>Tool Stack Plan</h3>
-                    <p>Recommended tools at Starter / Growth / Established tiers — buy once, correctly, at the right
-                        budget.</p><span class="val">Value £500</span>
+                    <p>Recommended software at Starter / Growth / Established tiers — buy once, correctly, at the right budget.</p>
+                    <span class="val">Value £500</span>
                 </div>
-                <div class="pack rv" style="background:var(--ink);border-color:var(--ink)">
-                    <div class="ic" style="background:rgba(217,188,122,.15);color:var(--gold-2)"><svg width="20"
-                            height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="8" r="6" />
-                            <path d="M15.5 13l1.5 8-5-3-5 3 1.5-8" />
-                        </svg></div>
-                    <h3 style="color:#fff">Walkthrough &amp; Handover</h3>
-                    <p style="color:#B9C2D2">A full working session with your team, plus 30 days of email support on the
-                        roadmap.</p><span class="val" style="color:var(--gold-2)">Included</span>
+
+                <div class="pack rv wp-card-navy">
+                    <div class="ic" style="background:rgba(255, 255, 255, 0.12); color:#38BDF8;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6" /><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8" /></svg>
+                    </div>
+                    <h3 style="color:#FFFFFF;">Walkthrough &amp; Handover</h3>
+                    <p style="color:#CBD5E1;">A full working session with your executive team, plus 30 days of email support on the roadmap.</p>
+                    <span class="val" style="color:#38BDF8; border-color:rgba(255,255,255,0.15);">Included</span>
                 </div>
             </div>
+
             <div class="value-bar rv">
-                <div class="total"><s>£5,800</s> bundled value → audit fee <b>£2,950</b> fixed</div>
-                <p>And the call that starts it all is free. If the audit shows your tech is already right, we say so in
-                    writing — you keep the analysis either way.</p>
-                <a class="btn btn-gold" href="#book">Start Free →</a>
+                <div class="total"><s>£5,800</s> bundled value <i class="fa-solid fa-arrow-right" style="font-size:0.85em; margin:0 6px;"></i> audit fee <b>£2,950</b> fixed</div>
+                <p style="color:var(--wp-text-body); margin:0;">
+                    And the discovery call that starts it all is completely free. If the audit shows your tech is already optimal, we say so in writing.
+                </p>
+                <a class="btn-wp btn-wp-primary" href="#book">Start Free Call <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="sec">
-        <div class="wrap" style="max-width:920px">
-            <div class="sec-head rv">
-                <span class="eyebrow">Be honest</span>
-                <h2>Guessing vs. knowing</h2>
-                <p>Most owners still choose technology the way they did five years ago — instinct, vendor pitches and
-                    pressure. Here's the difference a scored audit makes:</p>
+    <!-- ================= 4. COMPARISON: GUESSING VS KNOWING ================= -->
+    <section class="wp-section wp-section-light">
+        <div class="wp-wrap" style="max-width:960px;">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Honest Evaluation</span>
+                <h2>Guessing vs. Knowing</h2>
+                <p>Most companies still choose technology reactively — based on vendor marketing and peer hearsay. Here is the difference a rigorous audit makes:</p>
             </div>
-            <table class="cmp rv">
+
+            <table class="cmp-table rv">
                 <thead>
                     <tr>
-                        <th style="width:34%"></th>
-                        <th style="width:33%">Without the audit</th>
-                        <th>With the Nexteck audit</th>
+                        <th style="width:30%;">Decision Area</th>
+                        <th style="width:35%;">Without the Audit</th>
+                        <th>With Nexteck Architecture</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Buying software</td>
-                        <td><span class="x">✕</span> Reactive — bought under pressure, shelfware within months</td>
-                        <td><span class="ok">✓</span> Every purchase tied to a scored opportunity with a monthly cost
-                            ceiling</td>
+                        <td><b>Buying Software</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Reactive — bought under sales pressure, shelfware within months</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Every purchase tied to a scored opportunity with an agreed budget ceiling</td>
                     </tr>
                     <tr>
-                        <td>AI decisions</td>
-                        <td><span class="x">✕</span> Hype-driven, or avoided entirely while competitors compound</td>
-                        <td><span class="ok">✓</span> Impact × urgency scored for your business — hype flagged as hype
-                        </td>
+                        <td><b>AI Investments</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hype-driven, or avoided entirely while faster competitors compound</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Impact &times; urgency scored for your exact workflow — hype called out</td>
                     </tr>
                     <tr>
-                        <td>Owner's week</td>
-                        <td><span class="x">✕</span> 10+ hours of admin, approvals and re-keyed data</td>
-                        <td><span class="ok">✓</span> Delegated, documented, automated — escalations only</td>
+                        <td><b>Executive Week</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> 10+ hours lost to administrative friction, approvals, and re-keyed data</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Delegated, documented, automated — management by exception only</td>
                     </tr>
                     <tr>
-                        <td>Reporting</td>
-                        <td><span class="x">✕</span> Hours of manual exports, compiled at 9pm, already stale</td>
-                        <td><span class="ok">✓</span> Live KPI dashboard, reviewed by exception in 60 minutes a week
-                        </td>
+                        <td><b>Performance Reporting</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hours of manual CSV exports, compiled at 9pm, already out-of-date</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Live KPI dashboard, evaluated cleanly in under 60 minutes weekly</td>
                     </tr>
                     <tr>
-                        <td>Scaling</td>
-                        <td><span class="x">✕</span> Quality drops and you become the bottleneck at 2× volume</td>
-                        <td><span class="ok">✓</span> SOPs and systems that carry growth without heroics</td>
+                        <td><b>Scaling Operations</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Service quality drops and leadership becomes the bottleneck at 2&times; volume</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Standard Operating Procedures and integrated systems that absorb growth</td>
                     </tr>
                     <tr>
-                        <td>What you own</td>
-                        <td><span class="x">✕</span> Vendor lock-in, undocumented workarounds, key-person risk</td>
-                        <td><span class="ok">✓</span> Every document, dashboard and roadmap — yours, forever</td>
+                        <td><b>Intellectual Property</b></td>
+                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Vendor lock-in, undocumented workarounds, and key-person risk</td>
+                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> 100% full IP ownership of all documentation, code, and dashboards</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section class="sec" style="background:var(--cream);border-block:1px solid var(--line)">
-        <div class="wrap">
-            <div class="sec-head rv">
-                <span class="eyebrow">How the audit works</span>
-                <h2>From first call to roadmap in 21 days</h2>
-                <p>A defined, dated process — you always know what's happening, what's next, and what it costs.</p>
+    <!-- ================= 5. PROCESS: 21 DAYS TO ROADMAP ================= -->
+    <section class="wp-section">
+        <div class="wp-wrap">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> How The Audit Works</span>
+                <h2>From First Call to Scored Roadmap in 21 Days</h2>
+                <p>A defined, milestone-driven process — you always know what is happening, what is next, and what it costs.</p>
             </div>
-            <div
-                style="max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:.6rem 2rem;box-shadow:var(--shadow)">
+
+            <div style="max-width:860px; margin:0 auto; background:#FFFFFF; border:1px solid var(--wp-border); border-radius:var(--wp-radius-lg); padding:1rem 2.5rem; box-shadow:var(--wp-shadow-card);">
                 <div class="steps2 rv">
                     <div class="dot">1</div>
-                    <div>
-                        <h3>Discovery call &amp; Client Diagnostic</h3>
-                        <p>A 45-minute call scoring your business against the 8 most common SME pain points, severity
-                            rated 1–5. Anything at 4–5 becomes a tracked action.</p>
-                    </div><span class="when">Day 1</span>
+                    <div style="flex-grow:1;">
+                        <h3>Discovery Call &amp; Client Diagnostic</h3>
+                        <p>A 45-minute discovery consultation scoring your business against the 8 most common operational friction points (rated 1–5). High-severity items become sprint priorities.</p>
+                    </div>
+                    <span class="when">Day 1</span>
                 </div>
+
                 <div class="steps2 rv">
-                    <div class="dot">2</div>
-                    <div>
+                    <div class="dot" style="background:#0052CC;">2</div>
+                    <div style="flex-grow:1;">
                         <h3>Industry Benchmark &amp; Competitor Tracker</h3>
-                        <p>Scored against 3–5 leaders in your sector across five lenses, plus a competitor map
-                            separating category norms from genuine whitespace.</p>
-                    </div><span class="when">Days 2–7</span>
+                        <p>Scored against 3–5 recognized leaders in your sector across five lenses, plus a competitive positioning matrix separating industry hygiene from market whitespace.</p>
+                    </div>
+                    <span class="when">Days 2–7</span>
                 </div>
+
                 <div class="steps2 rv">
-                    <div class="dot">3</div>
-                    <div>
+                    <div class="dot" style="background:#72246C;">3</div>
+                    <div style="flex-grow:1;">
                         <h3>AI &amp; IT Opportunity Log</h3>
-                        <p>Every owner-dependent process becomes a scored opportunity — impact × urgency, monthly cost,
-                            and exactly what you'll stop doing once it ships.</p>
-                    </div><span class="when">Days 8–14</span>
+                        <p>Every founder-dependent task becomes a scored opportunity — Impact &times; Urgency, monthly software cost, and precisely what administrative tasks are eliminated.</p>
+                    </div>
+                    <span class="when">Days 8–14</span>
                 </div>
+
                 <div class="steps2 rv">
-                    <div class="dot">4</div>
-                    <div>
-                        <h3>Roadmap, KPI dashboard &amp; walkthrough</h3>
-                        <p>A 90-day sequenced roadmap, SOP &amp; delegation register, tool-stack plan in three budget
-                            tiers, and a dashboard your team runs in under 60 minutes a week.</p>
-                    </div><span class="when">Days 15–21</span>
+                    <div class="dot" style="background:#00A3AD;">4</div>
+                    <div style="flex-grow:1;">
+                        <h3>Roadmap, KPI Dashboard &amp; Walkthrough</h3>
+                        <p>A sequenced 90-day execution roadmap, SOP &amp; delegation register, tiered tool-stack plan, and a KPI dashboard your team can manage in under 60 minutes per week.</p>
+                    </div>
+                    <span class="when">Days 15–21</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="sec">
-        <div class="wrap">
-            <div class="sec-head rv">
-                <span class="eyebrow">Recent outcomes</span>
-                <h2>What 90 days after the audit looks like</h2>
-                <p>Representative results from recent engagements across sectors. Your roadmap is scored against your
-                    own baseline — illustrative, not promised.</p>
-            </div>
-            <div class="grid g3">
-                <div class="case rv"><span class="tag t1">E-commerce · London</span>
-                    <div class="big">12 <small>hrs/wk returned</small></div>
-                    <p>Order-to-ledger automation and an AI-drafted customer service layer. The founder went from daily
-                        firefighting to weekly exception reviews.</p>
-                </div>
-                <div class="case rv"><span class="tag t2">Manufacturing · Midlands</span>
-                    <div class="big">£1,900 <small>/mo saved</small></div>
-                    <p>Six overlapping tools consolidated to three, with integrations that eliminated re-keying. Payback
-                        on the audit fee in nine weeks.</p>
-                </div>
-                <div class="case rv"><span class="tag t1">Professional services · UK</span>
-                    <div class="big">9h → 1h <small>response time</small></div>
-                    <p>Helpdesk triage with AI-drafted replies and a shared inbox. Owner now sees escalations only —
-                        clients noticed within a fortnight.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sec" style="background:var(--cream);border-block:1px solid var(--line)">
-        <div class="wrap">
-            <div class="sec-head rv">
-                <span class="eyebrow">Engagement options</span>
+    <!-- ================= 6. ENGAGEMENT TIERS ================= -->
+    <section class="wp-section wp-section-light">
+        <div class="wp-wrap">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Engagement Options</span>
                 <h2>Choose how deep you want to go</h2>
-                <p>Fixed-fee engagements. Phased spend. Every pound costed and approved by you before it's committed.
-                </p>
+                <p>Fixed-fee engagements. Phased spend. Every pound costed and approved by you before commitment.</p>
             </div>
-            <div class="grid g3" style="align-items:stretch">
-                <div class="card tier rv">
+
+            <div class="wp-grid wp-g3" style="align-items:stretch;">
+                <div class="wp-card tier rv">
                     <h3>The Audit</h3>
                     <div class="price">£2,950 <small>fixed fee</small></div>
                     <ul>
@@ -1899,174 +1420,191 @@
                         <li>AI &amp; IT Opportunity Log, scored &amp; costed</li>
                         <li>90-day prioritised roadmap</li>
                         <li>KPI dashboard + tool-stack plan</li>
-                        <li>Everything is yours to keep</li>
+                        <li>Everything is 100% yours to keep</li>
                     </ul>
-                    <a class="btn btn-ghost" href="#book">Start with the Audit</a>
+                    <a class="btn-wp btn-wp-outline" href="#book" style="margin-top:auto;">Start with the Audit</a>
                 </div>
-                <div class="card tier featured rv">
-                    <span class="pop">Most chosen</span>
+
+                <div class="wp-card tier featured rv">
+                    <span class="pop">Most Chosen</span>
                     <h3>Audit + 90-Day Implementation</h3>
-                    <div class="price">£2,950 <small>+ phased build costs</small></div>
+                    <div class="price">£2,950 <small>+ phased build</small></div>
                     <ul>
-                        <li>Everything in The Audit</li>
-                        <li>We implement the roadmap with your team</li>
+                        <li>Everything included in The Audit</li>
+                        <li>We implement the roadmap alongside your team</li>
                         <li>Automations, integrations &amp; AI tools live</li>
-                        <li>SOPs documented, delegated &amp; trained</li>
+                        <li>SOPs documented, delegated &amp; staff trained</li>
                         <li>Weekly 60-minute KPI governance reviews</li>
-                        <li>Owner escalation-only guarantee</li>
+                        <li>Founder escalation-only guarantee</li>
                     </ul>
-                    <a class="btn btn-gold" href="#book">Book the Audit →</a>
+                    <a class="btn-wp btn-wp-primary" href="#book" style="margin-top:auto;">Book the Audit <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></a>
                 </div>
-                <div class="card tier rv">
-                    <h3>Custom Build</h3>
+
+                <div class="wp-card tier rv">
+                    <h3>Custom Software Platform</h3>
                     <div class="price">Scoped <small>after audit</small></div>
                     <ul>
-                        <li>For models no off-the-shelf tool fits</li>
-                        <li>Custom software designed &amp; built by Nexteck</li>
-                        <li>Integration layer across your whole stack</li>
-                        <li>Full documentation &amp; handover</li>
-                        <li>Only recommended where it truly pays</li>
+                        <li>For unique models no off-the-shelf tool fits</li>
+                        <li>Custom software engineered by Nexteck</li>
+                        <li>Integration layer across your entire stack</li>
+                        <li>Full documentation, source code &amp; handover</li>
+                        <li>Only recommended where ROI is proven</li>
                     </ul>
-                    <a class="btn btn-ghost" href="#book">Discuss Your Case</a>
+                    <a class="btn-wp btn-wp-outline" href="#book" style="margin-top:auto;">Discuss Your Case</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="sec" style="padding-bottom:0">
-        <div class="wrap">
-            <div class="guarantee rv">
-                <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        <path d="M9 12l2 2 4-4" />
-                    </svg></div>
+    <!-- ================= 7. GUARANTEE & FAQS ================= -->
+    <section class="wp-section">
+        <div class="wp-wrap" style="max-width:880px;">
+            <div class="guarantee rv" style="margin-bottom:4rem;">
+                <div class="ic">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>
+                </div>
                 <div>
                     <h3>The Straight-Talking Guarantee</h3>
-                    <p>If the audit concludes your current technology and processes are already right for your stage —
-                        we'll say so in writing, hand you the evidence, and shake hands. You keep the analysis. We'd
-                        rather earn your trust than your invoice.</p>
+                    <p>If the audit concludes your current technology and processes are already optimal for your stage — we will say so in writing, hand you the evidence, and shake hands. You keep the entire analysis. We would rather earn your trust than your invoice.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="sec faq">
-        <div class="wrap" style="max-width:820px">
-            <div class="sec-head rv">
-                <span class="eyebrow">Questions owners ask</span>
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot"></span> Questions Founders Ask</span>
                 <h2>Frequently asked questions</h2>
             </div>
+
             <details class="rv">
                 <summary>We're not technical. Will we understand the roadmap?</summary>
-                <div class="ans">Yes — the roadmap is written for owners, not engineers. Every recommendation states the
-                    business outcome, the monthly cost, what you'll stop doing, and the impact × urgency score. Anything
-                    unclear gets walked through on a call.</div>
+                <div class="ans">Yes — the roadmap is written for business owners, not engineers. Every recommendation states the business outcome, the monthly cost, what tasks you stop doing, and the impact &times; urgency score. Anything unclear is walked through directly on a call.</div>
             </details>
+
             <details class="rv">
                 <summary>Do we have to buy specific software you recommend?</summary>
-                <div class="ans">No. Recommendations come in three budget tiers — Starter, Growth and Established — and
-                    always include a "do nothing" cost of delay. Buy directly from vendors, through us, or not at all.
-                    There are no kickbacks behind our advice.</div>
+                <div class="ans">No. Recommendations come in three budget tiers — Starter, Growth, and Established — and always include a "do nothing" cost of delay. Buy directly from vendors, through us, or not at all. There are zero affiliate kickbacks behind our advice.</div>
             </details>
+
             <details class="rv">
-                <summary>How is our business data handled?</summary>
-                <div class="ans">Under NDA from day one. We work from exports and read-only access where possible, never
-                    take ownership of your data, and delete working copies at the end of the engagement on written
-                    confirmation.</div>
+                <summary>How is our proprietary business data handled?</summary>
+                <div class="ans">Strictly under a mutual Non-Disclosure Agreement (NDA) from day one. We work from exports and read-only access where possible, never take ownership of your data, and delete working copies at the end of the engagement on written confirmation.</div>
             </details>
+
             <details class="rv">
                 <summary>Will AI be forced on us because it's trendy?</summary>
-                <div class="ans">The opposite. Each AI opportunity is scored by impact and urgency for your business,
-                    and hype is flagged as hype. Several client roadmaps end up with zero AI in phase one — process
-                    discipline first, AI where it earns its place.</div>
+                <div class="ans">The opposite. Each AI opportunity is scored by measurable commercial impact and urgency for your business, and hype is flagged as hype. Several client roadmaps conclude with zero AI in phase one — operational discipline first, AI where it clearly earns its place.</div>
             </details>
+
             <details class="rv">
-                <summary>What if we need something no software does?</summary>
-                <div class="ans">That's the eighth pain point in our diagnostic. Where your model genuinely can't be
-                    served off-the-shelf, we scope a custom build — honest costings, phased plan, so you only build
-                    what's proven to pay.</div>
+                <summary>What if our business model needs software that doesn't exist?</summary>
+                <div class="ans">That is the eighth friction point in our diagnostic. Where your model genuinely cannot be served off-the-shelf, we scope a bespoke software build — honest costings, phased sprints, so you only invest in what delivers a defensible advantage.</div>
             </details>
+
             <details class="rv">
                 <summary>Why only 6 slots per quarter?</summary>
-                <div class="ans">Because the audit is run personally, not handed to juniors. Capacity is capped to
-                    protect the quality of every diagnostic, benchmark and roadmap we sign our name to.</div>
+                <div class="ans">Because the audit is run personally by Mohammed Nasar, not handed to junior analysts. Cohorts are strictly capped to guarantee the rigorous quality of every diagnostic, benchmark, and roadmap we put our name to.</div>
             </details>
         </div>
     </section>
 
-    <section class="final">
-        <img class="bg" src="assets/img/handshake.jpg" alt="Nexteck partnership">
-        <div class="wrap">
-            <div class="rv">
-                <span class="eyebrow">Last call</span>
+    <!-- ================= 8. CLOSING BANNER ================= -->
+    <section class="final-lp">
+        <div class="wp-wrap">
+            <div class="final-lp-in rv">
+                <span class="wp-eyebrow on-navy"><span class="wp-dot"></span> Last Call</span>
                 <h2>Your competitors are auditing <em>right now.</em></h2>
-                <p>Q4 2026 closes in <b style="color:var(--gold-2)"><span id="cd4-d">--</span> days</b>. When the
-                    quarter turns, businesses holding a costed AI &amp; technology roadmap will be executing — while
-                    everyone else is still "looking into AI".</p>
-                <div class="hero-ctas" style="margin-bottom:0">
-                    <a class="btn btn-gold" href="#book">Claim One of the 4 Remaining Slots →</a>
-                    <a class="btn btn-white" href="{{ route('home') }}">Explore Nexteck First</a>
+                <p>
+                    Q4 2026 closes in <b style="color:#38BDF8;"><i class="fa-regular fa-calendar-days" style="margin-right:5px; color:#38BDF8;"></i><span id="cd4-d">--</span> days</b>. When the quarter turns, businesses holding a costed AI &amp; technology roadmap will be executing — while everyone else is still debating options.
+                </p>
+                <div style="display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
+                    <a class="btn-wp btn-wp-primary btn-wp-lg" href="#book">
+                        Claim One of 4 Remaining Slots <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i>
+                    </a>
+                    <a class="btn-wp btn-wp-ghost-light btn-wp-lg" href="{{ route('home') }}">
+                        Explore Nexteck First
+                    </a>
                 </div>
             </div>
-            <div></div>
         </div>
     </section>
+
+    <!-- Floating Toast Notification -->
     <div class="toast" id="toast">
-        <img id="toastImg" src="assets/img/team-meeting.jpg" alt="">
-        <div><b id="toastName">A founder just requested a call</b><span id="toastMeta">E-commerce · London</span></div>
+        <img id="toastImg" src="{{ asset('images/0.jpg') }}" alt="Client Consultation">
+        <div>
+            <b id="toastName">A founder just requested a call</b>
+            <span id="toastMeta">E-commerce · London</span>
+        </div>
         <span class="when2" id="toastWhen">2 min ago</span>
     </div>
 
     @include('partials.footer')
+
+    <!-- ================= SCRIPTS ================= -->
     <script>
         const target = new Date("2026-12-31T23:59:59+00:00").getTime();
         function tick() {
-            let d = target - Date.now(); if (d < 0) d = 0;
-            const dd = Math.floor(d / 864e5), hh = Math.floor(d / 36e5) % 24, mm = Math.floor(d / 6e4) % 60, ss = Math.floor(d / 1e3) % 60;
-            const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = String(v).padStart(2, "0"); };
-            set("cd-d", dd); set("cd-h", hh); set("cd-m", mm); set("cd-s", ss);
+            let d = target - Date.now();
+            if (d < 0) d = 0;
+            const dd = Math.floor(d / 864e5);
+            const hh = Math.floor(d / 36e5) % 24;
+            const mm = Math.floor(d / 6e4) % 60;
+            const ss = Math.floor(d / 1e3) % 60;
+            
+            const set = (id, v) => {
+                const e = document.getElementById(id);
+                if (e) e.textContent = String(v).padStart(2, "0");
+            };
+            set("cd3-d", dd); set("cd3-h", hh); set("cd3-m", mm); set("cd3-s", ss);
+            set("cd4-d", dd);
         }
-        tick(); setInterval(tick, 1000);
-        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+        tick();
+        setInterval(tick, 1000);
+
+        const io = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+            }
+        }), { threshold: 0.12 });
         document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
-        const lv = document.getElementById("lpVideo");
-        if (lv) {
-            lv.addEventListener("playing", () => lv.classList.add("on")); lv.addEventListener("error", () => lv.remove(), true);
-            const pp = lv.play(); if (pp && pp.catch) pp.catch(() => { });
-        }
-        setInterval(() => {
-            const e = (id) => document.getElementById(id);
-            const map = { "cd3-d": "cd-d", "cd3-h": "cd-h", "cd3-m": "cd-m", "cd3-s": "cd-s", "cd4-d": "cd-d" };
-            for (const [to, from] of Object.entries(map)) { const f = e(from), t = e(to); if (f && t) t.textContent = f.textContent; }
-        }, 1000);
-
+        // Testimonial Rotator
         const tsts = [...document.querySelectorAll("#tstWrap .tst")];
         const dots = document.getElementById("tstDots");
         let ti = 0, tTimer;
-        tsts.forEach((_, i) => {
-            const b = document.createElement("button"); if (i === 0) b.classList.add("on");
-            b.onclick = () => { showT(i); resetT(); }; dots.appendChild(b);
-        });
-        function showT(i) {
-            ti = i; tsts.forEach((t, k) => t.classList.toggle("active", k === i));
-            [...dots.children].forEach((d, k) => d.classList.toggle("on", k === i));
+        if (dots && tsts.length > 0) {
+            tsts.forEach((_, i) => {
+                const b = document.createElement("button");
+                if (i === 0) b.classList.add("on");
+                b.onclick = () => { showT(i); resetT(); };
+                dots.appendChild(b);
+            });
+            function showT(i) {
+                ti = i;
+                tsts.forEach((t, k) => t.classList.toggle("active", k === i));
+                [...dots.children].forEach((d, k) => d.classList.toggle("on", k === i));
+            }
+            function resetT() {
+                clearInterval(tTimer);
+                tTimer = setInterval(() => showT((ti + 1) % tsts.length), 6500);
+            }
+            resetT();
         }
-        function resetT() { clearInterval(tTimer); tTimer = setInterval(() => showT((ti + 1) % tsts.length), 6500); }
-        resetT();
 
+        // Live Social Proof Toast
         const toast = document.getElementById("toast");
         const toastData = [
-            { img: "assets/img/team-meeting.jpg", name: "Sarah, a Midlands manufacturer", meta: "requested an audit call", when: "just now" },
-            { img: "assets/img/banking.jpg", name: "A fintech founder", meta: "booked a Q4 slot", when: "7 min ago" },
-            { img: "assets/img/ecommerce.jpg", name: "An e-commerce owner", meta: "requested the strategy call", when: "19 min ago" },
-            { img: "assets/img/education.jpg", name: "A training-provider director", meta: "booked a diagnostic", when: "34 min ago" },
-            { img: "assets/img/handshake.jpg", name: "An insurance broker", meta: "requested an audit call", when: "52 min ago" },
+            { img: "{{ asset('images/0.jpg') }}", name: "Sarah, a Midlands manufacturer", meta: "requested an audit call", when: "just now" },
+            { img: "{{ asset('images/1.jpg') }}", name: "A fintech founder", meta: "booked a Q4 slot", when: "7 min ago" },
+            { img: "{{ asset('images/2.jpg') }}", name: "An e-commerce owner", meta: "requested the strategy call", when: "19 min ago" },
+            { img: "{{ asset('images/3.jpg') }}", name: "A training-provider director", meta: "booked a diagnostic", when: "34 min ago" },
+            { img: "{{ asset('images/4.jpg') }}", name: "An engineering supplier", meta: "requested an audit call", when: "52 min ago" },
         ];
         let tsi = 0;
         function showToast() {
-            const d = toastData[tsi % toastData.length]; tsi++;
+            if (!toast) return;
+            const d = toastData[tsi % toastData.length];
+            tsi++;
             document.getElementById("toastImg").src = d.img;
             document.getElementById("toastName").textContent = d.name;
             document.getElementById("toastMeta").textContent = d.meta;
@@ -2077,50 +1615,63 @@
         setTimeout(showToast, 9000);
         setInterval(showToast, 24000);
 
-        document.getElementById("leadForm").addEventListener("submit", function (ev) {
-            ev.preventDefault();
-            const btn = document.getElementById("submitBtn");
-            if(btn) {
-                btn.disabled = true;
-                btn.innerText = "Submitting...";
-            }
+        // Lead Form Submission
+        const leadForm = document.getElementById("leadForm");
+        if (leadForm) {
+            leadForm.addEventListener("submit", function (ev) {
+                ev.preventDefault();
 
-            const formData = new FormData(this);
+                // Concatenate First Name + Last Name
+                const fn = document.getElementById("f-first-name");
+                const ln = document.getElementById("f-last-name");
+                const fullEl = document.getElementById("f-name");
+                if (fn && ln && fullEl) {
+                    fullEl.value = (fn.value + " " + ln.value).trim();
+                }
 
-            fetch("{{ route('lead.submit') }}", {
-                method: "POST",
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.success) {
-                    document.getElementById("leadForm").style.display = "none";
-                    if(document.querySelector(".scarcity")) document.querySelector(".scarcity").style.display = "none";
-                    if(document.querySelector(".mini-cd")) document.querySelector(".mini-cd").style.display = "none";
-                    document.getElementById("formSuccess").style.display = "block";
-                } else {
-                    alert(data.message || "Something went wrong. Please check your inputs.");
-                    if(btn) {
-                        btn.disabled = false;
-                        btn.innerText = "Claim My Call Slot →";
+                const btn = document.getElementById("submitBtn");
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:6px;"></i> Submitting...';
+                }
+
+                const formData = new FormData(this);
+
+                fetch("{{ route('lead.submit') }}", {
+                    method: "POST",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        leadForm.style.display = "none";
+                        const formHeader = document.querySelector(".wp-wipro-form-header");
+                        if (formHeader) formHeader.style.display = "none";
+                        document.getElementById("formSuccess").style.display = "block";
+                    } else {
+                        alert(data.message || "Something went wrong. Please check your inputs.");
+                        if (btn) {
+                            btn.disabled = false;
+                            btn.innerHTML = 'Submit Consultation Request <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>';
+                        }
                     }
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                alert("An error occurred during submission. Please try again.");
-                if(btn) {
-                    btn.disabled = false;
-                    btn.innerText = "Claim My Call Slot →";
-                }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("An error occurred during submission. Please try again.");
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.innerHTML = 'Submit Consultation Request <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>';
+                    }
+                });
             });
-        });
+        }
 
-        // Prefill leadForm from URL query parameters or Smart Engagement Assessment
+        // Prefill leadForm from URL parameters or localStorage
         (function() {
             try {
                 const params = new URLSearchParams(window.location.search);

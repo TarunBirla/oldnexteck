@@ -20,7 +20,10 @@
     <meta name="twitter:description" content="Free interactive SME Strategy, AI Audit &amp; Custom Software Toolkit by Nexteck London. Benchmark competitors, plan automation &amp; track KPIs.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,157 +47,412 @@
     </script>
     <style>
         :root {
-            --ink: #090D16;
-            --ink-2: #131926;
-            --muted: #64748B;
-            --line: #E2E8F0;
-            --paper: #FFFFFF;
-            --cream: #F8FAFC;
-            --gold: #0EA5E9;
-            --gold-2: #38BDF8;
-            --sky-dark: #0284C7;
-            --sky-soft: rgba(14, 165, 233, 0.08);
-            --yellow-cell: #F0F9FF;
-            --yellow-border: #0EA5E9;
-            --red: #EF4444;
-            --green: #10B981;
-            --shadow: 0 16px 36px -12px rgba(9, 13, 22, 0.08);
-            --radius: 12px;
+            --yellow-cell: #FFFFFF;
+            --yellow-border: #0052CC;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -.01em; }
-        a { color: inherit; text-decoration: none; }
-        .wrap { width: min(1340px, 95%); margin: 0 auto; }
+        body {
+            background: var(--wp-bg-light);
+        }
 
-        /* ---------- announcement + nav ---------- */
-        .topbar { background: var(--ink); color: #fff; font-size: .82rem; text-align: center; padding: .55rem 1rem; position: relative; z-index: 60; }
-        .topbar b { color: var(--gold-2); }
-        .topbar .cd { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gold-2); }
-        nav { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-        .nav-in { width: min(1180px, 92%); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 74px; }
-        .logo { font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em; }
-        .logo span { color: var(--gold); }
-        .logo small { display: block; font-family: 'Inter'; font-size: .58rem; letter-spacing: .34em; color: var(--muted); font-weight: 600; margin-top: -4px; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; font-size: .92rem; font-weight: 500; }
-        .nav-links a { color: var(--ink-2); position: relative; }
-        .nav-links a:hover { color: var(--gold); }
-        .btn { display: inline-flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .92rem; padding: .85rem 1.6rem; border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; transition: all .2s ease; }
-        .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(14, 165, 233, .35); }
-        .btn-gold:hover { background: #0284C7; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14, 165, 233, .45); }
-        .btn-navy { background: var(--ink); color: #fff; }
-        .btn-navy:hover { background: #0284C7; }
-        .btn-outline { background: #fff; color: var(--ink); border-color: var(--line); }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-        .nav-cta { padding: .68rem 1.35rem; }
-        .burger { display: none; background: none; border: 0; font-size: 1.5rem; cursor: pointer; }
+        .wrap {
+            width: min(1340px, 95%);
+            margin: 0 auto;
+        }
 
         /* ---------- Hero ---------- */
-        .tk-hero { background: linear-gradient(135deg, #090D16 0%, #131926 100%); color: #fff; padding: 3.5rem 0 3rem; border-bottom: 3px solid var(--gold); }
-        .tk-hero .eyebrow { display: inline-flex; align-items: center; gap: .55rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-2); margin-bottom: .75rem; }
-        .tk-hero h1 { font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: .75rem; color: #fff; }
-        .tk-hero p { color: #CBD5E1; max-width: 780px; font-size: 1.02rem; }
-        .legend-bar { margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 1rem; flex-wrap: wrap; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); padding: .65rem 1.1rem; border-radius: 10px; font-size: .85rem; color: #F8FAFC; }
-        .legend-swatch { display: inline-flex; align-items: center; gap: .45rem; }
-        .swatch-yellow { width: 16px; height: 16px; background: var(--yellow-cell); border: 2px solid var(--yellow-border); border-radius: 4px; display: inline-block; }
-        .swatch-white { width: 16px; height: 16px; background: #fff; border: 1px solid #CBD5E1; border-radius: 4px; display: inline-block; }
+        .tk-hero {
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(0, 15, 36, 0.92) 0%, rgba(0, 27, 58, 0.88) 50%, rgba(0, 15, 36, 0.95) 100%),
+                radial-gradient(ellipse at 50% 30%, rgba(56, 189, 248, 0.22) 0%, transparent 60%),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
+            color: #FFFFFF;
+            padding: 5rem 0 3.75rem;
+            overflow: hidden;
+            border-bottom: 3px solid var(--wp-spectrum-blue);
+        }
+        .tk-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+                radial-gradient(rgba(0, 114, 206, 0.12) 1.5px, transparent 1.5px);
+            background-size: 36px 36px, 72px 72px;
+            opacity: 0.65;
+            pointer-events: none;
+        }
+        .tk-hero h1 {
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            margin: 0.75rem 0 0.85rem;
+            color: #FFFFFF !important;
+            position: relative;
+            z-index: 2;
+        }
+        .tk-hero p {
+            color: #CBD5E1;
+            max-width: 840px;
+            font-size: 1.1rem;
+            line-height: 1.65;
+            position: relative;
+            z-index: 2;
+        }
+        .legend-bar {
+            margin-top: 1.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 1.25rem;
+            border-radius: var(--wp-radius-sm);
+            font-size: 0.85rem;
+            color: #F8FAFC;
+        }
+        .legend-swatch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .swatch-yellow {
+            width: 16px;
+            height: 16px;
+            background: #FFFFFF;
+            border: 2px solid var(--wp-blue);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .swatch-white {
+            width: 16px;
+            height: 16px;
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            display: inline-block;
+        }
 
         /* ---------- Client Info Card ---------- */
-        .client-bar { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; margin: -1.8rem auto 1.8rem; position: relative; z-index: 10; box-shadow: var(--shadow); }
-        .client-bar-title { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
-        .client-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        .field-group label { display: block; font-size: .8rem; font-weight: 600; color: var(--ink-2); margin-bottom: .35rem; }
-        .field-group input { width: 100%; padding: .68rem .9rem; border: 1.5px solid #CBD5E1; border-radius: 8px; font-size: .9rem; font-family: inherit; background: var(--yellow-cell); border-color: #FCD34D; }
-        .field-group input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(14,165,233,0.18); }
+        .client-bar {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 1.75rem 2rem;
+            margin: -2rem auto 2rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--wp-shadow-card);
+        }
+        .client-bar-title {
+            font-family: var(--wp-font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--wp-blue);
+            margin-bottom: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+        .field-group label {
+            display: block;
+            font-family: var(--wp-font-display);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.4rem;
+        }
+        .field-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--wp-border);
+            border-radius: var(--wp-radius-sm);
+            font-size: 0.92rem;
+            font-family: inherit;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
+        }
+        .field-group input:focus {
+            outline: none;
+            border-color: var(--wp-blue);
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+        }
 
         /* ---------- Alerts ---------- */
-        .alert-box { padding: 1.1rem 1.4rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: 500; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .alert-box {
+            padding: 1.1rem 1.4rem;
+            border-radius: var(--wp-radius-sm);
+            margin-bottom: 1.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
         .alert-success { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
         .alert-error { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FCA5A5; }
 
         /* ---------- Workbook Tabs ---------- */
-        .tabs-nav { display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; margin-bottom: 1.2rem; border-bottom: 2px solid var(--line); }
-        .tab-btn { padding: .75rem 1.15rem; border-radius: 10px 10px 0 0; border: 1px solid transparent; background: #EAE6DF; color: var(--ink-2); font-weight: 600; font-size: .86rem; cursor: pointer; white-space: nowrap; transition: all .2s; display: inline-flex; align-items: center; gap: .45rem; }
-        .tab-btn:hover { background: #E0DBD1; }
-        .tab-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-        .tab-btn .tab-num { background: rgba(255,255,255,0.18); color: inherit; padding: .1rem .45rem; border-radius: 99px; font-size: .74rem; }
-        .tab-btn.active .tab-num { background: var(--gold); color: #fff; }
+        .tabs-nav {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--wp-border);
+        }
+        .tab-btn {
+            padding: 0.8rem 1.35rem;
+            border-radius: var(--wp-radius-pill);
+            border: 1px solid var(--wp-border);
+            background: #FFFFFF;
+            color: var(--wp-navy-900);
+            font-family: var(--wp-font-display);
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .tab-btn:hover {
+            background: var(--wp-bg-light);
+            border-color: var(--wp-blue);
+            color: var(--wp-blue);
+        }
+        .tab-btn.active {
+            background: var(--wp-navy-900);
+            color: #FFFFFF;
+            border-color: var(--wp-navy-900);
+            box-shadow: 0 4px 12px rgba(0, 27, 58, 0.18);
+        }
+        .tab-btn .tab-num {
+            background: var(--wp-bg-soft);
+            color: var(--wp-navy-900);
+            padding: 0.12rem 0.5rem;
+            border-radius: var(--wp-radius-pill);
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+        .tab-btn.active .tab-num {
+            background: var(--wp-blue);
+            color: #FFFFFF;
+        }
 
-        .tab-panel { display: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.75rem; box-shadow: 0 6px 24px rgba(12,27,51,0.05); margin-bottom: 2rem; }
-        .tab-panel.active { display: block; }
+        .tab-panel {
+            display: none;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 2.25rem;
+            box-shadow: var(--wp-shadow-card);
+            margin-bottom: 2.5rem;
+        }
+        .tab-panel.active {
+            display: block;
+        }
 
-        .panel-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
-        .panel-head h2 { font-size: 1.5rem; color: var(--ink); margin-bottom: .3rem; }
-        .panel-head p { color: var(--muted); font-size: .92rem; max-width: 820px; }
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--wp-border-subtle);
+        }
+        .panel-head h2 {
+            font-size: 1.55rem;
+            color: var(--wp-navy-900);
+            margin-bottom: 0.35rem;
+        }
+        .panel-head p {
+            color: var(--wp-text-muted);
+            font-size: 0.95rem;
+            max-width: 860px;
+            line-height: 1.6;
+        }
 
         /* ---------- Spreadsheet Table Styling ---------- */
-        .sheet-wrap { overflow-x: auto; border: 1px solid #CBD5E1; border-radius: 10px; }
-        table.sheet { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 980px; }
-        table.sheet th { background: var(--ink); color: #fff; font-weight: 600; text-align: left; padding: .75rem .85rem; border-right: 1px solid rgba(255,255,255,0.12); font-size: .79rem; text-transform: uppercase; letter-spacing: .04em; }
-        table.sheet td { padding: .6rem .75rem; border-bottom: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0; vertical-align: top; background: #fff; }
-        table.sheet tr:nth-child(even) td { background: #F8FAFC; }
+        .sheet-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-sm);
+        }
+        table.sheet {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 1020px;
+        }
+        table.sheet th {
+            background: var(--wp-navy-900);
+            color: #FFFFFF;
+            font-family: var(--wp-font-display);
+            font-weight: 700;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        table.sheet td {
+            padding: 0.7rem 0.85rem;
+            border-bottom: 1px solid var(--wp-border-subtle);
+            border-right: 1px solid var(--wp-border-subtle);
+            vertical-align: top;
+            background: #FFFFFF;
+            color: var(--wp-text-body);
+        }
+        table.sheet tr:nth-child(even) td {
+            background: #F8FAFC;
+        }
 
-        /* Yellow Editable Cells (Matching XLSX Legend) */
-        table.sheet td.cell-yellow { background: var(--yellow-cell) !important; padding: .35rem .45rem; }
+        /* Yellow / Input Cells */
+        table.sheet td.cell-yellow {
+            background: #FFFFFF !important;
+            padding: 0.4rem 0.5rem;
+        }
         .cell-input, .cell-select, .cell-textarea {
             width: 100%;
-            border: 1px solid #FCD34D;
-            background: #FFFDF5;
-            padding: .45rem .55rem;
+            border: 1.5px solid var(--wp-border);
+            background: #FFFFFF;
+            padding: 0.5rem 0.65rem;
             border-radius: 6px;
             font-family: inherit;
-            font-size: .85rem;
-            color: var(--ink);
-            transition: border-color .15s, box-shadow .15s;
+            font-size: 0.86rem;
+            color: var(--wp-navy-900);
+            transition: all 0.15s ease;
         }
-        .cell-textarea { min-height: 58px; resize: vertical; }
+        .cell-textarea { min-height: 60px; resize: vertical; }
         .cell-input:focus, .cell-select:focus, .cell-textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            background: #fff;
-            box-shadow: 0 0 0 2px rgba(184,147,63,0.2);
+            border-color: var(--wp-blue);
+            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.18);
         }
 
-        /* Formula / Auto-calculated Cells */
-        .cell-formula { background: #F1F5F9 !important; font-weight: 700; text-align: center; vertical-align: middle !important; font-variant-numeric: tabular-nums; color: var(--ink); }
-        .badge-score { display: inline-block; padding: .22rem .6rem; border-radius: 6px; font-weight: 700; font-size: .82rem; }
-        .score-high { background: #FEE2E2; color: #991B1B; }
-        .score-med { background: #FEF3C7; color: #92400E; }
-        .score-low { background: #E0F2FE; color: #075985; }
-        .var-neg { color: var(--red); font-weight: 700; }
-        .var-pos { color: var(--green); font-weight: 700; }
+        /* Formula Cells */
+        .cell-formula {
+            background: var(--wp-bg-soft) !important;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle !important;
+            font-variant-numeric: tabular-nums;
+            color: var(--wp-navy-900);
+        }
+        .badge-score {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-family: var(--wp-font-display);
+            font-weight: 700;
+            font-size: 0.84rem;
+        }
+        .score-high { background: rgba(228, 0, 124, 0.12); color: #BE185D; }
+        .score-med { background: rgba(255, 184, 28, 0.15); color: #B45309; }
+        .score-low { background: rgba(120, 190, 32, 0.15); color: #15803D; }
+        .var-neg { color: #DC2626; font-weight: 700; }
+        .var-pos { color: #16A34A; font-weight: 700; }
 
-        .sheet-note { margin-top: 1rem; padding: .85rem 1.1rem; background: #F8FAFC; border-left: 4px solid var(--gold); border-radius: 6px; font-size: .86rem; color: var(--ink-2); }
-        .row-actions { margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .btn-add-row { background: #F1F5F9; color: var(--ink); border: 1px dashed #94A3B8; padding: .55rem 1.1rem; border-radius: 8px; font-weight: 600; font-size: .85rem; cursor: pointer; transition: .2s; }
-        .btn-add-row:hover { background: var(--yellow-cell); border-color: var(--gold); color: var(--gold); }
-        .btn-del-row { background: #FEE2E2; color: #B91C1C; border: none; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+        .sheet-note {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: var(--wp-bg-light);
+            border-left: 4px solid var(--wp-blue);
+            border-radius: var(--wp-radius-sm);
+            font-size: 0.88rem;
+            color: var(--wp-navy-900);
+            line-height: 1.55;
+        }
+        .row-actions {
+            margin-top: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn-add-row {
+            background: #FFFFFF;
+            color: var(--wp-navy-900);
+            border: 1.5px dashed var(--wp-border);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--wp-radius-pill);
+            font-family: var(--wp-font-display);
+            font-weight: 600;
+            font-size: 0.86rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-add-row:hover {
+            border-color: var(--wp-blue);
+            color: var(--wp-blue);
+            background: rgba(0, 82, 204, 0.04);
+        }
+        .btn-del-row {
+            background: #FEE2E2;
+            color: #B91C1C;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.2s ease;
+        }
+        .btn-del-row:hover {
+            background: #FECACA;
+        }
 
-        .submit-bar { background: var(--ink); color: #fff; border-radius: 14px; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; box-shadow: var(--shadow); }
-        .submit-bar h3 { font-size: 1.25rem; color: #fff; margin-bottom: .2rem; }
-        .submit-bar p { font-size: .88rem; color: #CBD5E1; }
-
-        footer { background: var(--ink); color: #fff; padding: 4rem 0 2rem; }
-        .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 2rem; margin-bottom: 3rem; }
-        .foot-grid h4 { color: #fff; margin-bottom: 1.2rem; font-size: 1rem; }
-        .foot-links { display: flex; flex-direction: column; gap: 0.6rem; }
-        .foot-links a { color: #8E99AD; text-decoration: none; font-size: 0.88rem; transition: color .2s; }
-        .foot-links a:hover { color: #fff; }
-        .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.8rem; display: flex; justify-content: space-between; font-size: 0.82rem; color: #8E99AD; }
+        /* Submit Bar */
+        .submit-bar {
+            background: linear-gradient(135deg, #00132E 0%, #002856 100%);
+            color: #FFFFFF;
+            border-radius: var(--wp-radius-md);
+            padding: 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 4.5rem;
+            box-shadow: var(--wp-shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .submit-bar h3 {
+            font-size: 1.35rem;
+            color: #FFFFFF;
+            margin-bottom: 0.35rem;
+        }
+        .submit-bar p {
+            font-size: 0.92rem;
+            color: #CBD5E1;
+            margin: 0;
+        }
 
         @media (max-width: 960px) {
             .client-grid { grid-template-columns: 1fr 1fr; }
-            .foot-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
             .client-grid { grid-template-columns: 1fr; }
-            .foot-grid { grid-template-columns: 1fr; }
-            .client-bar { padding: 1.25rem 1rem; margin-top: -1.2rem; }
-            .tab-panel { padding: 1.25rem 1rem; }
+            .client-bar { padding: 1.4rem 1.2rem; margin-top: -1.2rem; }
+            .tab-panel { padding: 1.4rem 1.1rem; }
             .submit-bar { flex-direction: column; align-items: stretch; text-align: center; }
-            .submit-bar .btn-gold { width: 100%; justify-content: center; }
+            .submit-bar .btn-wp { width: 100%; justify-content: center; }
             .tk-hero h1 { font-size: clamp(1.75rem, 6vw, 2.3rem); }
             .panel-head h2 { font-size: 1.3rem; }
         }
@@ -219,7 +477,7 @@
     <main class="wrap" style="padding-top: 1rem;">
         @if(session('success'))
             <div class="alert-box alert-success" style="margin-top: 1rem;">
-                <div>✅ {{ session('success') }}</div>
+                <div><i class="fa-solid fa-circle-check" style="margin-right:6px; color:#10B981;"></i> {{ session('success') }}</div>
             </div>
         @endif
 
@@ -243,7 +501,7 @@
             <div class="client-bar">
                 <div class="client-bar-title">
                     <span>Client &amp; Business Details (Required to Save Workbook)</span>
-                    <button type="submit" class="btn btn-gold" style="padding: .55rem 1.25rem; font-size: .85rem;">💾 Save Completed Toolkit</button>
+                    <button type="submit" class="btn btn-gold" style="padding: .55rem 1.25rem; font-size: .85rem;"><i class="fa-solid fa-floppy-disk" style="margin-right:6px;"></i> Save Completed Toolkit</button>
                 </div>
                 <div class="client-grid">
                     <div class="field-group">
@@ -300,7 +558,7 @@
                         <h2>Toolkit Overview &amp; Structure</h2>
                         <p>A working set of templates to run the four-stage engagement: Industry Benchmarking, Competitor Analysis, AI/IT &amp; Autonomy Planning, and ongoing KPI governance.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(1)">Start Step 1: Client Diagnostic &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(1)">Start Step 1: Client Diagnostic <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -330,7 +588,7 @@
                     </table>
                 </div>
                 <div class="sheet-note">
-                    💡 <strong>How to use:</strong> Click through Tabs 1 to 7 above, fill in the yellow cells for your business, and click <strong>Save Completed Toolkit</strong> at any time.
+                    <i class="fa-solid fa-lightbulb" style="color:#FFB81C; margin-right:6px;"></i> <strong>How to use:</strong> Click through Tabs 1 to 7 above, fill in the yellow cells for your business, and click <strong>Save Completed Toolkit</strong> at any time.
                 </div>
             </div>
 
@@ -341,7 +599,7 @@
                         <h2>1. Client Diagnostic Checklist</h2>
                         <p>A fixed checklist of the 8 pain points that show up most often across SME clients. Use it on the first discovery call to work out which apply and how severely.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(2)">Next: Industry Benchmark &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(2)">Next: Industry Benchmark <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -395,7 +653,7 @@
                     </table>
                 </div>
                 <div class="sheet-note">
-                    📌 <strong>Rule of Thumb:</strong> Run this on the first discovery call. Anything marked <strong>Y</strong> with severity <strong>4–5</strong> should become a row in the <em>AI &amp; IT Opportunity Log</em> or <em>SOP &amp; Delegation Register</em>.
+                    <i class="fa-solid fa-thumbtack" style="color:var(--wp-blue); margin-right:6px;"></i> <strong>Rule of Thumb:</strong> Run this on the first discovery call. Anything marked <strong>Y</strong> with severity <strong>4–5</strong> should become a row in the <em>AI &amp; IT Opportunity Log</em> or <em>SOP &amp; Delegation Register</em>.
                 </div>
             </div>
 
@@ -406,7 +664,7 @@
                         <h2>2. Industry Benchmark</h2>
                         <p>Compare the client against 3–5 recognised leaders in their sector across 5 lenses, and stage the actions to close each gap.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(3)">Next: Competitor Tracker &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(3)">Next: Competitor Tracker <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -422,7 +680,7 @@
                                 <th style="width: 16%;">Staged action to close gap</th>
                                 <th style="width: 6%;">Priority</th>
                                 <th style="width: 7%;">Owner</th>
-                                <th style="width: 7%;">Target Date</th>
+                                <th style="width: 7%;"><i class="fa-regular fa-calendar-days" style="margin-right:4px;"></i> Target Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -480,7 +738,7 @@
                         <h2>3. Competitor Tracker</h2>
                         <p>Map direct competitors to find category norms vs. genuine whitespace to differentiate in.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(4)">Next: AI &amp; IT Opportunity Log &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(4)">Next: AI &amp; IT Opportunity Log <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -540,7 +798,7 @@
                         <h2>4. AI &amp; IT Opportunity Log</h2>
                         <p>Turn every owner-dependent process into an automation/delegation opportunity, scored by impact and urgency.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(5)">Next: SOP &amp; Delegation Register &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(5)">Next: SOP &amp; Delegation Register <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -597,7 +855,7 @@
                     <button type="button" class="btn-add-row" onclick="addOpportunityRow()">+ Add Opportunity Row</button>
                 </div>
                 <div class="sheet-note">
-                    ⚡ <strong>Formula:</strong> <code>Priority score = Impact × Urgency</code>. Sort descending to sequence the roadmap; tackle scores <strong>9–25</strong> first. Rows 1–3 map directly to the Client Diagnostic Checklist tab.
+                    <i class="fa-solid fa-bolt" style="color:#FFB81C; margin-right:6px;"></i> <strong>Formula:</strong> <code>Priority score = Impact × Urgency</code>. Sort descending to sequence the roadmap; tackle scores <strong>9–25</strong> first. Rows 1–3 map directly to the Client Diagnostic Checklist tab.
                 </div>
             </div>
 
@@ -608,7 +866,7 @@
                         <h2>5. SOP &amp; Delegation Register</h2>
                         <p>Track which recurring tasks are documented, who they're delegated to, and how automated they are.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(6)">Next: KPI Dashboard &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(6)">Next: KPI Dashboard <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -621,7 +879,7 @@
                                 <th style="width: 10%;">SOP documented?</th>
                                 <th style="width: 14%;">Delegate to</th>
                                 <th style="width: 14%;">Automation level</th>
-                                <th style="width: 8%;">Target date</th>
+                                <th style="width: 8%;"><i class="fa-regular fa-calendar-days" style="margin-right:4px;"></i> Target Date</th>
                                 <th style="width: 8%;">Status</th>
                             </tr>
                         </thead>
@@ -665,7 +923,7 @@
                         <h2>6. KPI Dashboard</h2>
                         <p>Monthly targets vs. actuals across Sales, Marketing, Finance, Ops and Customer — the owner's weekly review sheet.</p>
                     </div>
-                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(7)">Next: Tool Stack Reference &rarr;</button>
+                    <button type="button" class="btn btn-navy" onclick="switchTabByIndex(7)">Next: Tool Stack Reference <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                 </div>
 
                 <div class="sheet-wrap">
@@ -715,7 +973,7 @@
                     </table>
                 </div>
                 <div class="sheet-note">
-                    📊 <strong>Governance Rule:</strong> Review this sheet weekly, in under 60 minutes. Investigate only KPIs flagged red/negative variance — that is management by exception.
+                    <i class="fa-solid fa-chart-line" style="color:var(--wp-blue); margin-right:6px;"></i> <strong>Governance Rule:</strong> Review this sheet weekly, in under 60 minutes. Investigate only KPIs flagged red/negative variance — that is management by exception.
                 </div>
             </div>
 
@@ -760,7 +1018,7 @@
                     <h3>Ready to Save Your SME Strategy &amp; Tracking Toolkit?</h3>
                     <p>Your entries across all 7 tabs will be saved securely and reviewed by Nexteck's strategy team.</p>
                 </div>
-                <button type="submit" class="btn btn-gold">💾 Save &amp; Submit Toolkit Now &rarr;</button>
+                <button type="submit" class="btn-wp btn-wp-primary btn-wp-lg"><i class="fa-solid fa-floppy-disk" style="margin-right:8px;"></i> Save &amp; Submit Toolkit Now <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i></button>
             </div>
         </form>
     </main>

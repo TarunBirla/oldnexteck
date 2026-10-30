@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login — Nexteck Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #090D16;
-            --gold: #0EA5E9;
+            --ink: #001B3A;
+            --gold: #0052CC;
             --bg: #F8FAFC;
             --line: #E2E8F0;
         }
@@ -23,7 +23,7 @@
             .login-card { padding: 2rem 1.35rem; }
         }
         .login-header { text-align: center; margin-bottom: 2rem; }
-        .logo { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+        .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--ink); text-decoration: none; }
         .logo span { color: var(--gold); }
         .login-header p { font-size: 0.9rem; color: #64748B; margin-top: 0.4rem; }
 

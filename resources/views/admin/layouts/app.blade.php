@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard') — Nexteck Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            --sidebar-bg: #090D16;
-            --sidebar-hover: #131926;
-            --primary: #0EA5E9;
-            --primary-dark: #0284C7;
+            --sidebar-bg: #000F24;
+            --sidebar-hover: #082142;
+            --primary: #0052CC;
+            --primary-dark: #003D99;
             --bg: #F8FAFC;
             --card-bg: #FFFFFF;
-            --text: #0F172A;
+            --text: #0B132B;
             --muted: #64748B;
             --border: #E2E8F0;
         }
@@ -27,8 +27,8 @@
         /* Sidebar */
         aside { width: 260px; background: var(--sidebar-bg); color: #fff; display: flex; flex-direction: column; flex-shrink: 0; }
         .aside-header { padding: 1.8rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .aside-header .logo { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-        .aside-header .logo span { color: var(--primary); }
+        .aside-header .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; text-decoration: none; }
+        .aside-header .logo span { color: #38BDF8; }
         .aside-nav { padding: 1.5rem 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.3rem; }
         .nav-item { display: flex; align-items: center; gap: 0.85rem; padding: 0.8rem 1.5rem; color: #94A3B8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
         .nav-item i { width: 20px; font-size: 1rem; text-align: center; color: #64748B; transition: color 0.2s; }

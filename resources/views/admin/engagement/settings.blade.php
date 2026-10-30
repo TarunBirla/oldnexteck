@@ -67,7 +67,7 @@
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
                 <div class="form-group">
                     <label for="popup_primary_cta">Primary CTA Label</label>
-                    <input type="text" name="popup_primary_cta" id="popup_primary_cta" value="{{ $settings['popup_primary_cta'] ?? 'Discover My Business Opportunities →' }}" class="form-control" required>
+                    <input type="text" name="popup_primary_cta" id="popup_primary_cta" value="{{ $settings['popup_primary_cta'] ?? 'Discover My Business Opportunities' }}" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="popup_secondary_cta">Secondary CTA Label</label>

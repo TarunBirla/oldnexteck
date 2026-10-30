@@ -1,131 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | The Nexteck London</title>
-    <meta name="description" content="Privacy Policy for The Nexteck Consulting Ltd. Explaining how we collect, process, and protect corporate client data and assessment inputs under UK GDPR.">
+    <title>Privacy Policy &amp; Data Security | Nexteck London</title>
+    <meta name="description" content="Privacy Policy for Nexteck Consulting Ltd. Explaining how we collect, process, and protect corporate client data and assessment inputs under UK GDPR and bilateral NDAs.">
     <link rel="canonical" href="{{ url('/privacy-policy') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
 
     <style>
-        :root {
-            --ink: #090D16;
-            --ink-2: #131926;
-            --gold: #0EA5E9;
-            --gold-2: #38BDF8;
-            --sky-dark: #0284C7;
-            --sky-soft: rgba(14, 165, 233, 0.08);
-            --cream: #F8FAFC;
-            --line: #E2E8F0;
-            --muted: #64748B;
-            --radius: 12px;
+        .hero {
+            background: radial-gradient(circle at 80% 20%, #002856 0%, #001B3A 55%, #000F24 100%);
+            color: #FFFFFF;
+            padding: 85px 0 65px;
+            text-align: center;
+            border-bottom: 3px solid var(--wp-spectrum-blue);
+            position: relative;
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter', system-ui, sans-serif; background:#fff; color:var(--ink); line-height:1.65; overflow-x:hidden; }
+        .hero h1 {
+            font-size: clamp(2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            margin: 0.85rem 0 1rem;
+            color: #FFFFFF;
+        }
 
-        .wrap { width:min(900px, 92%); margin:0 auto; }
-        .hero { background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); color:#fff; padding:4.5rem 0 3.5rem; text-align:center; }
-        .hero h1 { font-family:'Fraunces', serif; font-size:clamp(2rem, 3.5vw, 2.8rem); font-weight:700; margin-bottom:0.8rem; }
-        .hero p { color:#CBD5E1; font-size:1.05rem; }
+        .hero p {
+            color: #CBD5E1;
+            font-size: 1.1rem;
+            max-width: 60ch;
+            margin: 0 auto;
+        }
 
-        .content { padding:3.5rem 0 5rem; }
-        .content h2 { font-family:'Fraunces', serif; font-size:1.4rem; color:var(--ink); margin:2.2rem 0 0.8rem; border-bottom:1px solid var(--line); padding-bottom:0.4rem; }
-        .content h3 { font-size:1.1rem; color:var(--ink); margin:1.4rem 0 0.5rem; }
-        .content p { color:#334155; font-size:0.98rem; margin-bottom:1rem; }
-        .content ul { margin:0 0 1.2rem 1.4rem; color:#334155; font-size:0.96rem; }
-        .content li { margin-bottom:0.4rem; }
+        .policy-container {
+            max-width: 900px;
+            margin: 3.5rem auto 6rem;
+            padding: 0 1.5rem;
+        }
 
-        .badge-box { background:#F8FAFC; border:1px solid var(--line); border-radius:var(--radius); padding:1.5rem; margin:1.8rem 0; }
-        .badge-box strong { color:var(--ink); }
+        .policy-content {
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-md);
+            padding: 3rem;
+            box-shadow: var(--wp-shadow-card);
+        }
 
-        .nav-back { display:inline-flex; align-items:center; gap:0.5rem; color:var(--gold); text-decoration:none; font-weight:600; margin-bottom:1.5rem; font-size:0.92rem; }
-        .nav-back:hover { text-decoration:underline; }
+        .policy-content h2 {
+            font-size: 1.45rem;
+            color: var(--wp-navy-900);
+            margin: 2.5rem 0 0.85rem;
+            border-bottom: 1px solid var(--wp-border-subtle);
+            padding-bottom: 0.5rem;
+        }
+        .policy-content h2:first-of-type {
+            margin-top: 0;
+        }
 
-        .foot { background:#081224; color:#94A3B8; padding:2rem 0; font-size:0.88rem; text-align:center; border-top:1px solid rgba(255,255,255,0.08); }
+        .policy-content h3 {
+            font-size: 1.15rem;
+            color: var(--wp-navy-900);
+            margin: 1.5rem 0 0.5rem;
+        }
 
-        @media (max-width: 640px) {
-            .hero { padding: 3.5rem 0 2.5rem; }
-            .hero h1 { font-size: clamp(1.75rem, 6.5vw, 2.3rem); }
-            .content { padding: 2.2rem 0 3.5rem; }
-            .content ul { margin-left: 1rem; }
-            .badge-box { padding: 1.15rem; }
+        .policy-content p {
+            color: var(--wp-text-body);
+            font-size: 0.96rem;
+            line-height: 1.7;
+            margin-bottom: 1.15rem;
+        }
+
+        .policy-content ul {
+            margin: 0 0 1.5rem 1.5rem;
+            color: var(--wp-text-body);
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .badge-box {
+            background: var(--wp-bg-light);
+            border: 1px solid var(--wp-border);
+            border-left: 4px solid var(--wp-blue);
+            border-radius: var(--wp-radius-sm);
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .badge-box strong {
+            color: var(--wp-navy-900);
+        }
+
+        @media (max-width: 768px) {
+            .policy-content {
+                padding: 1.75rem 1.25rem;
+            }
         }
     </style>
 </head>
+
 <body>
+    @include('partials.header')
 
     <header class="hero">
-        <div class="wrap">
-            <a href="{{ route('home') }}" class="nav-back" style="color:var(--gold-2);">&larr; Return to The Nexteck Home</a>
-            <h1>Privacy Policy &amp; Data Governance</h1>
-            <p>Last updated: {{ date('F Y') }} · The Nexteck Consulting Ltd (London, UK)</p>
+        <div class="wp-wrap">
+            <span class="wp-eyebrow on-navy"><span class="wp-dot"></span> Legal &amp; Compliance</span>
+            <h1>Privacy Policy &amp; Data Security</h1>
+            <p>How Nexteck Consulting Ltd collects, processes, and safeguards corporate client data and operational inputs under UK GDPR and bilateral NDAs.</p>
         </div>
     </header>
 
-    <main class="content">
-        <div class="wrap">
+    <main class="policy-container">
+        <div class="policy-content rv in">
             <div class="badge-box">
-                <strong>UK GDPR &amp; Data Protection Statement:</strong>
-                The Nexteck Consulting Ltd ("The Nexteck", "we", "us", or "our") is committed to protecting the privacy, confidentiality, and security of corporate clients and website visitors. We process information strictly in compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+                <strong>Executive Summary:</strong> All diagnostic assessments, system credentials, process diagrams, and commercial metrics shared with Nexteck are treated under strict confidentiality and covered by a mutual Non-Disclosure Agreement (NDA) prior to technical review. We never sell, licence, or monetise client data.
             </div>
 
-            <h2>1. Information We Collect</h2>
-            <p>When you interact with our website, request consultation calls, or take the interactive <strong>Business Technology Health Check</strong>, we may collect the following information:</p>
+            <h2>1. Company Identity &amp; Data Controller</h2>
+            <p>
+                This privacy notice applies to <strong>Nexteck Consulting Ltd</strong> ("Nexteck", "we", "our", or "us"), registered in England and Wales. We act as the Data Controller under the UK Data Protection Act 2018 and UK General Data Protection Regulation (UK GDPR).
+            </p>
+            <p>
+                For any inquiries regarding data protection or confidentiality, please contact our data governance team at <a href="mailto:info@nexteck.co.uk">info@nexteck.co.uk</a>.
+            </p>
+
+            <h2>2. Information We Collect</h2>
+            <p>When you interact with our website, request a consultation, or complete an advisory assessment, we collect:</p>
             <ul>
-                <li><strong>Contact details:</strong> Full name, professional work email, company name, direct telephone number.</li>
-                <li><strong>Operational assessment responses:</strong> Self-reported inputs regarding operational software, routine manual work, systems integration maturity, AI usage levels, and technology priorities.</li>
-                <li><strong>Technical and browsing data:</strong> IP address, browser type, referral page, and session identifiers collected anonymously for security, fraud prevention, and performance monitoring.</li>
+                <li><strong>Identity Data:</strong> Full name, professional job title, company name.</li>
+                <li><strong>Contact Data:</strong> Corporate email address, telephone number, business headquarters location.</li>
+                <li><strong>Operational Inputs:</strong> Responses provided in our Technology Health Check, Automation Calculator, or SME Strategy Toolkit (e.g., software stacks, team size, process bottlenecks).</li>
+                <li><strong>Technical Data:</strong> Internet protocol (IP) address, browser type, operating system, and diagnostic session logs collected strictly for security monitoring and fraud prevention.</li>
             </ul>
 
-            <h2>2. Purpose &amp; Legal Basis for Processing</h2>
-            <p>We process your data under the following lawful bases permitted by the UK GDPR:</p>
+            <h2>3. How We Use Your Information</h2>
+            <p>We process your data strictly on the basis of legitimate commercial interest and pre-contractual requests:</p>
             <ul>
-                <li><strong>Legitimate Interests &amp; Contractual Steps:</strong> To calculate, generate, and deliver your requested technology health check diagnostic report, and to facilitate requested discovery calls with our advisory engineers.</li>
-                <li><strong>Explicit Consent:</strong> Where you opt in to receive occasional strategic technology insights, industry benchmarks, or automation guides. You may withdraw marketing consent at any time.</li>
-                <li><strong>Legal Compliance:</strong> To maintain secure digital logs, prevent fraudulent submissions, and comply with UK corporate and accounting records regulations.</li>
+                <li>To evaluate operational friction points and prepare your custom 90-day technology roadmap.</li>
+                <li>To respond to inbound strategy call requests and schedule video discovery consultations.</li>
+                <li>To calculate indicative ROI and weekly recaptured capacity based on your inputs.</li>
+                <li>To uphold IT security standards and prevent abuse of our public diagnostic calculators.</li>
             </ul>
 
-            <h2>3. Absolute Non-Disclosure &amp; Security</h2>
-            <p>We treat all client diagnostic findings, technology roadmaps, and business pain points with strict executive confidentiality:</p>
-            <ul>
-                <li>We do <strong>not</strong> sell, rent, or lease your corporate or personal data to third-party brokers, advertisers, or lead generation networks.</li>
-                <li>We do <strong>not</strong> train public machine learning or artificial intelligence models on your submitted corporate operational data.</li>
-                <li>All data transmitted across our web endpoints is protected by modern Transport Layer Security (TLS 1.3 / HTTPS encryption).</li>
-            </ul>
+            <h2>4. Mutual Non-Disclosure &amp; IP Ownership</h2>
+            <p>
+                We recognize that reviewing internal business processes involves sensitive commercial operational details. We execute a mutual NDA before receiving proprietary file exports, database credentials, or financial ledgers.
+            </p>
+            <p>
+                <strong>100% Client IP:</strong> All deliverables — including bespoke software code, custom APIs, SOP registers, KPI dashboards, and architectural blueprints — remain the sole and exclusive intellectual property of the client.
+            </p>
 
-            <h2>4. Data Retention</h2>
-            <p>Assessment submissions and consultation requests are retained only for as long as necessary to provide advisory services, maintain professional client records, and satisfy statutory auditing standards. You may request removal of your preliminary diagnostic records at any time.</p>
+            <h2>5. Data Retention &amp; Deletion</h2>
+            <p>
+                We retain client engagement data only for as long as necessary to fulfil the purposes of the advisory project. Working data copies used during technical audits are permanently deleted upon project completion and written client sign-off.
+            </p>
 
-            <h2>5. Your Statutory Rights Under UK GDPR</h2>
-            <p>Under UK data protection laws, you retain the following enforceable rights regarding your personal data:</p>
-            <ul>
-                <li>The right to access the personal data held about you.</li>
-                <li>The right to rectification of inaccurate or incomplete records.</li>
-                <li>The right to erasure ("right to be forgotten") of your diagnostic submission.</li>
-                <li>The right to restrict or object to specific processing activities.</li>
-                <li>The right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</li>
-            </ul>
-
-            <h2>6. Contact Our Data Controller</h2>
-            <p>For any questions regarding this Privacy Policy, data access requests, or removal of assessment entries, please contact our team directly:</p>
-            <div class="badge-box">
-                <p style="margin:0 0 0.4rem 0;"><strong>The Nexteck Consulting Ltd</strong></p>
-                <p style="margin:0 0 0.4rem 0;">Email: <a href="mailto:info@nexteck.co.uk" style="color:var(--gold); font-weight:600;">info@nexteck.co.uk</a></p>
-                <p style="margin:0 0 0.4rem 0;">Phone: +44 (0)78 7917 5585</p>
-                <p style="margin:0;">London, United Kingdom</p>
-            </div>
+            <h2>6. Your Statutory Rights</h2>
+            <p>Under the UK GDPR, you have the right to request access to your personal data, rectify inaccuracies, request erasure, or object to processing. To exercise any of these rights, contact <a href="mailto:info@nexteck.co.uk">info@nexteck.co.uk</a>.</p>
         </div>
     </main>
 
-    <footer class="foot">
-        <div class="wrap">
-            <p>&copy; {{ date('Y') }} The Nexteck Consulting Ltd. All rights reserved. Registered in England &amp; Wales.</p>
-        </div>
-    </footer>
-
+    @include('partials.footer')
 </body>
+
 </html>

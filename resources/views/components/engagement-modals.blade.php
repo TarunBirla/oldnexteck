@@ -2,19 +2,19 @@
 <style>
     /* ================= Nexteck Engagement Modals & Widget Styles ================= */
     :root {
-        --nxt-navy: #090D16;
-        --nxt-navy-deep: #05070B;
-        --nxt-navy-light: #131926;
-        --nxt-gold: #0EA5E9;
-        --nxt-gold-light: #38BDF8;
-        --nxt-gold-hover: #0284C7;
-        --nxt-cream: #F8FAFC;
+        --nxt-navy: #001B3A;
+        --nxt-navy-deep: #000F24;
+        --nxt-navy-light: #0B2545;
+        --nxt-gold: #0052CC;
+        --nxt-gold-light: #0072CE;
+        --nxt-gold-hover: #003D99;
+        --nxt-cream: #F8F9FA;
         --nxt-surface: #FFFFFF;
         --nxt-border: #E2E8F0;
-        --nxt-text: #0F172A;
+        --nxt-text: #0B132B;
         --nxt-muted: #64748B;
         --nxt-radius: 12px;
-        --nxt-shadow: 0 25px 60px -15px rgba(9, 13, 22, 0.35), 0 10px 25px -5px rgba(0,0,0,0.12);
+        --nxt-shadow: 0 25px 60px -15px rgba(0, 27, 58, 0.35), 0 10px 25px -5px rgba(0,0,0,0.12);
     }
 
     .nxt-overlay {
@@ -353,20 +353,21 @@
     /* Persistent Quick Launcher Widget */
     .nxt-quick-pill {
         position: fixed;
-        bottom: 2.5rem;
-        right: 1.5rem;
+        bottom: 1.75rem;
+        right: 1.75rem;
+        left: auto;
         z-index: 9998;
         background: #FFFFFF;
         color: var(--nxt-navy);
-        padding: 0.6rem 1.1rem;
+        padding: 0.65rem 1.2rem;
         border-radius: 50px;
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        font-size: 0.85rem;
-        font-weight: 600;
+        font-size: 0.86rem;
+        font-weight: 700;
         box-shadow: 0 10px 30px rgba(12, 27, 51, 0.18), 0 2px 8px rgba(0,0,0,0.06);
-        border: 1.5px solid rgba(184, 147, 63, 0.35);
+        border: 1.5px solid rgba(0, 82, 204, 0.25);
         cursor: pointer;
         transition: all 0.25s ease;
         text-decoration: none;
@@ -499,9 +500,10 @@
         user-select: none;
     }
     .nxt-multi-pill.selected::before {
-        content: "✓ ";
+        content: "\f00c ";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
         color: var(--nxt-gold);
-        font-weight: 700;
         margin-right: 0.25rem;
     }
 
@@ -618,7 +620,7 @@
             <!-- Clickable Interactive Assessment Card -->
             <div class="nxt-welcome-assessment-card" id="nxtWelcomeCardTrigger" role="button" tabindex="0" aria-label="Start 2-Minute Business Health Check">
                 <div style="display:flex; gap:0.95rem; align-items:center;">
-                    <div class="nxt-icon-box" aria-hidden="true">✦</div>
+                    <div class="nxt-icon-box" aria-hidden="true"><i class="fa-solid fa-clipboard-check" style="color:#FFFFFF; font-size:1.05rem;"></i></div>
                     <div>
                         <strong style="display:block; font-size:0.96rem; color:var(--nxt-navy); margin-bottom:0.2rem; font-weight:700;">2-Minute Business Health Check</strong>
                         <p style="font-size:0.86rem; color:var(--nxt-muted); margin:0; line-height:1.45;">
@@ -626,13 +628,13 @@
                         </p>
                     </div>
                 </div>
-                <div class="nxt-arrow-indicator" aria-hidden="true">&rarr;</div>
+                <div class="nxt-arrow-indicator" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
             </div>
 
             <!-- Primary CTA & Actions -->
             <div style="display:flex; flex-direction:column;">
                 <button type="button" class="nxt-btn nxt-btn-gold" id="nxtWelcomeStartAssessmentBtn" style="width:100%; min-height:46px; font-size:0.98rem;">
-                    {{ \App\Models\EngagementSetting::get('popup_primary_cta', 'Discover My Business Opportunities →') }}
+                    {{ rtrim(\App\Models\EngagementSetting::get('popup_primary_cta', 'Discover My Business Opportunities'), ' →&rarr;') }} <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                 </button>
 
                 <!-- Trust Line -->
@@ -770,7 +772,7 @@
 
                     <div style="display:flex; justify-content:flex-end; margin-top:1.8rem;">
                         <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.validateAndAdvanceStep1()">
-                            Next: Operational Efficiency &rarr;
+                            Next: Operational Efficiency <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                         </button>
                     </div>
                 </div>
@@ -834,8 +836,8 @@
                     </div>
 
                     <div style="display:flex; justify-content:space-between; margin-top:1.8rem;">
-                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(1)">&larr; Back</button>
-                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.goToStep(3)">Next: AI Readiness &rarr;</button>
+                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(1)"><i class="fa-solid fa-arrow-left" style="margin-right:6px;"></i> Back</button>
+                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.goToStep(3)">Next: AI Readiness <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                     </div>
                 </div>
 
@@ -885,8 +887,8 @@
                     </div>
 
                     <div style="display:flex; justify-content:space-between; margin-top:1.8rem;">
-                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(2)">&larr; Back</button>
-                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.goToStep(4)">Next: Contact Details &rarr;</button>
+                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(2)"><i class="fa-solid fa-arrow-left" style="margin-right:6px;"></i> Back</button>
+                        <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.goToStep(4)">Next: Contact Details <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
                     </div>
                 </div>
 
@@ -942,9 +944,9 @@
                     <div id="nxtStep4Error" class="nxt-step-error"></div>
 
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(3)">&larr; Back</button>
+                        <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(3)"><i class="fa-solid fa-arrow-left" style="margin-right:6px;"></i> Back</button>
                         <button type="button" class="nxt-btn nxt-btn-gold" id="nxtSubmitAssessmentBtn" onclick="NxtEngagement.submitAssessment()">
-                            Generate My Health Check Results &rarr;
+                            Generate My Health Check Results <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                         </button>
                     </div>
                 </div>
@@ -1004,14 +1006,14 @@
                     <!-- CTAs & Actions -->
                     <div style="display:flex; flex-direction:column; gap:0.65rem;">
                         <button type="button" class="nxt-btn nxt-btn-gold" id="nxtBookFromResultsBtn" onclick="NxtEngagement.bookDiscoveryCallFromResults()" style="width:100%; font-size:1rem; padding:0.95rem;">
-                            Discuss Your Results With Our Team &rarr;
+                            Discuss Your Results With Our Team <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                         </button>
                         <div style="display:flex; gap:0.6rem; justify-content:center; align-items:center;">
                             <button type="button" class="nxt-btn nxt-btn-ghost" onclick="NxtEngagement.printReport()" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
                                 Download / Print Scorecard (PDF)
                             </button>
                             <button type="button" class="nxt-btn nxt-btn-subtle" onclick="NxtEngagement.goToStep(1)" style="flex:1; font-size:0.86rem; padding:0.65rem 1rem;">
-                                &larr; Edit Answers
+                                <i class="fa-solid fa-arrow-left" style="margin-right:6px;"></i> Edit Answers
                             </button>
                         </div>
                     </div>
@@ -1100,7 +1102,7 @@
             <!-- CTA -->
             <div style="margin-top:1.5rem; display:flex; gap:0.8rem;">
                 <button type="button" class="nxt-btn nxt-btn-gold" onclick="NxtEngagement.discussAutomation()" style="flex:1;">
-                    Discuss Automation Opportunities &rarr;
+                    Discuss Automation Opportunities <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                 </button>
             </div>
         </div>
@@ -1110,7 +1112,7 @@
 <!-- 4. PERSISTENT FLOATING QUICK TRIGGER WIDGET -->
 @if((\App\Models\EngagementSetting::get('widget_enabled', '1')) == '1')
 <div class="nxt-quick-pill" id="nxtQuickLauncher" onclick="NxtEngagement.openAssessmentModal()" title="Take our 2-minute AI Assistant">
-    <span class="nxt-spark">✦</span>
+    <span class="nxt-spark"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--nxt-gold); font-size:0.95rem;"></i></span>
     <span>AI Assistant</span>
 </div>
 @endif
@@ -1647,7 +1649,7 @@
                 self.isSubmitting = false;
                 if (btn) {
                     btn.disabled = false;
-                    btn.innerText = 'Generate My Health Check Results →';
+                    btn.innerHTML = 'Generate My Health Check Results <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>';
                 }
 
                 if (data.success) {
@@ -1679,7 +1681,7 @@
                 self.isSubmitting = false;
                 if (btn) {
                     btn.disabled = false;
-                    btn.innerText = 'Generate My Health Check Results →';
+                    btn.innerHTML = 'Generate My Health Check Results <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>';
                 }
                 if (errBox) {
                     errBox.innerText = 'Connection error. Please check your network and try again.';
@@ -1764,7 +1766,7 @@
             .then(data => {
                 if (btn) {
                     btn.disabled = false;
-                    btn.innerText = '✓ Advisory Call Slot Requested!';
+                    btn.innerHTML = '<i class="fa-solid fa-check" style="margin-right:6px;"></i> Advisory Call Slot Requested!';
                     btn.style.background = '#059669';
                 }
                 self.trackEvent('consultation_requested', { lead_id: self.lastLeadId });
