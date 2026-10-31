@@ -28,8 +28,8 @@
 
     .wp-foot-grid {
         display: grid;
-        grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
-        gap: 3.5rem;
+        grid-template-columns: 1.8fr 1fr 1fr 1fr 1.2fr;
+        gap: 2.5rem;
         margin-bottom: 4rem;
     }
 
@@ -256,35 +256,37 @@
 
     @media (max-width: 640px) {
         .wp-sticky-cta {
-            bottom: 4.8rem;
+            bottom: max(1.2rem, env(safe-area-inset-bottom, 16px));
             left: 1rem;
             right: auto;
+            max-width: calc(100vw - 2rem);
         }
         .wp-sticky-cta .wp-sticky-cta-link {
-            padding: 0.5rem 0.85rem;
-            gap: 0.5rem;
+            padding: 0.48rem 0.82rem;
+            gap: 0.45rem;
+            max-width: 100%;
         }
         .wp-sticky-cta .cta-label {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
         }
         .wp-sticky-cta:hover .btn-cta-action,
         .wp-sticky-cta:focus-within .btn-cta-action {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.78rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.76rem;
         }
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 1140px) {
         .wp-foot-grid {
             grid-template-columns: 1fr 1fr;
-            gap: 2.75rem;
+            gap: 2.5rem;
         }
     }
 
     @media (max-width: 640px) {
         .wp-foot-grid {
             grid-template-columns: 1fr;
-            gap: 2.25rem;
+            gap: 2rem;
         }
         .wp-foot-bottom {
             flex-direction: column;
@@ -323,7 +325,7 @@
                 <div class="wp-foot-meta">
                     <span><i class="fa-solid fa-location-dot" style="color:#38BDF8; width:18px;"></i> Headquarters: London, United Kingdom</span>
                     <span><i class="fa-solid fa-globe" style="color:#00A3AD; width:18px;"></i> Global Sourcing: UK, Europe &amp; Asia-Pacific</span>
-                    <span><i class="fa-solid fa-train" style="color:#FFB81C; width:18px;"></i> Strategic Rail Engineering Partner: <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:#38BDF8;">pearlconrail.co.uk</a></span>
+                    <span><i class="fa-solid fa-handshake-angle" style="color:#FFB81C; width:18px;"></i> Multi-Tier Partner &amp; OEM Sourcing Ecosystem</span>
                 </div>
             </div>
 
@@ -339,6 +341,23 @@
                     <a href="{{ route('calculator.index') }}">Automation ROI Calculator</a>
                     <a href="{{ route('blogs.index') }}">Insights &amp; Whitepapers</a>
                     <a href="{{ route('home') }}#urgency">Why Now &amp; Risk Reversal</a>
+                </div>
+            </div>
+
+            <!-- Our Partners (The 7 Partners) -->
+            <div class="wp-foot-col">
+                <h4>Our Partners</h4>
+                <div class="wp-foot-links">
+                    <a href="{{ route('home') }}#partner-pearlcon">Pearlcon Engineering</a>
+                    <a href="{{ route('home') }}#partner-hyst">HYST</a>
+                    <a href="{{ route('home') }}#partner-bizconn">BizConn</a>
+                    <a href="{{ route('home') }}#partner-brnds">BRNDS</a>
+                    <a href="{{ route('home') }}#partner-bi-manager">BI Manager</a>
+                    <a href="{{ route('home') }}#partner-boltix">Boltix</a>
+                    <a href="{{ route('home') }}#partner-yodoc">Yodoc</a>
+                    <a href="{{ route('home') }}#partners" style="color:#38BDF8 !important; font-weight:700;">
+                        <span>View Ecosystem <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i></span>
+                    </a>
                 </div>
             </div>
 

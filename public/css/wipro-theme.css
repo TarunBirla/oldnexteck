@@ -1220,3 +1220,116 @@ button, input, select, textarea {
     }
 }
 
+/* ==========================================================================
+   ENTERPRISE RESPONSIVE UTILITIES & MOBILE OPTIMIZATIONS
+   Ensures seamless adaptability across all screen sizes (320px to 4K)
+   ========================================================================== */
+
+/* Universal Scroll Margin for Sticky Header Navigation */
+[id] {
+    scroll-margin-top: 86px;
+}
+
+/* Global Horizontal Overflow Safeguard */
+html, body {
+    max-width: 100vw;
+    overflow-x: clip;
+}
+
+/* Touch Device Interactions */
+@media (hover: none) and (pointer: coarse) {
+    .btn, .wp-btn, .wp-nav-link, .tab-btn {
+        min-height: 44px;
+    }
+}
+
+/* Prevent auto-zooming on mobile iOS safari for form inputs */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+    
+    .wp-wrap {
+        width: 100%;
+        padding-left: clamp(1rem, 4vw, 1.75rem);
+        padding-right: clamp(1rem, 4vw, 1.75rem);
+    }
+    
+    .wp-section {
+        padding: 56px 0;
+    }
+    
+    .wp-section-lg {
+        padding: 72px 0;
+    }
+}
+
+/* Responsive Table Wrapper */
+.table-responsive,
+.sheet-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Partner Grid Responsive Refinement */
+.wp-partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 22px;
+}
+
+@media (min-width: 1025px) {
+    .wp-partner-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .wp-partner-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .wp-partner-grid-4,
+    .wp-partner-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .wp-partner-grid,
+    .wp-partner-grid-4,
+    .wp-partner-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Partner & Alliance Card Mobile Refinements */
+@media (max-width: 640px) {
+    .wp-partner-card {
+        border-radius: 12px;
+    }
+    .wp-partner-media {
+        height: 110px;
+        padding: 1.25rem 1rem;
+    }
+    .wp-partner-info {
+        padding: 1.2rem 1.15rem 1.35rem;
+    }
+    .wp-partner-title {
+        font-size: 1.05rem;
+    }
+    .wp-partner-desc {
+        font-size: 0.84rem;
+        line-height: 1.5;
+    }
+}
+

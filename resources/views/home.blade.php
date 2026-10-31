@@ -383,6 +383,18 @@
             margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
             animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
         }
+        @media (max-width: 520px) {
+            .wp-hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.85rem;
+            }
+            .wp-hero-actions .wp-btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+        }
 
         .wp-hero-chips {
             display: flex;
@@ -644,6 +656,14 @@
             .wp-bubble-label {
                 font-size: 0.82rem;
                 max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wp-bubble-cluster {
+                transform: scale(min(1, calc((100vw - 3rem) / 330)));
+                transform-origin: center center;
+                margin: -10px auto;
             }
         }
 
@@ -1505,6 +1525,22 @@
             }
             .wp-urgency-box {
                 padding: 2.75rem 2rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .wp-urgency-box {
+                padding: 1.75rem 1.25rem;
+                border-radius: 14px;
+            }
+            .wp-timer-card {
+                padding: 1.5rem 1rem;
+            }
+            .wp-closing-banner {
+                padding: 3.5rem 0;
+            }
+            .wp-closing-in p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
             }
         }
 
@@ -2515,6 +2551,197 @@
                     <div class="wp-partner-info">
                         <div class="wp-partner-title">Snowflake</div>
                         <p class="wp-partner-desc">Unified cloud data warehousing, automated reporting pipelines &amp; governance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6C. OUR STRATEGIC PARTNERS (ECOSYSTEM) ================= -->
+    <section class="wp-section" style="background:#FFFFFF; border-bottom:1px solid #E5E7EB;" id="partners">
+        <div class="wp-wrap">
+            <div class="wp-sec-head rv">
+                <span class="wp-eyebrow"><span class="wp-dot" style="background:#0072CE;"></span> Strategic Ecosystem &amp; Alliances</span>
+                <h2>Our Partners</h2>
+                <p>
+                    Collaborating with specialized engineering firms, digital accelerators, and domain authorities across rail, industrial manufacturing, enterprise connectivity, and business intelligence to deliver end-to-end transformation.
+                </p>
+            </div>
+
+            <div class="wp-partner-grid wp-partner-grid-3">
+                <!-- 1. Pearlcon Engineering Card -->
+                <div class="wp-partner-card rv" id="partner-pearlcon" data-spectrum="blue">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);">
+                        <svg viewBox="0 0 180 50" width="165" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="10" width="30" height="30" rx="8" fill="#0072CE"/>
+                            <path d="M15 28L23 18L31 28H15Z" fill="#FFFFFF"/>
+                            <circle cx="23" cy="28" r="3" fill="#38BDF8"/>
+                            <text x="46" y="27" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="800" fill="#001B3A" letter-spacing="-0.03em">PEARLCON</text>
+                            <text x="46" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-weight="700" fill="#0072CE" letter-spacing="0.1em">ENGINEERING</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">Pearlcon Engineering</div>
+                            <span class="wp-badge wp-badge-blue" style="font-size:0.7rem; padding:0.18rem 0.6rem;">Rail &amp; OEM</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            Direct strategic rail engineering partner (<a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:#0072CE; font-weight:700;">pearlconrail.co.uk</a>). Providing verified European &amp; Asian supply chain bridges for UK rolling stock operators, bogies, track materials, and EN 45545 fire-certified precision engineering.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-train" style="color:#0072CE; margin-right:4px;"></i> Rail &amp; Infrastructure</span>
+                            <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="font-size:0.82rem; font-weight:700; color:#0072CE; display:inline-flex; align-items:center; gap:4px;">Visit Website <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. HYST Card -->
+                <div class="wp-partner-card rv" id="partner-hyst" data-spectrum="teal">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);">
+                        <svg viewBox="0 0 160 50" width="145" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="10" width="30" height="30" rx="8" fill="#00A3AD"/>
+                            <path d="M20 18V32M20 25H34M34 18V32" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                            <text x="50" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="900" fill="#001B3A" letter-spacing="-0.02em">HYST</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">HYST</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#CCFBF1; color:#0F766E;">Heavy Industry</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            High-Yield Systems Technology for heavy manufacturing, smart plant infrastructure, and predictive machinery telemetry. Integrating SCADA controls and industrial automation for high-volume, defect-free production lines.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-industry" style="color:#00A3AD; margin-right:4px;"></i> Industrial Automation</span>
+                            <a href="{{ route('landing') }}#book" style="font-size:0.82rem; font-weight:700; color:#00A3AD; display:inline-flex; align-items:center; gap:4px;">Explore Solutions <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. BizConn Card -->
+                <div class="wp-partner-card rv" id="partner-bizconn" data-spectrum="purple">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);">
+                        <svg viewBox="0 0 170 50" width="150" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="30" height="30" rx="8" fill="#72246C"/>
+                            <circle cx="20" cy="20" r="3.5" fill="#FFFFFF"/>
+                            <circle cx="30" cy="30" r="3.5" fill="#FFFFFF"/>
+                            <path d="M20 20L30 30" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            <text x="48" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="800" fill="#001B3A" letter-spacing="-0.03em">Biz<tspan fill="#72246C">Conn</tspan></text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">BizConn</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#F3E8FF; color:#6B21A8;">B2B Integration</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            Next-generation enterprise business connectivity, B2B gateway orchestration, and seamless EDI pipelines. Bridges legacy ERPs with modern cloud networks to eliminate data fragmentation across supply chains.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-network-wired" style="color:#72246C; margin-right:4px;"></i> Enterprise Gateway</span>
+                            <a href="{{ route('landing') }}#book" style="font-size:0.82rem; font-weight:700; color:#72246C; display:inline-flex; align-items:center; gap:4px;">Explore Solutions <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. BRNDS Card -->
+                <div class="wp-partner-card rv" id="partner-brnds" data-spectrum="pink">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);">
+                        <svg viewBox="0 0 170 50" width="150" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="30" height="30" rx="8" fill="#E4007C"/>
+                            <path d="M17 17H26C28.5 17 30 18.5 30 20.5C30 22 29 23 27.5 23.5C29.5 24 30.5 25.5 30.5 27.5C30.5 29.8 28.5 31.5 26 31.5H17V17ZM20.5 22.5H25C26 22.5 26.8 21.8 26.8 20.8C26.8 19.8 26 19.2 25 19.2H20.5V22.5ZM20.5 29.2H25.5C26.5 29.2 27.2 28.5 27.2 27.5C27.2 26.5 26.5 25.8 25.5 25.8H20.5V29.2Z" fill="#FFFFFF"/>
+                            <text x="48" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="19" font-weight="900" fill="#001B3A" letter-spacing="0.04em">BRNDS</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">BRNDS</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#FCE7F3; color:#9D174D;">Brand &amp; Commerce</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            Digital brand acceleration, omnichannel design systems, and conversion-focused customer experiences. Aligning brand positioning with enterprise software frontends to elevate customer acquisition and retention.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-palette" style="color:#E4007C; margin-right:4px;"></i> Brand Experience</span>
+                            <a href="{{ route('landing') }}#book" style="font-size:0.82rem; font-weight:700; color:#E4007C; display:inline-flex; align-items:center; gap:4px;">Explore Solutions <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. BI Manager Card -->
+                <div class="wp-partner-card rv" id="partner-bi-manager" data-spectrum="yellow">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 100%);">
+                        <svg viewBox="0 0 180 50" width="160" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="10" width="30" height="30" rx="8" fill="#FFB81C"/>
+                            <rect x="14" y="24" width="4" height="10" rx="1" fill="#FFFFFF"/>
+                            <rect x="21" y="18" width="4" height="16" rx="1" fill="#FFFFFF"/>
+                            <rect x="28" y="14" width="4" height="20" rx="1" fill="#FFFFFF"/>
+                            <text x="46" y="28" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="900" fill="#001B3A" letter-spacing="-0.02em">BI MANAGER</text>
+                            <text x="46" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#B45309" letter-spacing="0.08em">DATA &amp; GOVERNANCE</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">BI Manager</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#FEF3C7; color:#92400E;">Business Intelligence</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            Enterprise Business Intelligence platform providing real-time executive cockpits, automated KPI telemetry, and predictive revenue modeling. Turns disparate operational logs into actionable boardroom governance.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-chart-line" style="color:#D97706; margin-right:4px;"></i> Analytics Cockpit</span>
+                            <a href="{{ route('calculator.index') }}" style="font-size:0.82rem; font-weight:700; color:#D97706; display:inline-flex; align-items:center; gap:4px;">Calculate ROI <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Boltix Card -->
+                <div class="wp-partner-card rv" id="partner-boltix" data-spectrum="blue">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);">
+                        <svg viewBox="0 0 170 50" width="150" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="30" height="30" rx="8" fill="#4338CA"/>
+                            <path d="M26 14L16 26H24L22 36L32 24H24L26 14Z" fill="#38BDF8"/>
+                            <text x="48" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="900" fill="#001B3A" letter-spacing="-0.03em">BOLTIX</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">Boltix</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#E0E7FF; color:#3730A3;">Cloud &amp; DevOps</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            High-velocity software engineering accelerator delivering automated CI/CD pipelines, containerized microservices, and serverless workflows. Speeds up software delivery cycles while hardening cloud resilience.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-bolt" style="color:#4338CA; margin-right:4px;"></i> Velocity Accelerator</span>
+                            <a href="{{ route('landing') }}#book" style="font-size:0.82rem; font-weight:700; color:#4338CA; display:inline-flex; align-items:center; gap:4px;">Explore Solutions <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Yodoc Card -->
+                <div class="wp-partner-card rv" id="partner-yodoc" data-spectrum="green">
+                    <div class="wp-partner-media" style="background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);">
+                        <svg viewBox="0 0 170 50" width="150" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="30" height="30" rx="8" fill="#15803D"/>
+                            <path d="M18 16H28L32 20V34H18V16Z" fill="#FFFFFF"/>
+                            <path d="M22 25L25 28L30 22" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="48" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="900" fill="#001B3A" letter-spacing="-0.03em">Yodoc</text>
+                        </svg>
+                    </div>
+                    <div class="wp-partner-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; flex-wrap:wrap; gap:6px;">
+                            <div class="wp-partner-title" style="margin:0;">Yodoc</div>
+                            <span class="wp-badge" style="font-size:0.7rem; padding:0.18rem 0.6rem; background:#DCFCE7; color:#166534;">Smart Docs</span>
+                        </div>
+                        <p class="wp-partner-desc">
+                            Intelligent enterprise documentation and compliance platform. Automates standard operating procedure (SOP) digitization, verifiable audit trails, and strict regulatory documentation workflows for regulated industries.
+                        </p>
+                        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-file-shield" style="color:#15803D; margin-right:4px;"></i> Compliance Docs</span>
+                            <a href="{{ route('assessment.index') }}" style="font-size:0.82rem; font-weight:700; color:#15803D; display:inline-flex; align-items:center; gap:4px;">Audit Docs <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

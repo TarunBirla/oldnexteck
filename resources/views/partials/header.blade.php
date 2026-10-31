@@ -199,8 +199,8 @@
             border-radius: 10px 0 0 10px;
         }
         .wp-enterprise-drawer {
-            width: calc(100vw - 2.5rem);
-            right: 1.25rem;
+            width: min(340px, calc(100vw - 2rem));
+            right: 1rem;
         }
     }
 
@@ -221,7 +221,7 @@
         height: 74px;
         max-width: 1440px;
         margin: 0 auto;
-        padding: 0 clamp(1.25rem, 3.5vw, 3rem);
+        padding: 0 clamp(1rem, 2.5vw, 2.5rem);
     }
 
     /* Wipro Brand Logo: Lowercase 'nexteck' + Multi-Color Arc Dots */
@@ -231,10 +231,11 @@
         gap: 0.45rem;
         text-decoration: none;
         color: #2E1E54;
+        flex-shrink: 0;
     }
     .wp-brand-text {
         font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
-        font-size: 1.85rem;
+        font-size: clamp(1.55rem, 2.2vw, 1.85rem);
         font-weight: 800;
         color: #2E1E54;
         letter-spacing: -0.04em;
@@ -250,7 +251,7 @@
     .wp-nav-menu {
         display: flex;
         align-items: center;
-        gap: clamp(1.25rem, 2.2vw, 2.35rem);
+        gap: clamp(0.75rem, 1.4vw, 1.85rem);
         list-style: none;
         margin: 0;
         padding: 0;
@@ -262,7 +263,7 @@
 
     .wp-nav-link {
         font-family: var(--wp-font-display, 'Plus Jakarta Sans', Arial, sans-serif);
-        font-size: 0.94rem;
+        font-size: clamp(0.82rem, 0.95vw, 0.94rem);
         font-weight: 500;
         color: #111827;
         text-decoration: none;
@@ -275,6 +276,7 @@
         border: none;
         cursor: pointer;
         transition: color 0.2s ease;
+        white-space: nowrap;
     }
     .wp-nav-link:hover,
     .wp-nav-link.is-active {
@@ -310,6 +312,21 @@
         transition: all 0.2s ease;
         z-index: 1050;
     }
+    .wp-dropdown-partners {
+        min-width: 320px;
+        max-width: min(390px, 92vw);
+    }
+    .wp-drop-badge {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        margin-left: 0.45rem;
+        vertical-align: middle;
+    }
     .wp-nav-item:hover .wp-dropdown,
     .wp-nav-item:focus-within .wp-dropdown,
     .wp-nav-item.is-open .wp-dropdown {
@@ -342,6 +359,7 @@
         font-size: 0.76rem;
         color: #64748B;
         margin-top: 2px;
+        line-height: 1.35;
     }
     .wp-drop-divider {
         height: 1px;
@@ -366,6 +384,7 @@
         gap: 0.4rem;
         padding: 0.5rem 0.25rem;
         transition: color 0.2s ease;
+        white-space: nowrap;
     }
     .wp-lang-btn:hover {
         color: #2E1E54;
@@ -387,7 +406,8 @@
         z-index: 1050;
     }
     .wp-lang-wrap:hover .wp-lang-dropdown,
-    .wp-lang-wrap:focus-within .wp-lang-dropdown {
+    .wp-lang-wrap:focus-within .wp-lang-dropdown,
+    .wp-lang-wrap.is-open .wp-lang-dropdown {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -431,7 +451,25 @@
         border-color: #CBD5E1;
     }
 
-    @media (max-width: 980px) {
+    /* Desktop Compact Viewport (1081px - 1280px) */
+    @media (min-width: 1081px) and (max-width: 1280px) {
+        .wp-nav-in {
+            padding: 0 1rem;
+        }
+        .wp-nav-menu {
+            gap: 0.75rem;
+        }
+        .wp-nav-link {
+            font-size: 0.84rem;
+            padding: 0.5rem 0.1rem;
+        }
+        .wp-brand-text {
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Full Mobile & Tablet Responsive Navigation (<= 1080px) */
+    @media (max-width: 1080px) {
         .wp-burger {
             display: flex;
         }
@@ -450,13 +488,16 @@
             max-height: 0;
             opacity: 0;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             pointer-events: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1050;
         }
         .wp-nav-menu.is-open {
-            max-height: 85vh;
+            max-height: calc(100vh - 74px);
+            max-height: calc(100dvh - 74px);
             opacity: 1;
-            padding: 1rem 1.25rem 2rem;
+            padding: 1rem 1.25rem 2.5rem;
             pointer-events: auto;
         }
         .wp-nav-item {
@@ -473,33 +514,45 @@
         .wp-dropdown {
             position: static;
             box-shadow: none;
-            border: none;
-            padding: 0.25rem 0 0.5rem 1rem;
+            border: 1px solid #E2E8F0;
+            padding: 0.35rem 0;
             background: #F8FAFC;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 0.25rem 0 0.5rem;
             display: none;
             opacity: 1;
             visibility: visible;
             transform: none;
+            min-width: 100%;
         }
         .wp-nav-item.is-open .wp-dropdown {
             display: block;
+        }
+        .wp-drop-item {
+            padding: 0.65rem 1rem;
         }
         .wp-lang-wrap {
             padding: 0.85rem 0.25rem;
             border-bottom: 1px solid #EEF2F6;
         }
+        .wp-lang-btn {
+            width: 100%;
+            justify-content: space-between;
+            padding: 0;
+        }
         .wp-lang-dropdown {
             position: static;
             box-shadow: none;
-            border: none;
-            padding: 0.25rem 0 0.5rem 1rem;
+            border: 1px solid #E2E8F0;
+            padding: 0.35rem 0;
             background: #F8FAFC;
+            border-radius: 10px;
+            margin: 0.25rem 0 0.5rem;
             display: none;
             opacity: 1;
             visibility: visible;
             transform: none;
+            min-width: 100%;
         }
         .wp-lang-wrap.is-open .wp-lang-dropdown {
             display: block;
@@ -608,6 +661,47 @@
                 </div>
             </div>
 
+            <!-- Our Partners Dropdown (Pearlcon, HYST, BizConn, BRNDS, BI Manager, Boltix, Yodoc) -->
+            <div class="wp-nav-item">
+                <button type="button" class="wp-nav-link" aria-haspopup="true" aria-expanded="false" id="navPartnersBtn">
+                    Our Partners <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i>
+                </button>
+                <div class="wp-dropdown wp-dropdown-partners" aria-labelledby="navPartnersBtn">
+                    <a href="{{ route('home') }}#partner-pearlcon" class="wp-drop-item">
+                        <span class="wp-drop-title">Pearlcon Engineering <span class="wp-drop-badge" style="background:#E0F2FE; color:#0369A1;">Rail &amp; OEM</span></span>
+                        <span class="wp-drop-sub">Rolling stock, bogies, precision casting &amp; railway spares</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-hyst" class="wp-drop-item">
+                        <span class="wp-drop-title">HYST <span class="wp-drop-badge" style="background:#CCFBF1; color:#0F766E;">Heavy Industry</span></span>
+                        <span class="wp-drop-sub">High-yield systems, plant engineering &amp; industrial machinery</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-bizconn" class="wp-drop-item">
+                        <span class="wp-drop-title">BizConn <span class="wp-drop-badge" style="background:#F3E8FF; color:#6B21A8;">B2B Integration</span></span>
+                        <span class="wp-drop-sub">Enterprise business connectivity, EDI pipelines &amp; supplier hubs</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-brnds" class="wp-drop-item">
+                        <span class="wp-drop-title">BRNDS <span class="wp-drop-badge" style="background:#FCE7F3; color:#9D174D;">Brand &amp; Growth</span></span>
+                        <span class="wp-drop-sub">Brand architecture, omnichannel strategy &amp; digital commerce</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-bi-manager" class="wp-drop-item">
+                        <span class="wp-drop-title">BI Manager <span class="wp-drop-badge" style="background:#FEF3C7; color:#92400E;">Analytics</span></span>
+                        <span class="wp-drop-sub">Executive BI dashboards, KPI governance &amp; predictive models</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-boltix" class="wp-drop-item">
+                        <span class="wp-drop-title">Boltix <span class="wp-drop-badge" style="background:#E0E7FF; color:#3730A3;">Cloud &amp; DevOps</span></span>
+                        <span class="wp-drop-sub">Rapid cloud modernization, automated CI/CD &amp; microservices</span>
+                    </a>
+                    <a href="{{ route('home') }}#partner-yodoc" class="wp-drop-item">
+                        <span class="wp-drop-title">Yodoc <span class="wp-drop-badge" style="background:#DCFCE7; color:#166534;">Compliance Docs</span></span>
+                        <span class="wp-drop-sub">Intelligent document management, compliance &amp; workflow automation</span>
+                    </a>
+                    <div class="wp-drop-divider"></div>
+                    <a href="{{ route('home') }}#partners" class="wp-drop-item" style="color:#382356; font-weight:700;">
+                        <span>Explore Strategic Partner Ecosystem <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></span>
+                    </a>
+                </div>
+            </div>
+
             <!-- SME Toolkit -->
             <div class="wp-nav-item">
                 <a href="{{ route('toolkit.index') }}" class="wp-nav-link {{ request()->routeIs('toolkit.*') ? 'is-active' : '' }}">SME Toolkit</a>
@@ -653,12 +747,32 @@
     (function() {
         const btn = document.getElementById('wpBurgerBtn');
         const menu = document.getElementById('wpNavLinks');
+        const langWrap = document.querySelector('.wp-lang-wrap');
+        const langBtn = document.getElementById('wpLangBtn');
         if (!btn || !menu) return;
+
+        function isMobileView() {
+            return window.innerWidth <= 1080 || (btn && window.getComputedStyle(btn).display !== 'none');
+        }
 
         function toggleMenu() {
             const isOpen = menu.classList.toggle('is-open');
             btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             btn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMenu() {
+            if (menu.classList.contains('is-open')) {
+                menu.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
         }
 
         btn.addEventListener('click', function(e) {
@@ -673,30 +787,55 @@
             const dropdown = item.querySelector('.wp-dropdown');
             if (dropdown && linkOrBtn) {
                 linkOrBtn.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 960) {
-                        if (linkOrBtn.tagName.toLowerCase() === 'button') {
-                            e.preventDefault();
-                            item.classList.toggle('is-open');
-                        }
+                    if (isMobileView() && linkOrBtn.tagName.toLowerCase() === 'button') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Close other sibling dropdowns for clean mobile accordion
+                        itemsWithDropdowns.forEach(function(sibling) {
+                            if (sibling !== item) sibling.classList.remove('is-open');
+                        });
+                        if (langWrap) langWrap.classList.remove('is-open');
+                        item.classList.toggle('is-open');
                     }
                 });
             }
         });
 
+        // Language toggle on mobile / touch
+        if (langBtn && langWrap) {
+            langBtn.addEventListener('click', function(e) {
+                if (isMobileView()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    itemsWithDropdowns.forEach(function(item) {
+                        item.classList.remove('is-open');
+                    });
+                    langWrap.classList.toggle('is-open');
+                }
+            });
+        }
+
+        // Close menu on clicking outside
         document.addEventListener('click', function(e) {
             if (!menu.contains(e.target) && !btn.contains(e.target) && menu.classList.contains('is-open')) {
-                toggleMenu();
+                closeMenu();
             }
         });
 
+        // Close mobile drawer when an inner link is clicked
         menu.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 960 && !link.classList.contains('has-children')) {
-                    menu.classList.remove('is-open');
-                    btn.setAttribute('aria-expanded', 'false');
-                    btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            link.addEventListener('click', function(e) {
+                if (isMobileView()) {
+                    closeMenu();
                 }
             });
+        });
+
+        // Window resize safeguard
+        window.addEventListener('resize', function() {
+            if (!isMobileView() && menu.classList.contains('is-open')) {
+                closeMenu();
+            }
         });
     })();
 </script>
