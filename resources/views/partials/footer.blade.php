@@ -1,4 +1,4 @@
-<!-- Wipro-Inspired Enterprise Footer System -->
+<!-- Nexteck Enterprise Footer System -->
 <style>
     .wp-footer {
         background: var(--wp-navy-950, #000F24);
@@ -9,7 +9,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    /* Wipro Rainbow Spectrum Top Border Bar */
+    /* Nexteck Spectrum Top Border Bar */
     .wp-footer-spectrum {
         position: absolute;
         top: 0;
@@ -73,7 +73,7 @@
         transform: translateX(3px);
     }
 
-    /* Wipro Minimalist Logo in Footer (Identical to Header) */
+    /* Nexteck Minimalist Logo in Footer (Identical to Header) */
     .wp-foot-logo-brand {
         display: inline-flex;
         align-items: center;
@@ -297,7 +297,7 @@
 </style>
 
 <footer class="wp-footer">
-    <!-- Wipro Rainbow Spectrum Line Accent -->
+    <!-- Nexteck Spectrum Line Accent -->
     <div class="wp-footer-spectrum" aria-hidden="true"></div>
 
     <div class="wp-wrap">
@@ -407,7 +407,7 @@
     </div>
 </footer>
 
-<!-- Wipro Floating Sticky Quick Action Pill (Compact badge, expands smoothly on hover) -->
+<!-- Nexteck Floating Sticky Quick Action Pill (Compact badge, expands smoothly on hover) -->
 <aside class="wp-sticky-cta" id="wpStickyCta" aria-label="Quick Action">
     <a href="{{ route('landing') }}#book" class="wp-sticky-cta-link" title="Click to view availability or book call">
         <div class="cta-label">

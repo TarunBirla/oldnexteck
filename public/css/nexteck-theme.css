@@ -1,6 +1,6 @@
 /* ==========================================================================
    NEXTECK ENTERPRISE DESIGN SYSTEM
-   Wipro-Inspired Corporate Sophistication & Visual Architecture
+   Nexteck Enterprise Corporate Sophistication & Visual Architecture
    ========================================================================== */
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
@@ -47,7 +47,7 @@
     --wp-border-focus: #382356;
     --wp-border-dark: rgba(255, 255, 255, 0.12);
 
-    /* Wipro-Inspired Spectrum Accent Array */
+    /* Nexteck Spectrum Accent Array */
     --wp-spectrum-blue: #0072CE;
     --wp-spectrum-teal: #00A3AD;
     --wp-spectrum-green: #78BE20;
@@ -311,7 +311,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   SECTION HEADINGS & EYEBROWS (WIPRO EDITORIAL STYLE)
+   SECTION HEADINGS & EYEBROWS (NEXTECK EDITORIAL STYLE)
    ========================================================================== */
 
 .wp-sec-head {
@@ -346,7 +346,7 @@ button, input, select, textarea {
     color: #94A3B8;
 }
 
-/* Wipro Eyebrow Tag with Pulsing Dot */
+/* Nexteck Eyebrow Tag with Pulsing Dot */
 .wp-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -376,7 +376,7 @@ button, input, select, textarea {
     box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
 }
 
-/* Wipro Spectrum Multi-Color Bar */
+/* Nexteck Spectrum Multi-Color Bar */
 .wp-spectrum-bar {
     height: 3px;
     width: 100%;
@@ -538,7 +538,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   WIPRO ENTERPRISE SPLIT CARDS (PARTNER & PLATFORM CARDS)
+   NEXTECK ENTERPRISE SPLIT CARDS (PARTNER & PLATFORM CARDS)
    Clean white cards with top logo compartment, horizontal divider, 
    bold enterprise title, and descriptive text.
    ========================================================================== */
@@ -815,7 +815,7 @@ button, input, select, textarea {
 
 
 /* ==========================================================================
-   PAGINATION STYLES (WIPRO SYSTEM)
+   PAGINATION STYLES (NEXTECK SYSTEM)
    ========================================================================== */
 
 .custom-pagination {
@@ -915,7 +915,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   GLOBAL ENTERPRISE ANIMATIONS & SCROLL REVEAL (WIPRO-GRADE)
+   GLOBAL ENTERPRISE ANIMATIONS & SCROLL REVEAL (NEXTECK-GRADE)
    ========================================================================== */
 
 /* Hero Media Layer & Video Background */
@@ -1016,8 +1016,8 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   Wipro Enterprise Horizontal Split Cards Section (#audit)
-   Inspired by Wipro's Hachette Case Study / Digital Transformation Split Cards
+   Nexteck Enterprise Horizontal Split Cards Section (#audit)
+   Enterprise Architecture & Digital Transformation Split Cards
    ========================================================================== */
 .wp-section-dark-plum {
     background: #18092B;
