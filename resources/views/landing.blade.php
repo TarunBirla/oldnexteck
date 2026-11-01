@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/nexteck-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
 
     <script type="application/ld+json">
     {
@@ -371,15 +371,15 @@
             }
         }
 
-        /* ================= nexteck-STYLE CONSULTATION SECTION ================= */
-        .wp-nexteck-contact-sec {
+        /* ================= WIPRO-STYLE CONSULTATION SECTION ================= */
+        .wp-wipro-contact-sec {
             background: #F8FAFC;
             padding: 5.5rem 0 6.5rem;
             position: relative;
             border-top: 1px solid var(--wp-border);
             border-bottom: 1px solid var(--wp-border);
         }
-        .wp-nexteck-form-container {
+        .wp-wipro-form-container {
             max-width: 780px;
             margin: 0 auto;
             background: #FFFFFF;
@@ -388,25 +388,25 @@
             padding: clamp(2rem, 5vw, 3.75rem);
             box-shadow: 0 25px 60px -15px rgba(0, 27, 58, 0.08), 0 0 0 1px rgba(0, 82, 204, 0.04);
         }
-        .wp-nexteck-form-header {
+        .wp-wipro-form-header {
             text-align: center;
             margin-bottom: 2.5rem;
         }
-        .wp-nexteck-form-header h2 {
+        .wp-wipro-form-header h2 {
             font-size: clamp(1.85rem, 3.2vw, 2.5rem);
             color: var(--wp-navy-900);
             margin-bottom: 0.75rem;
             font-weight: 800;
             letter-spacing: -0.025em;
         }
-        .wp-nexteck-form-header p {
+        .wp-wipro-form-header p {
             font-size: 1.05rem;
             color: var(--wp-text-muted);
             max-width: 620px;
             margin: 0 auto 1.25rem;
             line-height: 1.6;
         }
-        .nexteck-cd-pill {
+        .wipro-cd-pill {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -418,39 +418,39 @@
             border-radius: 9999px;
             font-weight: 600;
         }
-        .nexteck-cd-pill b {
+        .wipro-cd-pill b {
             color: #382356;
             font-weight: 800;
         }
-        .wp-nexteck-form {
+        .wp-wipro-form {
             display: flex;
             flex-direction: column;
             gap: 1.35rem;
         }
-        .wp-nexteck-grid-2 {
+        .wp-wipro-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.35rem;
         }
         @media (max-width: 640px) {
-            .wp-nexteck-grid-2 {
+            .wp-wipro-grid-2 {
                 grid-template-columns: 1fr;
             }
         }
-        .wp-nexteck-field {
+        .wp-wipro-field {
             display: flex;
             flex-direction: column;
             gap: 0.45rem;
         }
-        .wp-nexteck-field label {
+        .wp-wipro-field label {
             font-size: 0.88rem;
             font-weight: 600;
             color: var(--wp-navy-900);
             letter-spacing: 0.01em;
         }
-        .wp-nexteck-input,
-        .wp-nexteck-select,
-        .wp-nexteck-textarea {
+        .wp-wipro-input,
+        .wp-wipro-select,
+        .wp-wipro-textarea {
             background: #FFFFFF;
             border: 1px solid #CBD5E1;
             border-radius: 10px;
@@ -462,25 +462,25 @@
             box-sizing: border-box;
             width: 100%;
         }
-        .wp-nexteck-input:focus,
-        .wp-nexteck-select:focus,
-        .wp-nexteck-textarea:focus {
+        .wp-wipro-input:focus,
+        .wp-wipro-select:focus,
+        .wp-wipro-textarea:focus {
             outline: none;
             border-color: #382356;
             box-shadow: 0 0 0 4px rgba(56, 35, 86, 0.12);
         }
-        .wp-nexteck-textarea {
+        .wp-wipro-textarea {
             resize: vertical;
             min-height: 125px;
             line-height: 1.55;
         }
-        .wp-nexteck-consents {
+        .wp-wipro-consents {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
             padding: 0.75rem 0;
         }
-        .wp-nexteck-check-label {
+        .wp-wipro-check-label {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
@@ -489,7 +489,7 @@
             cursor: pointer;
             line-height: 1.5;
         }
-        .wp-nexteck-checkbox {
+        .wp-wipro-checkbox {
             width: 18px;
             height: 18px;
             margin-top: 2px;
@@ -497,11 +497,11 @@
             cursor: pointer;
             flex-shrink: 0;
         }
-        .wp-nexteck-submit-wrap {
+        .wp-wipro-submit-wrap {
             text-align: center;
             margin-top: 1rem;
         }
-        .wp-nexteck-submit-btn {
+        .wp-wipro-submit-btn {
             background: #382356;
             color: #FFFFFF !important;
             border: none;
@@ -517,12 +517,12 @@
             transition: all 0.25s ease;
             box-shadow: 0 10px 25px -5px rgba(56, 35, 86, 0.35);
         }
-        .wp-nexteck-submit-btn:hover {
+        .wp-wipro-submit-btn:hover {
             background: #26163D;
             transform: translateY(-2px);
             box-shadow: 0 15px 35px -5px rgba(56, 35, 86, 0.45);
         }
-        .wp-nexteck-guarantee {
+        .wp-wipro-guarantee {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -722,7 +722,7 @@
             margin-bottom: 0.35rem;
         }
 
-        /* Pack Deliverables Grid - Exact nexteck Outline Top-Intersecting Cards */
+        /* Pack Deliverables Grid - Exact Wipro Outline Top-Intersecting Cards */
         .pack-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1267,11 +1267,11 @@
         </div>
     </header>
 
-    <!-- ================= 2. nexteck-INSPIRED CONSULTATION & CONTACT SECTION ================= -->
-    <section class="wp-nexteck-contact-sec" id="book">
+    <!-- ================= 2. WIPRO-INSPIRED CONSULTATION & CONTACT SECTION ================= -->
+    <section class="wp-wipro-contact-sec" id="book">
         <div class="wp-wrap">
-            <div class="wp-nexteck-form-container rv in">
-                <div class="wp-nexteck-form-header">
+            <div class="wp-wipro-form-container rv in">
+                <div class="wp-wipro-form-header">
                     <div class="scarcity" style="margin-bottom:0.75rem;">
                         <span style="width:7px; height:7px; border-radius:50%; background:var(--wp-blue); display:inline-block;"></span>
                         <b>Executive Consultation</b> &bull; Limited UK Engagements
@@ -1280,40 +1280,40 @@
                     <p>
                         A complimentary 45-minute live consultation with Mohammed Nasar. We evaluate your current bottlenecks, score your readiness, and deliver an objective roadmap. Strictly confidential under mutual NDA.
                     </p>
-                    <div class="nexteck-cd-pill">
+                    <div class="wipro-cd-pill">
                         <i class="fa-regular fa-calendar-days" style="color:var(--wp-blue);"></i>
                         <span>Q4 2026 Audit Window:</span>
                         <b id="cd3-d">--</b> days &bull; <b id="cd3-h">--</b> hrs &bull; <b id="cd3-m">--</b> min &bull; <b id="cd3-s">--</b> sec remaining
                     </div>
                 </div>
 
-                <form id="leadForm" class="wp-nexteck-form">
+                <form id="leadForm" class="wp-wipro-form">
                     @csrf
-                    <div class="wp-nexteck-grid-2">
-                        <div class="wp-nexteck-field">
+                    <div class="wp-wipro-grid-2">
+                        <div class="wp-wipro-field">
                             <label for="f-first-name">First Name *</label>
-                            <input type="text" id="f-first-name" class="wp-nexteck-input" placeholder="First Name" required>
+                            <input type="text" id="f-first-name" class="wp-wipro-input" placeholder="First Name" required>
                         </div>
-                        <div class="wp-nexteck-field">
+                        <div class="wp-wipro-field">
                             <label for="f-last-name">Last Name *</label>
-                            <input type="text" id="f-last-name" class="wp-nexteck-input" placeholder="Last Name" required>
+                            <input type="text" id="f-last-name" class="wp-wipro-input" placeholder="Last Name" required>
                         </div>
                     </div>
                     <input type="hidden" id="f-name" name="full_name" value="">
 
-                    <div class="wp-nexteck-field">
+                    <div class="wp-wipro-field">
                         <label for="f-email">Work Email *</label>
-                        <input type="email" id="f-email" name="work_email" class="wp-nexteck-input" placeholder="Work Email" required>
+                        <input type="email" id="f-email" name="work_email" class="wp-wipro-input" placeholder="Work Email" required>
                     </div>
 
-                    <div class="wp-nexteck-grid-2">
-                        <div class="wp-nexteck-field">
+                    <div class="wp-wipro-grid-2">
+                        <div class="wp-wipro-field">
                             <label for="f-company">Company *</label>
-                            <input type="text" id="f-company" name="company" class="wp-nexteck-input" placeholder="Company" required>
+                            <input type="text" id="f-company" name="company" class="wp-wipro-input" placeholder="Company" required>
                         </div>
-                        <div class="wp-nexteck-field">
+                        <div class="wp-wipro-field">
                             <label for="f-size">Team Size</label>
-                            <select id="f-size" name="team_size" class="wp-nexteck-select">
+                            <select id="f-size" name="team_size" class="wp-wipro-select">
                                 <option>Just me</option>
                                 <option>2–10</option>
                                 <option selected>11–50</option>
@@ -1323,9 +1323,9 @@
                         </div>
                     </div>
 
-                    <div class="wp-nexteck-field">
+                    <div class="wp-wipro-field">
                         <label for="f-pain">Primary Technology Bottleneck / Area of Interest</label>
-                        <select id="f-pain" name="pain_point" class="wp-nexteck-select">
+                        <select id="f-pain" name="pain_point" class="wp-wipro-select">
                             <option>Manual processes eating our week</option>
                             <option>Disconnected systems &amp; re-keyed data</option>
                             <option>Can't scale — I'm the bottleneck</option>
@@ -1335,29 +1335,29 @@
                         </select>
                     </div>
 
-                    <div class="wp-nexteck-field">
+                    <div class="wp-wipro-field">
                         <label for="f-message">Message / Context (Optional)</label>
-                        <textarea id="f-message" name="message" class="wp-nexteck-textarea" placeholder="Briefly describe your systems, current bottlenecks, or software objectives..." rows="4"></textarea>
+                        <textarea id="f-message" name="message" class="wp-wipro-textarea" placeholder="Briefly describe your systems, current bottlenecks, or software objectives..." rows="4"></textarea>
                     </div>
 
-                    <!-- nexteck-Style Checkbox Agreements -->
-                    <div class="wp-nexteck-consents">
-                        <label class="wp-nexteck-check-label">
-                            <input type="checkbox" required checked class="wp-nexteck-checkbox">
+                    <!-- Wipro-Style Checkbox Agreements -->
+                    <div class="wp-wipro-consents">
+                        <label class="wp-wipro-check-label">
+                            <input type="checkbox" required checked class="wp-wipro-checkbox">
                             <span>I confirm I have read and agree to Nexteck's <a href="{{ url('/privacy-policy') }}" target="_blank" style="color:var(--wp-blue); text-decoration:underline; font-weight:600;">Privacy Policy</a> and consent to sharing my business details under mutual NDA. *</span>
                         </label>
-                        <label class="wp-nexteck-check-label">
-                            <input type="checkbox" checked class="wp-nexteck-checkbox">
+                        <label class="wp-wipro-check-label">
+                            <input type="checkbox" checked class="wp-wipro-checkbox">
                             <span>I would like to receive technology strategy insights, benchmark updates, and automation guides from Nexteck.</span>
                         </label>
                     </div>
 
-                    <!-- nexteck-Style Centered Pill Submit Button -->
-                    <div class="wp-nexteck-submit-wrap">
-                        <button type="submit" id="submitBtn" class="wp-nexteck-submit-btn">
+                    <!-- Wipro-Style Centered Pill Submit Button -->
+                    <div class="wp-wipro-submit-wrap">
+                        <button type="submit" id="submitBtn" class="wp-wipro-submit-btn">
                             Submit Consultation Request <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i>
                         </button>
-                        <div class="wp-nexteck-guarantee">
+                        <div class="wp-wipro-guarantee">
                             <i class="fa-solid fa-shield-halved" style="color:var(--wp-blue);"></i>
                             <span>Protected by bilateral Non-Disclosure Agreement (NDA). Zero sales pressure.</span>
                         </div>
@@ -1520,7 +1520,7 @@
                     <span class="val">Value £600</span>
                 </div>
 
-                <!-- 4. AI & IT Opportunity Log (Microchip Outline from nexteck Style) -->
+                <!-- 4. AI & IT Opportunity Log (Microchip Outline from Wipro Style) -->
                 <div class="pack rv">
                     <div class="pack-top-icon">
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1537,7 +1537,7 @@
                     <span class="val">Value £1,500</span>
                 </div>
 
-                <!-- 5. SOP & Delegation Register (Padlock Outline from nexteck Style) -->
+                <!-- 5. SOP & Delegation Register (Padlock Outline from Wipro Style) -->
                 <div class="pack rv">
                     <div class="pack-top-icon">
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1581,7 +1581,7 @@
                     <span class="val">Value £500</span>
                 </div>
 
-                <!-- 8. Walkthrough & Handover (Cloud Upload Outline from nexteck Style) -->
+                <!-- 8. Walkthrough & Handover (Cloud Upload Outline from Wipro Style) -->
                 <div class="pack rv">
                     <div class="pack-top-icon">
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1955,7 +1955,7 @@
                 .then(data => {
                     if (data.success) {
                         leadForm.style.display = "none";
-                        const formHeader = document.querySelector(".wp-nexteck-form-header");
+                        const formHeader = document.querySelector(".wp-wipro-form-header");
                         if (formHeader) formHeader.style.display = "none";
                         document.getElementById("formSuccess").style.display = "block";
                     } else {

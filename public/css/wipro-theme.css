@@ -1,60 +1,60 @@
 /* ==========================================================================
    NEXTECK ENTERPRISE DESIGN SYSTEM
-   nexteck-Inspired Corporate Sophistication & Visual Architecture
+   Wipro-Inspired Corporate Sophistication & Visual Architecture
    ========================================================================== */
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
     /* Enterprise Navy Palette */
-    --wp-navy-950: #000f24;
-    --wp-navy-900: #001b3a;
+    --wp-navy-950: #000F24;
+    --wp-navy-900: #001B3A;
     --wp-navy-800: #082142;
-    --wp-navy-700: #0e2f59;
+    --wp-navy-700: #0E2F59;
     --wp-navy-600: #174278;
-    --wp-navy: #001b3a;
-    --wp-navy-dark: #000f24;
+    --wp-navy: #001B3A;
+    --wp-navy-dark: #000F24;
     --wp-navy-light: #082142;
 
     /* Primary Action Brand Color (Deep Imperial Purple) */
     --wp-blue: #382356;
-    --wp-blue-hover: #26163d;
-    --wp-blue-active: #1d102e;
-    --wp-blue-light: #4a306e;
+    --wp-blue-hover: #26163D;
+    --wp-blue-active: #1D102E;
+    --wp-blue-light: #4A306E;
     --wp-blue-soft: rgba(56, 35, 86, 0.08);
-    --wp-blue-50: #f8f5fa;
-    --wp-blue-100: #efeaf4;
+    --wp-blue-50: #F8F5FA;
+    --wp-blue-100: #EFEAF4;
 
     /* Canvas & Background Surfaces */
-    --wp-canvas: #ffffff;
-    --wp-bg-light: #f8fafc;
-    --wp-bg-soft: #f1f5f9;
-    --wp-bg-card: #ffffff;
-    --wp-bg-elevated: #ffffff;
+    --wp-canvas: #FFFFFF;
+    --wp-bg-light: #F8FAFC;
+    --wp-bg-soft: #F1F5F9;
+    --wp-bg-card: #FFFFFF;
+    --wp-bg-elevated: #FFFFFF;
 
     /* Text & Content */
-    --wp-text-main: #0b132b;
+    --wp-text-main: #0B132B;
     --wp-text-heading: #071124;
     --wp-text-body: #334155;
-    --wp-text-muted: #64748b;
-    --wp-text-light: #94a3b8;
-    --wp-text-inverse: #ffffff;
+    --wp-text-muted: #64748B;
+    --wp-text-light: #94A3B8;
+    --wp-text-inverse: #FFFFFF;
 
     /* Dividers & Borders */
-    --wp-border: #e2e8f0;
-    --wp-border-subtle: #eef2f6;
+    --wp-border: #E2E8F0;
+    --wp-border-subtle: #EEF2F6;
     --wp-border-focus: #382356;
     --wp-border-dark: rgba(255, 255, 255, 0.12);
 
-    /* nexteck-Inspired Spectrum Accent Array */
-    --wp-spectrum-blue: #0072ce;
-    --wp-spectrum-teal: #00a3ad;
-    --wp-spectrum-green: #78be20;
-    --wp-spectrum-yellow: #ffb81c;
-    --wp-spectrum-pink: #e4007c;
-    --wp-spectrum-purple: #72246c;
-    --wp-spectrum-cyan: #38bdf8;
+    /* Wipro-Inspired Spectrum Accent Array */
+    --wp-spectrum-blue: #0072CE;
+    --wp-spectrum-teal: #00A3AD;
+    --wp-spectrum-green: #78BE20;
+    --wp-spectrum-yellow: #FFB81C;
+    --wp-spectrum-pink: #E4007C;
+    --wp-spectrum-purple: #72246C;
+    --wp-spectrum-cyan: #38BDF8;
 
     /* Geometry, Radii & Shadows */
     --wp-radius-xs: 4px;
@@ -66,22 +66,14 @@
 
     --wp-shadow-xs: 0 1px 3px rgba(0, 27, 58, 0.04);
     --wp-shadow-sm: 0 2px 8px rgba(0, 27, 58, 0.05);
-    --wp-shadow-md:
-        0 8px 24px -4px rgba(0, 27, 58, 0.08),
-        0 4px 8px -4px rgba(0, 27, 58, 0.03);
-    --wp-shadow-lg:
-        0 18px 38px -6px rgba(0, 27, 58, 0.12),
-        0 8px 16px -6px rgba(0, 27, 58, 0.04);
+    --wp-shadow-md: 0 8px 24px -4px rgba(0, 27, 58, 0.08), 0 4px 8px -4px rgba(0, 27, 58, 0.03);
+    --wp-shadow-lg: 0 18px 38px -6px rgba(0, 27, 58, 0.12), 0 8px 16px -6px rgba(0, 27, 58, 0.04);
     --wp-shadow-xl: 0 24px 50px -10px rgba(0, 27, 58, 0.2);
     --wp-shadow-card: 0 4px 20px rgba(0, 27, 58, 0.06);
 
     /* Typography Fonts */
-    --wp-font-display:
-        "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-    --wp-font-body:
-        "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        sans-serif;
+    --wp-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --wp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     /* Transitions */
     --wp-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -90,9 +82,7 @@
 }
 
 /* Base Reset & Rendering */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -115,12 +105,7 @@ body {
 }
 
 /* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--wp-font-display);
     color: var(--wp-text-heading);
     font-weight: 700;
@@ -170,9 +155,7 @@ p:last-child {
 a {
     color: var(--wp-blue);
     text-decoration: none;
-    transition:
-        color var(--wp-transition-fast),
-        transform var(--wp-transition-fast);
+    transition: color var(--wp-transition-fast), transform var(--wp-transition-fast);
 }
 a:hover {
     color: var(--wp-blue-hover);
@@ -184,10 +167,7 @@ img {
     display: block;
 }
 
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
 }
@@ -248,13 +228,8 @@ textarea {
 }
 
 .wp-section-navy {
-    background: linear-gradient(
-        135deg,
-        var(--wp-navy-950) 0%,
-        var(--wp-navy-900) 60%,
-        var(--wp-navy-800) 100%
-    );
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--wp-navy-950) 0%, var(--wp-navy-900) 60%, var(--wp-navy-800) 100%);
+    color: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -282,143 +257,36 @@ textarea {
 .bg-navy,
 .bg-dark,
 [data-theme="dark"] {
-    color: #ffffff;
+    color: #FFFFFF;
 }
 
-.wp-section-navy h1,
-.wp-section-navy h2,
-.wp-section-navy h3,
-.wp-section-navy h4,
-.wp-section-navy h5,
-.wp-section-navy h6,
-.wp-hero h1,
-.wp-hero h2,
-.wp-hero h3,
-.wp-hero h4,
-.wp-hero h5,
-.wp-hero h6,
-.hero-sec h1,
-.hero-sec h2,
-.hero-sec h3,
-.hero-sec h4,
-.hero-sec h5,
-.hero-sec h6,
-.hero h1,
-.hero h2,
-.hero h3,
-.hero h4,
-.hero h5,
-.hero h6,
-.page-hero h1,
-.page-hero h2,
-.page-hero h3,
-.page-hero h4,
-.page-hero h5,
-.page-hero h6,
-.ind-hero h1,
-.ind-hero h2,
-.ind-hero h3,
-.ind-hero h4,
-.ind-hero h5,
-.ind-hero h6,
-.detail-hero h1,
-.detail-hero h2,
-.detail-hero h3,
-.detail-hero h4,
-.detail-hero h5,
-.detail-hero h6,
-.blogs-hero h1,
-.blogs-hero h2,
-.blogs-hero h3,
-.blogs-hero h4,
-.blogs-hero h5,
-.blogs-hero h6,
-.blog-hero h1,
-.blog-hero h2,
-.blog-hero h3,
-.blog-hero h4,
-.blog-hero h5,
-.blog-hero h6,
-.tk-hero h1,
-.tk-hero h2,
-.tk-hero h3,
-.tk-hero h4,
-.tk-hero h5,
-.tk-hero h6,
-.lp-hero h1,
-.lp-hero h2,
-.lp-hero h3,
-.lp-hero h4,
-.lp-hero h5,
-.lp-hero h6,
-.lp-hero-left h1,
-.lp-hero-left h2,
-.lp-hero-left h3,
-.lp-hero-left h4,
-.final-lp h1,
-.final-lp h2,
-.final-lp h3,
-.final-lp h4,
-.final-lp h5,
-.final-lp h6,
-.final-lp-in h1,
-.final-lp-in h2,
-.final-lp-in h3,
-.final-lp-in h4,
-.wp-closing-banner h1,
-.wp-closing-banner h2,
-.wp-closing-banner h3,
-.wp-closing-banner h4,
-.wp-closing-banner h5,
-.wp-closing-banner h6,
-.wp-closing-in h1,
-.wp-closing-in h2,
-.wp-closing-in h3,
-.wp-closing-in h4,
-.wp-urgency-box h1,
-.wp-urgency-box h2,
-.wp-urgency-box h3,
-.wp-urgency-box h4,
-.wp-urgency-box h5,
-.wp-urgency-box h6,
-.wp-timer-card h1,
-.wp-timer-card h2,
-.wp-timer-card h3,
-.wp-timer-card h4,
-.cta-banner h1,
-.cta-banner h2,
-.cta-banner h3,
-.cta-banner h4,
-.cta-banner h5,
-.cta-banner h6,
-.submit-bar h1,
-.submit-bar h2,
-.submit-bar h3,
-.submit-bar h4,
-.submit-bar h5,
-.submit-bar h6,
-.bg-navy h1,
-.bg-navy h2,
-.bg-navy h3,
-.bg-navy h4,
-.bg-dark h1,
-.bg-dark h2,
-.bg-dark h3,
-.bg-dark h4,
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-.on-navy h1,
-.on-navy h2,
-.on-navy h3,
-.on-navy h4,
+.wp-section-navy h1, .wp-section-navy h2, .wp-section-navy h3, .wp-section-navy h4, .wp-section-navy h5, .wp-section-navy h6,
+.wp-hero h1, .wp-hero h2, .wp-hero h3, .wp-hero h4, .wp-hero h5, .wp-hero h6,
+.hero-sec h1, .hero-sec h2, .hero-sec h3, .hero-sec h4, .hero-sec h5, .hero-sec h6,
+.hero h1, .hero h2, .hero h3, .hero h4, .hero h5, .hero h6,
+.page-hero h1, .page-hero h2, .page-hero h3, .page-hero h4, .page-hero h5, .page-hero h6,
+.ind-hero h1, .ind-hero h2, .ind-hero h3, .ind-hero h4, .ind-hero h5, .ind-hero h6,
+.detail-hero h1, .detail-hero h2, .detail-hero h3, .detail-hero h4, .detail-hero h5, .detail-hero h6,
+.blogs-hero h1, .blogs-hero h2, .blogs-hero h3, .blogs-hero h4, .blogs-hero h5, .blogs-hero h6,
+.blog-hero h1, .blog-hero h2, .blog-hero h3, .blog-hero h4, .blog-hero h5, .blog-hero h6,
+.tk-hero h1, .tk-hero h2, .tk-hero h3, .tk-hero h4, .tk-hero h5, .tk-hero h6,
+.lp-hero h1, .lp-hero h2, .lp-hero h3, .lp-hero h4, .lp-hero h5, .lp-hero h6,
+.lp-hero-left h1, .lp-hero-left h2, .lp-hero-left h3, .lp-hero-left h4,
+.final-lp h1, .final-lp h2, .final-lp h3, .final-lp h4, .final-lp h5, .final-lp h6,
+.final-lp-in h1, .final-lp-in h2, .final-lp-in h3, .final-lp-in h4,
+.wp-closing-banner h1, .wp-closing-banner h2, .wp-closing-banner h3, .wp-closing-banner h4, .wp-closing-banner h5, .wp-closing-banner h6,
+.wp-closing-in h1, .wp-closing-in h2, .wp-closing-in h3, .wp-closing-in h4,
+.wp-urgency-box h1, .wp-urgency-box h2, .wp-urgency-box h3, .wp-urgency-box h4, .wp-urgency-box h5, .wp-urgency-box h6,
+.wp-timer-card h1, .wp-timer-card h2, .wp-timer-card h3, .wp-timer-card h4,
+.cta-banner h1, .cta-banner h2, .cta-banner h3, .cta-banner h4, .cta-banner h5, .cta-banner h6,
+.submit-bar h1, .submit-bar h2, .submit-bar h3, .submit-bar h4, .submit-bar h5, .submit-bar h6,
+.bg-navy h1, .bg-navy h2, .bg-navy h3, .bg-navy h4,
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4,
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4,
 .wp-sec-head.on-navy h2,
-.text-white h1,
-.text-white h2,
-.text-white h3,
-.text-white h4 {
-    color: #ffffff !important;
+.text-white h1, .text-white h2, .text-white h3, .text-white h4 {
+    color: #FFFFFF !important;
 }
 
 .wp-section-navy p,
@@ -439,11 +307,11 @@ textarea {
 .final-lp-in p,
 .cta-banner p,
 .submit-bar p {
-    color: #cbd5e1;
+    color: #CBD5E1;
 }
 
 /* ==========================================================================
-   SECTION HEADINGS & EYEBROWS (nexteck EDITORIAL STYLE)
+   SECTION HEADINGS & EYEBROWS (WIPRO EDITORIAL STYLE)
    ========================================================================== */
 
 .wp-sec-head {
@@ -475,10 +343,10 @@ textarea {
 }
 
 .wp-section-navy .wp-sec-head p {
-    color: #94a3b8;
+    color: #94A3B8;
 }
 
-/* nexteck Eyebrow Tag with Pulsing Dot */
+/* Wipro Eyebrow Tag with Pulsing Dot */
 .wp-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -508,17 +376,16 @@ textarea {
     box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
 }
 
-/* nexteck Spectrum Multi-Color Bar */
+/* Wipro Spectrum Multi-Color Bar */
 .wp-spectrum-bar {
     height: 3px;
     width: 100%;
-    background: linear-gradient(
-        90deg,
-        var(--wp-spectrum-blue) 0%,
-        var(--wp-spectrum-teal) 22%,
-        var(--wp-spectrum-green) 45%,
-        var(--wp-spectrum-yellow) 68%,
-        var(--wp-spectrum-pink) 85%,
+    background: linear-gradient(90deg, 
+        var(--wp-spectrum-blue) 0%, 
+        var(--wp-spectrum-teal) 22%, 
+        var(--wp-spectrum-green) 45%, 
+        var(--wp-spectrum-yellow) 68%, 
+        var(--wp-spectrum-pink) 85%, 
         var(--wp-spectrum-purple) 100%
     );
     border-radius: 2px;
@@ -549,12 +416,12 @@ textarea {
 
 .btn-wp-primary {
     background: var(--wp-blue);
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     box-shadow: 0 4px 14px rgba(56, 35, 86, 0.28);
 }
 .btn-wp-primary:hover {
     background: var(--wp-blue-hover);
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(56, 35, 86, 0.38);
 }
@@ -565,12 +432,12 @@ textarea {
 
 .btn-wp-secondary {
     background: var(--wp-navy-900);
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     box-shadow: 0 4px 14px rgba(0, 27, 58, 0.2);
 }
 .btn-wp-secondary:hover {
     background: var(--wp-navy-800);
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 27, 58, 0.3);
 }
@@ -587,26 +454,26 @@ textarea {
 }
 
 .btn-wp-white {
-    background: #ffffff;
+    background: #FFFFFF;
     color: var(--wp-navy-900) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 .btn-wp-white:hover {
-    background: #f8fafc;
+    background: #F8FAFC;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
 .btn-wp-ghost-light {
     background: rgba(255, 255, 255, 0.08);
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     border: 1px solid rgba(255, 255, 255, 0.24);
     backdrop-filter: blur(10px);
 }
 .btn-wp-ghost-light:hover {
-    background: #ffffff;
+    background: #FFFFFF;
     color: var(--wp-navy-900) !important;
-    border-color: #ffffff;
+    border-color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -646,87 +513,32 @@ textarea {
 
 .wp-card:hover {
     transform: translateY(-6px);
-    border-color: #cbd5e1;
+    border-color: #CBD5E1;
     box-shadow: var(--wp-shadow-md);
 }
 
 /* Spectrum Accents on Cards */
-.wp-card[data-spectrum="blue"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-blue);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
-.wp-card[data-spectrum="teal"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-teal);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
-.wp-card[data-spectrum="green"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-green);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
-.wp-card[data-spectrum="yellow"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-yellow);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
-.wp-card[data-spectrum="pink"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-pink);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
-.wp-card[data-spectrum="purple"]::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--wp-spectrum-purple);
-    border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0;
-}
+.wp-card[data-spectrum="blue"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-blue); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
+.wp-card[data-spectrum="teal"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-teal); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
+.wp-card[data-spectrum="green"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-green); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
+.wp-card[data-spectrum="yellow"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-yellow); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
+.wp-card[data-spectrum="pink"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-pink); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
+.wp-card[data-spectrum="purple"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--wp-spectrum-purple); border-radius: var(--wp-radius-md) var(--wp-radius-md) 0 0; }
 
 .wp-card-navy {
     background: var(--wp-navy-800);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: #FFFFFF;
 }
-.wp-card-navy h3,
-.wp-card-navy h4 {
-    color: #ffffff;
+.wp-card-navy h3, .wp-card-navy h4 {
+    color: #FFFFFF;
 }
 .wp-card-navy p {
-    color: #cbd5e1;
+    color: #CBD5E1;
 }
 
 /* ==========================================================================
-   nexteck ENTERPRISE SPLIT CARDS (PARTNER & PLATFORM CARDS)
+   WIPRO ENTERPRISE SPLIT CARDS (PARTNER & PLATFORM CARDS)
    Clean white cards with top logo compartment, horizontal divider, 
    bold enterprise title, and descriptive text.
    ========================================================================== */
@@ -751,18 +563,13 @@ textarea {
 
 .wp-partner-card,
 .wp-split-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
-    box-shadow:
-        0 4px 14px rgba(0, 0, 0, 0.05),
-        0 1px 3px rgba(0, 0, 0, 0.03);
-    transition:
-        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
     overflow: hidden;
     height: 100%;
     text-decoration: none;
@@ -773,21 +580,19 @@ textarea {
 .wp-partner-card:hover,
 .wp-split-card:hover {
     transform: translateY(-5px);
-    box-shadow:
-        0 16px 32px -6px rgba(0, 27, 58, 0.12),
-        0 6px 16px -4px rgba(0, 0, 0, 0.06);
-    border-color: #cbd5e1;
+    box-shadow: 0 16px 32px -6px rgba(0, 27, 58, 0.12), 0 6px 16px -4px rgba(0, 0, 0, 0.06);
+    border-color: #CBD5E1;
 }
 
 .wp-partner-media,
 .wp-split-card-media {
-    background: #ffffff;
+    background: #FFFFFF;
     height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.75rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #E5E7EB;
     position: relative;
 }
 
@@ -808,7 +613,7 @@ textarea {
 .wp-partner-info,
 .wp-split-card-body {
     padding: 1.5rem 1.35rem 1.75rem;
-    background: #ffffff;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -829,7 +634,7 @@ textarea {
 .wp-split-card-desc {
     font-family: var(--wp-font-body);
     font-size: 0.9rem;
-    color: #4b5563 !important;
+    color: #4B5563 !important;
     line-height: 1.5;
     margin: 0;
 }
@@ -855,36 +660,12 @@ textarea {
     white-space: nowrap;
 }
 
-.wp-badge-blue {
-    background: rgba(0, 114, 206, 0.08);
-    color: var(--wp-spectrum-blue);
-    border-color: rgba(0, 114, 206, 0.25);
-}
-.wp-badge-teal {
-    background: rgba(0, 163, 173, 0.09);
-    color: var(--wp-spectrum-teal);
-    border-color: rgba(0, 163, 173, 0.28);
-}
-.wp-badge-green {
-    background: rgba(120, 190, 32, 0.1);
-    color: #15803d;
-    border-color: rgba(120, 190, 32, 0.3);
-}
-.wp-badge-yellow {
-    background: rgba(255, 184, 28, 0.12);
-    color: #b45309;
-    border-color: rgba(255, 184, 28, 0.35);
-}
-.wp-badge-pink {
-    background: rgba(228, 0, 124, 0.08);
-    color: var(--wp-spectrum-pink);
-    border-color: rgba(228, 0, 124, 0.25);
-}
-.wp-badge-purple {
-    background: rgba(114, 36, 108, 0.09);
-    color: var(--wp-spectrum-purple);
-    border-color: rgba(114, 36, 108, 0.28);
-}
+.wp-badge-blue { background: rgba(0, 114, 206, 0.08); color: var(--wp-spectrum-blue); border-color: rgba(0, 114, 206, 0.25); }
+.wp-badge-teal { background: rgba(0, 163, 173, 0.09); color: var(--wp-spectrum-teal); border-color: rgba(0, 163, 173, 0.28); }
+.wp-badge-green { background: rgba(120, 190, 32, 0.1); color: #15803D; border-color: rgba(120, 190, 32, 0.3); }
+.wp-badge-yellow { background: rgba(255, 184, 28, 0.12); color: #B45309; border-color: rgba(255, 184, 28, 0.35); }
+.wp-badge-pink { background: rgba(228, 0, 124, 0.08); color: var(--wp-spectrum-pink); border-color: rgba(228, 0, 124, 0.25); }
+.wp-badge-purple { background: rgba(114, 36, 108, 0.09); color: var(--wp-spectrum-purple); border-color: rgba(114, 36, 108, 0.28); }
 
 /* ==========================================================================
    GRID SYSTEMS
@@ -894,31 +675,17 @@ textarea {
     display: grid;
     gap: 24px;
 }
-.wp-g2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-.wp-g3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-.wp-g4 {
-    grid-template-columns: repeat(4, 1fr);
-}
+.wp-g2 { grid-template-columns: repeat(2, 1fr); }
+.wp-g3 { grid-template-columns: repeat(3, 1fr); }
+.wp-g4 { grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: 1024px) {
-    .wp-g4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .wp-g3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .wp-g4 { grid-template-columns: repeat(2, 1fr); }
+    .wp-g3 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
-    .wp-g4,
-    .wp-g3,
-    .wp-g2 {
-        grid-template-columns: 1fr;
-    }
+    .wp-g4, .wp-g3, .wp-g2 { grid-template-columns: 1fr; }
 }
 
 /* ==========================================================================
@@ -947,12 +714,10 @@ textarea {
     font-family: var(--wp-font-body);
     font-size: 0.95rem;
     color: var(--wp-text-heading);
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1.5px solid var(--wp-border);
     border-radius: var(--wp-radius-sm);
-    transition:
-        border-color var(--wp-transition-fast),
-        box-shadow var(--wp-transition-fast);
+    transition: border-color var(--wp-transition-fast), box-shadow var(--wp-transition-fast);
     outline: none;
 }
 
@@ -979,7 +744,7 @@ textarea {
    ========================================================================== */
 
 .wp-table-card {
-    background: #ffffff;
+    background: #FFFFFF;
     border: 1px solid var(--wp-border);
     border-radius: var(--wp-radius-md);
     overflow-x: auto;
@@ -995,7 +760,7 @@ textarea {
 
 .wp-table th {
     background: var(--wp-navy-900);
-    color: #ffffff;
+    color: #FFFFFF;
     font-family: var(--wp-font-display);
     font-weight: 700;
     font-size: 0.8rem;
@@ -1017,7 +782,7 @@ textarea {
 }
 
 .wp-table tr:hover td {
-    background: #f8fafc;
+    background: #F8FAFC;
 }
 
 /* ==========================================================================
@@ -1027,9 +792,7 @@ textarea {
 .rv {
     opacity: 0;
     transform: translateY(22px);
-    transition:
-        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .rv.in {
@@ -1050,8 +813,9 @@ textarea {
     }
 }
 
+
 /* ==========================================================================
-   PAGINATION STYLES (nexteck SYSTEM)
+   PAGINATION STYLES (WIPRO SYSTEM)
    ========================================================================== */
 
 .custom-pagination {
@@ -1093,7 +857,7 @@ textarea {
     font-family: var(--wp-font-display);
     font-size: 0.88rem;
     font-weight: 600;
-    background: #ffffff;
+    background: #FFFFFF;
     transition: all var(--wp-transition-fast);
 }
 
@@ -1105,7 +869,7 @@ textarea {
 
 .page-item.active .page-link {
     background: var(--wp-blue);
-    color: #ffffff;
+    color: #FFFFFF;
     border-color: var(--wp-blue);
     box-shadow: 0 4px 12px rgba(56, 35, 86, 0.3);
 }
@@ -1133,25 +897,25 @@ textarea {
 }
 
 .alert-success {
-    background: #dcfce7;
-    color: #14532d;
-    border: 1px solid #86efac;
+    background: #DCFCE7;
+    color: #14532D;
+    border: 1px solid #86EFAC;
 }
 
 .alert-error {
-    background: #fee2e2;
-    color: #7f1d1d;
-    border: 1px solid #fca5a5;
+    background: #FEE2E2;
+    color: #7F1D1D;
+    border: 1px solid #FCA5A5;
 }
 
 .alert-info {
-    background: #e0f2fe;
+    background: #E0F2FE;
     color: #075985;
-    border: 1px solid #7dd3fc;
+    border: 1px solid #7DD3FC;
 }
 
 /* ==========================================================================
-   GLOBAL ENTERPRISE ANIMATIONS & SCROLL REVEAL (nexteck-GRADE)
+   GLOBAL ENTERPRISE ANIMATIONS & SCROLL REVEAL (WIPRO-GRADE)
    ========================================================================== */
 
 /* Hero Media Layer & Video Background */
@@ -1177,27 +941,16 @@ textarea {
 .wp-hero-video-overlay {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0, 15, 36, 0.9) 0%,
-            rgba(0, 27, 58, 0.86) 50%,
-            rgba(0, 15, 36, 0.94) 100%
-        ),
-        radial-gradient(
-            ellipse at 50% 25%,
-            rgba(0, 114, 206, 0.28) 0%,
-            transparent 65%
-        );
+    background: 
+        linear-gradient(135deg, rgba(0, 15, 36, 0.90) 0%, rgba(0, 27, 58, 0.86) 50%, rgba(0, 15, 36, 0.94) 100%),
+        radial-gradient(ellipse at 50% 25%, rgba(0, 114, 206, 0.28) 0%, transparent 65%);
 }
 
 /* Scroll Reveal Base Class */
 .rv {
     opacity: 0;
     transform: translateY(32px);
-    transition:
-        opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
@@ -1215,88 +968,46 @@ textarea {
     opacity: 1 !important;
 }
 
-.rv-delay-1 {
-    transition-delay: 0.1s;
-}
-.rv-delay-2 {
-    transition-delay: 0.2s;
-}
-.rv-delay-3 {
-    transition-delay: 0.3s;
-}
-.rv-delay-4 {
-    transition-delay: 0.4s;
-}
+.rv-delay-1 { transition-delay: 0.1s; }
+.rv-delay-2 { transition-delay: 0.2s; }
+.rv-delay-3 { transition-delay: 0.3s; }
+.rv-delay-4 { transition-delay: 0.4s; }
 
 /* Interactive Hover Animations for Cards & Buttons */
-.wp-card,
-.wp-partner-card,
-.wp-pain-card,
-.wp-method-card,
-.wp-stat-card,
-.wp-trust-card,
-.ind-card,
-.blog-card-wp {
-    transition:
-        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.3s ease !important;
+.wp-card, .wp-partner-card, .wp-pain-card, .wp-method-card, .wp-stat-card, .wp-trust-card, .ind-card, .blog-card-wp {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
 }
-.wp-card:hover,
-.wp-partner-card:hover,
-.wp-pain-card:hover,
-.wp-method-card:hover,
-.wp-trust-card:hover,
-.ind-card:hover,
-.blog-card-wp:hover {
+.wp-card:hover, .wp-partner-card:hover, .wp-pain-card:hover, .wp-method-card:hover, .wp-trust-card:hover, .ind-card:hover, .blog-card-wp:hover {
     transform: translateY(-6px);
-    box-shadow:
-        0 20px 35px -8px rgba(0, 27, 58, 0.12),
-        0 0 0 1px rgba(56, 35, 86, 0.15) !important;
+    box-shadow: 0 20px 35px -8px rgba(0, 27, 58, 0.12), 0 0 0 1px rgba(56, 35, 86, 0.15) !important;
 }
 
 /* Typing Cursor & Shimmer Animations */
 @keyframes wpBlink {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 @keyframes wpPulseGlow {
-    0%,
-    100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.4));
-    }
-    50% {
-        transform: scale(1.04);
-        filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8));
-    }
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.4)); }
+    50% { transform: scale(1.04); filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8)); }
 }
 
 @keyframes wpShimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 .wp-cursor {
     display: inline-block;
-    color: #38bdf8;
+    color: #38BDF8;
     font-weight: 300;
     margin-left: 2px;
     animation: wpBlink 0.9s infinite;
 }
 
 .wp-typing-target {
-    background: linear-gradient(120deg, #38bdf8 0%, #60a5fa 45%, #e4007c 100%);
+    background: linear-gradient(120deg, #38BDF8 0%, #60A5FA 45%, #E4007C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -1305,34 +1016,25 @@ textarea {
 }
 
 /* ==========================================================================
-   nexteck Enterprise Horizontal Split Cards Section (#audit)
-   Inspired by nexteck's Hachette Case Study / Digital Transformation Split Cards
+   Wipro Enterprise Horizontal Split Cards Section (#audit)
+   Inspired by Wipro's Hachette Case Study / Digital Transformation Split Cards
    ========================================================================== */
 .wp-section-dark-plum {
-    background: #18092b;
-    background:
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(139, 92, 246, 0.22) 0%,
-            rgba(24, 9, 43, 0) 55%
-        ),
-        radial-gradient(
-            circle at 15% 85%,
-            rgba(228, 0, 124, 0.12) 0%,
-            rgba(24, 9, 43, 0) 50%
-        ),
-        #18092b;
-    color: #ffffff;
+    background: #18092B;
+    background: radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.22) 0%, rgba(24, 9, 43, 0) 55%),
+                radial-gradient(circle at 15% 85%, rgba(228, 0, 124, 0.12) 0%, rgba(24, 9, 43, 0) 50%),
+                #18092B;
+    color: #FFFFFF;
     position: relative;
     overflow: hidden;
 }
 
 .wp-section-dark-plum .wp-sec-head h2 {
-    color: #ffffff !important;
+    color: #FFFFFF !important;
 }
 
 .wp-section-dark-plum .wp-sec-head p {
-    color: #cbd5e1 !important;
+    color: #CBD5E1 !important;
 }
 
 .wp-split-grid {
@@ -1343,18 +1045,13 @@ textarea {
 }
 
 .wp-split-card {
-    background: #ffffff;
+    background: #FFFFFF;
     border-radius: 24px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 42% 58%;
-    box-shadow:
-        0 16px 36px -8px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-    transition:
-        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.3s ease;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
     text-decoration: none;
     color: inherit;
     position: relative;
@@ -1362,9 +1059,7 @@ textarea {
 
 .wp-split-card:hover {
     transform: translateY(-6px);
-    box-shadow:
-        0 24px 50px -10px rgba(0, 0, 0, 0.55),
-        0 0 0 2px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.55), 0 0 0 2px rgba(56, 189, 248, 0.4);
 }
 
 .wp-split-card-media {
@@ -1373,7 +1068,7 @@ textarea {
     width: 100%;
     height: 100%;
     min-height: 250px;
-    background: #000f24;
+    background: #000F24;
 }
 
 .wp-split-card-media img {
@@ -1391,11 +1086,7 @@ textarea {
 .wp-split-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 15, 36, 0.1) 0%,
-        rgba(0, 15, 36, 0.4) 100%
-    );
+    background: linear-gradient(180deg, rgba(0, 15, 36, 0.1) 0%, rgba(0, 15, 36, 0.4) 100%);
     pointer-events: none;
 }
 
@@ -1406,8 +1097,8 @@ textarea {
     background: rgba(0, 15, 36, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    color: #ffffff;
-    font-family: var(--wp-font-display, "Plus Jakarta Sans", sans-serif);
+    color: #FFFFFF;
+    font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
     font-weight: 800;
     font-size: 0.82rem;
     padding: 0.25rem 0.65rem;
@@ -1422,7 +1113,7 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #ffffff;
+    background: #FFFFFF;
 }
 
 .wp-split-card-meta {
@@ -1436,8 +1127,8 @@ textarea {
 .wp-card-severity {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #ef4444;
-    background: #fef2f2;
+    color: #EF4444;
+    background: #FEF2F2;
     padding: 0.25rem 0.6rem;
     border-radius: 9999px;
     display: inline-flex;
@@ -1446,10 +1137,10 @@ textarea {
 }
 
 .wp-split-card-content h3 {
-    font-family: var(--wp-font-display, "Plus Jakarta Sans", sans-serif);
+    font-family: var(--wp-font-display, 'Plus Jakarta Sans', sans-serif);
     font-size: 1.22rem;
     font-weight: 700;
-    color: #000f24;
+    color: #000F24;
     line-height: 1.35;
     margin: 0 0 0.6rem 0;
 }
@@ -1468,19 +1159,19 @@ textarea {
     justify-content: space-between;
     gap: 0.75rem;
     padding-top: 1rem;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid #F1F5F9;
 }
 
 .wp-split-card-impact {
     font-size: 0.8rem;
-    color: #64748b;
+    color: #64748B;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
 }
 
 .wp-split-card-impact b {
-    color: #0f172a;
+    color: #0F172A;
     font-weight: 600;
 }
 
@@ -1492,13 +1183,11 @@ textarea {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    transition:
-        color 0.2s ease,
-        gap 0.2s ease;
+    transition: color 0.2s ease, gap 0.2s ease;
 }
 
 .wp-split-card:hover .wp-split-card-link {
-    color: #26163d;
+    color: #26163D;
     gap: 0.55rem;
 }
 
@@ -1542,18 +1231,14 @@ textarea {
 }
 
 /* Global Horizontal Overflow Safeguard */
-html,
-body {
+html, body {
     max-width: 100vw;
     overflow-x: clip;
 }
 
 /* Touch Device Interactions */
 @media (hover: none) and (pointer: coarse) {
-    .btn,
-    .wp-btn,
-    .wp-nav-link,
-    .tab-btn {
+    .btn, .wp-btn, .wp-nav-link, .tab-btn {
         min-height: 44px;
     }
 }
@@ -1570,17 +1255,17 @@ body {
     textarea {
         font-size: 16px !important;
     }
-
+    
     .wp-wrap {
         width: 100%;
         padding-left: clamp(1rem, 4vw, 1.75rem);
         padding-right: clamp(1rem, 4vw, 1.75rem);
     }
-
+    
     .wp-section {
         padding: 56px 0;
     }
-
+    
     .wp-section-lg {
         padding: 72px 0;
     }
@@ -1647,3 +1332,4 @@ body {
         line-height: 1.5;
     }
 }
+

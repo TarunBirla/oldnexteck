@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/nexteck-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
 
     <script type="application/ld+json">
     {
@@ -436,7 +436,7 @@
             flex-shrink: 0;
         }
 
-        /* ================= 2. EXPERIENCE & STATS BANNER (nexteck STYLE) ================= */
+        /* ================= 2. EXPERIENCE & STATS BANNER (WIPRO STYLE) ================= */
         .wp-stats-section {
             background: #EDF0F5;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -711,7 +711,7 @@
             flex-grow: 1;
         }
 
-        /* Methodology (nexteck Style Cards) */
+        /* Methodology (Wipro Style Cards) */
         .wp-section-method {
             background: #F3F5F9;
             border-top: 1px solid #E2E8F0;
@@ -815,7 +815,7 @@
             }
         }
 
-        /* ================= 5. REDESIGNED EXECUTIVE ROADMAP SHOWCASE (nexteck INSPIRED) ================= */
+        /* ================= 5. REDESIGNED EXECUTIVE ROADMAP SHOWCASE (WIPRO INSPIRED) ================= */
         .wp-roadmap-section {
             background: #F8FAFD;
             border-top: 1px solid #E2E8F0;
@@ -1337,7 +1337,7 @@
             color: var(--wp-blue-hover);
         }
 
-        /* Trust & Assurance (nexteck Centered Top-Intersecting Outline Icons) */
+        /* Trust & Assurance (Wipro Centered Top-Intersecting Outline Icons) */
         .wp-trust-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1774,7 +1774,7 @@
 <body>
     @include('partials.header')
 
-    <!-- ================= 1. nexteck-INSPIRED ENTERPRISE HERO ================= -->
+    <!-- ================= 1. WIPRO-INSPIRED ENTERPRISE HERO ================= -->
     <header class="wp-hero">
         <!-- Animated Background Slideshow (Ken Burns & Smooth Crossfade) -->
         <div class="wp-hero-bg-slider" aria-hidden="true">
@@ -1867,7 +1867,7 @@
         </div>
     </header>
 
-    <!-- ================= 2. EXPERIENCE & STATS BANNER (nexteck STYLE) ================= -->
+    <!-- ================= 2. EXPERIENCE & STATS BANNER (WIPRO STYLE) ================= -->
     <section class="wp-stats-section" aria-label="Key Performance Statistics">
         <div class="wp-wrap">
             <div class="wp-experience-grid">
@@ -1915,7 +1915,7 @@
         </div>
     </section>
 
-    <!-- ================= 3. THE UNCOMFORTABLE QUESTION (nexteck SPLIT CARDS) ================= -->
+    <!-- ================= 3. THE UNCOMFORTABLE QUESTION (WIPRO SPLIT CARDS) ================= -->
     <section class="wp-section wp-section-dark-plum" id="audit">
         <div class="wp-wrap">
             <div class="wp-sec-head rv" style="text-align:center;">
@@ -2200,7 +2200,7 @@
         </div>
     </section>
 
-    <!-- ================= 5. EXECUTIVE ROADMAP SHOWCASE (REDESIGNED nexteck STYLE) ================= -->
+    <!-- ================= 5. EXECUTIVE ROADMAP SHOWCASE (REDESIGNED WIPRO STYLE) ================= -->
     <section class="wp-roadmap-section" id="roadmap">
         <div class="wp-wrap">
             <div class="wp-sec-head rv" style="text-align:center;">
@@ -2335,7 +2335,7 @@
                     </div>
                 </div>
 
-                <!-- Card 2: "Proof in a Scope" (nexteck Intelligence Style) -->
+                <!-- Card 2: "Proof in a Scope" (Wipro Intelligence Style) -->
                 <div class="wp-road-card wp-road-card-proof">
                     <div>
                         <div class="wp-proof-heading">Proof in a scope.</div>
@@ -2414,7 +2414,7 @@
         </div>
     </section>
 
-    <!-- ================= 6B. ENTERPRISE PLATFORMS & ALLIANCES (nexteck STYLE CARDS) ================= -->
+    <!-- ================= 6B. ENTERPRISE PLATFORMS & ALLIANCES (WIPRO STYLE CARDS) ================= -->
     <section class="wp-section" style="background:#F8FAFD; border-top:1px solid #E5E7EB; border-bottom:1px solid #E5E7EB;" id="alliances">
         <div class="wp-wrap">
             <div class="wp-sec-head rv">
@@ -2748,7 +2748,7 @@
         </div>
     </section>
 
-    <!-- ================= 6C. ENTERPRISE TRANSFORMATION SPOTLIGHT BANNER (nexteck STYLE) ================= -->
+    <!-- ================= 6C. ENTERPRISE TRANSFORMATION SPOTLIGHT BANNER (WIPRO STYLE) ================= -->
     <section class="wp-spotlight-section" aria-label="Enterprise Transformation Spotlight">
         <div class="wp-spotlight-bg" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=2000&q=80');"></div>
         <div class="wp-spotlight-overlay"></div>
@@ -2770,7 +2770,7 @@
         </div>
     </section>
 
-    <!-- ================= 6D. PERSPECTIVES, RESEARCH & REAL-WORLD IMPACT (nexteck CHECKERBOARD) ================= -->
+    <!-- ================= 6D. PERSPECTIVES, RESEARCH & REAL-WORLD IMPACT (WIPRO CHECKERBOARD) ================= -->
     <section class="wp-checkerboard-section" id="insights">
         <!-- Section Header -->
         <div class="wp-wrap" style="padding-top: 5.5rem; padding-bottom: 2.75rem;">
