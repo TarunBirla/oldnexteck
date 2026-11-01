@@ -1,5 +1,5 @@
-<!-- Wipro-Inspired Enterprise Header System -->
-<link rel="stylesheet" href="{{ asset('css/wipro-theme.css') }}">
+<!-- nexteck-Inspired Enterprise Header System -->
+<link rel="stylesheet" href="{{ asset('css/nexteck-theme.css') }}">
 
 <style>
     /* Floating UK Enterprise Tab & Popover Drawer */
@@ -204,7 +204,7 @@
         }
     }
 
-    /* Wipro Main Clean White Sticky Navigation Bar */
+    /* nexteck Main Clean White Sticky Navigation Bar */
     .wp-navbar {
         position: sticky;
         top: 0;
@@ -224,7 +224,7 @@
         padding: 0 clamp(1rem, 2.5vw, 2.5rem);
     }
 
-    /* Wipro Brand Logo: Lowercase 'nexteck' + Multi-Color Arc Dots */
+    /* nexteck Brand Logo: Lowercase 'nexteck' + Multi-Color Arc Dots */
     .wp-logo-brand {
         display: inline-flex;
         align-items: center;
@@ -560,10 +560,10 @@
     }
 </style>
 
-<!-- Wipro-Inspired Main Clean Navigation Bar -->
+<!-- nexteck-Inspired Main Clean Navigation Bar -->
 <nav class="wp-navbar" aria-label="Main Navigation">
     <div class="wp-nav-in">
-        <!-- Logo: wipro style 'nexteck' + spectrum dot arc -->
+        <!-- Logo: nexteck style 'nexteck' + spectrum dot arc -->
         <a class="wp-logo-brand" href="{{ route('home') }}" aria-label="Nexteck Home">
             <span class="wp-brand-text">nexteck</span>
             <span class="wp-brand-dots" aria-hidden="true">
