@@ -1555,6 +1555,46 @@
             gap: 3.75rem;
             align-items: center;
         }
+        .wp-urgency-title {
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+        .wp-urgency-lead {
+            color: #CBD5E1;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin-bottom: 1.75rem;
+        }
+        .wp-urgency-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: #E2E8F0;
+        }
+        .wp-urgency-item {
+            line-height: 1.5;
+        }
+        .wp-urgency-highlight {
+            color: #38BDF8;
+        }
+        .wp-urgency-highlight i {
+            font-size: 0.8rem;
+            margin-right: 6px;
+        }
+        .wp-urgency-action {
+            display: inline-block;
+        }
+        .wp-urgency-btn {
+            background: #38BDF8 !important;
+            color: #001B3A !important;
+            font-weight: 800;
+        }
         .wp-timer-card {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -1649,26 +1689,140 @@
         @media (max-width: 900px) {
             .wp-urgency-grid {
                 grid-template-columns: 1fr;
-                gap: 2.75rem;
+                gap: 2.5rem;
             }
             .wp-urgency-box {
-                padding: 2.75rem 2rem;
+                padding: 2.5rem 1.75rem;
             }
         }
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .wp-urgency-box {
-                padding: 1.75rem 1.25rem;
-                border-radius: 14px;
+                padding: 1.6rem 1.15rem;
+                border-radius: 16px;
+                box-sizing: border-box;
+                width: 100%;
+                max-width: 100%;
+            }
+            .wp-urgency-grid {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+                min-width: 0;
+            }
+            .wp-urgency-grid > div {
+                min-width: 0;
+            }
+            .wp-urgency-title {
+                font-size: clamp(1.35rem, 5.2vw, 1.7rem);
+                line-height: 1.25;
+                margin-bottom: 0.75rem;
+            }
+            .wp-urgency-lead {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 1.25rem;
+            }
+            .wp-urgency-list {
+                font-size: 0.86rem;
+                gap: 0.65rem;
+                margin-bottom: 1.5rem;
+            }
+            .wp-urgency-action {
+                display: block;
+                width: 100%;
+            }
+            .wp-urgency-btn {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.8rem 1.25rem;
+                font-size: 0.92rem;
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
             }
             .wp-timer-card {
-                padding: 1.5rem 1rem;
+                padding: 1.25rem 1rem;
+                border-radius: 12px;
+                min-width: 0;
+            }
+            .wp-timer-card h4 {
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
+                line-height: 1.35;
+            }
+            .wp-countdown-digits {
+                gap: 0.5rem;
+                margin-bottom: 1.25rem;
+                width: 100%;
+            }
+            .wp-countdown-block {
+                min-width: 0;
+                flex: 1;
+                box-sizing: border-box;
+                padding: 0.65rem 0.35rem;
+            }
+            .wp-countdown-block b {
+                font-size: clamp(1.25rem, 5vw, 1.55rem);
+            }
+            .wp-countdown-block span {
+                font-size: 0.62rem;
+            }
+            .wp-slot-tracker {
+                padding: 0.85rem;
             }
             .wp-closing-banner {
-                padding: 3.5rem 0;
+                padding: 3rem 0;
+            }
+            .wp-closing-in h2 {
+                font-size: clamp(1.35rem, 5.2vw, 1.85rem) !important;
+                line-height: 1.25;
+                margin-bottom: 0.85rem;
             }
             .wp-closing-in p {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+                font-size: 0.88rem !important;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+            }
+            .wp-closing-in div {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 360px;
+                margin: 0 auto;
+                gap: 0.65rem;
+            }
+            .wp-closing-in .btn-wp {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.92rem;
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
+            }
+        }
+        @media (max-width: 480px) {
+            .wp-urgency-box {
+                padding: 1.35rem 0.95rem;
+            }
+            .wp-urgency-title {
+                font-size: clamp(1.22rem, 5.2vw, 1.45rem);
+            }
+            .wp-urgency-lead {
+                font-size: 0.84rem;
+                line-height: 1.45;
+                margin-bottom: 1rem;
+            }
+            .wp-urgency-list {
+                font-size: 0.82rem;
+                gap: 0.55rem;
+            }
+            .wp-countdown-digits {
+                gap: 0.35rem;
+            }
+            .wp-countdown-block {
+                padding: 0.55rem 0.25rem;
+            }
+            .wp-countdown-block b {
+                font-size: 1.2rem;
             }
         }
 
@@ -3140,20 +3294,22 @@
                 <div class="wp-urgency-grid">
                     <div>
                         <span class="wp-badge wp-badge-yellow" style="margin-bottom:1rem;">The Compounding Cost of Waiting</span>
-                        <h2 style="color:#FFFFFF; margin-bottom:1rem; font-size:clamp(1.9rem, 3.2vw, 2.5rem);">
+                        <h2 class="wp-urgency-title">
                             Every month you delay, faster competitors are capturing your market.
                         </h2>
-                        <p style="color:#CBD5E1; font-size:1.05rem; line-height:1.65; margin-bottom:1.75rem;">
+                        <p class="wp-urgency-lead">
                             AI and workflow automation adoption has shifted beyond early exploration. The performance gap between organizations running connected systems and those relying on disconnected spreadsheets widens each quarter.
                         </p>
-                        <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2rem; font-size:0.95rem; color:#E2E8F0;">
-                            <div><b style="color:#38BDF8;"><i class="fa-solid fa-arrow-right" style="font-size:0.8rem; margin-right:6px;"></i> 10+ hours/week</b> of leadership time wasted on administrative bottlenecks.</div>
-                            <div><b style="color:#38BDF8;"><i class="fa-solid fa-arrow-right" style="font-size:0.8rem; margin-right:6px;"></i> 2&times; the clerical error rate</b> caused by re-entering customer records across silos.</div>
-                            <div><b style="color:#38BDF8;"><i class="fa-solid fa-arrow-right" style="font-size:0.8rem; margin-right:6px;"></i> Compounding AI leverage</b> realized by competitors in lead velocity and service response.</div>
+                        <div class="wp-urgency-list">
+                            <div class="wp-urgency-item"><b class="wp-urgency-highlight"><i class="fa-solid fa-arrow-right"></i> 10+ hours/week</b> of leadership time wasted on administrative bottlenecks.</div>
+                            <div class="wp-urgency-item"><b class="wp-urgency-highlight"><i class="fa-solid fa-arrow-right"></i> 2&times; the clerical error rate</b> caused by re-entering customer records across silos.</div>
+                            <div class="wp-urgency-item"><b class="wp-urgency-highlight"><i class="fa-solid fa-arrow-right"></i> Compounding AI leverage</b> realized by competitors in lead velocity and service response.</div>
                         </div>
-                        <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary" style="background:#38BDF8; color:#001B3A !important; font-weight:800;">
-                            Claim a Q4 Audit Slot <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
-                        </a>
+                        <div class="wp-urgency-action">
+                            <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary wp-urgency-btn">
+                                Claim a Q4 Audit Slot <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Live Countdown Card -->
