@@ -205,6 +205,9 @@
 
         .pagination-wrap {
             margin-top: 4rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         @media (max-width: 960px) {
@@ -218,6 +221,9 @@
             }
             .blogs-hero {
                 padding: 65px 0 50px;
+            }
+            .pagination-wrap {
+                margin-top: 2.5rem;
             }
         }
     </style>
