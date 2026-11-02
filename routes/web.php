@@ -22,6 +22,21 @@ use App\Models\EngagementSetting;
 use App\Models\AssessmentLead;
 use App\Models\EngagementEvent;
 
+Route::get('/storage-link', function () {
+    try {
+        Artisan::call('storage:link');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'The [public/storage] link has been connected to [storage/app/public].'
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
