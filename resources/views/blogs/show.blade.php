@@ -291,7 +291,7 @@
                     if (str_starts_with($blog->image, 'http') || str_starts_with($blog->image, 'images/')) {
                         $imageUrl = asset($blog->image);
                     } else {
-                        $imageUrl = asset('storage/' . $blog->image);
+                        $imageUrl = asset($blog->image);
                     }
                 }
             @endphp

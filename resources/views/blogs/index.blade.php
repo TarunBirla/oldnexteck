@@ -257,7 +257,7 @@
                                 if (str_starts_with($blog->image, 'http') || str_starts_with($blog->image, 'images/')) {
                                     $imageUrl = asset($blog->image);
                                 } else {
-                                    $imageUrl = asset('storage/' . $blog->image);
+                                    $imageUrl = asset($blog->image);
                                 }
                             } else {
                                 $fallbacks = ['images/0.jpg', 'images/1.jpg', 'images/2.jpg', 'images/3.jpg', 'images/A3.png', 'images/A4.png'];
