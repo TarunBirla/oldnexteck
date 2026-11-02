@@ -365,9 +365,107 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        @media (max-width: 768px) {
+            .lp-hero {
+                min-height: auto;
+                padding: 1.5rem 0 0;
+            }
+            .lp-hero-center {
+                padding: 0.75rem 1rem 1.25rem;
+            }
+            .lp-hero .wp-hero-badge {
+                padding: 0.25rem 0.75rem;
+                font-size: 0.68rem;
+                letter-spacing: 0.05em;
+                gap: 0.45rem;
+                margin-bottom: 0.75rem;
+                max-width: 100%;
+            }
+            .lp-hero-center h1 {
+                font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+                line-height: 1.25;
+                margin-bottom: 0.65rem;
+            }
+            .lp-hero-center p.lead {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 1.15rem;
+                max-width: 520px;
+            }
+            .lp-hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 380px;
+                margin: 0 auto 1.15rem;
+                gap: 0.65rem;
+            }
+            .lp-hero-actions .btn-wp {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.72rem 1.25rem;
+                font-size: 0.92rem;
+                font-weight: 600;
+                line-height: 1.3;
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
+                word-break: normal;
+                min-height: 44px;
+            }
+            .lp-hero-actions .btn-wp i {
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+            .lp-hero-trust-bar {
+                padding-top: 0.85rem;
+                gap: 0.45rem;
+            }
+            .trust-item {
+                padding: 0.35rem 0.75rem;
+                font-size: 0.74rem;
+            }
+        }
         @media (max-width: 560px) {
             .lp-hero-trust-bar {
                 grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .lp-hero {
+                padding: 1.15rem 0 0;
+            }
+            .lp-hero-center {
+                padding: 0.5rem 0.75rem 1rem;
+            }
+            .lp-hero .wp-hero-badge {
+                font-size: 0.63rem;
+                padding: 0.22rem 0.65rem;
+                margin-bottom: 0.6rem;
+            }
+            .lp-hero-center h1 {
+                font-size: clamp(1.22rem, 5.2vw, 1.45rem);
+                line-height: 1.23;
+                margin-bottom: 0.55rem;
+            }
+            .lp-hero-center p.lead {
+                font-size: 0.82rem;
+                line-height: 1.45;
+                margin-bottom: 0.95rem;
+            }
+            .lp-hero-actions {
+                max-width: 100%;
+                gap: 0.55rem;
+                margin-bottom: 1rem;
+            }
+            .lp-hero-actions .btn-wp {
+                padding: 0.68rem 1rem;
+                font-size: 0.86rem;
+                min-height: 42px;
+            }
+            .trust-item {
+                padding: 0.28rem 0.65rem;
+                font-size: 0.7rem;
             }
         }
 

@@ -383,18 +383,6 @@
             margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
             animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
         }
-        @media (max-width: 520px) {
-            .wp-hero-actions {
-                flex-direction: column;
-                width: 100%;
-                gap: 0.85rem;
-            }
-            .wp-hero-actions .wp-btn {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-        }
 
         .wp-hero-chips {
             display: flex;
@@ -434,6 +422,146 @@
             color: #38BDF8;
             font-size: 0.82rem;
             flex-shrink: 0;
+        }
+
+        /* Hero Mobile Responsiveness (Compact, balanced & fully responsive) */
+        @media (max-width: 768px) {
+            .wp-hero {
+                min-height: auto;
+                padding: 1.5rem 0 0;
+            }
+            .wp-hero-content-wrap {
+                padding: 0.75rem 1rem 1.25rem;
+                margin: 0;
+            }
+            .wp-hero-content::after {
+                width: 95vw;
+                height: 240px;
+                filter: blur(18px);
+            }
+            .wp-hero-badge {
+                padding: 0.25rem 0.75rem;
+                font-size: 0.68rem;
+                letter-spacing: 0.05em;
+                gap: 0.45rem;
+                margin-bottom: 0.75rem;
+                max-width: 100%;
+                line-height: 1.35;
+                text-align: center;
+            }
+            .wp-hero h1 {
+                font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+                line-height: 1.25;
+                margin-bottom: 0.65rem;
+                letter-spacing: -0.02em;
+            }
+            .wp-hero-br {
+                display: none;
+            }
+            .wp-rotator-wrap {
+                max-width: 100%;
+            }
+            .wp-hero-lead {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 1.15rem;
+                max-width: 520px;
+                color: #E2E8F0;
+            }
+            .wp-hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 380px;
+                margin: 0 auto 1.15rem;
+                gap: 0.65rem;
+            }
+            .wp-hero-actions .btn-wp {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.72rem 1.25rem;
+                font-size: 0.92rem;
+                font-weight: 600;
+                line-height: 1.3;
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
+                word-break: normal;
+                min-height: 44px;
+            }
+            .wp-hero-actions .btn-wp i {
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+            .wp-hero-chips {
+                padding-top: 0.85rem;
+                gap: 0.45rem 0.65rem;
+                max-width: 100%;
+            }
+            .wp-hero-chip-item {
+                padding: 0.28rem 0.75rem;
+                font-size: 0.74rem;
+                gap: 0.45rem;
+                line-height: 1.3;
+            }
+            .wp-hero-marquee {
+                padding: 0.65rem 0;
+            }
+            .wp-marquee-track {
+                gap: 1.5rem;
+            }
+            .wp-marquee-item {
+                font-size: 0.75rem;
+                gap: 0.5rem;
+            }
+            .wp-marquee-pill {
+                font-size: 0.7rem;
+                padding: 0.16rem 0.55rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wp-hero {
+                padding: 1.15rem 0 0;
+            }
+            .wp-hero-content-wrap {
+                padding: 0.5rem 0.75rem 1rem;
+            }
+            .wp-hero-badge {
+                font-size: 0.63rem;
+                padding: 0.22rem 0.65rem;
+                margin-bottom: 0.6rem;
+            }
+            .wp-hero h1 {
+                font-size: clamp(1.22rem, 5.2vw, 1.45rem);
+                line-height: 1.23;
+                margin-bottom: 0.55rem;
+            }
+            .wp-hero-lead {
+                font-size: 0.82rem;
+                line-height: 1.45;
+                margin-bottom: 0.95rem;
+                max-width: 390px;
+            }
+            .wp-hero-actions {
+                max-width: 100%;
+                gap: 0.55rem;
+                margin-bottom: 1rem;
+            }
+            .wp-hero-actions .btn-wp {
+                padding: 0.68rem 1rem;
+                font-size: 0.86rem;
+                min-height: 42px;
+            }
+            .wp-hero-chips {
+                padding-top: 0.75rem;
+                gap: 0.35rem;
+            }
+            .wp-hero-chip-item {
+                padding: 0.22rem 0.6rem;
+                font-size: 0.7rem;
+                gap: 0.35rem;
+            }
         }
 
         /* ================= 2. EXPERIENCE & STATS BANNER  ================= */
@@ -1801,7 +1929,7 @@
                     </div>
 
                     <h1>
-                        Everyone's talking about <em>AI</em>.<br>
+                        Everyone's talking about <em>AI</em>.<br class="wp-hero-br">
                         Is your business running on <span class="wp-rotator-wrap"><span class="wp-rotator-text" id="heroRotator">the right technology?</span></span>
                     </h1>
 
