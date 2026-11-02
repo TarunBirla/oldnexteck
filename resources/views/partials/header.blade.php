@@ -214,6 +214,9 @@
         box-shadow: 0 2px 14px rgba(0, 0, 0, 0.03);
         transition: all 0.25s ease;
     }
+    .wp-navbar.is-menu-open {
+        z-index: 1010;
+    }
     .wp-nav-in {
         display: flex;
         align-items: center;
@@ -475,7 +478,7 @@
         }
         .wp-nav-menu {
             position: absolute;
-            top: 74px;
+            top: 100%;
             left: 0;
             right: 0;
             background: #FFFFFF;
@@ -488,6 +491,7 @@
             max-height: 0;
             opacity: 0;
             overflow-y: auto;
+            overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
             pointer-events: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -745,6 +749,7 @@
 
 <script>
     (function() {
+        const navbar = document.querySelector('.wp-navbar');
         const btn = document.getElementById('wpBurgerBtn');
         const menu = document.getElementById('wpNavLinks');
         const langWrap = document.querySelector('.wp-lang-wrap');
@@ -757,21 +762,17 @@
 
         function toggleMenu() {
             const isOpen = menu.classList.toggle('is-open');
+            if (navbar) navbar.classList.toggle('is-menu-open', isOpen);
             btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             btn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-            if (isOpen) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
         }
 
         function closeMenu() {
             if (menu.classList.contains('is-open')) {
                 menu.classList.remove('is-open');
+                if (navbar) navbar.classList.remove('is-menu-open');
                 btn.setAttribute('aria-expanded', 'false');
                 btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                document.body.style.overflow = '';
             }
         }
 
