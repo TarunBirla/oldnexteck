@@ -520,6 +520,16 @@
             color: #382356;
             font-weight: 800;
         }
+        .wp-cd-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .wp-cd-digits {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
         .wp-lead-form {
             display: flex;
             flex-direction: column;
@@ -628,6 +638,85 @@
             margin-top: 1rem;
             font-size: 0.82rem;
             color: var(--wp-text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .wp-contact-sec {
+                padding: 3rem 0 3.5rem;
+            }
+            .wp-form-container {
+                padding: 1.5rem 1.15rem;
+                border-radius: 16px;
+            }
+            .wp-form-header {
+                margin-bottom: 1.5rem;
+            }
+            .wp-form-header h2 {
+                font-size: clamp(1.35rem, 5vw, 1.75rem);
+                line-height: 1.25;
+                margin-bottom: 0.5rem;
+            }
+            .wp-form-header p {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+            .wp-cd-pill {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.35rem;
+                padding: 0.55rem 0.95rem;
+                border-radius: 12px;
+                font-size: 0.78rem;
+                max-width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 1.4;
+            }
+            .wp-cd-digits {
+                font-size: 0.8rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+            .wp-form-input,
+            .wp-form-select,
+            .wp-form-textarea {
+                padding: 0.72rem 0.95rem;
+                font-size: 0.92rem;
+            }
+            .wp-submit-btn {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.85rem 1.25rem;
+                font-size: 0.95rem;
+                justify-content: center;
+            }
+            .wp-form-guarantee {
+                font-size: 0.76rem;
+                text-align: center;
+                line-height: 1.4;
+            }
+        }
+        @media (max-width: 480px) {
+            .wp-contact-sec {
+                padding: 2.25rem 0 2.75rem;
+            }
+            .wp-form-container {
+                padding: 1.25rem 0.85rem;
+            }
+            .wp-form-header h2 {
+                font-size: clamp(1.22rem, 5.2vw, 1.45rem);
+            }
+            .wp-cd-pill {
+                padding: 0.45rem 0.75rem;
+                font-size: 0.74rem;
+            }
+            .wp-cd-digits {
+                font-size: 0.74rem;
+            }
         }
 
         .form-note {
@@ -924,17 +1013,38 @@
             font-size: 1.6rem;
         }
 
-        /* Comparison Table */
+        /* Comparison Table Container & Styling */
+        .cmp-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--wp-radius-md);
+            border: 1px solid var(--wp-border);
+            background: #FFFFFF;
+            box-shadow: var(--wp-shadow-card);
+            position: relative;
+        }
+        .cmp-scroll-hint {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--wp-blue);
+            background: rgba(0, 82, 204, 0.06);
+            border: 1px solid rgba(0, 82, 204, 0.12);
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--wp-radius-pill);
+            margin: 0 auto 0.85rem;
+            width: fit-content;
+        }
         .cmp-table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
             font-size: 0.94rem;
             background: #FFFFFF;
-            border: 1px solid var(--wp-border);
-            border-radius: var(--wp-radius-md);
-            overflow: hidden;
-            box-shadow: var(--wp-shadow-card);
         }
         .cmp-table th {
             background: var(--wp-navy-900);
@@ -966,6 +1076,15 @@
         }
 
         /* 21 Days Timeline Steps */
+        .steps2-container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid var(--wp-border);
+            border-radius: var(--wp-radius-lg);
+            padding: 1rem 2.5rem;
+            box-shadow: var(--wp-shadow-card);
+        }
         .steps2 {
             display: flex;
             align-items: flex-start;
@@ -990,10 +1109,21 @@
             justify-content: center;
             flex-shrink: 0;
         }
+        .steps2-body {
+            flex-grow: 1;
+            min-width: 0;
+        }
+        .steps2-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.4rem;
+        }
         .steps2 h3 {
             font-size: 1.2rem;
             color: var(--wp-navy-900);
-            margin-bottom: 0.4rem;
+            margin: 0;
         }
         .steps2 p {
             font-size: 0.92rem;
@@ -1012,6 +1142,105 @@
             padding: 0.28rem 0.65rem;
             border-radius: var(--wp-radius-pill);
             white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .cmp-scroll-hint {
+                display: inline-flex;
+            }
+            .cmp-table-wrap {
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 27, 58, 0.08);
+            }
+            .cmp-table {
+                min-width: 600px;
+                font-size: 0.84rem;
+            }
+            .cmp-table th {
+                padding: 0.85rem 1rem;
+                font-size: 0.76rem;
+                white-space: nowrap;
+            }
+            .cmp-table td {
+                padding: 0.85rem 1rem;
+                line-height: 1.45;
+            }
+            .cmp-table th:first-child,
+            .cmp-table td:first-child {
+                position: sticky;
+                left: 0;
+                z-index: 2;
+                background: #FFFFFF;
+                box-shadow: 2px 0 6px rgba(0, 0, 0, 0.06);
+                min-width: 130px;
+                max-width: 145px;
+            }
+            .cmp-table th:first-child {
+                background: var(--wp-navy-900);
+                z-index: 3;
+            }
+            .steps2-container {
+                padding: 0.75rem 1.15rem;
+                border-radius: 14px;
+            }
+            .steps2 {
+                gap: 0.85rem;
+                padding: 1.15rem 0;
+            }
+            .steps2 .dot {
+                width: 36px;
+                height: 36px;
+                border-radius: 9px;
+                font-size: 0.95rem;
+                margin-top: 2px;
+            }
+            .steps2-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.35rem;
+                margin-bottom: 0.35rem;
+            }
+            .steps2 h3 {
+                font-size: 1.02rem;
+                line-height: 1.32;
+            }
+            .steps2 .when {
+                font-size: 0.7rem;
+                padding: 0.18rem 0.55rem;
+            }
+            .steps2 p {
+                font-size: 0.84rem;
+                line-height: 1.48;
+            }
+        }
+        @media (max-width: 480px) {
+            .cmp-table {
+                min-width: 550px;
+                font-size: 0.8rem;
+            }
+            .cmp-table th,
+            .cmp-table td {
+                padding: 0.75rem 0.8rem;
+            }
+            .cmp-table th:first-child,
+            .cmp-table td:first-child {
+                min-width: 115px;
+                max-width: 125px;
+            }
+            .steps2-container {
+                padding: 0.5rem 0.85rem;
+            }
+            .steps2 {
+                gap: 0.7rem;
+                padding: 1rem 0;
+            }
+            .steps2 h3 {
+                font-size: 0.95rem;
+            }
+            .steps2 p {
+                font-size: 0.8rem;
+            }
         }
 
         /* Pricing Tiers */
@@ -1379,9 +1608,13 @@
                         A complimentary 45-minute live consultation with Mohammed Nasar. We evaluate your current bottlenecks, score your readiness, and deliver an objective roadmap. Strictly confidential under mutual NDA.
                     </p>
                     <div class="wp-cd-pill">
-                        <i class="fa-regular fa-calendar-days" style="color:var(--wp-blue);"></i>
-                        <span>Q4 2026 Audit Window:</span>
-                        <b id="cd3-d">--</b> days &bull; <b id="cd3-h">--</b> hrs &bull; <b id="cd3-m">--</b> min &bull; <b id="cd3-s">--</b> sec remaining
+                        <span class="wp-cd-label">
+                            <i class="fa-regular fa-calendar-days" style="color:var(--wp-blue);"></i>
+                            <span>Q4 2026 Audit Window:</span>
+                        </span>
+                        <span class="wp-cd-digits">
+                            <b id="cd3-d">--</b> days &bull; <b id="cd3-h">--</b> hrs &bull; <b id="cd3-m">--</b> min &bull; <b id="cd3-s">--</b> sec remaining
+                        </span>
                     </div>
                 </div>
 
@@ -1712,47 +1945,50 @@
                 <p>Most companies still choose technology reactively — based on vendor marketing and peer hearsay. Here is the difference a rigorous audit makes:</p>
             </div>
 
-            <table class="cmp-table rv">
-                <thead>
-                    <tr>
-                        <th style="width:30%;">Decision Area</th>
-                        <th style="width:35%;">Without the Audit</th>
-                        <th>With Nexteck Architecture</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Buying Software</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Reactive — bought under sales pressure, shelfware within months</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Every purchase tied to a scored opportunity with an agreed budget ceiling</td>
-                    </tr>
-                    <tr>
-                        <td><b>AI Investments</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hype-driven, or avoided entirely while faster competitors compound</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Impact &times; urgency scored for your exact workflow — hype called out</td>
-                    </tr>
-                    <tr>
-                        <td><b>Executive Week</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> 10+ hours lost to administrative friction, approvals, and re-keyed data</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Delegated, documented, automated — management by exception only</td>
-                    </tr>
-                    <tr>
-                        <td><b>Performance Reporting</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hours of manual CSV exports, compiled at 9pm, already out-of-date</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Live KPI dashboard, evaluated cleanly in under 60 minutes weekly</td>
-                    </tr>
-                    <tr>
-                        <td><b>Scaling Operations</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Service quality drops and leadership becomes the bottleneck at 2&times; volume</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> Standard Operating Procedures and integrated systems that absorb growth</td>
-                    </tr>
-                    <tr>
-                        <td><b>Intellectual Property</b></td>
-                        <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Vendor lock-in, undocumented workarounds, and key-person risk</td>
-                        <td><span class="ok"><i class="fa-solid fa-check"></i></span> 100% full IP ownership of all documentation, code, and dashboards</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="cmp-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Scroll table horizontally to compare</div>
+            <div class="cmp-table-wrap">
+                <table class="cmp-table rv">
+                    <thead>
+                        <tr>
+                            <th style="width:28%;">Decision Area</th>
+                            <th style="width:36%;">Without the Audit</th>
+                            <th>With Nexteck Architecture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Buying Software</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Reactive — bought under sales pressure, shelfware within months</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> Every purchase tied to a scored opportunity with an agreed budget ceiling</td>
+                        </tr>
+                        <tr>
+                            <td><b>AI Investments</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hype-driven, or avoided entirely while faster competitors compound</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> Impact &times; urgency scored for your exact workflow — hype called out</td>
+                        </tr>
+                        <tr>
+                            <td><b>Executive Week</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> 10+ hours lost to administrative friction, approvals, and re-keyed data</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> Delegated, documented, automated — management by exception only</td>
+                        </tr>
+                        <tr>
+                            <td><b>Performance Reporting</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Hours of manual CSV exports, compiled at 9pm, already out-of-date</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> Live KPI dashboard, evaluated cleanly in under 60 minutes weekly</td>
+                        </tr>
+                        <tr>
+                            <td><b>Scaling Operations</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Service quality drops and leadership becomes the bottleneck at 2&times; volume</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> Standard Operating Procedures and integrated systems that absorb growth</td>
+                        </tr>
+                        <tr>
+                            <td><b>Intellectual Property</b></td>
+                            <td><span class="x"><i class="fa-solid fa-xmark"></i></span> Vendor lock-in, undocumented workarounds, and key-person risk</td>
+                            <td><span class="ok"><i class="fa-solid fa-check"></i></span> 100% full IP ownership of all documentation, code, and dashboards</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -1765,41 +2001,49 @@
                 <p>A defined, milestone-driven process — you always know what is happening, what is next, and what it costs.</p>
             </div>
 
-            <div style="max-width:860px; margin:0 auto; background:#FFFFFF; border:1px solid var(--wp-border); border-radius:var(--wp-radius-lg); padding:1rem 2.5rem; box-shadow:var(--wp-shadow-card);">
+            <div class="steps2-container">
                 <div class="steps2 rv">
                     <div class="dot">1</div>
-                    <div style="flex-grow:1;">
-                        <h3>Discovery Call &amp; Client Diagnostic</h3>
+                    <div class="steps2-body">
+                        <div class="steps2-head">
+                            <h3>Discovery Call &amp; Client Diagnostic</h3>
+                            <span class="when">Day 1</span>
+                        </div>
                         <p>A 45-minute discovery consultation scoring your business against the 8 most common operational friction points (rated 1–5). High-severity items become sprint priorities.</p>
                     </div>
-                    <span class="when">Day 1</span>
                 </div>
 
                 <div class="steps2 rv">
                     <div class="dot" style="background:#382356;">2</div>
-                    <div style="flex-grow:1;">
-                        <h3>Industry Benchmark &amp; Competitor Tracker</h3>
+                    <div class="steps2-body">
+                        <div class="steps2-head">
+                            <h3>Industry Benchmark &amp; Competitor Tracker</h3>
+                            <span class="when">Days 2–7</span>
+                        </div>
                         <p>Scored against 3–5 recognized leaders in your sector across five lenses, plus a competitive positioning matrix separating industry hygiene from market whitespace.</p>
                     </div>
-                    <span class="when">Days 2–7</span>
                 </div>
 
                 <div class="steps2 rv">
                     <div class="dot" style="background:#72246C;">3</div>
-                    <div style="flex-grow:1;">
-                        <h3>AI &amp; IT Opportunity Log</h3>
+                    <div class="steps2-body">
+                        <div class="steps2-head">
+                            <h3>AI &amp; IT Opportunity Log</h3>
+                            <span class="when">Days 8–14</span>
+                        </div>
                         <p>Every founder-dependent task becomes a scored opportunity — Impact &times; Urgency, monthly software cost, and precisely what administrative tasks are eliminated.</p>
                     </div>
-                    <span class="when">Days 8–14</span>
                 </div>
 
                 <div class="steps2 rv">
                     <div class="dot" style="background:#00A3AD;">4</div>
-                    <div style="flex-grow:1;">
-                        <h3>Roadmap, KPI Dashboard &amp; Walkthrough</h3>
+                    <div class="steps2-body">
+                        <div class="steps2-head">
+                            <h3>Roadmap, KPI Dashboard &amp; Walkthrough</h3>
+                            <span class="when">Days 15–21</span>
+                        </div>
                         <p>A sequenced 90-day execution roadmap, SOP &amp; delegation register, tiered tool-stack plan, and a KPI dashboard your team can manage in under 60 minutes per week.</p>
                     </div>
-                    <span class="when">Days 15–21</span>
                 </div>
             </div>
         </div>
