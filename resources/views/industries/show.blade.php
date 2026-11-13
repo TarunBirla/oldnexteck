@@ -280,12 +280,12 @@
                 </ul>
             @endif
 
-            @if(!empty($industryWhyNexteck))
+            {{-- @if(!empty($industryWhyNexteck))
                 <h2 class="detail-section-title">The Nexteck Advantage in {{ $industryTitle }}</h2>
                 <div class="why-card">
                     <p>{{ $industryWhyNexteck }}</p>
                 </div>
-            @endif
+            @endif --}}
 
             @if($industrySlug === 'railways-pearlconrail' || str_contains($industrySlug, 'rail'))
                 <div class="rail-callout" style="background:#FFFFFF; border:1px solid var(--wp-border); border-left:4px solid var(--wp-spectrum-teal); border-radius:var(--wp-radius-md); padding:1.75rem; box-shadow:var(--wp-shadow-xs); margin-bottom:3rem;">
