@@ -37,6 +37,23 @@ Route::get('/storage-link', function () {
     }
 });
 
+Route::get('/optimize-clear', function () {
+    try {
+        Artisan::call('optimize:clear');
+        $output = Artisan::output();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Optimization cache cleared successfully!',
+            'output' => trim($output)
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
