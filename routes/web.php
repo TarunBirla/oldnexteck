@@ -385,20 +385,42 @@ Route::get('/setup-analytics-table', function () {
     }
 });
 
-// Live Server Route to Create Industries Table & Seed Default Data Directly
+// Live Server Route to Create Industries Table & Sync Database with Latest Catalog
 Route::get('/setup-industries-table', function () {
     try {
         \App\Models\Industry::ensureTableExists();
+        $catalog = \App\Models\Industry::getDefaultCatalog();
+        $synced = 0;
+        foreach ($catalog as $item) {
+            $record = \App\Models\Industry::where('slug', $item['slug'])->first();
+            if ($record) {
+                $record->update([
+                    'why_nexteck' => $item['why_nexteck'],
+                    'short_desc'  => $item['short_desc'],
+                    'tagline'     => $item['tagline'],
+                    'title'       => $item['title']
+                ]);
+                $synced++;
+            } else {
+                \App\Models\Industry::create($item);
+                $synced++;
+            }
+        }
+        Artisan::call('optimize:clear');
         return response()->json([
             'status'  => 'success',
-            'message' => 'industries table created and all default industries seeded successfully on live server!'
+            'message' => "Industries table verified, {$synced} records updated with latest text, and cache cleared!"
         ]);
     } catch (\Throwable $e) {
         return response()->json([
             'status'  => 'error',
-            'message' => 'Failed to setup industries table: ' . $e->getMessage()
+            'message' => 'Failed to setup/sync industries table: ' . $e->getMessage()
         ], 500);
     }
+});
+
+Route::get('/sync-industries', function () {
+    return redirect('/setup-industries-table');
 });
 
 // Live Server Route to Create Engagement Tables Directly
