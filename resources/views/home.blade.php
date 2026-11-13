@@ -2687,7 +2687,7 @@
                     <span class="wp-badge wp-badge-teal" style="margin-bottom:0.75rem;">Specialised Engineering Sourcing &amp; Rail</span>
                     <h3 style="font-size:1.45rem; color:var(--wp-navy-900); margin-bottom:0.45rem;">Looking for Industrial OEM Spares, Rail &amp; Plant Equipment?</h3>
                     <p style="color:var(--wp-text-body); font-size:0.95rem; margin:0; line-height:1.55;">
-                        Explore our full catalog of 9 industrial engineering sectors, international low-cost country sourcing (India, Asia), and our rail engineering collaboration with <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:600;">pearlconrail.co.uk</a>.
+                        Explore our full catalog of 9 industrial engineering sectors, international low-cost country sourcing (India, Asia), and our rail engineering collaboration with <a href="https://pearlconrail.com" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:600;">pearlconrail.co.uk</a>.
                     </p>
                 </div>
                 <a href="{{ route('industries.index') }}" class="btn-wp btn-wp-primary" style="white-space:nowrap;">
@@ -2869,11 +2869,11 @@
                             <span class="wp-badge wp-badge-blue" style="font-size:0.7rem; padding:0.18rem 0.6rem;">Rail &amp; OEM</span>
                         </div>
                         <p class="wp-partner-desc">
-                            Direct strategic rail engineering partner (<a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:#0072CE; font-weight:700;">pearlconrail.co.uk</a>). Providing verified European &amp; Asian supply chain bridges for UK rolling stock operators, bogies, track materials, and EN 45545 fire-certified precision engineering.
+                            Direct strategic rail engineering partner (<a href="https://pearlconrail.com" target="_blank" rel="noopener" style="color:#0072CE; font-weight:700;">pearlconrail.co.uk</a>). Providing verified European &amp; Asian supply chain bridges for UK rolling stock operators, bogies, track materials, and EN 45545 fire-certified precision engineering.
                         </p>
                         <div style="margin-top:auto; padding-top:1rem; border-top:1px solid #F1F5F9; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
                             <span style="font-size:0.76rem; color:#64748B; font-weight:600;"><i class="fa-solid fa-train" style="color:#0072CE; margin-right:4px;"></i> Rail &amp; Infrastructure</span>
-                            <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="font-size:0.82rem; font-weight:700; color:#0072CE; display:inline-flex; align-items:center; gap:4px;">Visit Website <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.72rem;"></i></a>
+                            <a href="https://pearlconrail.com" target="_blank" rel="noopener" style="font-size:0.82rem; font-weight:700; color:#0072CE; display:inline-flex; align-items:center; gap:4px;">Visit Website <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.72rem;"></i></a>
                         </div>
                     </div>
                 </div>

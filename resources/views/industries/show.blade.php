@@ -292,7 +292,7 @@
                     <span class="wp-badge wp-badge-teal" style="margin-bottom:0.75rem;">Strategic Partner Collaboration</span>
                     <h3 style="font-size:1.25rem; color:var(--wp-navy-900); margin-bottom:0.5rem;">Pearlcon Rail UK Supply Ecosystem</h3>
                     <p style="color:var(--wp-text-body); font-size:0.95rem; line-height:1.6; margin:0;">
-                        In direct partnership with <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:700;">pearlconrail.co.uk</a>, Nexteck supports UK rolling stock operators and maintenance contractors with verified European and Asian component sourcing, EN 45545 fire standards compliance, and real-time fleet telematics.
+                        In direct partnership with <a href="https://pearlconrail.com" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:700;">pearlconrail.co.uk</a>, Nexteck supports UK rolling stock operators and maintenance contractors with verified European and Asian component sourcing, EN 45545 fire standards compliance, and real-time fleet telematics.
                     </p>
                 </div>
             @endif

@@ -243,7 +243,7 @@
                         International Engineering Procurement &amp; Low-Cost Country Sourcing
                     </h3>
                     <p style="color:var(--wp-text-body); font-size:0.96rem; line-height:1.6; margin:0;">
-                        Nexteck de-risks overseas procurement by bridging vetted Tier-1 manufacturing capacity across India (Pune, Chennai, Gujarat) and Europe into UK supply chains. Partnered strategically with <a href="https://pearlconrail.co.uk" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:700;">pearlconrail.co.uk</a> for railway bogies, track materials, and rolling stock components.
+                        Nexteck de-risks overseas procurement by bridging vetted Tier-1 manufacturing capacity across India (Pune, Chennai, Gujarat) and Europe into UK supply chains. Partnered strategically with <a href="https://pearlconrail.com" target="_blank" rel="noopener" style="color:var(--wp-blue); font-weight:700;">pearlconrail.co.uk</a> for railway bogies, track materials, and rolling stock components.
                     </p>
                 </div>
                 <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary" style="white-space:nowrap;">
