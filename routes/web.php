@@ -54,6 +54,23 @@ Route::get('/optimize-clear', function () {
     }
 });
 
+Route::get('/view-clear', function () {
+    try {
+        Artisan::call('view:clear');
+        $output = Artisan::output();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Compiled views cleared successfully!',
+            'output' => trim($output)
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
