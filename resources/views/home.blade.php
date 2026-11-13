@@ -41,9 +41,9 @@
           "url": "{{ url('/') }}",
           "description": "Premier Software Development Company and IT Strategy Consultancy in London providing custom software solutions, end-to-end business audits, and AI readiness roadmaps for UK SMEs.",
           "founder": {
-            "@type": "Person",
-            "name": "Mohammed Nasar",
-            "jobTitle": "Principal Consultant & Software Architect"
+            "@type": "Organization",
+            "name": "Nexteck Leadership Team",
+            "jobTitle": "Principal Enterprise Architecture & Technology Consultants"
           },
           "address": {
             "@type": "PostalAddress",
@@ -2423,7 +2423,7 @@
                 <span class="wp-eyebrow"><span class="wp-dot"></span> The Nexteck Method</span>
                 <h2>One Engagement. Four Stages. Zero Guesswork.</h2>
                 <p>
-                    Every engagement runs through the <b>Nexteck SME Strategy &amp; Tracking Toolkit™</b> &mdash; the same diagnostic architecture Mohammed Nasar used to guide IT transformation across tier-1 banks, insurance firms, manufacturers, and e-commerce leaders.
+                    Every engagement runs through the <b>Nexteck SME Strategy &amp; Tracking Toolkit™</b> &mdash; the same diagnostic architecture our principal enterprise architects used to guide IT transformation across tier-1 banks, insurance firms, manufacturers, and e-commerce leaders.
                 </p>
             </div>
 

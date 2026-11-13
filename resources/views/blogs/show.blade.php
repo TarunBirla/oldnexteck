@@ -33,9 +33,9 @@
       "description": "{{ addslashes(Str::limit(strip_tags($blog->description), 160)) }}",
       "datePublished": "{{ $blog->created_at ? $blog->created_at->toIso8601String() : now()->toIso8601String() }}",
       "author": {
-        "@type": "Person",
-        "name": "Mohammed Nasar",
-        "jobTitle": "Principal Consultant & Software Architect"
+        "@type": "Organization",
+        "name": "Nexteck Advisory Team",
+        "jobTitle": "Enterprise Solutions & Architecture"
       },
       "publisher": {
         "@type": "Organization",
@@ -272,10 +272,12 @@
                 <h1>{{ $blog->title }}</h1>
 
                 <div class="author-bar">
-                    <img src="{{ asset('images/nasar.jpeg') }}" alt="Mohammed Nasar">
+                    <div style="width:46px; height:46px; border-radius:50%; background: linear-gradient(135deg, #0284C7, #0369A1); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.15rem; flex-shrink:0; border: 2px solid var(--wp-blue);">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
                     <div class="author-info">
-                        <b>Mohammed Nasar</b>
-                        <span>Principal Consultant &amp; Software Architect &nbsp;·&nbsp; <i class="fa-regular fa-calendar-days" style="margin-right:4px; color:#38BDF8;"></i>Published {{ $blog->created_at ? $blog->created_at->format('F d, Y') : 'Recently' }}</span>
+                        <b>Nexteck Architecture &amp; Advisory Team</b>
+                        <span>Principal Technology Consultants &nbsp;·&nbsp; <i class="fa-regular fa-calendar-days" style="margin-right:4px; color:#38BDF8;"></i>Published {{ $blog->created_at ? $blog->created_at->format('F d, Y') : 'Recently' }}</span>
                     </div>
                 </div>
             </div>
@@ -308,7 +310,7 @@
             <div class="cta-banner">
                 <span class="wp-eyebrow on-navy"><span class="wp-dot"></span> Next Steps</span>
                 <h3>Ready to Audit Your Business &amp; AI Readiness?</h3>
-                <p>Book a free 45-minute live strategy consultation with Mohammed Nasar to review your systems and uncover practical automation gains.</p>
+                <p>Book a free 45-minute live strategy consultation with our Principal Solutions Architect to review your systems and uncover practical automation gains.</p>
                 <a href="{{ route('landing') }}#book" class="btn-wp btn-wp-primary btn-wp-lg" style="background:#38BDF8; color:#001B3A !important; font-weight:800;">
                     Book Your Free Strategy Call <i class="fa-solid fa-arrow-right arrow-icon" style="margin-left:6px;"></i>
                 </a>

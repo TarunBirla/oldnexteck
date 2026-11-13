@@ -1,6 +1,6 @@
 # Nexteck — Software Development Company London | Web, Custom Software & AI Strategy
 
-> Nexteck (https://www.thenexteck.com) is a premier Software Development Company in London, UK, founded by Principal Consultant & Software Architect Mohammed Nasar (25+ years of enterprise IT & software experience across Banking, Insurance, Manufacturing, Education, and E-commerce). We deliver bespoke web & custom software solutions, end-to-end business process audits, workflow automation, and costed 90-day IT & AI roadmaps for UK SMEs.
+> Nexteck (https://www.thenexteck.com) is a premier Software Development Company in London, UK, led by seasoned Enterprise Solutions Architects & Senior Technology Consultants (25+ years of combined enterprise IT & software experience across Banking, Insurance, Manufacturing, Education, and E-commerce). We deliver bespoke web & custom software solutions, end-to-end business process audits, workflow automation, and costed 90-day IT & AI roadmaps for UK SMEs.
 
 ## Core Services & Solutions
 - **Custom Software Development London**: Bespoke web applications, internal business portals, custom booking/member engines, and SaaS platforms when off-the-shelf software falls short.
@@ -50,6 +50,6 @@
 
 ## Contact & Location
 - **Company**: Nexteck Consulting
-- **Principal Consultant**: Mohammed Nasar
+- **Technology Leadership**: Nexteck Senior Engineering & Advisory Team
 - **Location**: London, United Kingdom (Serving SMEs across London & the UK)
 - **Website**: https://www.thenexteck.com/

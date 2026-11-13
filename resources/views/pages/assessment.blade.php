@@ -197,7 +197,7 @@
                     <div>
                         <strong style="font-size:1.08rem; color:var(--wp-navy-900); font-family:var(--wp-font-display);">Actionable 90-Day Implementation Sprint</strong>
                         <p style="font-size:0.94rem; color:var(--wp-text-body); margin-top:0.3rem; line-height:1.6;">
-                            Connects directly to an optional 45-minute discovery consultation with Mohammed Nasar to translate assessment outputs into a costed roadmap.
+                            Connects directly to an optional 45-minute discovery consultation with our Principal Solutions Architect to translate assessment outputs into a costed roadmap.
                         </p>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
 
             <div class="guide-card rv">
                 <h3>Direct Architect Review</h3>
-                <p>Every submission is reviewed by Mohammed Nasar personally — applying 25+ years of tier-1 banking, rail, and manufacturing architecture expertise.</p>
+                <p>Every submission is reviewed by our Principal Consultants personally — applying 25+ years of combined tier-1 banking, rail, and manufacturing architecture expertise.</p>
             </div>
         </div>
     </main>

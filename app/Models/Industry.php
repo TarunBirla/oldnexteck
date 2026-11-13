@@ -162,7 +162,7 @@ class Industry extends Model
                     'Automated regulatory audit trail generation for FCA/PRA compliance',
                     'Custom investor and client portals with end-to-end data encryption'
                 ],
-                'why_nexteck' => 'With 25+ years of enterprise banking IT architecture experience, Mohammed Nasar and the Nexteck team design banking systems that balance strict institutional security with modern user speed.',
+                'why_nexteck' => 'With 25+ years of combined enterprise banking IT architecture experience, our Principal Architects and the Nexteck team design banking systems that balance strict institutional security with modern user speed.',
                 'sort_order'  => 1,
                 'is_active'   => true,
             ],

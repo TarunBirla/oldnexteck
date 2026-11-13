@@ -35,9 +35,9 @@
       "url": "{{ url('/landing') }}",
       "description": "End-to-end business, bespoke software architecture, IT strategy and AI readiness audits for SMEs in London & UK.",
       "founder": {
-        "@type": "Person",
-        "name": "Mohammed Nasar",
-        "jobTitle": "Principal Consultant & Software Architect"
+        "@type": "Organization",
+        "name": "Nexteck Leadership Team",
+        "jobTitle": "Principal Enterprise Architecture & Technology Consultants"
       },
       "address": {
         "@type": "PostalAddress",
@@ -1529,7 +1529,7 @@
                     </h1>
 
                     <p class="lead">
-                        The Nexteck Business &amp; AI Audit examines your processes, systems, data, and talent, then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked using the same architecture Mohammed Nasar delivered for tier-1 institutions.
+                        The Nexteck Business &amp; AI Audit examines your processes, systems, data, and talent, then hands you a costed, prioritised 90-day roadmap — impact-scored and urgency-ranked using the same architecture our principal consultants delivered for tier-1 institutions.
                     </p>
 
                     <!-- Hero Action Buttons -->
@@ -1606,7 +1606,7 @@
                     </div>
                     <h2>Schedule Your Architecture &amp; AI Strategy Call</h2>
                     <p>
-                        A complimentary 45-minute live consultation with Mohammed Nasar. We evaluate your current bottlenecks, score your readiness, and deliver an objective roadmap. Strictly confidential under mutual NDA.
+                        A complimentary 45-minute live consultation with our Principal Solutions Architect. We evaluate your current bottlenecks, score your readiness, and deliver an objective roadmap. Strictly confidential under mutual NDA.
                     </p>
                     <div class="wp-cd-pill">
                         <span class="wp-cd-label">
@@ -1702,14 +1702,16 @@
                     </div>
                     <h3 style="color:var(--wp-navy-900); font-size:1.8rem; margin-bottom:0.75rem;">Consultation Request Received</h3>
                     <p style="color:var(--wp-text-body); max-width:580px; margin:0 auto; font-size:1.05rem; line-height:1.6;">
-                        Thank you for reaching out. Mohammed Nasar or our advisory team will review your requirements and contact you within one business day with scheduled call availability and calendar invite.
+                        Thank you for reaching out. Our Principal Solutions Architect or advisory team will review your requirements and contact you within one business day with scheduled call availability and calendar invite.
                     </p>
                 </div>
 
                 <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--wp-border-subtle); display:flex; align-items:center; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
-                    <img src="{{ asset('images/nasar.jpeg') }}" alt="Mohammed Nasar" style="width:52px; height:52px; border-radius:50%; object-fit:cover; border:2px solid var(--wp-blue);">
+                    <div style="width:52px; height:52px; border-radius:50%; background: linear-gradient(135deg, #0284C7, #1E40AF); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.3rem; flex-shrink:0; border:2px solid var(--wp-blue);">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
                     <p style="margin:0; font-size:0.88rem; color:var(--wp-text-body); line-height:1.45; text-align:left;">
-                        <b>Direct consultation with Mohammed Nasar:</b><br>
+                        <b>Direct consultation with our Principal Architect:</b><br>
                         <span style="color:var(--wp-text-muted);">"If our architecture audit cannot demonstrate quantifiable ROI for your business, we will state so directly on the call."</span>
                     </p>
                 </div>
@@ -2150,7 +2152,7 @@
 
             <details class="rv">
                 <summary>Why only 6 slots per quarter?</summary>
-                <div class="ans">Because the audit is run personally by Mohammed Nasar, not handed to junior analysts. Cohorts are strictly capped to guarantee the rigorous quality of every diagnostic, benchmark, and roadmap we put our name to.</div>
+                <div class="ans">Because the audit is run personally by our Principal Consultants &amp; Senior Architects, not handed to junior analysts. Cohorts are strictly capped to guarantee the rigorous quality of every diagnostic, benchmark, and roadmap we put our name to.</div>
             </details>
         </div>
     </section>
