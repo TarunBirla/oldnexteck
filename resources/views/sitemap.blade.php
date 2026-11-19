@@ -9,10 +9,10 @@
     </url>
 
     <url>
-        <loc>{{ url('/toolkit') }}</loc>
+        <loc>{{ url('/cyber-security') }}</loc>
         <lastmod>{{ now()->utc()->toAtomString() }}</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
     </url>
 
     <url>

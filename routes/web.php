@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ToolkitController;
+use App\Http\Controllers\CyberSecurityController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -117,8 +118,17 @@ Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show')
 Route::get('/industries', [IndustryController::class, 'index'])->name('industries.index');
 Route::get('/industries/{slug}', [IndustryController::class, 'show'])->name('industries.show');
 
-// Frontend SME Strategy & Tracking Toolkit Routes
-Route::get('/toolkit', [ToolkitController::class, 'index'])->name('toolkit.index');
+// Frontend Cyber Security & System Audit Routes
+Route::get('/cyber-security', [CyberSecurityController::class, 'index'])->name('cybersecurity.index');
+Route::get('/cybersecurity', function () {
+    return redirect()->route('cybersecurity.index');
+});
+Route::post('/cyber-security/audit', [CyberSecurityController::class, 'submitAudit'])->name('cybersecurity.submit');
+
+// Legacy SME Strategy & Tracking Toolkit Routes (Redirecting to Cyber Security)
+Route::get('/toolkit', function () {
+    return redirect()->route('cybersecurity.index');
+})->name('toolkit.index');
 Route::post('/toolkit', [ToolkitController::class, 'store'])->name('toolkit.store');
 
 // Smart Customer Engagement Public Pages & APIs

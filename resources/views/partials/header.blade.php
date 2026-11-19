@@ -594,9 +594,9 @@
                         <span class="wp-drop-title">The Nexteck Method</span>
                         <span class="wp-drop-sub">4-Stage diagnostic framework &amp; governance</span>
                     </a>
-                    <a href="{{ route('toolkit.index') }}" class="wp-drop-item">
-                        <span class="wp-drop-title">SME Strategy Toolkit</span>
-                        <span class="wp-drop-sub">7-Stage interactive benchmarking &amp; KPI suite</span>
+                    <a href="{{ route('cybersecurity.index') }}" class="wp-drop-item">
+                        <span class="wp-drop-title">Cyber Security &amp; Audit</span>
+                        <span class="wp-drop-sub">NCSC Cyber Essentials, system audits &amp; compliance</span>
                     </a>
                     <div class="wp-drop-divider"></div>
                     <a href="{{ route('assessment.index') }}" class="wp-drop-item">
@@ -706,9 +706,9 @@
                 </div>
             </div>
 
-            <!-- SME Toolkit -->
+            <!-- Cyber Security -->
             <div class="wp-nav-item">
-                <a href="{{ route('toolkit.index') }}" class="wp-nav-link {{ request()->routeIs('toolkit.*') ? 'is-active' : '' }}">SME Toolkit</a>
+                <a href="{{ route('cybersecurity.index') }}" class="wp-nav-link {{ request()->routeIs('cybersecurity.*') ? 'is-active' : '' }}">Cyber Security</a>
             </div>
 
             <!-- Contact Us (Clean Text Nav Link as in Image) -->

@@ -336,7 +336,7 @@
                     <a href="{{ route('home') }}">Platform Overview</a>
                     <a href="{{ route('home') }}#method">Methodology (4 Stages)</a>
                     <a href="{{ route('industries.index') }}">Industries (9 Sectors)</a>
-                    <a href="{{ route('toolkit.index') }}">SME Strategy Toolkit</a>
+                    <a href="{{ route('cybersecurity.index') }}">Cyber Security &amp; Audits</a>
                     <a href="{{ route('assessment.index') }}">Technology Health Check</a>
                     <a href="{{ route('calculator.index') }}">Automation ROI Calculator</a>
                     <a href="{{ route('blogs.index') }}">Insights &amp; Whitepapers</a>
@@ -361,16 +361,16 @@
                 </div>
             </div>
 
-            <!-- SME Strategy Framework -->
+            <!-- Cyber Security Solutions (5 Core Pillars) -->
             <div class="wp-foot-col">
-                <h4>SME Toolkit</h4>
+                <h4>Cyber Security</h4>
                 <div class="wp-foot-links">
-                    <a href="{{ route('toolkit.index') }}">Diagnostic Assessment</a>
-                    <a href="{{ route('toolkit.index') }}">Industry Benchmark Matrix</a>
-                    <a href="{{ route('toolkit.index') }}">Competitor Tracker</a>
-                    <a href="{{ route('toolkit.index') }}">AI &amp; IT Opportunity Log</a>
-                    <a href="{{ route('toolkit.index') }}">SOP &amp; Delegation Register</a>
-                    <a href="{{ route('toolkit.index') }}">KPI Governance Dashboard</a>
+                    <a href="{{ route('cybersecurity.index') }}">Protect from Cyber Threats</a>
+                    <a href="{{ route('cybersecurity.index') }}#audit">End-to-End System Audit</a>
+                    <a href="{{ route('cybersecurity.index') }}#certification">Cyber Essentials Certification</a>
+                    <a href="{{ route('cybersecurity.index') }}#defences">Strengthen Your Defences</a>
+                    <a href="{{ route('cybersecurity.index') }}#why-us">Why Choose Nexteck</a>
+                    <a href="{{ route('cybersecurity.index') }}#audit-form">Book Security Audit</a>
                     <a href="{{ route('privacy-policy') }}">Privacy &amp; Data Security</a>
                 </div>
             </div>
@@ -401,7 +401,7 @@
             <div style="display:flex; gap:1.5rem; align-items:center;">
                 <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
                 <span aria-hidden="true">&bull;</span>
-                <span>Powered by Nexteck SME Strategy &amp; Tracking Toolkit™</span>
+                <span>Nexteck Cyber Security &bull; Trusted. Certified. Ready.</span>
             </div>
         </div>
     </div>

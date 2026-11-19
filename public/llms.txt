@@ -43,7 +43,7 @@
 - [Manufacturing Plants](https://www.thenexteck.com/industries/manufacturing-plants)
 - [Lab & Medical Equipment](https://www.thenexteck.com/industries/lab-medical-equipment)
 - [Low Cost Country Supply & Sourcing](https://www.thenexteck.com/industries/low-cost-country-supply-and-sourcing)
-- [SME Strategy & AI Audit Toolkit](https://www.thenexteck.com/toolkit)
+- [Cyber Security Solutions & NCSC Audit](https://www.thenexteck.com/cyber-security)
 - [Book a Free 30-Minute Strategy Call](https://www.thenexteck.com/landing)
 - [Nexteck Insights & Engineering Blogs](https://www.thenexteck.com/blogs)
 - [XML Sitemap](https://www.thenexteck.com/sitemap.xml)

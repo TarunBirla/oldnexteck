@@ -53,11 +53,13 @@ class TrackVisitorMiddleware
 
             // Friendly page title mapping
             $pageLabels = [
-                '/'        => 'Home Page (/)',
-                '/home'    => 'Home Page (/home)',
-                '/landing' => 'Strategy Call Landing (/landing)',
-                '/toolkit' => 'SME Strategy Toolkit (/toolkit)',
-                '/blogs'   => 'Blogs Listing (/blogs)',
+                '/'               => 'Home Page (/)',
+                '/home'           => 'Home Page (/home)',
+                '/landing'        => 'Strategy Call Landing (/landing)',
+                '/cyber-security' => 'Cyber Security Solutions (/cyber-security)',
+                '/cybersecurity'  => 'Cyber Security Solutions (/cybersecurity)',
+                '/toolkit'        => 'Legacy Toolkit (Redirected to Cyber Security)',
+                '/blogs'          => 'Blogs Listing (/blogs)',
             ];
             $pageLabel = $pageLabels[$path] ?? (str_starts_with($path, '/blogs/') ? 'Blog Post (' . $path . ')' : $path);
 
