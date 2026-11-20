@@ -4,7 +4,7 @@
 <head>
     @include('partials.analytics')
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Nexteck Cyber Security | Protect Your Business from Cyber Threats | UK SMEs</title>
     <meta name="description" content="Comprehensive Cyber Security Solutions for UK SMEs. End-to-End System Audits, NCSC Cyber Essentials certification, vulnerability assessments, and compliance by Nexteck London.">
     <meta name="keywords" content="Cyber Security UK SMEs, NCSC Cyber Essentials, Cyber Essentials Plus, System Security Audit, Vulnerability Assessment London, UK GDPR Compliance, Cyber Threat Protection">
@@ -27,7 +27,7 @@
     <style>
         /* ==========================================================================
            NEXTECK CYBER SECURITY ARCHITECTURE STYLES
-           High-tech, enterprise-grade dark & light palette matching brand theme
+           Fully Responsive Design for All Screens (320px Mobile -> 4K Ultra-Wide)
            ========================================================================== */
 
         :root {
@@ -47,9 +47,14 @@
             --cyber-border-card: rgba(56, 189, 248, 0.18);
         }
 
-        /* Smooth scroll behavior */
+        /* Prevent unwanted horizontal overflow everywhere */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -59,29 +64,32 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* ---------------- Sub-Navigation Jump Bar ---------------- */
         .cyber-sticky-subnav {
             position: sticky;
-            top: 68px;
-            z-index: 900;
-            background: rgba(0, 15, 36, 0.94);
+            top: 74px; /* Matches .wp-navbar height */
+            z-index: 850;
+            background: rgba(0, 15, 36, 0.96);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.25);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+            width: 100%;
         }
 
         .cyber-subnav-container {
             max-width: 1240px;
             margin: 0 auto;
-            padding: 0.65rem 1.25rem;
+            padding: 0.55rem 1.25rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
+            gap: 0.75rem;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
 
@@ -91,7 +99,7 @@
 
         .cyber-subnav-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.45rem;
             align-items: center;
             flex-wrap: nowrap;
             white-space: nowrap;
@@ -102,19 +110,20 @@
             text-decoration: none;
             font-size: 0.82rem;
             font-weight: 600;
-            padding: 0.45rem 0.85rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 9999px;
             transition: all 0.22s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            flex-shrink: 0;
         }
 
         .cyber-subnav-link:hover,
         .cyber-subnav-link.active {
             color: #FFFFFF;
-            background: rgba(0, 212, 255, 0.15);
-            border: 1px solid rgba(0, 212, 255, 0.35);
+            background: rgba(0, 212, 255, 0.16);
+            border: 1px solid rgba(0, 212, 255, 0.4);
         }
 
         .cyber-subnav-cta {
@@ -131,6 +140,7 @@
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(255, 184, 28, 0.32);
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .cyber-subnav-cta:hover {
@@ -146,9 +156,10 @@
                 radial-gradient(circle at 20% 70%, rgba(56, 35, 86, 0.45) 0%, transparent 50%),
                 linear-gradient(180deg, #000B1A 0%, #001736 60%, #001228 100%);
             color: #FFFFFF;
-            padding: 5rem 0 6rem;
+            padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3.5rem, 7vw, 6rem);
             overflow: hidden;
             border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            width: 100%;
         }
 
         /* Cyber background grid */
@@ -167,7 +178,7 @@
         .cyber-hero-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 3.5rem;
+            gap: clamp(2rem, 4vw, 3.5rem);
             align-items: center;
             position: relative;
             z-index: 2;
@@ -181,13 +192,15 @@
             border: 1px solid rgba(0, 212, 255, 0.4);
             padding: 0.4rem 1rem;
             border-radius: 9999px;
-            font-size: 0.82rem;
+            font-size: clamp(0.75rem, 2vw, 0.82rem);
             font-weight: 700;
             color: #38BDF8;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             margin-bottom: 1.25rem;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+            max-width: 100%;
+            flex-wrap: wrap;
         }
 
         .cyber-pulse-dot {
@@ -197,6 +210,7 @@
             background: #10B981;
             box-shadow: 0 0 8px #10B981;
             animation: cyberPulse 2s infinite;
+            flex-shrink: 0;
         }
 
         @keyframes cyberPulse {
@@ -206,11 +220,13 @@
 
         .cyber-hero-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+            font-size: clamp(1.85rem, 5.5vw, 3.8rem);
             font-weight: 800;
-            line-height: 1.12;
-            margin: 0 0 1.25rem;
+            line-height: 1.14;
+            margin: 0 0 1.15rem;
             color: #FFFFFF;
+            letter-spacing: -0.02em;
+            word-wrap: break-word;
         }
 
         .cyber-text-gradient {
@@ -221,30 +237,30 @@
         }
 
         .cyber-hero-sub {
-            font-size: 1.25rem;
-            font-weight: 500;
+            font-size: clamp(0.98rem, 2.2vw, 1.22rem);
+            font-weight: 400;
             color: #93C5FD;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 0 0 1.75rem;
             max-width: 580px;
         }
 
         .cyber-hero-pillars {
             display: flex;
-            gap: 1.25rem;
-            margin: 1.75rem 0 2.25rem;
+            gap: clamp(0.5rem, 1.5vw, 1.15rem);
+            margin: 1.5rem 0 2rem;
             flex-wrap: wrap;
         }
 
         .cyber-pillar-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.55rem;
+            gap: 0.5rem;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.16);
-            padding: 0.6rem 1.15rem;
+            padding: clamp(0.45rem, 1.2vw, 0.6rem) clamp(0.75rem, 2vw, 1.15rem);
             border-radius: 10px;
-            font-size: 0.95rem;
+            font-size: clamp(0.84rem, 2vw, 0.95rem);
             font-weight: 700;
             color: #FFFFFF;
             transition: all 0.25s ease;
@@ -262,7 +278,7 @@
 
         .cyber-hero-actions {
             display: flex;
-            gap: 1.15rem;
+            gap: 1rem;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -272,17 +288,20 @@
             color: #000B1A !important;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 800;
-            font-size: 1.05rem;
-            padding: 0.95rem 2rem;
+            font-size: clamp(0.92rem, 2vw, 1.05rem);
+            padding: clamp(0.8rem, 1.8vw, 0.95rem) clamp(1.4rem, 3vw, 2rem);
             border-radius: 12px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.65rem;
             box-shadow: 0 10px 25px rgba(255, 184, 28, 0.38);
             transition: all 0.25s ease;
             border: none;
             cursor: pointer;
+            min-height: 48px;
+            text-align: center;
         }
 
         .btn-cyber-gold:hover {
@@ -297,14 +316,17 @@
             color: #FFFFFF !important;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
-            padding: 0.95rem 1.85rem;
+            font-size: clamp(0.92rem, 2vw, 1rem);
+            padding: clamp(0.8rem, 1.8vw, 0.95rem) clamp(1.25rem, 2.5vw, 1.85rem);
             border-radius: 12px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.65rem;
             transition: all 0.25s ease;
+            min-height: 48px;
+            text-align: center;
         }
 
         .btn-cyber-ghost:hover {
@@ -319,11 +341,14 @@
             background: radial-gradient(circle at 50% 40%, rgba(0, 212, 255, 0.16) 0%, rgba(3, 27, 56, 0.85) 60%, rgba(0, 11, 26, 0.95) 100%);
             border: 2px solid rgba(0, 212, 255, 0.35);
             border-radius: 24px;
-            padding: 2.5rem 2rem;
+            padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 35px rgba(0, 212, 255, 0.12);
             text-align: center;
             overflow: hidden;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         .cyber-shield-card::before {
@@ -336,9 +361,9 @@
         }
 
         .shield-icon-wrapper {
-            width: 140px;
-            height: 160px;
-            margin: 0 auto 1.5rem;
+            width: clamp(100px, 18vw, 140px);
+            height: clamp(120px, 20vw, 160px);
+            margin: 0 auto 1.25rem;
             position: relative;
             display: flex;
             align-items: center;
@@ -354,7 +379,7 @@
         }
 
         .shield-lock-icon {
-            font-size: 3.2rem;
+            font-size: clamp(2.4rem, 5vw, 3.2rem);
             color: #FFFFFF;
             position: relative;
             z-index: 2;
@@ -370,19 +395,22 @@
         /* London skyline silhouette */
         .london-skyline-silhouette {
             width: 100%;
-            height: 80px;
+            height: auto;
+            max-height: 80px;
             margin-top: 1rem;
             position: relative;
             z-index: 1;
             opacity: 0.85;
+            display: block;
         }
 
         .cyber-shield-caption {
-            font-size: 0.88rem;
+            font-size: clamp(0.78rem, 2vw, 0.88rem);
             color: #94A3B8;
             margin-top: 0.85rem;
             position: relative;
             z-index: 2;
+            line-height: 1.45;
         }
 
         .cyber-shield-caption strong {
@@ -391,15 +419,17 @@
 
         /* ---------------- SECTION 2: END-TO-END SYSTEM AUDIT ---------------- */
         .sec-system-audit {
-            padding: 5.5rem 0;
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
             background: #FFFFFF;
             position: relative;
+            width: 100%;
         }
 
         .sec-header {
             text-align: center;
             max-width: 820px;
-            margin: 0 auto 3.5rem;
+            margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+            padding: 0 0.5rem;
         }
 
         .sec-eyebrow {
@@ -407,29 +437,33 @@
             align-items: center;
             gap: 0.5rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.82rem;
+            font-size: clamp(0.74rem, 1.8vw, 0.82rem);
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--wp-blue);
             background: var(--wp-blue-50);
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.95rem;
             border-radius: 9999px;
             border: 1px solid var(--wp-blue-100);
             margin-bottom: 0.85rem;
+            max-width: 100%;
+            flex-wrap: wrap;
         }
 
         .sec-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2rem, 3.6vw, 2.9rem);
+            font-size: clamp(1.75rem, 4vw, 2.9rem);
             font-weight: 800;
             color: var(--wp-navy-950);
             line-height: 1.2;
             margin: 0 0 0.85rem;
+            letter-spacing: -0.01em;
+            word-wrap: break-word;
         }
 
         .sec-sub {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
             color: var(--wp-text-muted);
             line-height: 1.6;
             margin: 0;
@@ -439,20 +473,22 @@
         .audit-nodes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3.5rem;
+            gap: clamp(1.25rem, 2.5vw, 2rem);
+            margin-bottom: clamp(2rem, 4vw, 3.5rem);
+            width: 100%;
         }
 
         .audit-node-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 20px;
-            padding: 2.4rem 2rem;
+            padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.15rem, 2.5vw, 2rem);
             box-shadow: 0 8px 30px rgba(0, 15, 36, 0.05);
             position: relative;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
         .audit-node-card:hover {
@@ -462,18 +498,19 @@
         }
 
         .audit-node-badge {
-            width: 58px;
-            height: 58px;
+            width: clamp(48px, 6vw, 58px);
+            height: clamp(48px, 6vw, 58px);
             border-radius: 16px;
             background: linear-gradient(135deg, #001B3A 0%, #082A54 100%);
             color: #38BDF8;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 1.4rem;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            margin-bottom: 1.25rem;
             box-shadow: 0 8px 18px rgba(0, 27, 58, 0.2);
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .audit-node-card:hover .audit-node-badge {
@@ -484,19 +521,20 @@
 
         .audit-node-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.35rem;
+            font-size: clamp(1.15rem, 2.5vw, 1.35rem);
             font-weight: 800;
             color: var(--wp-navy-950);
-            margin: 0 0 0.45rem;
+            margin: 0 0 0.35rem;
+            line-height: 1.3;
         }
 
         .audit-node-sub {
-            font-size: 0.88rem;
+            font-size: clamp(0.78rem, 1.8vw, 0.88rem);
             font-weight: 700;
             color: #0369A1;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
         }
 
         .audit-node-checklist {
@@ -505,11 +543,11 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.85rem;
+            gap: 0.8rem;
         }
 
         .audit-node-checklist li {
-            font-size: 0.94rem;
+            font-size: clamp(0.88rem, 1.8vw, 0.94rem);
             color: var(--wp-text-body);
             line-height: 1.5;
             display: flex;
@@ -524,28 +562,29 @@
             flex-shrink: 0;
         }
 
-        /* Audit Summary Banner matching Image 1: Identify vulnerabilities, Review processes & access, Assess compliance */
+        /* Audit Summary Banner matching Image 1 */
         .audit-deliverables-banner {
             background: linear-gradient(135deg, #001228 0%, #001F45 100%);
             border: 1px solid rgba(0, 212, 255, 0.25);
             border-radius: 20px;
-            padding: 2.2rem 2.5rem;
+            padding: clamp(1.5rem, 3vw, 2.2rem) clamp(1.2rem, 3vw, 2.5rem);
             color: #FFFFFF;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: clamp(1.25rem, 2.5vw, 2rem);
             box-shadow: 0 12px 35px rgba(0, 15, 36, 0.15);
+            width: 100%;
         }
 
         .audit-deliv-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.95rem;
         }
 
         .deliv-check-icon {
-            width: 36px;
-            height: 36px;
+            width: clamp(32px, 4vw, 36px);
+            height: clamp(32px, 4vw, 36px);
             border-radius: 50%;
             background: rgba(255, 184, 28, 0.16);
             border: 1px solid rgba(255, 184, 28, 0.4);
@@ -553,21 +592,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             flex-shrink: 0;
             margin-top: 2px;
         }
 
         .deliv-content h4 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.08rem;
+            font-size: clamp(0.98rem, 2vw, 1.08rem);
             font-weight: 700;
             color: #FFFFFF;
             margin: 0 0 0.35rem;
+            line-height: 1.35;
         }
 
         .deliv-content p {
-            font-size: 0.88rem;
+            font-size: clamp(0.82rem, 1.8vw, 0.88rem);
             color: #CBD5E1;
             margin: 0;
             line-height: 1.5;
@@ -575,12 +615,13 @@
 
         /* ---------------- SECTION 3: GET CERTIFIED WITH CONFIDENCE ---------------- */
         .sec-certification {
-            padding: 5.5rem 0;
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
             background: linear-gradient(180deg, #000B1A 0%, #001736 100%);
             color: #FFFFFF;
             position: relative;
             border-top: 1px solid rgba(0, 212, 255, 0.2);
             border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            width: 100%;
         }
 
         .sec-certification::before {
@@ -594,24 +635,28 @@
         .cert-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: clamp(2rem, 4vw, 3.5rem);
             align-items: center;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
-        /* Official-looking Cyber Essentials Certificate Graphic matching Image 1 */
+        /* Official Cyber Essentials Certificate Graphic matching Image 1 */
         .ncsc-certificate-wrapper {
             position: relative;
             background: #FFFFFF;
             border-radius: 16px;
-            padding: 2.5rem 2.25rem;
+            padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.15rem, 3vw, 2.25rem);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(0, 212, 255, 0.25);
             border: 4px solid #CBD5E1;
             color: #0F172A;
             text-align: center;
             transform: rotate(-1deg);
             transition: all 0.35s ease;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         .ncsc-certificate-wrapper:hover {
@@ -621,7 +666,7 @@
 
         .ncsc-cert-border-inner {
             border: 2px solid #001B3A;
-            padding: 1.8rem 1.4rem;
+            padding: clamp(1.2rem, 2.5vw, 1.8rem) clamp(0.85rem, 2vw, 1.4rem);
             border-radius: 8px;
             position: relative;
         }
@@ -631,17 +676,18 @@
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
         }
 
         .ncsc-crest-logo {
-            width: 44px;
+            width: clamp(34px, 5vw, 44px);
             height: auto;
+            flex-shrink: 0;
         }
 
         .ncsc-crest-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.05rem;
+            font-size: clamp(0.88rem, 2vw, 1.05rem);
             font-weight: 800;
             color: #001B3A;
             text-transform: uppercase;
@@ -651,49 +697,50 @@
         }
 
         .ncsc-cert-main-badge {
-            margin: 1.5rem 0 1.25rem;
+            margin: 1.25rem 0 1rem;
         }
 
         .ncsc-cert-headline {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.1rem;
+            font-size: clamp(1.45rem, 4vw, 2.1rem);
             font-weight: 800;
             color: #001B3A;
             margin: 0;
             letter-spacing: -0.01em;
+            word-wrap: break-word;
         }
 
         .ncsc-cert-tick-box {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: clamp(54px, 8vw, 70px);
+            height: clamp(54px, 8vw, 70px);
             border-radius: 50%;
             background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
             color: #FFFFFF;
-            font-size: 2.4rem;
-            margin: 1rem 0;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin: 0.85rem 0;
             box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
         }
 
         .ncsc-cert-subhead {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.15rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
             font-weight: 800;
             color: #0284C7;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin: 0.25rem 0 1.5rem;
+            margin: 0.25rem 0 1.25rem;
         }
 
         /* Gold Rosette Ribbon Stamp */
         .ncsc-gold-rosette {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
-            width: 72px;
-            height: 72px;
+            bottom: 12px;
+            right: 12px;
+            width: clamp(48px, 7vw, 72px);
+            height: clamp(48px, 7vw, 72px);
             border-radius: 50%;
             background: radial-gradient(circle, #FDE047 0%, #EAB308 60%, #B45309 100%);
             box-shadow: 0 6px 16px rgba(180, 83, 9, 0.45);
@@ -701,21 +748,23 @@
             align-items: center;
             justify-content: center;
             color: #78350F;
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             border: 2px dashed #FEF08A;
         }
 
         .cert-info-col h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2rem, 3.4vw, 2.7rem);
+            font-size: clamp(1.75rem, 4vw, 2.7rem);
             font-weight: 800;
             margin: 0 0 1rem;
             color: #FFFFFF;
             line-height: 1.2;
+            letter-spacing: -0.01em;
+            word-wrap: break-word;
         }
 
         .cert-info-col p {
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
             color: #CBD5E1;
             line-height: 1.65;
             margin-bottom: 1.5rem;
@@ -725,7 +774,7 @@
             background: rgba(0, 212, 255, 0.08);
             border-left: 4px solid #FFB81C;
             border-radius: 0 12px 12px 0;
-            padding: 1.25rem 1.4rem;
+            padding: clamp(1rem, 2.5vw, 1.25rem) clamp(1rem, 2.5vw, 1.4rem);
             margin-bottom: 1.75rem;
         }
 
@@ -733,13 +782,15 @@
             color: #FFB81C;
             display: block;
             margin-bottom: 0.35rem;
-            font-size: 1rem;
+            font-size: clamp(0.92rem, 2vw, 1rem);
+            line-height: 1.4;
         }
 
         .cert-highlight-box span {
-            font-size: 0.92rem;
+            font-size: clamp(0.85rem, 1.8vw, 0.92rem);
             color: #E2E8F0;
-            line-height: 1.5;
+            line-height: 1.55;
+            display: block;
         }
 
         .cert-benefits-list {
@@ -752,46 +803,49 @@
         }
 
         .cert-benefits-list li {
-            font-size: 0.96rem;
+            font-size: clamp(0.88rem, 1.8vw, 0.96rem);
             color: #E2E8F0;
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .cert-benefits-list li i {
             color: #38BDF8;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-top: 0.15rem;
             flex-shrink: 0;
         }
 
         /* ---------------- SECTION 4: STRENGTHEN YOUR DEFENCES ---------------- */
         .sec-strengthen-defences {
-            padding: 5.5rem 0;
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
             background: #F8FAFC;
             position: relative;
+            width: 100%;
         }
 
         .defences-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: clamp(2rem, 4vw, 3.5rem);
+            width: 100%;
         }
 
         .defence-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 18px;
-            padding: 2.2rem 1.6rem;
+            padding: clamp(1.5rem, 3vw, 2.2rem) clamp(1.15rem, 2vw, 1.6rem);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             transition: all 0.28s ease;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
 
         .defence-card:hover {
@@ -801,8 +855,8 @@
         }
 
         .defence-icon-ring {
-            width: 72px;
-            height: 72px;
+            width: clamp(56px, 7vw, 72px);
+            height: clamp(56px, 7vw, 72px);
             border-radius: 50%;
             background: linear-gradient(135deg, #001B3A 0%, #003366 100%);
             border: 2px solid rgba(0, 212, 255, 0.35);
@@ -810,10 +864,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.4rem;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            margin-bottom: 1.25rem;
             box-shadow: 0 8px 20px rgba(0, 27, 58, 0.18);
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .defence-card:hover .defence-icon-ring {
@@ -825,15 +880,15 @@
 
         .defence-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.15rem;
+            font-size: clamp(1.05rem, 2.2vw, 1.15rem);
             font-weight: 800;
             color: var(--wp-navy-950);
             margin: 0 0 0.65rem;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         .defence-card p {
-            font-size: 0.88rem;
+            font-size: clamp(0.84rem, 1.8vw, 0.88rem);
             color: var(--wp-text-body);
             line-height: 1.55;
             margin: 0;
@@ -843,52 +898,58 @@
         .resilience-chart-banner {
             background: linear-gradient(135deg, #001228 0%, #001E42 100%);
             border-radius: 20px;
-            padding: 2.5rem 3rem;
+            padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.2rem, 3.5vw, 3rem);
             color: #FFFFFF;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 2.5rem;
+            gap: clamp(1.75rem, 3vw, 2.5rem);
             align-items: center;
             border: 1px solid rgba(0, 212, 255, 0.25);
             box-shadow: 0 14px 40px rgba(0, 15, 36, 0.18);
+            width: 100%;
         }
 
         .resilience-chart-text h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.65rem;
+            font-size: clamp(1.3rem, 3vw, 1.65rem);
             font-weight: 800;
             color: #FFFFFF;
             margin: 0 0 0.75rem;
+            line-height: 1.3;
         }
 
         .resilience-chart-text p {
-            font-size: 0.96rem;
+            font-size: clamp(0.88rem, 1.8vw, 0.96rem);
             color: #CBD5E1;
             line-height: 1.6;
             margin: 0 0 1.25rem;
         }
 
-        /* Animated Bar Chart SVG representation */
+        /* Scalable Responsive Bar Chart */
         .bars-chart-wrapper {
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            gap: 12px;
-            height: 140px;
-            padding: 10px;
+            gap: clamp(8px, 1.8vw, 14px);
+            height: clamp(120px, 18vw, 140px);
+            padding: 10px 10px 24px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
         }
 
         .chart-bar {
-            width: 38px;
+            width: clamp(22px, 5.5vw, 36px);
             border-radius: 6px 6px 0 0;
             background: linear-gradient(180deg, #38BDF8 0%, #0369A1 100%);
             box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
             transition: all 0.4s ease;
             position: relative;
+            flex-shrink: 0;
         }
 
         .chart-bar:hover {
@@ -898,10 +959,10 @@
 
         .bar-label {
             position: absolute;
-            bottom: -24px;
+            bottom: -22px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.72rem;
+            font-size: clamp(0.64rem, 1.5vw, 0.72rem);
             font-weight: 700;
             color: #94A3B8;
             white-space: nowrap;
@@ -911,43 +972,46 @@
             text-align: center;
             margin-top: 1.85rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.92rem;
+            font-size: clamp(0.78rem, 1.8vw, 0.92rem);
             font-weight: 800;
             color: #38BDF8;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            line-height: 1.4;
         }
 
         /* ---------------- SECTION 5: WHY CHOOSE NEXTECK? ---------------- */
         .sec-why-nexteck {
-            padding: 5.5rem 0;
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
             background: #FFFFFF;
             position: relative;
+            width: 100%;
         }
 
         .why-nexteck-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
-            gap: 3.5rem;
+            gap: clamp(2rem, 4vw, 3.5rem);
             align-items: center;
+            width: 100%;
         }
 
         .why-points-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            margin: 2rem 0 2.5rem;
+            gap: 1.35rem;
+            margin: 1.75rem 0 2.25rem;
         }
 
         .why-point-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.15rem;
+            gap: clamp(0.85rem, 2vw, 1.15rem);
         }
 
         .why-point-icon {
-            width: 44px;
-            height: 44px;
+            width: clamp(38px, 5vw, 44px);
+            height: clamp(38px, 5vw, 44px);
             border-radius: 12px;
             background: rgba(255, 184, 28, 0.15);
             border: 1px solid rgba(255, 184, 28, 0.4);
@@ -955,21 +1019,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
             flex-shrink: 0;
             margin-top: 2px;
         }
 
         .why-point-text h4 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.2rem;
+            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
             font-weight: 800;
             color: var(--wp-navy-950);
             margin: 0 0 0.35rem;
+            line-height: 1.35;
         }
 
         .why-point-text p {
-            font-size: 0.94rem;
+            font-size: clamp(0.86rem, 1.8vw, 0.94rem);
             color: var(--wp-text-body);
             line-height: 1.55;
             margin: 0;
@@ -980,35 +1045,41 @@
             background: radial-gradient(circle at 50% 50%, rgba(3, 27, 56, 0.95) 0%, rgba(0, 11, 26, 0.98) 100%);
             border: 2px solid rgba(0, 212, 255, 0.3);
             border-radius: 24px;
-            padding: 2.75rem 2rem;
+            padding: clamp(1.75rem, 3.5vw, 2.75rem) clamp(1.15rem, 3vw, 2rem);
             text-align: center;
             color: #FFFFFF;
             position: relative;
             box-shadow: 0 20px 50px rgba(0, 15, 36, 0.25), inset 0 0 35px rgba(0, 212, 255, 0.1);
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
         }
 
         .uk-map-svg {
-            max-width: 260px;
+            max-width: clamp(190px, 35vw, 260px);
+            width: 100%;
             height: auto;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.25rem;
             filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.45));
+            display: block;
         }
 
         .uk-map-seal-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.45rem;
+            font-size: clamp(1.2rem, 3vw, 1.45rem);
             font-weight: 800;
             color: #FFFFFF;
-            margin: 0 0 0.45rem;
+            margin: 0 0 0.35rem;
+            line-height: 1.3;
         }
 
         .uk-map-seal-sub {
-            font-size: 0.92rem;
+            font-size: clamp(0.82rem, 2vw, 0.92rem);
             color: #38BDF8;
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Bottom Phone & Website Bar matching Image 1 */
@@ -1020,9 +1091,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 1.25rem;
+            gap: 1rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.05rem;
+            font-size: clamp(0.92rem, 2vw, 1.05rem);
             font-weight: 800;
             box-shadow: 0 6px 18px rgba(255, 184, 28, 0.35);
             text-decoration: none;
@@ -1030,6 +1101,8 @@
             max-width: 380px;
             margin: 0 auto;
             transition: all 0.2s ease;
+            min-height: 48px;
+            flex-wrap: wrap;
         }
 
         .cyber-bottom-contact-bar:hover {
@@ -1039,11 +1112,12 @@
 
         /* ---------------- SECTION: INTERACTIVE AUDIT BOOKING FORM ---------------- */
         .sec-audit-form {
-            padding: 5.5rem 0 6rem;
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(4rem, 7vw, 6rem);
             background: linear-gradient(180deg, #001026 0%, #000B1A 100%);
             color: #FFFFFF;
             position: relative;
             border-top: 2px solid rgba(0, 212, 255, 0.3);
+            width: 100%;
         }
 
         .audit-form-container {
@@ -1051,29 +1125,33 @@
             margin: 0 auto;
             background: rgba(3, 27, 56, 0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(0, 212, 255, 0.3);
             border-radius: 24px;
-            padding: 3rem 3rem;
+            padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 3rem);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
             position: relative;
+            width: 100%;
         }
 
         .form-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 1.25rem;
+            width: 100%;
         }
 
         .cyber-form-group {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            margin-bottom: 1.35rem;
+            margin-bottom: 1.25rem;
+            width: 100%;
         }
 
         .cyber-form-group label {
-            font-size: 0.88rem;
+            font-size: clamp(0.82rem, 1.8vw, 0.88rem);
             font-weight: 700;
             color: #E2E8F0;
             display: flex;
@@ -1091,10 +1169,11 @@
             padding: 0.85rem 1.15rem;
             color: #FFFFFF;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            font-size: 16px; /* 16px prevents iOS auto-zoom on focus */
             outline: none;
             transition: all 0.22s ease;
             box-sizing: border-box;
+            min-height: 48px;
         }
 
         .cyber-form-input:focus,
@@ -1140,19 +1219,21 @@
 
         /* ---------------- SECTION: INTERACTIVE RISK SELF-CHECKER ---------------- */
         .sec-risk-checker {
-            padding: 4.5rem 0;
+            padding: clamp(3rem, 5vw, 4.5rem) 0;
             background: #F1F5F9;
             border-top: 1px solid #E2E8F0;
+            width: 100%;
         }
 
         .checker-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 20px;
-            padding: 2.5rem 2.5rem;
+            padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.15rem, 3vw, 2.5rem);
             max-width: 900px;
             margin: 0 auto;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            width: 100%;
         }
 
         .checker-item {
@@ -1161,7 +1242,8 @@
             justify-content: space-between;
             padding: 1.1rem 0;
             border-bottom: 1px solid #F1F5F9;
-            gap: 1.5rem;
+            gap: 1.25rem;
+            width: 100%;
         }
 
         .checker-item:last-child {
@@ -1169,10 +1251,10 @@
         }
 
         .checker-label {
-            font-size: 0.98rem;
+            font-size: clamp(0.88rem, 2vw, 0.98rem);
             font-weight: 600;
             color: var(--wp-navy-950);
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         .checker-toggle-wrap {
@@ -1182,7 +1264,7 @@
         }
 
         .checker-btn-opt {
-            padding: 0.4rem 0.9rem;
+            padding: 0.45rem 1rem;
             border-radius: 8px;
             border: 1px solid #CBD5E1;
             background: #FFFFFF;
@@ -1190,6 +1272,11 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
+            min-height: 40px;
+            min-width: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .checker-btn-opt.selected-yes {
@@ -1205,22 +1292,24 @@
         }
 
         .checker-score-output {
-            margin-top: 2rem;
-            padding: 1.5rem 1.8rem;
+            margin-top: 1.85rem;
+            padding: clamp(1.25rem, 2.5vw, 1.5rem) clamp(1.2rem, 3vw, 1.8rem);
             border-radius: 14px;
             background: #001228;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1.5rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         /* ---------------- SECTION: FAQ ACCORDION ---------------- */
         .sec-cyber-faq {
-            padding: 5rem 0 6rem;
+            padding: clamp(3.5rem, 6vw, 5rem) 0 clamp(4rem, 6vw, 6rem);
             background: #FFFFFF;
+            width: 100%;
         }
 
         .faq-accordion-list {
@@ -1229,6 +1318,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            width: 100%;
         }
 
         .faq-item {
@@ -1237,6 +1327,7 @@
             border-radius: 14px;
             overflow: hidden;
             transition: all 0.25s ease;
+            width: 100%;
         }
 
         .faq-item.is-open {
@@ -1249,22 +1340,25 @@
             text-align: left;
             background: none;
             border: none;
-            padding: 1.25rem 1.5rem;
+            padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 2.5vw, 1.5rem);
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
             font-weight: 700;
             color: var(--wp-navy-950);
             cursor: pointer;
             gap: 1rem;
+            min-height: 48px;
+            line-height: 1.4;
         }
 
         .faq-chevron {
             font-size: 0.85rem;
             color: #64748B;
             transition: transform 0.25s ease;
+            flex-shrink: 0;
         }
 
         .faq-item.is-open .faq-chevron {
@@ -1273,8 +1367,8 @@
         }
 
         .faq-answer-content {
-            padding: 0 1.5rem 1.35rem;
-            font-size: 0.95rem;
+            padding: 0 clamp(1rem, 2.5vw, 1.5rem) 1.25rem;
+            font-size: clamp(0.88rem, 1.8vw, 0.95rem);
             line-height: 1.65;
             color: var(--wp-text-body);
             display: none;
@@ -1284,36 +1378,84 @@
             display: block;
         }
 
-        /* Responsive Breakpoints */
+        /* ==========================================================================
+           RESPONSIVE BREAKPOINTS (Pixel-Perfect from 320px to 4K)
+           ========================================================================== */
+
+        /* Laptops & Small Desktops (<= 1200px) */
+        @media (max-width: 1200px) {
+            .defences-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        /* Tablets Landscape (<= 1080px) */
         @media (max-width: 1080px) {
             .cyber-hero-grid,
             .cert-grid,
             .why-nexteck-grid {
                 grid-template-columns: 1fr;
-                gap: 2.75rem;
+                gap: 2.5rem;
+            }
+            .cyber-shield-card,
+            .ncsc-certificate-wrapper,
+            .uk-map-card {
+                max-width: 520px;
             }
             .audit-nodes-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
+            }
+            .audit-nodes-grid .audit-node-card:nth-child(3) {
+                grid-column: span 2;
             }
             .audit-deliverables-banner {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .defences-grid {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 1.35rem;
             }
             .resilience-chart-banner {
                 grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .resilience-chart-text div {
+                justify-content: center;
             }
         }
 
+        /* Tablets Portrait (<= 768px) */
         @media (max-width: 768px) {
+            .cyber-sticky-subnav {
+                top: 74px;
+            }
+            .cyber-subnav-container {
+                padding: 0.45rem 1rem;
+            }
+            .cyber-subnav-links {
+                gap: 0.35rem;
+            }
+            .cyber-subnav-link {
+                font-size: 0.78rem;
+                padding: 0.35rem 0.65rem;
+            }
+            .cyber-subnav-cta {
+                font-size: 0.78rem;
+                padding: 0.35rem 0.85rem;
+            }
+
+            .audit-nodes-grid {
+                grid-template-columns: 1fr;
+            }
+            .audit-nodes-grid .audit-node-card:nth-child(3) {
+                grid-column: auto;
+            }
             .defences-grid {
                 grid-template-columns: 1fr;
             }
             .form-grid-2 {
                 grid-template-columns: 1fr;
+                gap: 0;
             }
             .audit-form-container {
                 padding: 2rem 1.25rem;
@@ -1324,11 +1466,114 @@
             }
             .btn-cyber-gold,
             .btn-cyber-ghost {
-                justify-content: center;
                 width: 100%;
+                justify-content: center;
             }
             .resilience-chart-banner {
                 padding: 1.75rem 1.25rem;
+            }
+            .ncsc-certificate-wrapper {
+                transform: none !important; /* Prevents overflow */
+            }
+        }
+
+        /* Standard Mobile (<= 576px) */
+        @media (max-width: 576px) {
+            .sec-cyber-hero {
+                padding: 3rem 0 4rem;
+            }
+            .cyber-hero-pillars {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            .cyber-pillar-pill {
+                justify-content: center;
+                width: 100%;
+            }
+            .cyber-shield-card {
+                padding: 1.5rem 1rem;
+            }
+            .shield-icon-wrapper {
+                width: 100px;
+                height: 120px;
+            }
+            .shield-lock-icon {
+                font-size: 2.2rem;
+            }
+            .checker-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.85rem;
+            }
+            .checker-toggle-wrap {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            .checker-btn-opt {
+                width: 100%;
+                min-height: 44px;
+            }
+            .checker-score-output {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: 1.15rem;
+            }
+            .checker-score-output a {
+                width: 100%;
+                justify-content: center;
+            }
+            .ncsc-certificate-wrapper {
+                padding: 1.25rem 0.85rem;
+                border-width: 3px;
+            }
+            .ncsc-cert-border-inner {
+                padding: 1.15rem 0.65rem;
+            }
+            .ncsc-gold-rosette {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+                bottom: 8px;
+                right: 8px;
+            }
+            .cyber-bottom-contact-bar {
+                font-size: 0.95rem;
+                padding: 0.75rem 1rem;
+                gap: 0.65rem;
+            }
+        }
+
+        /* Ultra-Small Mobile (<= 380px, e.g. iPhone SE, Galaxy Fold) */
+        @media (max-width: 380px) {
+            .cyber-hero-title {
+                font-size: 1.7rem;
+            }
+            .cyber-subnav-cta span.subnav-btn-text {
+                display: none; /* Icon only on extra-tiny screen */
+            }
+            .cyber-subnav-cta {
+                padding: 0.4rem 0.65rem;
+            }
+            .bars-chart-wrapper {
+                max-width: 270px;
+                gap: 6px;
+            }
+            .chart-bar {
+                width: 22px;
+            }
+            .bar-label {
+                font-size: 0.62rem;
+            }
+            .ncsc-cert-headline {
+                font-size: 1.35rem;
+            }
+            .audit-form-container {
+                padding: 1.5rem 0.85rem;
             }
         }
     </style>
@@ -1341,16 +1586,16 @@
     <nav class="cyber-sticky-subnav" aria-label="Cyber Security Page Navigation">
         <div class="cyber-subnav-container">
             <div class="cyber-subnav-links">
-                <a href="#overview" class="cyber-subnav-link active"><i class="fa-solid fa-shield-halved"></i> 1. Threat Protection</a>
-                <a href="#audit" class="cyber-subnav-link"><i class="fa-solid fa-laptop-code"></i> 2. System Audit</a>
-                <a href="#certification" class="cyber-subnav-link"><i class="fa-solid fa-certificate"></i> 3. NCSC Certification</a>
-                <a href="#defences" class="cyber-subnav-link"><i class="fa-solid fa-lock"></i> 4. Defences &amp; Resilience</a>
-                <a href="#why-us" class="cyber-subnav-link"><i class="fa-solid fa-award"></i> 5. Why Nexteck</a>
-                <a href="#risk-check" class="cyber-subnav-link"><i class="fa-solid fa-gauge-high"></i> Risk Checker</a>
-                <a href="#faq" class="cyber-subnav-link"><i class="fa-solid fa-circle-question"></i> FAQs</a>
+                <a href="#overview" class="cyber-subnav-link active"><i class="fa-solid fa-shield-halved"></i> <span>1. Threat Protection</span></a>
+                <a href="#audit" class="cyber-subnav-link"><i class="fa-solid fa-laptop-code"></i> <span>2. System Audit</span></a>
+                <a href="#certification" class="cyber-subnav-link"><i class="fa-solid fa-certificate"></i> <span>3. NCSC Certification</span></a>
+                <a href="#defences" class="cyber-subnav-link"><i class="fa-solid fa-lock"></i> <span>4. Defences &amp; Resilience</span></a>
+                <a href="#why-us" class="cyber-subnav-link"><i class="fa-solid fa-award"></i> <span>5. Why Nexteck</span></a>
+                <a href="#risk-check" class="cyber-subnav-link"><i class="fa-solid fa-gauge-high"></i> <span>Risk Checker</span></a>
+                <a href="#faq" class="cyber-subnav-link"><i class="fa-solid fa-circle-question"></i> <span>FAQs</span></a>
             </div>
-            <a href="#audit-form" class="cyber-subnav-cta">
-                <i class="fa-solid fa-calendar-check"></i> Book Audit Today
+            <a href="#audit-form" class="cyber-subnav-cta" title="Jump to Cyber Security Audit Booking Form">
+                <i class="fa-solid fa-calendar-check"></i> <span class="subnav-btn-text">Book Audit</span>
             </a>
         </div>
     </nav>
@@ -1364,7 +1609,7 @@
                 <div>
                     <div class="cyber-badge-tag">
                         <span class="cyber-pulse-dot"></span>
-                        Nexteck &bull; Secure Today. Stronger Tomorrow.
+                        <span>Nexteck &bull; Secure Today. Stronger Tomorrow.</span>
                     </div>
 
                     <h1 class="cyber-hero-title">
@@ -1402,8 +1647,8 @@
                         </a>
                     </div>
 
-                    <div style="margin-top:1.85rem; display:flex; align-items:center; gap:0.9rem; font-size:0.85rem; color:#94A3B8;">
-                        <i class="fa-solid fa-shield-virus" style="color:#38BDF8; font-size:1.1rem;"></i>
+                    <div style="margin-top:1.85rem; display:flex; align-items:center; gap:0.9rem; font-size:clamp(0.78rem, 1.8vw, 0.85rem); color:#94A3B8; flex-wrap:wrap;">
+                        <i class="fa-solid fa-shield-virus" style="color:#38BDF8; font-size:1.1rem; flex-shrink:0;"></i>
                         <span>Over 50% of UK SMEs suffer a cyber breach annually &bull; 80% preventable with Cyber Essentials</span>
                     </div>
                 </div>
@@ -1428,7 +1673,7 @@
                         </div>
 
                         <!-- London Landmarks Silhouette (Big Ben, London Eye, Tower Bridge) -->
-                        <svg class="london-skyline-silhouette" viewBox="0 0 400 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="london-skyline-silhouette" viewBox="0 0 400 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                             <!-- Thames water line -->
                             <line x1="0" y1="85" x2="400" y2="85" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
                             <!-- Big Ben / Elizabeth Tower -->
@@ -1582,12 +1827,12 @@
                                 <div class="ncsc-cert-subhead">CERTIFIED</div>
                             </div>
 
-                            <p style="font-size:0.85rem; color:#475569; margin:0 0 1rem; line-height:1.45;">
+                            <p style="font-size:clamp(0.8rem, 1.8vw, 0.85rem); color:#475569; margin:0 0 1rem; line-height:1.45;">
                                 This certifies that the organization has been independently evaluated and adheres to the five technical controls of the UK Cyber Essentials scheme.
                             </p>
 
                             <!-- IASME Licensed Body Badge Stamp -->
-                            <div style="font-size:0.75rem; color:#64748B; font-weight:600; border-top:1px dashed #CBD5E1; padding-top:0.75rem;">
+                            <div style="font-size:clamp(0.72rem, 1.6vw, 0.75rem); color:#64748B; font-weight:600; border-top:1px dashed #CBD5E1; padding-top:0.75rem; line-height:1.35;">
                                 Assessed &amp; Awarded through an IASME-licensed Certification Body
                             </div>
 
@@ -1714,7 +1959,7 @@
                     <p>
                         Moving from unmonitored legacy IT to active continuous protection reduces annual cyber downtime by up to 94% and insulates your business against operational disruption.
                     </p>
-                    <div style="display:flex; gap:1.5rem; flex-wrap:wrap; font-size:0.88rem; color:#93C5FD;">
+                    <div style="display:flex; gap:1.25rem; flex-wrap:wrap; font-size:clamp(0.82rem, 1.8vw, 0.88rem); color:#93C5FD;">
                         <span><i class="fa-solid fa-check" style="color:#10B981;"></i> 99.9% Uptime Protection</span>
                         <span><i class="fa-solid fa-check" style="color:#10B981;"></i> Real-Time Threat Alerts</span>
                         <span><i class="fa-solid fa-check" style="color:#10B981;"></i> Zero Ransomware Liability</span>
@@ -1817,7 +2062,7 @@
                 <div>
                     <div class="uk-map-card">
                         <!-- Glowing Digital UK Map SVG -->
-                        <svg class="uk-map-svg" viewBox="0 0 260 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="uk-map-svg" viewBox="0 0 260 340" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                             <!-- British Isles Simplified Mesh Silhouette -->
                             <!-- Scotland -->
                             <path d="M120 15 L145 25 L160 50 L140 75 L115 85 L95 65 L105 35 Z" stroke="#38BDF8" stroke-width="1.5" fill="rgba(0,212,255,0.06)"/>
@@ -1864,7 +2109,7 @@
                             <span>07879 175585</span>
                         </a>
 
-                        <div style="margin-top:1rem; font-size:0.8rem; color:#94A3B8;">
+                        <div style="margin-top:1rem; font-size:clamp(0.75rem, 1.6vw, 0.8rem); color:#94A3B8; line-height:1.4;">
                             <span>Official UK SME Security Operations &bull; London &bull; Nationwide</span>
                         </div>
                     </div>
@@ -1878,9 +2123,9 @@
          ========================================================================== -->
     <section class="sec-risk-checker" id="risk-check">
         <div class="wp-wrap">
-            <div class="sec-header" style="margin-bottom:2.5rem;">
+            <div class="sec-header" style="margin-bottom:2rem;">
                 <span class="sec-eyebrow"><i class="fa-solid fa-gauge"></i> Interactive Tool</span>
-                <h2 class="sec-title" style="font-size:2.2rem;">Quick SME Cyber Risk Self-Checker</h2>
+                <h2 class="sec-title" style="font-size:clamp(1.6rem, 3.5vw, 2.2rem);">Quick SME Cyber Risk Self-Checker</h2>
                 <p class="sec-sub">Answer 5 simple yes/no questions to test your business readiness against common UK attack vectors.</p>
             </div>
 
@@ -1929,7 +2174,7 @@
                 <div class="checker-score-output" id="checkerResultBox">
                     <div>
                         <div style="font-size:0.85rem; color:#94A3B8; text-transform:uppercase; letter-spacing:0.05em;">Estimated Security Health</div>
-                        <div id="checkerScoreTitle" style="font-family:'Plus Jakarta Sans'; font-size:1.4rem; font-weight:800; color:#FFB81C; margin-top:0.25rem;">
+                        <div id="checkerScoreTitle" style="font-family:'Plus Jakarta Sans'; font-size:clamp(1.15rem, 2.5vw, 1.4rem); font-weight:800; color:#FFB81C; margin-top:0.25rem;">
                             Select answers above to calculate score
                         </div>
                     </div>
@@ -1947,7 +2192,7 @@
          ========================================================================== -->
     <section class="sec-audit-form" id="audit-form">
         <div class="wp-wrap">
-            <div class="sec-header" style="margin-bottom: 2.75rem;">
+            <div class="sec-header" style="margin-bottom: clamp(1.75rem, 3vw, 2.75rem);">
                 <span class="sec-eyebrow" style="background:rgba(0,212,255,0.1); color:#38BDF8; border-color:rgba(0,212,255,0.3);">
                     <i class="fa-solid fa-calendar-check"></i> Book With Confidence &bull; UK GDPR Protected
                 </span>
@@ -2019,13 +2264,13 @@
                         <textarea id="auditNotes" name="notes" class="cyber-form-textarea" placeholder="Tell us about your IT setup (e.g. Microsoft 365, AWS, on-prem servers), upcoming tender deadlines, or previous security incidents..."></textarea>
                     </div>
 
-                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.25rem; margin-top:2rem;">
-                        <button type="submit" class="btn-cyber-gold" id="auditSubmitBtn" style="min-width:260px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-top:1.75rem;">
+                        <button type="submit" class="btn-cyber-gold" id="auditSubmitBtn" style="min-width:240px;">
                             <span id="auditBtnText">Request Cyber Security Audit</span>
                             <i class="fa-solid fa-arrow-right" id="auditBtnIcon"></i>
                         </button>
 
-                        <div style="font-size:0.85rem; color:#94A3B8; display:flex; align-items:center; gap:0.5rem;">
+                        <div style="font-size:0.85rem; color:#94A3B8; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
                             <i class="fa-solid fa-lock" style="color:#10B981;"></i>
                             <span>Protected by Non-Disclosure Agreement (NDA) &bull; No Obligation</span>
                         </div>
@@ -2033,10 +2278,10 @@
                 </form>
 
                 <!-- Direct Callout Alternative -->
-                <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.12); text-align:center;">
+                <div style="margin-top:2.25rem; padding-top:1.75rem; border-top:1px solid rgba(255,255,255,0.12); text-align:center;">
                     <span style="font-size:0.92rem; color:#CBD5E1;">Prefer to discuss your requirements immediately?</span>
                     <div style="margin-top:0.75rem;">
-                        <a href="tel:07879175585" style="color:#FFB81C; font-size:1.35rem; font-weight:800; font-family:'Plus Jakarta Sans'; text-decoration:none; display:inline-flex; align-items:center; gap:0.55rem;">
+                        <a href="tel:07879175585" style="color:#FFB81C; font-size:clamp(1.15rem, 3vw, 1.35rem); font-weight:800; font-family:'Plus Jakarta Sans'; text-decoration:none; display:inline-flex; align-items:center; gap:0.55rem;">
                             <i class="fa-solid fa-phone-volume"></i> 07879 175585
                         </a>
                         <div style="font-size:0.82rem; color:#94A3B8; margin-top:0.25rem;">Direct Cyber Security Advisory Hotline (Mon - Fri, 9am - 6pm UK)</div>
@@ -2134,7 +2379,7 @@
             let current = '';
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
+                const sectionTop = section.offsetTop - 140;
                 if (window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
