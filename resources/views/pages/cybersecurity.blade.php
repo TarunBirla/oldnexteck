@@ -26,8 +26,8 @@
 
     <style>
         /* ==========================================================================
-           NEXTECK CYBER SECURITY ARCHITECTURE STYLES
-           Fully Responsive Design for All Screens (320px Mobile -> 4K Ultra-Wide)
+           NEXTECK ENTERPRISE CYBER SECURITY DESIGN SYSTEM
+           Inspired by Wipro CyberTransform™ / CyberShield™ Enterprise Architecture
            ========================================================================== */
 
         :root {
@@ -47,7 +47,6 @@
             --cyber-border-card: rgba(56, 189, 248, 0.18);
         }
 
-        /* Prevent unwanted horizontal overflow everywhere */
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -67,102 +66,21 @@
             width: 100%;
         }
 
-        /* ---------------- Sub-Navigation Jump Bar ---------------- */
-        .cyber-sticky-subnav {
-            position: sticky;
-            top: 74px; /* Matches .wp-navbar height */
-            z-index: 850;
-            background: rgba(0, 15, 36, 0.96);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.25);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-            width: 100%;
-        }
-
-        .cyber-subnav-container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0.55rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .cyber-subnav-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .cyber-subnav-links {
-            display: flex;
-            gap: 0.45rem;
-            align-items: center;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-
-        .cyber-subnav-link {
-            color: #94A3B8;
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            border-radius: 9999px;
-            transition: all 0.22s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex-shrink: 0;
-        }
-
-        .cyber-subnav-link:hover,
-        .cyber-subnav-link.active {
-            color: #FFFFFF;
-            background: rgba(0, 212, 255, 0.16);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-        }
-
-        .cyber-subnav-cta {
-            flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background: linear-gradient(135deg, #FFB81C 0%, #F59E0B 100%);
-            color: #000F24 !important;
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 0.45rem 1.15rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(255, 184, 28, 0.32);
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .cyber-subnav-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(255, 184, 28, 0.45);
-        }
-
         /* ---------------- SECTION 1: HERO & THREAT PROTECTION ---------------- */
         .sec-cyber-hero {
             position: relative;
             background: 
-                radial-gradient(circle at 80% 30%, rgba(0, 212, 255, 0.18) 0%, transparent 45%),
-                radial-gradient(circle at 20% 70%, rgba(56, 35, 86, 0.45) 0%, transparent 50%),
-                linear-gradient(180deg, #000B1A 0%, #001736 60%, #001228 100%);
+                linear-gradient(180deg, rgba(0, 11, 26, 0.94) 0%, rgba(0, 23, 54, 0.92) 60%, rgba(0, 18, 40, 0.97) 100%),
+                radial-gradient(circle at 85% 25%, rgba(0, 212, 255, 0.22) 0%, transparent 50%),
+                radial-gradient(circle at 15% 75%, rgba(56, 35, 86, 0.5) 0%, transparent 55%),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
             color: #FFFFFF;
-            padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3.5rem, 7vw, 6rem);
+            padding: clamp(3.5rem, 6.5vw, 5.5rem) 0 clamp(2.5rem, 4.5vw, 4rem);
             overflow: hidden;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.35);
             width: 100%;
         }
 
-        /* Cyber background grid */
         .sec-cyber-hero::before {
             content: "";
             position: absolute;
@@ -170,8 +88,8 @@
             background-image: 
                 linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.7;
+            background-size: 38px 38px;
+            opacity: 0.65;
             pointer-events: none;
         }
 
@@ -188,17 +106,17 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            padding: 0.4rem 1rem;
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid rgba(0, 212, 255, 0.45);
+            padding: 0.4rem 1.1rem;
             border-radius: 9999px;
-            font-size: clamp(0.75rem, 2vw, 0.82rem);
+            font-size: clamp(0.75rem, 1.8vw, 0.84rem);
             font-weight: 700;
             color: #38BDF8;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 1.25rem;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+            box-shadow: 0 0 16px rgba(0, 212, 255, 0.18);
             max-width: 100%;
             flex-wrap: wrap;
         }
@@ -208,25 +126,24 @@
             height: 8px;
             border-radius: 50%;
             background: #10B981;
-            box-shadow: 0 0 8px #10B981;
+            box-shadow: 0 0 10px #10B981;
             animation: cyberPulse 2s infinite;
             flex-shrink: 0;
         }
 
         @keyframes cyberPulse {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.3); }
+            50% { opacity: 0.35; transform: scale(1.35); }
         }
 
         .cyber-hero-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.85rem, 5.5vw, 3.8rem);
+            font-size: clamp(1.9rem, 5.2vw, 3.8rem);
             font-weight: 800;
-            line-height: 1.14;
+            line-height: 1.12;
             margin: 0 0 1.15rem;
             color: #FFFFFF;
             letter-spacing: -0.02em;
-            word-wrap: break-word;
         }
 
         .cyber-text-gradient {
@@ -237,7 +154,7 @@
         }
 
         .cyber-hero-sub {
-            font-size: clamp(0.98rem, 2.2vw, 1.22rem);
+            font-size: clamp(1rem, 2.2vw, 1.22rem);
             font-weight: 400;
             color: #93C5FD;
             line-height: 1.6;
@@ -247,7 +164,7 @@
 
         .cyber-hero-pillars {
             display: flex;
-            gap: clamp(0.5rem, 1.5vw, 1.15rem);
+            gap: clamp(0.5rem, 1.5vw, 1rem);
             margin: 1.5rem 0 2rem;
             flex-wrap: wrap;
         }
@@ -256,11 +173,11 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            padding: clamp(0.45rem, 1.2vw, 0.6rem) clamp(0.75rem, 2vw, 1.15rem);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: clamp(0.45rem, 1.2vw, 0.6rem) clamp(0.85rem, 2vw, 1.2rem);
             border-radius: 10px;
-            font-size: clamp(0.84rem, 2vw, 0.95rem);
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
             font-weight: 700;
             color: #FFFFFF;
             transition: all 0.25s ease;
@@ -268,7 +185,7 @@
 
         .cyber-pillar-pill:hover {
             border-color: #38BDF8;
-            background: rgba(56, 189, 248, 0.12);
+            background: rgba(56, 189, 248, 0.15);
             transform: translateY(-2px);
         }
 
@@ -336,14 +253,14 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Shield Illustration Graphic (London Silhouette + Glowing Lock) */
+        /* Hero Visual Card (Image + London Skyline + Shield) */
         .cyber-shield-card {
-            background: radial-gradient(circle at 50% 40%, rgba(0, 212, 255, 0.16) 0%, rgba(3, 27, 56, 0.85) 60%, rgba(0, 11, 26, 0.95) 100%);
-            border: 2px solid rgba(0, 212, 255, 0.35);
+            background: radial-gradient(circle at 50% 30%, rgba(0, 212, 255, 0.16) 0%, rgba(3, 27, 56, 0.92) 65%, rgba(0, 11, 26, 0.98) 100%);
+            border: 2px solid rgba(0, 212, 255, 0.38);
             border-radius: 24px;
-            padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+            padding: clamp(1.5rem, 3.5vw, 2.2rem) clamp(1rem, 2.5vw, 1.8rem);
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 35px rgba(0, 212, 255, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), inset 0 0 35px rgba(0, 212, 255, 0.15);
             text-align: center;
             overflow: hidden;
             width: 100%;
@@ -351,19 +268,21 @@
             margin: 0 auto;
         }
 
-        .cyber-shield-card::before {
-            content: "";
+        .hero-img-backdrop {
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 20 L55 45 L30 55 L5 45 L5 20 Z' fill='none' stroke='rgba(0,212,255,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;
-            opacity: 0.7;
+            background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            filter: saturate(1.8) brightness(0.8);
             pointer-events: none;
         }
 
         .shield-icon-wrapper {
-            width: clamp(100px, 18vw, 140px);
-            height: clamp(120px, 20vw, 160px);
-            margin: 0 auto 1.25rem;
+            width: clamp(100px, 18vw, 130px);
+            height: clamp(120px, 20vw, 150px);
+            margin: 0 auto 1rem;
             position: relative;
             display: flex;
             align-items: center;
@@ -375,15 +294,15 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 0 22px rgba(0, 212, 255, 0.6));
+            filter: drop-shadow(0 0 22px rgba(0, 212, 255, 0.65));
         }
 
         .shield-lock-icon {
-            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            font-size: clamp(2.4rem, 5vw, 3rem);
             color: #FFFFFF;
             position: relative;
             z-index: 2;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.9);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.95);
             animation: lockGlow 3s ease-in-out infinite alternate;
         }
 
@@ -392,15 +311,14 @@
             to { transform: scale(1.06); filter: drop-shadow(0 0 25px #38BDF8); }
         }
 
-        /* London skyline silhouette */
         .london-skyline-silhouette {
             width: 100%;
             height: auto;
-            max-height: 80px;
-            margin-top: 1rem;
+            max-height: 75px;
+            margin-top: 0.75rem;
             position: relative;
             z-index: 1;
-            opacity: 0.85;
+            opacity: 0.9;
             display: block;
         }
 
@@ -415,6 +333,170 @@
 
         .cyber-shield-caption strong {
             color: #FFB81C;
+        }
+
+        /* ---------------- WIPRO-STYLE ENTERPRISE TRUST METRICS BAR ---------------- */
+        .cyber-metrics-strip {
+            position: relative;
+            z-index: 10;
+            margin-top: -2.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cyber-metrics-card {
+            background: linear-gradient(135deg, #001228 0%, #082142 50%, #001B3A 100%);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 20px;
+            padding: 1.5rem clamp(1rem, 2.5vw, 2.5rem);
+            box-shadow: 0 16px 40px rgba(0, 15, 36, 0.35), 0 0 25px rgba(0, 212, 255, 0.12);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .metric-col {
+            text-align: center;
+            position: relative;
+        }
+
+        .metric-col:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -0.75rem;
+            top: 15%;
+            height: 70%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .metric-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            color: #FFB81C;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-label {
+            font-size: clamp(0.78rem, 1.8vw, 0.85rem);
+            color: #CBD5E1;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* ---------------- IN-PAGE CAPABILITY & FRAMEWORK NAVIGATOR ---------------- */
+        /* Replaces the sticky subnav that was jammed in the header! */
+        .sec-framework-navigator {
+            padding: 1.5rem 0 3rem;
+            background: #F8FAFC;
+        }
+
+        .framework-nav-box {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 1.75rem clamp(1rem, 3vw, 2rem);
+            box-shadow: 0 6px 25px rgba(0, 15, 36, 0.05);
+        }
+
+        .framework-nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .framework-nav-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--wp-navy-950);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .framework-nav-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #0369A1;
+            background: #E0F2FE;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .framework-pills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.85rem;
+        }
+
+        .framework-pill-item {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 1rem 0.85rem;
+            text-decoration: none;
+            color: var(--wp-navy-950);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .framework-pill-item:hover,
+        .framework-pill-item.is-active {
+            background: #001B3A;
+            border-color: #00D4FF;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 27, 58, 0.18);
+        }
+
+        .framework-pill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.12);
+            color: #0284C7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            transition: all 0.25s ease;
+        }
+
+        .framework-pill-item:hover .framework-pill-icon,
+        .framework-pill-item.is-active .framework-pill-icon {
+            background: rgba(255, 184, 28, 0.2);
+            color: #FFB81C;
+        }
+
+        .framework-pill-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .framework-pill-desc {
+            font-size: 0.74rem;
+            color: var(--wp-text-muted);
+            line-height: 1.3;
+        }
+
+        .framework-pill-item:hover .framework-pill-desc,
+        .framework-pill-item.is-active .framework-pill-desc {
+            color: #93C5FD;
         }
 
         /* ---------------- SECTION 2: END-TO-END SYSTEM AUDIT ---------------- */
@@ -459,7 +541,6 @@
             line-height: 1.2;
             margin: 0 0 0.85rem;
             letter-spacing: -0.01em;
-            word-wrap: break-word;
         }
 
         .sec-sub {
@@ -467,6 +548,63 @@
             color: var(--wp-text-muted);
             line-height: 1.6;
             margin: 0;
+        }
+
+        /* Wipro-Style Visual Split Banner (Image + Key Insights) */
+        .audit-showcase-split {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(1.5rem, 3.5vw, 3rem);
+            align-items: center;
+            margin-bottom: 3.5rem;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .audit-showcase-img-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 15, 36, 0.12);
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .audit-showcase-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .audit-showcase-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .audit-showcase-overlay-tag {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(0, 15, 36, 0.88);
+            backdrop-filter: blur(10px);
+            padding: 0.85rem 1.15rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+
+        .audit-showcase-overlay-tag strong {
+            color: #FFB81C;
+            display: block;
+            margin-bottom: 2px;
+            font-size: 0.9rem;
         }
 
         /* Audit 3-Node Cards Grid */
@@ -489,12 +627,29 @@
             display: flex;
             flex-direction: column;
             width: 100%;
+            overflow: hidden;
+        }
+
+        .audit-node-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0284C7 0%, #38BDF8 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .audit-node-card:hover {
             transform: translateY(-6px);
             border-color: #38BDF8;
             box-shadow: 0 16px 40px rgba(0, 114, 206, 0.12);
+        }
+
+        .audit-node-card:hover::before {
+            opacity: 1;
         }
 
         .audit-node-badge {
@@ -562,7 +717,7 @@
             flex-shrink: 0;
         }
 
-        /* Audit Summary Banner matching Image 1 */
+        /* Audit Deliverables Banner */
         .audit-deliverables-banner {
             background: linear-gradient(135deg, #001228 0%, #001F45 100%);
             border: 1px solid rgba(0, 212, 255, 0.25);
@@ -616,20 +771,14 @@
         /* ---------------- SECTION 3: GET CERTIFIED WITH CONFIDENCE ---------------- */
         .sec-certification {
             padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            background: linear-gradient(180deg, #000B1A 0%, #001736 100%);
+            background: 
+                linear-gradient(180deg, rgba(0, 11, 26, 0.96) 0%, rgba(0, 23, 54, 0.94) 100%),
+                url('https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
             color: #FFFFFF;
             position: relative;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(0, 212, 255, 0.25);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.25);
             width: 100%;
-        }
-
-        .sec-certification::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 75% 35%, rgba(0, 212, 255, 0.1) 0%, transparent 55%);
-            pointer-events: none;
         }
 
         .cert-grid {
@@ -642,7 +791,6 @@
             width: 100%;
         }
 
-        /* Official Cyber Essentials Certificate Graphic matching Image 1 */
         .ncsc-certificate-wrapper {
             position: relative;
             background: #FFFFFF;
@@ -652,7 +800,6 @@
             border: 4px solid #CBD5E1;
             color: #0F172A;
             text-align: center;
-            transform: rotate(-1deg);
             transition: all 0.35s ease;
             width: 100%;
             max-width: 480px;
@@ -660,7 +807,7 @@
         }
 
         .ncsc-certificate-wrapper:hover {
-            transform: rotate(0deg) scale(1.02);
+            transform: scale(1.02);
             box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 45px rgba(0, 212, 255, 0.4);
         }
 
@@ -707,7 +854,6 @@
             color: #001B3A;
             margin: 0;
             letter-spacing: -0.01em;
-            word-wrap: break-word;
         }
 
         .ncsc-cert-tick-box {
@@ -734,7 +880,6 @@
             margin: 0.25rem 0 1.25rem;
         }
 
-        /* Gold Rosette Ribbon Stamp */
         .ncsc-gold-rosette {
             position: absolute;
             bottom: 12px;
@@ -760,7 +905,6 @@
             color: #FFFFFF;
             line-height: 1.2;
             letter-spacing: -0.01em;
-            word-wrap: break-word;
         }
 
         .cert-info-col p {
@@ -894,7 +1038,7 @@
             margin: 0;
         }
 
-        /* Ascending Resilience Bar Chart Container matching Image 1 */
+        /* Ascending Resilience Bar Chart Container */
         .resilience-chart-banner {
             background: linear-gradient(135deg, #001228 0%, #001E42 100%);
             border-radius: 20px;
@@ -925,7 +1069,6 @@
             margin: 0 0 1.25rem;
         }
 
-        /* Scalable Responsive Bar Chart */
         .bars-chart-wrapper {
             display: flex;
             align-items: flex-end;
@@ -1040,6 +1183,42 @@
             margin: 0;
         }
 
+        /* Senior Advisory Team Visual Card */
+        .advisory-team-card {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 15, 36, 0.05);
+        }
+
+        .advisory-team-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .advisory-team-body {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .advisory-team-body h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--wp-navy-950);
+            margin: 0 0 0.35rem;
+        }
+
+        .advisory-team-body p {
+            font-size: 0.86rem;
+            color: var(--wp-text-body);
+            margin: 0;
+            line-height: 1.5;
+        }
+
         /* Glowing UK Cyber Map Visual */
         .uk-map-card {
             background: radial-gradient(circle at 50% 50%, rgba(3, 27, 56, 0.95) 0%, rgba(0, 11, 26, 0.98) 100%);
@@ -1082,7 +1261,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Bottom Phone & Website Bar matching Image 1 */
         .cyber-bottom-contact-bar {
             background: linear-gradient(135deg, #FFB81C 0%, #F59E0B 100%);
             border-radius: 12px;
@@ -1113,23 +1291,25 @@
         /* ---------------- SECTION: INTERACTIVE AUDIT BOOKING FORM ---------------- */
         .sec-audit-form {
             padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(4rem, 7vw, 6rem);
-            background: linear-gradient(180deg, #001026 0%, #000B1A 100%);
+            background: 
+                linear-gradient(180deg, rgba(0, 16, 38, 0.96) 0%, rgba(0, 11, 26, 0.98) 100%),
+                url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat;
             color: #FFFFFF;
             position: relative;
-            border-top: 2px solid rgba(0, 212, 255, 0.3);
+            border-top: 2px solid rgba(0, 212, 255, 0.35);
             width: 100%;
         }
 
         .audit-form-container {
             max-width: 900px;
             margin: 0 auto;
-            background: rgba(3, 27, 56, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: rgba(3, 27, 56, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 212, 255, 0.35);
             border-radius: 24px;
             padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 3rem);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(0, 212, 255, 0.15);
             position: relative;
             width: 100%;
         }
@@ -1163,13 +1343,13 @@
         .cyber-form-select,
         .cyber-form-textarea {
             width: 100%;
-            background: rgba(0, 15, 36, 0.85);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(0, 15, 36, 0.9);
+            border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 10px;
             padding: 0.85rem 1.15rem;
             color: #FFFFFF;
             font-family: 'Inter', sans-serif;
-            font-size: 16px; /* 16px prevents iOS auto-zoom on focus */
+            font-size: 16px;
             outline: none;
             transition: all 0.22s ease;
             box-sizing: border-box;
@@ -1180,7 +1360,7 @@
         .cyber-form-select:focus,
         .cyber-form-textarea:focus {
             border-color: #00D4FF;
-            box-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 14px rgba(0, 212, 255, 0.35);
             background: rgba(0, 15, 36, 0.98);
         }
 
@@ -1378,30 +1558,36 @@
             display: block;
         }
 
-        /* ==========================================================================
-           RESPONSIVE BREAKPOINTS (Pixel-Perfect from 320px to 4K)
-           ========================================================================== */
-
-        /* Laptops & Small Desktops (<= 1200px) */
+        /* ---------------- RESPONSIVE BREAKPOINTS ---------------- */
         @media (max-width: 1200px) {
             .defences-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.25rem;
             }
+            .framework-pills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        /* Tablets Landscape (<= 1080px) */
         @media (max-width: 1080px) {
             .cyber-hero-grid,
             .cert-grid,
-            .why-nexteck-grid {
+            .why-nexteck-grid,
+            .audit-showcase-split {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2.25rem;
             }
             .cyber-shield-card,
             .ncsc-certificate-wrapper,
             .uk-map-card {
                 max-width: 520px;
+            }
+            .cyber-metrics-card {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+            }
+            .metric-col:nth-child(2)::after {
+                display: none;
             }
             .audit-nodes-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1424,26 +1610,24 @@
             }
         }
 
-        /* Tablets Portrait (<= 768px) */
         @media (max-width: 768px) {
-            .cyber-sticky-subnav {
-                top: 74px;
+            .framework-pills-grid {
+                grid-template-columns: 1fr;
+                gap: 0.65rem;
             }
-            .cyber-subnav-container {
-                padding: 0.45rem 1rem;
+            .framework-pill-item {
+                flex-direction: row;
+                text-align: left;
+                padding: 0.85rem 1rem;
             }
-            .cyber-subnav-links {
-                gap: 0.35rem;
+            .cyber-metrics-card {
+                grid-template-columns: 1fr 1fr;
+                padding: 1.25rem 1rem;
+                gap: 1rem;
             }
-            .cyber-subnav-link {
-                font-size: 0.78rem;
-                padding: 0.35rem 0.65rem;
+            .metric-col::after {
+                display: none !important;
             }
-            .cyber-subnav-cta {
-                font-size: 0.78rem;
-                padding: 0.35rem 0.85rem;
-            }
-
             .audit-nodes-grid {
                 grid-template-columns: 1fr;
             }
@@ -1473,14 +1657,13 @@
                 padding: 1.75rem 1.25rem;
             }
             .ncsc-certificate-wrapper {
-                transform: none !important; /* Prevents overflow */
+                transform: none !important;
             }
         }
 
-        /* Standard Mobile (<= 576px) */
         @media (max-width: 576px) {
             .sec-cyber-hero {
-                padding: 3rem 0 4rem;
+                padding: 3rem 0 3.5rem;
             }
             .cyber-hero-pillars {
                 display: grid;
@@ -1492,15 +1675,9 @@
                 justify-content: center;
                 width: 100%;
             }
-            .cyber-shield-card {
-                padding: 1.5rem 1rem;
-            }
-            .shield-icon-wrapper {
-                width: 100px;
-                height: 120px;
-            }
-            .shield-lock-icon {
-                font-size: 2.2rem;
+            .cyber-metrics-card {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
             }
             .checker-item {
                 flex-direction: column;
@@ -1548,16 +1725,9 @@
             }
         }
 
-        /* Ultra-Small Mobile (<= 380px, e.g. iPhone SE, Galaxy Fold) */
         @media (max-width: 380px) {
             .cyber-hero-title {
-                font-size: 1.7rem;
-            }
-            .cyber-subnav-cta span.subnav-btn-text {
-                display: none; /* Icon only on extra-tiny screen */
-            }
-            .cyber-subnav-cta {
-                padding: 0.4rem 0.65rem;
+                font-size: 1.65rem;
             }
             .bars-chart-wrapper {
                 max-width: 270px;
@@ -1581,24 +1751,6 @@
 
 <body>
     @include('partials.header')
-
-    <!-- Sticky Section Navigation Bar -->
-    <nav class="cyber-sticky-subnav" aria-label="Cyber Security Page Navigation">
-        <div class="cyber-subnav-container">
-            <div class="cyber-subnav-links">
-                <a href="#overview" class="cyber-subnav-link active"><i class="fa-solid fa-shield-halved"></i> <span>1. Threat Protection</span></a>
-                <a href="#audit" class="cyber-subnav-link"><i class="fa-solid fa-laptop-code"></i> <span>2. System Audit</span></a>
-                <a href="#certification" class="cyber-subnav-link"><i class="fa-solid fa-certificate"></i> <span>3. NCSC Certification</span></a>
-                <a href="#defences" class="cyber-subnav-link"><i class="fa-solid fa-lock"></i> <span>4. Defences &amp; Resilience</span></a>
-                <a href="#why-us" class="cyber-subnav-link"><i class="fa-solid fa-award"></i> <span>5. Why Nexteck</span></a>
-                <a href="#risk-check" class="cyber-subnav-link"><i class="fa-solid fa-gauge-high"></i> <span>Risk Checker</span></a>
-                <a href="#faq" class="cyber-subnav-link"><i class="fa-solid fa-circle-question"></i> <span>FAQs</span></a>
-            </div>
-            <a href="#audit-form" class="cyber-subnav-cta" title="Jump to Cyber Security Audit Booking Form">
-                <i class="fa-solid fa-calendar-check"></i> <span class="subnav-btn-text">Book Audit</span>
-            </a>
-        </div>
-    </nav>
 
     <!-- ==========================================================================
          SECTION 1: HERO & THREAT PROTECTION OVERVIEW (Matching Column 1)
@@ -1656,6 +1808,7 @@
                 <!-- London Skyline & Glowing Cyber Shield Card Visual (from Column 1) -->
                 <div>
                     <div class="cyber-shield-card">
+                        <div class="hero-img-backdrop"></div>
                         <div class="shield-icon-wrapper">
                             <!-- SVG Glowing Cyber Shield -->
                             <svg class="shield-svg-shape" viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1703,6 +1856,80 @@
     </section>
 
     <!-- ==========================================================================
+         WIPRO-STYLE ENTERPRISE TRUST METRICS STRIP
+         ========================================================================== -->
+    <div class="wp-wrap cyber-metrics-strip">
+        <div class="cyber-metrics-card">
+            <div class="metric-col">
+                <div class="metric-number">50%+</div>
+                <div class="metric-label">UK SMEs targeted by cyber breaches annually</div>
+            </div>
+            <div class="metric-col">
+                <div class="metric-number">£12,050</div>
+                <div class="metric-label">Average financial impact of an SME data breach</div>
+            </div>
+            <div class="metric-col">
+                <div class="metric-number">80%+</div>
+                <div class="metric-label">Common attacks blocked via Cyber Essentials</div>
+            </div>
+            <div class="metric-col">
+                <div class="metric-number">100%</div>
+                <div class="metric-label">UK Government &amp; Enterprise tender qualification</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         IN-PAGE CAPABILITY & FRAMEWORK NAVIGATOR
+         (Placed organically inside page content - clean & unencumbered header!)
+         ========================================================================== -->
+    <section class="sec-framework-navigator">
+        <div class="wp-wrap">
+            <div class="framework-nav-box">
+                <div class="framework-nav-header">
+                    <div class="framework-nav-title">
+                        <i class="fa-solid fa-compass" style="color:#0284C7;"></i>
+                        <span>Explore The 5 Core Cyber Security Pillars</span>
+                    </div>
+                    <span class="framework-nav-badge">Interactive Module Navigator</span>
+                </div>
+
+                <div class="framework-pills-grid">
+                    <a href="#overview" class="framework-pill-item is-active">
+                        <div class="framework-pill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <span class="framework-pill-name">1. Threat Protection</span>
+                        <span class="framework-pill-desc">Perimeter &amp; attack defense</span>
+                    </a>
+
+                    <a href="#audit" class="framework-pill-item">
+                        <div class="framework-pill-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <span class="framework-pill-name">2. System Audit</span>
+                        <span class="framework-pill-desc">Technical &amp; operational review</span>
+                    </a>
+
+                    <a href="#certification" class="framework-pill-item">
+                        <div class="framework-pill-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <span class="framework-pill-name">3. NCSC Cert</span>
+                        <span class="framework-pill-desc">Cyber Essentials accreditation</span>
+                    </a>
+
+                    <a href="#defences" class="framework-pill-item">
+                        <div class="framework-pill-icon"><i class="fa-solid fa-lock"></i></div>
+                        <span class="framework-pill-name">4. Defences</span>
+                        <span class="framework-pill-desc">Data &amp; regulatory resilience</span>
+                    </a>
+
+                    <a href="#why-us" class="framework-pill-item">
+                        <div class="framework-pill-icon"><i class="fa-solid fa-award"></i></div>
+                        <span class="framework-pill-name">5. Why Nexteck</span>
+                        <span class="framework-pill-desc">Senior UK architect advantage</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
          SECTION 2: END-TO-END SYSTEM AUDIT (Matching Column 2)
          ========================================================================== -->
     <section class="sec-system-audit" id="audit">
@@ -1713,6 +1940,44 @@
                 <p class="sec-sub">
                     A rigorous 360-degree review of your digital estate. We uncover hidden vulnerabilities, inspect daily operational processes, and ensure bulletproof compliance across your entire technology stack.
                 </p>
+            </div>
+
+            <!-- Enterprise Image & Technical Audit Showcase (Wipro Style) -->
+            <div class="audit-showcase-split">
+                <div class="audit-showcase-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Cloud and server infrastructure cybersecurity audit" loading="lazy">
+                    <div class="audit-showcase-overlay-tag">
+                        <strong><i class="fa-solid fa-shield-halved"></i> Active Vulnerability &amp; Cloud Tenant Scanning</strong>
+                        <span>Inspecting Microsoft 365, AWS, Azure, on-prem firewalls, and active directory permissions.</span>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="sec-eyebrow" style="background:#E0F2FE; color:#0369A1; border-color:#BAE6FD;">
+                        <i class="fa-solid fa-chart-pie"></i> Diagnostic Scope
+                    </span>
+                    <h3 style="font-family:'Plus Jakarta Sans'; font-size:clamp(1.35rem, 2.5vw, 1.75rem); font-weight:800; color:var(--wp-navy-950); margin:0.5rem 0 1rem; line-height:1.25;">
+                        Complete Infrastructure Visibility Before Threat Actors Intervene
+                    </h3>
+                    <p style="font-size:0.95rem; color:var(--wp-text-body); line-height:1.65; margin-bottom:1.5rem;">
+                        Our senior ethical penetration testers simulate real-world commodity and targeted attacks against your external IP addresses, domain registrars, remote-access VPNs, and internal cloud configurations.
+                    </p>
+
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.92rem; color:var(--wp-navy-950); font-weight:600;">
+                            <i class="fa-solid fa-circle-check" style="color:#10B981; font-size:1.1rem;"></i>
+                            <span>Zero-downtime non-intrusive scanning protocol</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.92rem; color:var(--wp-navy-950); font-weight:600;">
+                            <i class="fa-solid fa-circle-check" style="color:#10B981; font-size:1.1rem;"></i>
+                            <span>Prioritised 1-to-30 day fix list ranked by risk severity</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.92rem; color:var(--wp-navy-950); font-weight:600;">
+                            <i class="fa-solid fa-circle-check" style="color:#10B981; font-size:1.1rem;"></i>
+                            <span>Boardroom-ready executive summary &amp; technical reports</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- The 3 Node Cards matching Column 2 Graphic -->
@@ -2005,6 +2270,15 @@
                     <p class="sec-sub">
                         Unlike generic IT ticketing companies that resell software packages, Nexteck is a dedicated UK architecture and cyber consultancy designed specifically for growing SMEs.
                     </p>
+
+                    <!-- Senior Advisory Image Card (Wipro Enterprise Style) -->
+                    <div class="advisory-team-card">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Nexteck Senior Cyber Security Architecture Consultation" loading="lazy">
+                        <div class="advisory-team-body">
+                            <h4>Direct Access to Principal Cyber Architects</h4>
+                            <p>Every assessment is spearheaded by seasoned UK engineers with tier-1 enterprise backgrounds across banking, rail, and manufacturing.</p>
+                        </div>
+                    </div>
 
                     <div class="why-points-list">
                         <!-- 1. Expert-Led Assessments -->
@@ -2360,8 +2634,16 @@
 
     @include('partials.footer')
 
-    <!-- Interactive Scripts for Subnav, FAQ, Risk Checker & AJAX Form Submission -->
+    <!-- Interactive Scripts for In-Page Pill Switcher, FAQ, Risk Checker & AJAX Form Submission -->
     <script>
+        // In-page Framework Switcher smooth active state
+        document.querySelectorAll('.framework-pill-item').forEach(pill => {
+            pill.addEventListener('click', function(e) {
+                document.querySelectorAll('.framework-pill-item').forEach(p => p.classList.remove('is-active'));
+                this.classList.add('is-active');
+            });
+        });
+
         // FAQ Accordion Toggle
         function toggleFaq(btn) {
             const item = btn.closest('.faq-item');
@@ -2371,27 +2653,6 @@
                 item.classList.add('is-open');
             }
         }
-
-        // Subnav Active State Highlight on Scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const links = document.querySelectorAll('.cyber-subnav-link');
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 140;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
 
         // Quick Risk Checker Logic
         const checkerAnswers = [null, null, null, null, null];
